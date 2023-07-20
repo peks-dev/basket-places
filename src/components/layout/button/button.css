@@ -1,0 +1,62 @@
+/*base*/
+.btn {
+  cursor: pointer;
+  color: var(--color-black);
+  width: 120px;
+  height: auto;
+  font-family: var(--font-btn);
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* E principal */
+.btn--primary {
+  background-color: var(--color-yellow);
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+.btn--primary:hover {
+  background-color: var(--color-acent);
+}
+
+/* El secundario */
+.btn--secundary {
+  color: var(--color-white);
+}
+.btn--secundary:hover {
+  color: var(--color-yellow);
+}
+
+/* El terciario */
+.btn--ternary {
+  color: var(--color-yellow);
+}
+
+/* Modificadores en comun */
+.btn--primary:active,
+.btn--secundary:active {
+  transform: scale(1.2);
+  color: var(--color-white);
+}
+
+.btn--ternary:hover {
+  color: var(--color-acent);
+}
+
+.btn--ternary:active {
+  transform: scale(1.2);
+}
+.btn-prueba {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  z-index: 5;
+  font-family: var(--font-btn);
+  font-size: 2rem;
+  line-height: normal;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}

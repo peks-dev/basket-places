@@ -1,0 +1,27 @@
+.title {
+  line-height: normal;
+  font-family: var(--font-title);
+  font-size: clamp(2.8em, 4.5vw, 4.9em);
+  line-height: 1.2;
+  color: var(--color-orange);
+  text-align: center;
+  width: 100%;
+}
+
+/* Modificadores */
+.title--uppercase {
+  text-transform: uppercase;
+}
+.title--small {
+  font-size: 2rem;
+}
+
+.title--form-sub {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: normal;
+  color: var(--color-yellow);
+}
+.title--left {
+  text-align: left;
+}

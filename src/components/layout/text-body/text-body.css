@@ -1,0 +1,23 @@
+.txt {
+  font-family: var(--font-body);
+  font-size: 2rem;
+  color: var(--color-white);
+  line-height: 2.5rem;
+}
+
+/* Modificadores */
+.txt--small {
+  font-size: 1.8rem;
+}
+
+.txt--center {
+  text-align: center;
+}
+
+.txt--left {
+  text-align: left;
+}
+
+.txt--right {
+  text-align: right;
+}

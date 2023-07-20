@@ -1,0 +1,34 @@
+.notification {
+  position: fixed;
+  top: -30vh; /* Valor suficientemente grande para que esté fuera de la pantalla */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: auto;
+  background-color: var(--color-acent);
+  animation: slide-in-out 5s ease-in-out;
+  padding: 1rem 1.5rem;
+  border-radius: 1.2rem;
+}
+.notification__message {
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-size: 2rem;
+  line-height: normal;
+  text-align: center;
+}
+
+@keyframes slide-in-out {
+  0% {
+    top: -30vh;
+  }
+  10% {
+    top: 5%;
+  }
+  90% {
+    top: 5%;
+  }
+  100% {
+    top: -30vh;
+  }
+}

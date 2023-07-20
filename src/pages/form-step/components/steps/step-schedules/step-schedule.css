@@ -1,0 +1,45 @@
+.step-time {
+  width: 100%;
+  padding: 3% 8%;
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  color: var(--color-yellow);
+  line-height: normal;
+}
+
+.step-time__btns-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+  margin-top: 5rem;
+}
+.step-time__btns-wrap li {
+  flex-basis: 40%;
+}
+.step-time__btns-wrap button {
+  margin: 0 auto;
+}
+
+/* Modificadores */
+
+/* Ocultar Scrolls */
+/* Barra de desplazamiento */
+.step-time__days-wrap::-webkit-scrollbar {
+  width: 0.5em;
+  height: 1rem;
+  background-color: transparent;
+}
+/* Backbround*/
+.step-time__days-wrap::-webkit-scrollbar-thumb {
+  background-color: var(--color-yellow);
+  border-radius: 0.7rem;
+  height: 50%;
+}
+/* sub-background */
+.step-time__days-wrap::-webkit-scrollbar-track {
+  background-color: transparent;
+}

@@ -1,0 +1,37 @@
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  background-color: var(--color-black);
+  width: 80%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 20px;
+  z-index: 100;
+}
+.navbar__wrap {
+  padding: 10px 5px;
+}
+.navbar__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.navbar__icon {
+  /* fill: var(--color-white); */
+  width: 25px;
+  height: 25px;
+}
+
+.navbar__icon:hover {
+  fill: var(--color-yellow);
+}
+
+/* Viewport Block*/
+@media (min-width: 0px) and (max-width: 250px) {
+  .navbar {
+    display: none;
+  }
+}

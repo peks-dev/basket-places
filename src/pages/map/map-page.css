@@ -1,0 +1,10 @@
+.map-title {
+  color: #000000;
+  font-size: 20px;
+  line-height: normal;
+}
+.map-wrap {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}

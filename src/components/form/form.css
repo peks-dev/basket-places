@@ -1,0 +1,137 @@
+.form {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.form__group {
+  width: 100%;
+  padding: 3% 8%;
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  color: var(--color-yellow);
+  line-height: normal;
+}
+.form__field-name {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: normal;
+  color: var(--color-yellow);
+}
+
+/* Todos los inputs */
+.form__input {
+  font-size: 2rem;
+}
+.form__input[type="text"] {
+  border-bottom: 1px solid var(--color-yellow);
+  line-height: normal;
+  width: 85%;
+  border-radius: 0;
+  margin: 0 auto;
+  color: var(--color-white);
+  font-family: var(--font-body);
+}
+.form__input[type="email"] {
+  font-family: var(--font-body);
+  color: var(--color-white);
+  border-bottom: 0.2rem solid var(--color-yellow);
+  width: 85%;
+  margin: 0 auto;
+}
+.form__input[type="password"] {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  line-height: normal;
+  border-bottom: 0.2rem solid var(--color-yellow);
+  width: 85%;
+  margin: 0 auto;
+}
+.form__input[type="radio"],
+.form__input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  background-color: var(--color-white);
+  border-radius: 50%;
+}
+.form__input[type="time"] {
+  width: 100%;
+  height: 4.5rem;
+  background-color: var(--color-gray);
+  border-radius: 1.2rem;
+}
+
+.form__input-group input[type="radio"]:checked,
+.form__input[type="checkbox"]:checked {
+  background-color: var(--color-yellow);
+}
+
+.form__input[type="text"]:focus,
+.form__input[type="email"]:focus,
+.form__input[type="password"]:focus {
+  outline: none;
+  border: 0.1em solid var(--color-yellow);
+  border-radius: 0.2em;
+}
+.form__btns-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  height: 6.5rem;
+}
+
+/* Form step */
+
+.form__inputs-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+  width: 100%;
+  gap: 2rem;
+}
+.form__input-group {
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  align-items: center;
+  justify-content: space-around;
+  flex-basis: 20%;
+}
+.form__input-group label {
+  font-family: var(--font-body);
+  font-size: 1.7rem;
+  color: var(--color-white);
+}
+
+.form__input-group label input[type="checkbox"] {
+  margin: 1rem auto;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Modificadores */
+
+/* Form del credentials */
+.form--credentials .form__btns-wrap {
+  margin-top: 2rem;
+}
+
+.form__input[type="text"]:focus {
+  outline: 1px solid var(--color-yellow);
+  border-radius: 0.5rem;
+  border: none;
+}
+.form--multistep {
+  height: 100vh;
+  width: 90vw;
+}
+
+.form--credentials {
+  padding: 5% 0;
+  background-color: var(--color-black);
+  border-radius: 1rem;
+}

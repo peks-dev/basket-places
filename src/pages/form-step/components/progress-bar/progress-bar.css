@@ -1,0 +1,28 @@
+.form__progress-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.form__progress-item {
+  background-color: var(--color-black);
+  width: clamp(3.4rem, 6.5vw, 6rem);
+  padding: 0.6rem;
+  border-radius: 50%;
+}
+.form__progress-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--color-acent);
+  text-anchor: middle;
+}
+
+/* Modificadores */
+.form__progress-item--active {
+  background-color: var(--color-acent);
+}
+.form__progress-item--active .form__progress-icon {
+  fill: var(--color-black);
+}
