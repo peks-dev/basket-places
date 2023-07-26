@@ -1,4 +1,4 @@
-import { GET_USER_DATA, GET_USER_LOCATION, USER_LOGOUT } from "./types";
+import { SET_USER_DATA, GET_USER_LOCATION, USER_LOGOUT } from "./types";
 import UserModel from "../../models/user.model";
 
 const inicialUser = new UserModel(); // Crea una instancia vacía de UserModel
@@ -6,7 +6,7 @@ const inicialUser = new UserModel(); // Crea una instancia vacía de UserModel
 const userReducer = (state, action) => {
   const { payload, type } = action;
   switch (type) {
-    case GET_USER_DATA:
+    case SET_USER_DATA:
       return {
         ...state,
         ...payload, // Actualiza el estado con los datos del usuario recibidos en payload

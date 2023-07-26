@@ -1,61 +1,71 @@
+import axios from "axios";
+
+const API_TOKEN =
+  "glOWp2X8UnB6vIKt2ye346rehV06EUAy42tIq9hvRFNlH-_WHSeIgEuX2CFTJgrknyY";
+
+const API_URL = "https://www.universal-tutorial.com/api";
+
+const headers = {
+  Accept: "application/json",
+  "api-token": API_TOKEN,
+  "user-email": "peks@criptext.com",
+};
+
 export async function fetchAuthToken() {
-  const API_TOKEN =
-    "glOWp2X8UnB6vIKt2ye346rehV06EUAy42tIq9hvRFNlH-_WHSeIgEuX2CFTJgrknyY";
-
-  const headers = {
-    Accept: "application/json",
-    "api-token": API_TOKEN,
-    "user-email": "peks@criptext.com",
-  };
-
-  const authToken = await fetch(
-    "https://www.universal-tutorial.com/api/getaccesstoken",
-    { headers }
-  )
-    .then((res) => res.json())
-    .then((res) => res);
-
-  return authToken.auth_token.toString();
+  try {
+    const response = await axios.get(`${API_URL}/getaccesstoken`, {
+      headers: headers,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to fetch users");
+  }
 }
 
 export async function fetchCountries(authToken) {
-  const url = "https://www.universal-tutorial.com/api/countries";
+  try {
+    const headers = {
+      authorization: `Bearer ${authToken}`,
+      Accept: "application/json",
+    };
 
-  const headers = {
-    authorization: `Bearer ${authToken}`,
-    Accept: "application/json",
-  };
-  const contries = await fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data);
-
-  return contries;
+    const response = await axios.get(`${API_URL}/countries`, {
+      headers: headers,
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 }
 
-export async function fetchStates(country, authToken) {
-  const url = `https://www.universal-tutorial.com/api/states/${country}`;
+export async function fetchStates(authToken, countrie) {
+  try {
+    const headers = {
+      authorization: `Bearer ${authToken}`,
+      Accept: "application/json",
+    };
 
-  const headers = {
-    authorization: `Bearer ${authToken}`,
-    Accept: "application/json",
-  };
-  const states = await fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data);
-
-  return states;
+    const response = await axios.get(`${API_URL}/states/${countrie}`, {
+      headers: headers,
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 }
 
-export async function fetchCities(state, authToken) {
-  const url = `https://www.universal-tutorial.com/api/states/${state}`;
+export async function fetchCities(authToken, state) {
+  try {
+    const headers = {
+      authorization: `Bearer ${authToken}`,
+      Accept: "application/json",
+    };
 
-  const headers = {
-    authorization: `Bearer ${authToken}`,
-    Accept: "application/json",
-  };
-  const cities = await fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data);
-
-  return cities;
+    const response = await axios.get(`${API_URL}/cities/${state}`, {
+      headers: headers,
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 }

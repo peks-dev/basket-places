@@ -14,6 +14,9 @@ import {
   SET_TRANSPORTE,
   SET_TIENDA,
   SET_BAÑOS,
+  SET_COUNTRY,
+  SET_STATE,
+  SET_CITY,
 } from "./types";
 
 const initialCourt = new CourtModel();
@@ -105,6 +108,30 @@ const courtReducer = (state, action) => {
         services: {
           ...state.services,
           tienda: payload,
+        },
+      };
+    case SET_COUNTRY:
+      return {
+        ...state,
+        location: {
+          ...state.location,
+          country: payload,
+        },
+      };
+    case SET_STATE:
+      return {
+        ...state,
+        location: {
+          ...state.location,
+          state: payload,
+        },
+      };
+    case SET_CITY:
+      return {
+        ...state,
+        location: {
+          ...state.location,
+          city: payload,
         },
       };
   }

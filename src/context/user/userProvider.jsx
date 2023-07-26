@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from "react";
+import { SET_USER_DATA } from "./types";
 
 // Context
 import UserContext from "../user/userContext";
@@ -13,7 +14,7 @@ const UserProvider = (props) => {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      dispatch({ type: "GET_USER_DATA", payload: JSON.parse(storedUser) });
+      dispatch({ type: SET_USER_DATA, payload: JSON.parse(storedUser) });
     } else {
       fetchProfile();
       userLocation();
@@ -25,7 +26,7 @@ const UserProvider = (props) => {
       const session = await getSession();
       if (session?.user?.id) {
         const profile = await getUser(session.user.id);
-        dispatch({ type: "GET_USER_DATA", payload: profile });
+        dispatch({ type: SET_USER_DATA, payload: profile });
       }
       throw error;
     } catch (error) {

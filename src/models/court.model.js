@@ -19,7 +19,7 @@ class CourtModel {
     this.roof = false;
     this.location = {
       coordinates: {},
-      contry: null,
+      country: null,
       state: null,
       city: null,
     };

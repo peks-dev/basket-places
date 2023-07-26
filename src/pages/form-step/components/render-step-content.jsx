@@ -7,12 +7,11 @@ import StepCourt from "./steps/step-court/step-court";
 import StepSchedule from "./steps/step-schedules/step-schedule";
 import StepServices from "./steps/step-services";
 import StepLocation from "./steps/step-location/step-location";
-import DropdownSelector from "./steps/step-location/components/dropdown-selector/dropdown-selector";
 
 const RenderStepContent = ({ stepToRender }) => {
   switch (stepToRender) {
     case 0:
-      return <DropdownSelector />;
+      return <StepLocation />;
     case 1:
       return <StepImgs />;
     case 2:

@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./form-step.css";
 
 // Context
-import CourtProvier from "../../context/court/court-provider";
+import CourtContext from "../../context/court/court-context";
 
 //utilities
 import nextStep from "./utilities/next-step";
 import prevStep from "./utilities/prev-step";
+
+// Hooks
+import { useSendForm } from "./hooks/use-send-form";
 
 // Componentes
 import Btn from "../../components/layout/button/button";
@@ -17,6 +20,8 @@ import RenderStepContent from "./components/render-step-content";
 const FormStep = () => {
   const [step, setStep] = useState(0);
   const [start, setStart] = useState(false);
+  const { courtState } = useContext(CourtContext);
+  const { message } = useSendForm(courtState);
 
   // Avanzar y retroceder en el form
   const handleNext = () => {
@@ -27,9 +32,20 @@ const FormStep = () => {
   };
 
   const handleSendFormData = () => {
-    // sendFormData();
-    console.log("enviar data");
+    console.log(message);
   };
+
+  useEffect(() => {
+    // Limpiar los datos del stepLocation - territorySelector
+    return () => {
+      if (localStorage.getItem("authToken")) {
+        localStorage.removeItem("authToken");
+      }
+      if (localStorage.getItem("countries")) {
+        localStorage.removeItem("countries");
+      }
+    };
+  }, []);
 
   // Componente a renderizar
   return (
@@ -41,11 +57,7 @@ const FormStep = () => {
             <form className="form-step__data">
               <ul className="form-step__steps-wrap">
                 <li className={"form-step__active"}>
-                  {
-                    <CourtProvier>
-                      <RenderStepContent stepToRender={step} />
-                    </CourtProvier>
-                  }
+                  {<RenderStepContent stepToRender={step} />}
                 </li>
               </ul>
             </form>

@@ -14,3 +14,7 @@ export const SET_WIFI = "SET_WIFI";
 export const SET_TRANSPORTE = "SET_TRANSPORTE";
 export const SET_BAÑOS = "SET_BAÑOS";
 export const SET_TIENDA = "SET_TIENDA";
+// location
+export const SET_COUNTRY = "SET_COUNTRY";
+export const SET_STATE = "SET_STATE";
+export const SET_CITY = "SET_CITY";

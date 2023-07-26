@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 
 // Context
+import CourtProvier from "./context/court/court-provider";
 
 // Pages
 import MapPage from "./pages/map/map-page";
@@ -48,7 +49,15 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route
             path="/new-bp"
-            element={user.id ? <FormStep /> : <Credentials />}
+            element={
+              user.id ? (
+                <CourtProvier>
+                  <FormStep />
+                </CourtProvier>
+              ) : (
+                <Credentials />
+              )
+            }
           />
         </Routes>
       </div>

@@ -58,6 +58,18 @@ const CourtProvier = (props) => {
   const updateTienda = (tienda) => {
     dispatch({ type: "SET_TIENDA", payload: tienda });
   };
+
+  const updateCountry = (country) => {
+    dispatch({ type: "SET_COUNTRY", payload: country });
+  };
+  const updateState = (state) => {
+    dispatch({ type: "SET_STATE", payload: state });
+  };
+
+  const updateCity = (city) => {
+    dispatch({ type: "SET_CITY", payload: city });
+  };
+
   const [courtState, dispatch] = useReducer(courtReducer, initialCourt);
 
   const values = {
@@ -76,6 +88,9 @@ const CourtProvier = (props) => {
     updateBaños,
     updateTransporte,
     updateTienda,
+    updateCountry,
+    updateState,
+    updateCity,
   };
 
   return (

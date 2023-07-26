@@ -19,8 +19,10 @@ const MapSelector = ({ setTerritorySelected }) => {
     updateCoordinates(newPosition);
   };
 
+  console.log(courtState.location);
+
   useEffect(() => {
-    if (Object.keys(courtState.location.coordinates).length === 0) {
+    if (!Object.keys(courtState.location.coordinates).length) {
       updateCoordinates(user.location);
     } else {
       setIsLoading(false);
@@ -30,9 +32,6 @@ const MapSelector = ({ setTerritorySelected }) => {
   if (isLoading) {
     return <div className="cargando">Cargando...</div>;
   }
-
-  console.log(courtState.location.coordinates);
-  console.log(user.id);
 
   return (
     <div className="map-selector">
