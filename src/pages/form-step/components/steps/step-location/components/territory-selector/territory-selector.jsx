@@ -42,6 +42,8 @@ const TerritorySelector = ({ setTerritorySelected }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  console.log(courtState);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
