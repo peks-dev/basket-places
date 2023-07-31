@@ -37,7 +37,7 @@ const StepDescription = () => {
           type="text"
           id="name"
           name="name"
-          value={courtState.name}
+          value={courtState.name || ""}
           onChange={handleInputChange}
           className="form__input"
         />
@@ -51,7 +51,7 @@ const StepDescription = () => {
           id="description"
           name="description"
           onChange={handleInputChange}
-          value={courtState.description}
+          value={courtState.description || ""}
           className="form__input"
         />
       </div>

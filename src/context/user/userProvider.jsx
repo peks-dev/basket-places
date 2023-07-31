@@ -11,16 +11,6 @@ import getUser from "../../services/user.service";
 import useGeolocation from "../../hooks/useGeolocation.hook";
 
 const UserProvider = (props) => {
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      dispatch({ type: SET_USER_DATA, payload: JSON.parse(storedUser) });
-    } else {
-      fetchProfile();
-      userLocation();
-    }
-  }, []);
-
   const fetchProfile = async () => {
     try {
       const session = await getSession();
@@ -28,29 +18,7 @@ const UserProvider = (props) => {
         const profile = await getUser(session.user.id);
         dispatch({ type: SET_USER_DATA, payload: profile });
       }
-      throw error;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const userLogout = async () => {
-    try {
-      await logout();
-      dispatch({ type: "USER_LOGOUT" });
-      localStorage.removeItem("user");
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const userLogin = async (userEmail, userPassword) => {
-    try {
-      await login(userEmail, userPassword);
-      fetchProfile();
-      if (error) {
-        throw error;
-      }
+      throw new Error("No hay session iniciada");
     } catch (error) {
       throw error;
     }
@@ -69,7 +37,36 @@ const UserProvider = (props) => {
     }
   };
 
+  const userLogin = async (userEmail, userPassword) => {
+    try {
+      await login(userEmail, userPassword);
+      await Promise.all([fetchProfile(), userLocation()]);
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const userLogout = async () => {
+    try {
+      await logout();
+      dispatch({ type: "USER_LOGOUT" });
+      localStorage.removeItem("user");
+    } catch (error) {
+      throw error;
+    }
+  };
+
   const [user, dispatch] = useReducer(userReducer, inicialUser);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      dispatch({ type: SET_USER_DATA, payload: JSON.parse(storedUser) });
+    } else {
+      fetchProfile();
+      userLocation();
+    }
+  }, []);
 
   // Almacenar el usuario en localStorage cada vez que cambia
   useEffect(() => {

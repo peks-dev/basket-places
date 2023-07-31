@@ -54,6 +54,7 @@
   height: 1.2em;
   background-color: var(--color-white);
   border-radius: 50%;
+  cursor: pointer;
 }
 .form__input[type="time"] {
   width: 100%;

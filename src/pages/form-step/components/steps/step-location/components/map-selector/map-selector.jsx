@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./map-selector.css";
 
 // Context
@@ -13,23 +13,22 @@ import Btn from "../../../../../../../components/layout/button/button";
 const MapSelector = ({ setTerritorySelected }) => {
   const { user } = useContext(UserContext);
   const { updateCoordinates, courtState } = useContext(CourtContext);
-  const [isLoading, setIsLoading] = useState(true);
 
   const handleMarkerDragEnd = (newPosition) => {
     updateCoordinates(newPosition);
   };
 
-  console.log(courtState.location);
-
   useEffect(() => {
     if (!Object.keys(courtState.location.coordinates).length) {
       updateCoordinates(user.location);
-    } else {
-      setIsLoading(false);
     }
-  }, [user.location, courtState.location.coordinates]);
+  }, []);
 
-  if (isLoading) {
+  // Verificar si courtState.location.coordinates tiene valores
+  const hasCoordinates =
+    Object.keys(courtState.location.coordinates).length > 0;
+
+  if (!hasCoordinates) {
     return <div className="cargando">Cargando...</div>;
   }
 

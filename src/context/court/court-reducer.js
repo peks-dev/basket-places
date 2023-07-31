@@ -99,7 +99,7 @@ const courtReducer = (state, action) => {
         ...state,
         services: {
           ...state.services,
-          baños: payload,
+          bathroom: payload,
         },
       };
     case SET_TIENDA:

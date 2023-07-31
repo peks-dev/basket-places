@@ -5,7 +5,7 @@ export const verifiedData = (object) => {
   entries.forEach((entry) => {
     const [key, value] = entry;
     if (value === undefined || !value) {
-      errors.push("Falta un valor en " + key);
+      errors.push("No seleccionaste nada en " + key);
     }
     if (key === "location") {
       if (
@@ -15,6 +15,12 @@ export const verifiedData = (object) => {
       ) {
         errors.push("La ubicación no está bien definida");
       }
+    }
+    if (key === "schedules" && Array.isArray(value) && value.length === 0) {
+      errors.push("Establece un conjunto de dias y horario");
+    }
+    if (key === "images" && Array.isArray(value) && value.length < 2) {
+      errors.push("Selecciona minimo 2 imagenes");
     }
   });
 

@@ -29,7 +29,7 @@ class CourtModel {
       wifi: false,
       tienda: false,
       transporte: false,
-      baños: false,
+      bathroom: false,
     };
   }
 }

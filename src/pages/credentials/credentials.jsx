@@ -35,7 +35,6 @@ function Credentials() {
         throw error;
       }
     } catch (error) {
-      console.log(error);
       if (error.message === "Invalid login credentials") {
         setNotificationMessage("Email o contraseña incorrectos");
         setShowNotification(true);
@@ -53,7 +52,6 @@ function Credentials() {
       setNotificationMessage("Confirma tu Email");
       setShowNotification(true);
     } catch (error) {
-      console.log(error);
       setNotificationMessage(error.message);
       setShowNotification(true);
       return error;

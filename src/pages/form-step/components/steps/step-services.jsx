@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import CourtContext from "../../../../context/court/court-context";
 
 const StepServices = () => {
-  const services = ["wifi", "tienda", "transporte", "baños"];
+  const services = ["wifi", "tienda", "transporte", "bathroom"];
 
   const {
     courtState,
@@ -18,7 +18,7 @@ const StepServices = () => {
     wifi: updateWifi,
     tienda: updateTienda,
     transporte: updateTransporte,
-    baños: updateBaños,
+    bathroom: updateBaños,
   };
 
   const handleInputChange = (e) => {

@@ -39,19 +39,15 @@ const TerritorySelector = ({ setTerritorySelected }) => {
   const [selectedCitie, setSelectedCitie] = useState(null);
 
   // Error controls
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  console.log(courtState);
+  const [status, setStatus] = useState("loading"); // loading, error, success
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Check if data is available in localStorage
         const cachedCountries = localStorage.getItem("countries");
         if (cachedCountries) {
           setCountries(JSON.parse(cachedCountries));
-          setLoading(false);
+          setStatus("success");
         } else {
           if (!authTokenObtained) {
             const token = await fetchAuthToken();
@@ -59,61 +55,26 @@ const TerritorySelector = ({ setTerritorySelected }) => {
               setAuthToken(token.auth_token);
               setAuthTokenObtained(true);
               if (token) {
-                // obtain countries to API
                 const countriesList = await fetchCountries(token.auth_token);
                 setCountries(countriesList);
-
-                // Save data to localStorage
                 localStorage.setItem(
                   "countries",
                   JSON.stringify(countriesList)
                 );
+                setStatus("success");
               }
             } catch (error) {
-              setError(error);
+              setStatus("error");
             }
           }
-          setLoading(false);
         }
       } catch (error) {
-        setError(error);
+        setStatus("error");
       }
     };
     fetchData();
-  }, []);
 
-  // obtener lista estados cuando se eliga un pais
-  useEffect(() => {
-    if (selectedCountry) {
-      const getStates = async () => {
-        try {
-          const statesList = await fetchStates(authToken, selectedCountry);
-          setStates(statesList);
-        } catch (error) {
-          setError(error);
-        }
-      };
-      getStates();
-    }
-  }, [selectedCountry]);
-
-  // obtener lista ciudades cuando se eliga un estado
-  useEffect(() => {
-    if (selectedState) {
-      const getCities = async () => {
-        try {
-          const citiesList = await fetchCities(authToken, selectedState);
-          setCities(citiesList);
-        } catch (error) {
-          setError(error);
-        }
-      };
-      getCities();
-    }
-  }, [selectedState]);
-
-  // Recuperar selecciones en caso de retroceso o recarga
-  useEffect(() => {
+    // Recuperar selecciones en caso de retroceso
     if (courtState.location.country) {
       setSelectedCountry(courtState.location.country);
     }
@@ -126,9 +87,44 @@ const TerritorySelector = ({ setTerritorySelected }) => {
     }
   }, []);
 
-  // Esperar a que los datos esten listos
-  if (loading) {
+  // obtener lista estados cuando se elija un país
+  useEffect(() => {
+    if (selectedCountry) {
+      const getStates = async () => {
+        try {
+          const statesList = await fetchStates(authToken, selectedCountry);
+          setStates(statesList);
+        } catch (error) {
+          setStatus("error");
+        }
+      };
+      getStates();
+    }
+  }, [authToken, selectedCountry]);
+
+  // Obtener lista de ciudades cuando se elija un estado
+  useEffect(() => {
+    if (selectedState) {
+      const getCities = async () => {
+        try {
+          const citiesList = await fetchCities(authToken, selectedState);
+          setCities(citiesList);
+        } catch (error) {
+          setStatus("error");
+        }
+      };
+      getCities();
+    }
+  }, [authToken, selectedState]);
+
+  // Esperar a que los datos estén listos
+  if (status === "loading") {
     return <div>Cargando la data...</div>;
+  }
+
+  // Mostrar mensaje de error en caso de error
+  if (status === "error") {
+    return <div>Ha ocurrido un error al cargar los datos.</div>;
   }
 
   return (
@@ -178,7 +174,7 @@ const TerritorySelector = ({ setTerritorySelected }) => {
           </li>
         )}
       </ul>
-      {selectedCitie && cities && (
+      {selectedState && (
         <Btn
           variant={"btn--primary"}
           text={"Ir a mapa"}
