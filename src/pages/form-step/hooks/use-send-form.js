@@ -1,11 +1,14 @@
-import { verifiedData } from "../utilities/verified-data.utilitie";
+// services
 import { insertDataOnTable } from "../../../services/court/insert-court-data.service";
 import { uploadImage } from "../../../services/court/insert-imgs.service";
+
+// utilities
+import { verifiedData } from "../utilities/verified-data.utilitie";
+import { compressImage } from "../utilities/compress-img.utilitie";
 
 export async function sendForm(formData, userId) {
   try {
     const resultado = verifiedData(formData);
-    console.log(resultado);
     if (resultado !== null) {
       return { message: resultado };
     }
@@ -34,7 +37,11 @@ export async function sendForm(formData, userId) {
 
     await Promise.all(
       images.map(async (imageFile) => {
-        await uploadImage(userId, court_id, imageFile);
+        // Comprimir la imagen antes de subirla
+        const compressedImage = await compressImage(imageFile);
+
+        await uploadImage(userId, court_id, compressedImage);
+        // Guardar el nombre de los archivos subidos
         const newObjectImage = {
           file_name: imageFile.name,
           court_id: court_id,
