@@ -8,7 +8,6 @@ const StepDescription = () => {
 
   const { courtState, updateName, updateDescription, updateGameLevel } =
     useContext(CourtContext);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     // Nueva logica con el estado global

@@ -1,10 +1,5 @@
 import { verifiedData } from "../utilities/verified-data.utilitie";
-import {
-  createCourt,
-  insertLocationCourt,
-  insertSchedulesCourt,
-  insertServicesCourt,
-} from "../../../services/court/insert-court-data.service";
+import { insertDataOnTable } from "../../../services/court/insert-court-data.service";
 import { uploadImage } from "../../../services/court/insert-imgs.service";
 
 export async function sendForm(formData, userId) {
@@ -20,22 +15,32 @@ export async function sendForm(formData, userId) {
     const { lng, lat, ...locationData } = location.coordinates;
     const owner = userId;
 
-    const resultMainTable = await createCourt({ ...mainTableData, owner });
+    const resultMainTable = await insertDataOnTable("courts", {
+      ...mainTableData,
+      owner,
+    });
     const court_id = resultMainTable[0].id;
 
-    await insertLocationCourt({ ...locationData, court_id });
+    await insertDataOnTable("locations", { ...locationData, court_id });
 
     const schedulesWithCourtId = formData.schedules.map((schedule) => ({
       ...schedule,
       court_id,
     }));
-    await insertSchedulesCourt(schedulesWithCourtId);
+    await insertDataOnTable("schedules", schedulesWithCourtId);
 
     const servicesFormated = { ...services, court_id };
-    await insertServicesCourt(servicesFormated);
+    await insertDataOnTable("services", servicesFormated);
 
     await Promise.all(
-      images.map((imageFile) => uploadImage(userId, court_id, imageFile))
+      images.map(async (imageFile) => {
+        await uploadImage(userId, court_id, imageFile);
+        const newObjectImage = {
+          file_name: imageFile.name,
+          court_id: court_id,
+        };
+        await insertDataOnTable("images", newObjectImage);
+      })
     );
 
     return { message: "Datos insertados correctamente" };
