@@ -8,9 +8,9 @@ import CourtProvier from "./context/court/court-provider";
 // Pages
 import MapPage from "./pages/map/map-page";
 import SearchPage from "./pages/search/search";
-
 import UserProfilePage from "./pages/user-profile/user-profile";
 import Credentials from "./pages/credentials/credentials";
+import CourtDetails from "./pages/court-details/court-details";
 
 // Components
 import Navbar from "./components/layout/navbar/navbar";
@@ -59,6 +59,7 @@ function App() {
               )
             }
           />
+          <Route path="/search/:courtId" element={<CourtDetails />} />
         </Routes>
       </div>
     </Router>

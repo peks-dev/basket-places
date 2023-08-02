@@ -1,5 +1,7 @@
 import React, { useRef, useContext } from "react";
 import "./step-img.css";
+// utilities
+import { isImageHorizontal } from "./utilities/horizontal-check.utilitie";
 // icon
 import UploadIcon from "../../../../../assets/form-step/upload-icon";
 // Small components
@@ -17,10 +19,19 @@ const StepImgs = () => {
     event.preventDefault();
     fileInputRef.current.click();
   };
-  const handleImgsOnChange = (event) => {
+  const handleImgsOnChange = async (event) => {
     const files = event.target.files;
     const selected = Array.from(files).slice(0, 4); // Limitar a 4 imágenes
-    updateImages(selected);
+
+    const horizontalImages = await Promise.all(
+      selected.map(async (file) => {
+        const isHorizontal = await isImageHorizontal(file);
+        return isHorizontal ? file : null;
+      })
+    );
+
+    const filteredImages = horizontalImages.filter((file) => file !== null);
+    updateImages(filteredImages);
   };
 
   return (
