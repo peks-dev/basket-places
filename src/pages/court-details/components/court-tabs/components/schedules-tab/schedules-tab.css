@@ -1,16 +1,18 @@
-.schedule-list__sets-list {
+.schedules-container {
+  width: 90%;
+}
+.schedules {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-.schedule-list__sets-item {
+.schedules__set {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-
-.schedule-list__sets-days {
+.schedules__days-wrap {
   display: flex;
   flex-flow: row wrap;
   justify-content: start;
@@ -18,7 +20,7 @@
   align-items: center;
   width: 75%;
 }
-.schedule-list__sets-day {
+.schedules__day {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -28,10 +30,8 @@
   background-color: var(--color-acent);
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 50%;
 }
-
-.schedule-list__sets-time {
+.schedules__time {
   font-family: var(--font-body);
   color: var(--color-white);
   font-size: 2rem;

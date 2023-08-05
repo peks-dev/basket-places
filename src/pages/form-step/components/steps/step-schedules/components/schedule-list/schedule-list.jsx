@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import "./schedule-list.css";
 
 // Components
 import Btn from "../../../../../../../components/layout/button/button";
+import Schedules from "../../../../../../../components/schedules/schedules";
 
 // Context
 import CourtContext from "../../../../../../../context/court/court-context";
@@ -16,20 +16,7 @@ const ScheduleList = ({ setBuildingSchedule }) => {
   };
   return (
     <div className="schedule-list__sets">
-      <div className="schedule-list__sets-list">
-        {courtState.schedules.map((set, index) => (
-          <div key={index} className="schedule-list__sets-item">
-            <ul className="schedule-list__sets-days">
-              {set.days.map((day, index) => (
-                <li className="schedule-list__sets-day" key={index}>
-                  <span>{day.slice(0, 2)}</span>
-                </li>
-              ))}
-            </ul>
-            <span className="schedule-list__sets-time">{set.time}</span>
-          </div>
-        ))}
-      </div>
+      <Schedules schedules={courtState.schedules} />
       <ul className="step-time__btns-wrap">
         <li>
           <Btn

@@ -1,0 +1,66 @@
+.court-header{
+    width: 100%;
+}
+.court-header__columns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+/* Left side */
+.court-header__stars{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.court-header__star-icon{
+    width: 3.5em;
+    height: 3.5em;
+}
+.court-header__game-level{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.4rem;
+}
+
+/* right side */
+.court-header__author{
+    width: 14em;
+    height: 7em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--color-black);
+    border-radius: 1.5rem;
+
+}
+.court-header__author span{
+    font-size: 1.6rem;
+}
+.court-header__author img{
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    border: 0.2em solid var(--color-yellow);
+}
+.court-header__author-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 90%;
+}
+
+.court-header__divisor{
+    width: 90%;
+    height: 20px;
+    margin: 0 auto;
+}

@@ -2,7 +2,7 @@
 .btn {
   cursor: pointer;
   color: var(--color-black);
-  width: 120px;
+  width: auto;
   height: auto;
   font-family: var(--font-btn);
   font-size: 18px;
@@ -59,4 +59,13 @@
   line-height: normal;
   color: var(--color-white);
   background-color: var(--color-black);
+}
+.btn--tab{
+  color: var(--color-black);
+}
+.btn--tab:hover{
+  color: var(--color-acent);
+}
+.btn--tab-active{
+  color:var(--color-yellow)
 }

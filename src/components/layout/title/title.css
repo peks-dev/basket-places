@@ -25,3 +25,7 @@
 .title--left {
   text-align: left;
 }
+
+.title--yellow{
+  color: var(--color-yellow);
+}

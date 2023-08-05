@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./court-slider.css";
 
 const CourtSlider = ({ images }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,7 +11,7 @@ const CourtSlider = ({ images }) => {
   return (
     <div className="court-slider">
       <img
-        src={images[activeIndex].src}
+        src={images[activeIndex]}
         alt={`Slide ${activeIndex + 1}`}
         className="court-slider__main-img"
       />
@@ -25,7 +26,7 @@ const CourtSlider = ({ images }) => {
             }`}
             onClick={() => handleThumbnailClick(index)}
           >
-            <img src={img.src} alt={`Thumbnail ${index + 1}`} />
+            <img src={img} alt={`Thumbnail ${index + 1}`} />
           </li>
         ))}
       </ul>

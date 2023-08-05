@@ -15,7 +15,7 @@ export async function sendForm(formData, userId) {
 
     const { location, images, services, schedules, ...mainTableData } =
       formData;
-    const { lng, lat, ...locationData } = location.coordinates;
+    const { lng, lat } = location.coordinates;
     const owner = userId;
 
     const resultMainTable = await insertDataOnTable("courts", {
@@ -24,7 +24,14 @@ export async function sendForm(formData, userId) {
     });
     const court_id = resultMainTable[0].id;
 
-    await insertDataOnTable("locations", { ...locationData, court_id });
+    await insertDataOnTable("locations", {
+      lng,
+      lat,
+      country: location.country,
+      state: location.state,
+      city: location.city,
+      court_id,
+    });
 
     const schedulesWithCourtId = formData.schedules.map((schedule) => ({
       ...schedule,

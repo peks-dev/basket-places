@@ -21,3 +21,11 @@
 .txt--right {
   text-align: right;
 }
+
+.txt--bolt{
+  font-size: 1.5rem;
+  color: var(--color-acent);
+  text-transform: uppercase;
+  font-family: var(--font-title);
+}
+
