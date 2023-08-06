@@ -1,37 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { supabase } from "../../services/supabase/create-client-supa";
-
-//context
-import UserContext from "../../context/user/userContext";
 
 //components
 import Btn from "../../components/layout/button/button";
+import CourtCard from "../../components/court-card-preview/court-card";
 
 // services
 import { deleteCourt } from "../../services/court/insert-court-data.service";
+import { useGetDataCard } from "../../hooks/use-get-data-card.hook";
 
 const SearchPage = () => {
-  const handleFetchCourts = async (e) => {
-    try {
-      const { data, error } = await supabase.from("courts").select();
-      if (error) {
-        throw new Error("no se pudo extraer listado");
-      }
-      console.log(data);
-      return data;
-    } catch (error) {
-      throw error;
-    }
-  };
-
+  const { data, loading, error } = useGetDataCard("35");
+  if (loading) {
+    return <div> cargando data...</div>;
+  }
+  if (error) {
+    return <div>hubo un error al cargar la data</div>;
+  }
   return (
-    <div>
-      <h1>search</h1>
-      <Btn
-        text={"obtener listado"}
-        variant={"btn--primary"}
-        onClick={handleFetchCourts}
-      />
+    <div className="search-page">
+      <CourtCard courtData={data} />
     </div>
   );
 };
