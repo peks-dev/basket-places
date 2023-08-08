@@ -18,3 +18,16 @@ export async function fetchDataOnTable(tableName, filter, filterValue) {
     throw error;
   }
 }
+
+export async function fetchCourtsList() {
+  try {
+    const { data, error } = await supabase.from("courts").select();
+    if (error) {
+      throw new Error("Salio algo mal al obtener el listado de canchas");
+    }
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}

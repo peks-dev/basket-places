@@ -2,9 +2,18 @@
   position: relative;
   border-radius: 1.8rem;
   width: 90%;
+  max-width: 400px;
+  height: auto;
 }
-.court-card img {
+.court-card__img-wrap {
+  height: 21rem; /* Ajusta la altura según tus necesidades */
+  overflow: hidden;
   border-radius: 1.8rem;
+}
+
+.court-card__img-wrap img {
+  width: 100%;
+  object-fit: cover;
 }
 
 .court-card::before {

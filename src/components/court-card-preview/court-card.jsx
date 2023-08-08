@@ -12,7 +12,9 @@ const CourtCard = ({ courtData }) => {
   return (
     <div key={court_id} className="court-card">
       <CourtCardHeader data={headerData} />
-      <img src={images[0].publicUrl} alt="imagen de la cancha" />
+      <div className="court-card__img-wrap">
+        <img src={images[0].publicUrl} alt="imagen de la cancha" />
+      </div>
       <CourtCardFooter game_level={game_level} court_id={court_id} />
     </div>
   );

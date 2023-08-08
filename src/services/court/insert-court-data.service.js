@@ -23,7 +23,7 @@ export async function deleteCourt(courtId) {
       .eq("id", courtId);
 
     if (error) {
-      throw new Error("Error al eliminar cancha");
+      throw new Error("Error al eliminar cancha " + error);
     }
 
     return data;

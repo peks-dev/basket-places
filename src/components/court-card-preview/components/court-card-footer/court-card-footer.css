@@ -17,12 +17,12 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 .court-card__footer-text span {
   font-family: var(--font-title);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: var(--color-acent);
   text-transform: uppercase;
 }

@@ -1,25 +1,34 @@
-import React, { useContext, useEffect } from "react";
-import { supabase } from "../../services/supabase/create-client-supa";
+// SearchPage.js
+import React from "react";
+import "./search.css";
 
-//components
+// hooks
+import { useCourtsData } from "../../hooks/use-courts-data.hook";
+
+// components
 import Btn from "../../components/layout/button/button";
 import CourtCard from "../../components/court-card-preview/court-card";
 
-// services
-import { deleteCourt } from "../../services/court/insert-court-data.service";
-import { useGetDataCard } from "../../hooks/use-get-data-card.hook";
-
 const SearchPage = () => {
-  const { data, loading, error } = useGetDataCard("35");
-  if (loading) {
-    return <div> cargando data...</div>;
-  }
+  const { canchasData, loading, error } = useCourtsData();
+
   if (error) {
-    return <div>hubo un error al cargar la data</div>;
+    console.log(error);
   }
+
+  if (loading) {
+    return <div>cargando data...</div>;
+  }
+
   return (
     <div className="search-page">
-      <CourtCard courtData={data} />
+      <ul className="search-page__courts-container">
+        {canchasData.map((courtData, index) => (
+          <li>
+            <CourtCard key={index} courtData={courtData} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
