@@ -9,8 +9,10 @@ import CourtRoofFloor from "./components/court-roof-floor/court-roof-floor";
 const DescriptionTab = ({ description, services, floor_type, roof }) => {
   return (
     <>
-      <Txt content={description} style={"txt--center"} />
       <CourtServices services={services} />
+      <div className="description-tab__txt-wrap">
+        <Txt content={description} style={"txt--center"} />
+      </div>
       <CourtRoofFloor floor_type={floor_type} roof={roof} />
     </>
   );

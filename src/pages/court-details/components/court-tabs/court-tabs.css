@@ -1,6 +1,6 @@
 .court-tabs-container {
   width: 100%;
-  height: 40%;
+  height: 38%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,14 +8,37 @@
 .court-tabs__header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 90%;
-  margin: 1.5em 0;
+  margin: 2rem 0;
 }
 .court-tabs__content {
+  background-color: var(--color-black);
+  border-radius: 2rem;
   width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2em;
+  overflow-x: scroll;
+}
+
+.court-tabs__content .schedules {
+  width: 90%;
+  margin-top: 1rem;
+}
+
+/* Personalizar el scroll*/
+.court-tabs__content::-webkit-scrollbar-thumb {
+  background-color: var(--color-yellow);
+  border-radius: 6px;
+}
+.court-tabs__content::-webkit-scrollbar {
+  width: 10px;
+}
+.court-tabs__content::-webkit-scrollbar-track,
+.court-tabs__content::-webkit-scrollbar-corner {
+  background-color: var(--color-black);
+  border-radius: 2rem;
 }

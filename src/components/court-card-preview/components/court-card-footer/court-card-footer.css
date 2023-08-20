@@ -3,12 +3,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  bottom: 1.5rem;
-  left: 0;
   width: 100%;
-  padding: 0 5%;
-  z-index: 2;
+  padding: 1rem 8%;
+  border-radius: 0 0 2rem 2rem;
+  background-color: var(--color-black);
 }
 
 .court-card__footer-text {
@@ -17,7 +15,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  font-size: 1.2rem;
+  font-size: clamp(1.4rem, 3vw, 1.7rem);
 }
 
 .court-card__footer-text span {

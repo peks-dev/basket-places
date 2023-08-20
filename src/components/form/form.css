@@ -135,4 +135,5 @@
   padding: 5% 0;
   background-color: var(--color-black);
   border-radius: 1rem;
+  max-width: 55rem;
 }

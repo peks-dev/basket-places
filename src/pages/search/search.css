@@ -8,3 +8,7 @@
 .search-page__courts-container {
   gap: 3rem;
 }
+
+.search-page {
+  padding: 15% 0;
+}

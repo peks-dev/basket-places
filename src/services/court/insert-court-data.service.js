@@ -14,20 +14,3 @@ export async function insertDataOnTable(tableName, objectToInsert) {
     throw error;
   }
 }
-
-export async function deleteCourt(courtId) {
-  try {
-    const { error, data } = await supabase
-      .from("courts")
-      .delete()
-      .eq("id", courtId);
-
-    if (error) {
-      throw new Error("Error al eliminar cancha " + error);
-    }
-
-    return data;
-  } catch (error) {
-    throw error;
-  }
-}

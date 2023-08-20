@@ -5,7 +5,7 @@
   width: auto;
   height: auto;
   font-family: var(--font-btn);
-  font-size: 18px;
+  font-size: clamp(1.5rem, 5vw, 2rem);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -60,12 +60,13 @@
   color: var(--color-white);
   background-color: var(--color-black);
 }
-.btn--tab{
+.btn--tab {
   color: var(--color-black);
 }
-.btn--tab:hover{
-  color: var(--color-acent);
+.btn--tab:hover {
+  color: var(--color-yellow);
 }
-.btn--tab-active{
-  color:var(--color-yellow)
+.btn--tab-active,
+.btn--secundary:active {
+  color: var(--color-yellow);
 }

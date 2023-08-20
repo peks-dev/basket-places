@@ -6,7 +6,6 @@ import "./search.css";
 import { useCourtsData } from "../../hooks/use-courts-data.hook";
 
 // components
-import Btn from "../../components/layout/button/button";
 import CourtCard from "../../components/court-card-preview/court-card";
 
 const SearchPage = () => {
@@ -24,8 +23,12 @@ const SearchPage = () => {
     <div className="search-page">
       <ul className="search-page__courts-container">
         {canchasData.map((courtData, index) => (
-          <li>
-            <CourtCard key={index} courtData={courtData} />
+          <li key={index}>
+            <CourtCard
+              key={index}
+              courtData={courtData}
+              showDeleteButton={true}
+            />
           </li>
         ))}
       </ul>

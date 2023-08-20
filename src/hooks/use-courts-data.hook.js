@@ -1,7 +1,7 @@
 // hooks/use-canchas-data.hook.js
 import { useState, useEffect } from "react";
 import { fetchCourtsList } from "../services/court/fetch-data.service";
-import { dataCourtCard } from "../utilities/data-court-card";
+import { extractCourtData } from "../utilities/extract-court-data";
 
 export function useCourtsData() {
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ export function useCourtsData() {
   async function fetchData() {
     try {
       const courts = await fetchCourtsList();
-      const dataPromises = courts.map((court) => dataCourtCard(court.id));
+      const dataPromises = courts.map((court) => extractCourtData(court.id));
 
       const courtDataList = await Promise.all(dataPromises);
 

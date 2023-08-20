@@ -3,7 +3,7 @@ import { fetchDataOnTable } from "../services/court/fetch-data.service";
 import { createImgUrl } from "../services/court/create-url.service";
 import { courtCardDataAdapter } from "../components/court-card-preview/adapters/court-card-data.adapter";
 
-export async function dataCourtCard(courtId) {
+export async function extractCourtData(courtId) {
   try {
     const courtData = await fetchDataOnTable("courts", "id", courtId);
     const locationData = await fetchDataOnTable(

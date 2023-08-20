@@ -22,6 +22,8 @@ import NotificationPopup from "../../components/notification-popup/notification-
 const FormStep = () => {
   const [step, setStep] = useState(0);
   const [start, setStart] = useState(false);
+
+  //context
   const { courtState } = useContext(CourtContext);
   const { user } = useContext(UserContext);
 

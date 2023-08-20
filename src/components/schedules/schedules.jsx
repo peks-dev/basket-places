@@ -20,7 +20,7 @@ const Schedules = ({ schedules }) => {
           {
             <Txt
               content={schedule.time.slice(0, 5)}
-              style={"txt--schedule-time"}
+              style={"schedules__time"}
             />
           }
         </li>

@@ -2,11 +2,9 @@ import React from "react";
 import "./court-header.css";
 
 import Title from "../../../../components/layout/title/title";
-import Txt from "../../../../components/layout/text-body/text-body";
 
 // Icons
 import StarIcon from "../../../../assets/bp-details/components/star-icon";
-import DivisorIcon from "../../../../assets/bp-details/components/divisor-icon";
 
 const CourtHeader = ({ game_level, courtName }) => {
   const userRating = 3; // Valor de la valoración del usuario (puedes cambiarlo según sea necesario)
@@ -24,13 +22,17 @@ const CourtHeader = ({ game_level, courtName }) => {
   return (
     <div className="court-header">
       <Title text={courtName} tag={"h1"} />
-      <div className="court-header__columns">
+      <div className="court-header__wrap">
         <div className="court-header__details">
-          <ul className="court-header__stars">{renderStars(5, userRating)}</ul>
-          <div className="court-header__game-level">
-            Nivel de juego:
-            <Txt content={game_level} style={"txt--bolt"} />
+          <div className="court-header__stars-wrap">
+            {renderStars(5, userRating).map((star, index) => (
+              <li key={index}>{star}</li>
+            ))}
           </div>
+          <p className="txt txt--small">
+            Nivel de juego:
+            <span className="court-header__game-lvl">{game_level}</span>
+          </p>
         </div>
         <div className="court-header__author">
           <img
@@ -47,7 +49,6 @@ const CourtHeader = ({ game_level, courtName }) => {
           </div>
         </div>
       </div>
-      <DivisorIcon />
     </div>
   );
 };

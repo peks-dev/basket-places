@@ -1,13 +1,13 @@
 .txt {
   font-family: var(--font-body);
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--color-white);
   line-height: 2.5rem;
 }
 
 /* Modificadores */
 .txt--small {
-  font-size: 1.8rem;
+  font-size: clamp(1.6rem, 3vw, 1.8rem);
 }
 
 .txt--center {
@@ -22,10 +22,7 @@
   text-align: right;
 }
 
-.txt--bolt{
-  font-size: 1.5rem;
-  color: var(--color-acent);
-  text-transform: uppercase;
+.txt--bolt {
+  color: var(--color-orange);
   font-family: var(--font-title);
 }
-
