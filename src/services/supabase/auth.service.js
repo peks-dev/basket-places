@@ -1,4 +1,4 @@
-import { supabase } from "./supabase/create-client-supa";
+import { supabase } from "./create-client-supa";
 
 export async function login(userEmail, userPassword) {
   try {

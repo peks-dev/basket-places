@@ -7,7 +7,7 @@ import CourtCardFooter from "./components/court-card-footer/court-card-footer";
 
 // iconos
 import TrashIcon from "./components/icons/delete-icon";
-import { deleteCourt } from "../../pages/user-profile/utils/delete-court";
+import { deleteCourt } from "../../pages/user-profile/utilities/delete-court";
 
 const CourtCard = ({ courtData, showDeleteButton }) => {
   // Prepar datos para distribuirlos en los componentes
@@ -16,7 +16,7 @@ const CourtCard = ({ courtData, showDeleteButton }) => {
   const headerData = { name, country, state, city };
 
   const handleDeleteCourt = async () => {
-    await deleteCourt(owner, "37", imagenesPro);
+    await deleteCourt(owner, court_id, images);
   };
 
   return (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 //services
-import { fetchDataOnTable } from "../../../services/court/fetch-data.service";
-import { createImgUrl } from "../../../services/court/create-url.service";
+import { fetchDataOnTable } from "../../../services/supabase/table-operations.service";
+import { createImgUrl } from "../../../services/supabase/create-url.service";
 
 //adapters
 import { adaptFetchedData } from "../adapters/fetched-data.adapter";

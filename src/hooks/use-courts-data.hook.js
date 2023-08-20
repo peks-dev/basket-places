@@ -1,6 +1,6 @@
 // hooks/use-canchas-data.hook.js
 import { useState, useEffect } from "react";
-import { fetchCourtsList } from "../services/court/fetch-data.service";
+import { fetchListOnTable } from "../services/supabase/table-operations.service";
 import { extractCourtData } from "../utilities/extract-court-data";
 
 export function useCourtsData() {
@@ -10,7 +10,8 @@ export function useCourtsData() {
 
   async function fetchData() {
     try {
-      const courts = await fetchCourtsList();
+      const courts = await fetchListOnTable("courts");
+      console.log(courts);
       const dataPromises = courts.map((court) => extractCourtData(court.id));
 
       const courtDataList = await Promise.all(dataPromises);

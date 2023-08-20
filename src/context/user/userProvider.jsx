@@ -6,8 +6,12 @@ import UserContext from "../user/userContext";
 import { userReducer, inicialUser } from "./userReducer";
 
 // services
-import { getSession, logout, login } from "../../services/auth.service";
-import getUser from "../../services/user.service";
+import {
+  getSession,
+  logout,
+  login,
+} from "../../services/supabase/auth.service";
+import { fetchDataOnTable } from "../../services/supabase/table-operations.service";
 import useGeolocation from "../../hooks/useGeolocation.hook";
 
 const UserProvider = (props) => {
@@ -15,8 +19,12 @@ const UserProvider = (props) => {
     try {
       const session = await getSession();
       if (session?.user?.id) {
-        const profile = await getUser(session.user.id);
-        dispatch({ type: SET_USER_DATA, payload: profile });
+        const profile = await fetchDataOnTable(
+          "profiles",
+          "id",
+          session.user.id
+        );
+        dispatch({ type: SET_USER_DATA, payload: profile[0] });
       }
       throw new Error("No hay session iniciada");
     } catch (error) {

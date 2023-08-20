@@ -1,6 +1,9 @@
 // services
-import { insertDataOnTable } from "../../../services/court/insert-court-data.service";
-import { uploadImage } from "../../../services/court/insert-imgs.service";
+import { insertDataOnTable } from "../../../services/supabase/table-operations.service";
+import {
+  uploadFile,
+  uploadImage,
+} from "../../../services/supabase/storage-operations.service";
 
 // utilities
 import { verifiedData } from "../utilities/verified-data.utilitie";
@@ -47,7 +50,12 @@ export async function sendForm(formData, userId) {
         // Comprimir la imagen antes de subirla
         const compressedImage = await compressImage(imageFile);
 
-        await uploadImage(userId, court_id, compressedImage);
+        // await uploadImage(userId, court_id, compressedImage);
+        await uploadFile(
+          "imgs_courts",
+          `${userId}/${court_id}/${compressedImage.name}`,
+          compressedImage
+        );
         // Guardar el nombre de los archivos subidos
         const newObjectImage = {
           file_name: imageFile.name,

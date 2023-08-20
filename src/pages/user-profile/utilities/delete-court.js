@@ -1,6 +1,6 @@
 // services
-import { deleteDataOnTable } from "../../../services/court/delete-data.service";
-import { deleteObjectFromStorage } from "../../../services/storage/delete-storage.service";
+import { deleteDataOnTable } from "../../../services/supabase/table-operations.service";
+import { deleteObjectFromStorage } from "../../../services/supabase/storage-operations.service";
 
 // utilities
 import { extractFilesNames } from "../../../utilities/extract-imgs-names.utility";

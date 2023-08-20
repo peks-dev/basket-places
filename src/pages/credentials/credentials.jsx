@@ -1,6 +1,8 @@
-// Hooks
 import React, { useState, useEffect, useContext } from "react";
 import "./credentials.css";
+
+// services
+import { register } from "../../services/supabase/auth.service";
 
 // context
 import UserContext from "../../context/user/userContext";
@@ -14,7 +16,6 @@ import NotificationPopup from "../../components/notification-popup/notification-
 
 // utilities
 import { ResetNotification } from "../../utilities/reset-notification.utilitie";
-import { register } from "../../services/auth.service";
 
 function Credentials() {
   // Estados

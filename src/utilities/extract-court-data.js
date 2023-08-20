@@ -1,6 +1,6 @@
 // hooks/use-set-data-card.hook.js
-import { fetchDataOnTable } from "../services/court/fetch-data.service";
-import { createImgUrl } from "../services/court/create-url.service";
+import { fetchDataOnTable } from "../services/supabase/table-operations.service";
+import { createImgUrl } from "../services/supabase/create-url.service";
 import { courtCardDataAdapter } from "../components/court-card-preview/adapters/court-card-data.adapter";
 
 export async function extractCourtData(courtId) {

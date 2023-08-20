@@ -7,7 +7,7 @@ import {
   fetchCountries,
   fetchStates,
   fetchCities,
-} from "../../../../../../../services/universal.service";
+} from "../../../../../../../services/universal/territories.service";
 
 // context
 import CourtContext from "../../../../../../../context/court/court-context";
