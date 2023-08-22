@@ -43,4 +43,8 @@
   top: -1rem;
   right: -1rem;
   z-index: 3;
+  cursor: pointer;
+}
+.court-card__delete-btn:hover {
+  transform: scale(1.2);
 }

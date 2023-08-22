@@ -8,7 +8,7 @@ import LocationIcon from "../location-icon";
 
 const CourtCardHeader = ({ data }) => {
   return (
-    <div className="court-card__header">
+    <header className="court-card__header">
       <Title text={data.name} tag={"h3"} style={"title--left"} />
       <div className="court-card__header-location">
         <LocationIcon />
@@ -16,7 +16,7 @@ const CourtCardHeader = ({ data }) => {
         <Txt content={data.state} style={"txt--small"} />
         <Txt content={data.city} style={"txt--small"} />
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -6,9 +6,9 @@
   margin-bottom: 10px;
   background-color: var(--color-black);
   width: 80%;
-  max-width: 700px;
+  max-width: 50rem;
   height: auto;
-  border-radius: 20px;
+  border-radius: 2rem;
   z-index: 100;
 }
 .navbar__wrap {

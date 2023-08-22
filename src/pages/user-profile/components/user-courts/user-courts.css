@@ -1,0 +1,19 @@
+.user-courts {
+  flex: 2 0 min(100%, 30rem);
+  position: relative;
+}
+.user-courts > h2 {
+  padding: 2rem 0;
+}
+.user-courts__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  align-items: center;
+  padding: 1rem 0 13rem 0;
+}
+
+.user-courts__item article {
+  margin: 0 auto;
+}

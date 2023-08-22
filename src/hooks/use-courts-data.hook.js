@@ -1,22 +1,27 @@
 // hooks/use-canchas-data.hook.js
 import { useState, useEffect } from "react";
-import { fetchListOnTable } from "../services/supabase/table-operations.service";
-import { extractCourtData } from "../utilities/extract-court-data";
+import { fetchDataOnTable } from "../services/supabase/table-operations.service";
+import { prepareCourtData } from "../utilities/prepare-court-data";
 
-export function useCourtsData() {
+export function useCourtsData(filter = null, filterValue = null) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [canchasData, setCanchasData] = useState([]);
 
   async function fetchData() {
     try {
-      const courts = await fetchListOnTable("courts");
-      console.log(courts);
-      const dataPromises = courts.map((court) => extractCourtData(court.id));
+      let courts;
 
-      const courtDataList = await Promise.all(dataPromises);
+      if (filter && filterValue) {
+        courts = await fetchDataOnTable("courts", filter, filterValue);
+      } else {
+        courts = await fetchDataOnTable("courts");
+      }
+      const dataPromises = courts.map((court) => prepareCourtData(court.id));
 
-      setCanchasData(courtDataList);
+      const courtsDataList = await Promise.all(dataPromises);
+
+      setCanchasData(courtsDataList);
       setLoading(false);
     } catch (error) {
       setError(error);

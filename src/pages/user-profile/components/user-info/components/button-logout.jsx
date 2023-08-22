@@ -2,10 +2,10 @@ import React from "react";
 
 const ButtonLogout = ({ onClick }) => {
   return (
-    <button className="user-profile__icon-btn-wrap" onClick={onClick}>
+    <button className="user-info__icon-btn-wrap" onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="user-profile__icon-btn user-profile__icon-btn--red"
+        className="user-info__icon-btn user-info__icon-btn--red"
         version="1.0"
         viewBox="0 0 64 64"
       >

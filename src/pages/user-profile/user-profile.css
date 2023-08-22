@@ -1,61 +1,21 @@
-.user-profile {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  width: 100vw;
+.user-profile-page {
+  width: 100%;
   height: 100vh;
-}
-.user-profile__header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  text-align: center;
-  width: 90%;
-  padding-top: 10%;
+  flex-flow: row wrap;
+  justify-content: center;
+  position: relative;
 }
-.user-profile__avatar {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 20rem;
-  border: 0.3rem solid var(--color-acent);
-}
-.user-profile__btns-wrap {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 2rem;
-  right: 0;
+.user-profile-page::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 20%;
   width: 100%;
-  padding: 0 3rem;
-}
-.user-profile__icon-btn-wrap {
-  width: 4rem;
-  height: 4rem;
-}
-.user-profile__icon-btn {
-  width: 100%;
-  height: 100%;
-  fill: var(--color-yellow);
-  cursor: pointer;
-}
-.user-profile__icon-btn:hover,
-.user-profile__icon-btn:focus {
-  transform: scale(1.2);
-}
-.user-profile__link {
-  font-size: 2rem;
-  color: var(--color-yellow);
-  text-decoration: underline;
-}
-
-/* Modifiers */
-
-.user-profile__icon-btn--red {
-  fill: #cd3401;
-  transform: scale(0.9);
+  background: linear-gradient(
+    to bottom,
+    rgba(70, 73, 76, 0),
+    rgba(70, 73, 76, 1)
+  );
 }

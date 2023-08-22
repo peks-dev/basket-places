@@ -1,31 +1,25 @@
 import { supabase } from "./create-client-supa";
 
-export async function fetchDataOnTable(tableName, filter, filterValue) {
+export async function fetchDataOnTable(
+  tableName,
+  filter = null,
+  filterValue = null
+) {
   try {
-    const { data, error } = await supabase
-      .from(tableName)
-      .select()
-      .eq(filter, filterValue);
+    let query = supabase.from(tableName).select();
+
+    if (filter && filterValue) {
+      query = query.eq(filter, filterValue);
+    }
+
+    const { data, error } = await query;
 
     if (error) {
       throw new Error(
-        `no se pudo extraer los data de la tabla ${tableName} ` + error
+        `No se pudo extraer los datos de la tabla ${tableName}: ${error}`
       );
     }
 
-    return data;
-  } catch (error) {
-    throw error;
-  }
-}
-export async function fetchListOnTable(tableName) {
-  try {
-    const { data, error } = await supabase.from(tableName).select();
-    if (error) {
-      throw new Error(
-        `no se pudo extraer el listado de la tabla ${tableName} ` + error
-      );
-    }
     return data;
   } catch (error) {
     throw error;

@@ -7,31 +7,29 @@ import CourtCardFooter from "./components/court-card-footer/court-card-footer";
 
 // iconos
 import TrashIcon from "./components/icons/delete-icon";
-import { deleteCourt } from "../../pages/user-profile/utilities/delete-court";
 
-const CourtCard = ({ courtData, showDeleteButton }) => {
+const CourtCard = ({ courtData, showDeleteButton, handleDeleteCourt }) => {
   // Prepar datos para distribuirlos en los componentes
   const { name, game_level, images, country, state, city, court_id, owner } =
     courtData;
   const headerData = { name, country, state, city };
 
-  const handleDeleteCourt = async () => {
-    await deleteCourt(owner, court_id, images);
-  };
-
   return (
-    <div key={court_id} className="court-card">
+    <article className="court-card">
       <CourtCardHeader data={headerData} />
-      <div className="court-card__img-wrap">
+      <figure className="court-card__img-wrap">
         <img src={images[0].publicUrl} alt="imagen de la cancha" />
-      </div>
+      </figure>
       <CourtCardFooter game_level={game_level} court_id={court_id} />
       {showDeleteButton && (
-        <button className="court-card__delete-btn" onClick={handleDeleteCourt}>
+        <button
+          className="court-card__delete-btn"
+          onClick={() => handleDeleteCourt(court_id)}
+        >
           <TrashIcon color={"#FAFAFF"} />
         </button>
       )}
-    </div>
+    </article>
   );
 };
 

@@ -27,7 +27,7 @@ const SearchPage = () => {
             <CourtCard
               key={index}
               courtData={courtData}
-              showDeleteButton={true}
+              showDeleteButton={false}
             />
           </li>
         ))}
