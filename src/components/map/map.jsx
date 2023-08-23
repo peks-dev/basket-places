@@ -3,9 +3,10 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./map.css";
 
-const Map = ({ userCoordinates, CourtsMarkers, DraggMarker, UserMarker }) => {
+const Map = ({ mapPosition, CourtsMarkers, DraggMarker, UserMarker }) => {
+  console.log(mapPosition);
   return (
-    <MapContainer center={userCoordinates} zoom={13} scrollWheelZoom={false}>
+    <MapContainer center={mapPosition} zoom={13} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -33,18 +33,28 @@
   border-radius: 2rem 2rem 0 0;
 }
 
-.court-card__delete-btn {
+.court-card__delete-btn,
+.court-card__close-btn {
   width: 4rem;
   height: 4rem;
-  border-radius: 50%;
   padding: 0.6rem;
-  background-color: #bc331d;
   position: absolute;
-  top: -1rem;
-  right: -1rem;
   z-index: 3;
   cursor: pointer;
+  top: 1rem;
+  right: 1rem;
 }
-.court-card__delete-btn:hover {
+.court-card__delete-btn:hover,
+.court-card__close-btn:hover {
   transform: scale(1.2);
+}
+
+.court-card__delete-btn {
+  border-radius: 50%;
+  background-color: #bc331d;
+  top: -1rem;
+  right: -1rem;
+}
+.court-card__close-btn:hover button path {
+  fill: var(--color-yellow);
 }

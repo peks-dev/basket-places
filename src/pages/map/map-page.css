@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  bottom: 13%;
+  bottom: min(20vh, 15rem);
   left: 0;
   z-index: 3;
 }

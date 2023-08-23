@@ -7,8 +7,15 @@ import CourtCardFooter from "./components/court-card-footer/court-card-footer";
 
 // iconos
 import TrashIcon from "./components/icons/delete-icon";
+import CloseIcon from "./components/icons/close-icon";
 
-const CourtCard = ({ courtData, showDeleteButton, handleDeleteCourt }) => {
+const CourtCard = ({
+  courtData,
+  showDeleteButton,
+  handleDeleteCourt,
+  showCloseButton,
+  handleCloseButton,
+}) => {
   // Prepar datos para distribuirlos en los componentes
   const { name, game_level, images, country, state, city, court_id, owner } =
     courtData;
@@ -27,6 +34,14 @@ const CourtCard = ({ courtData, showDeleteButton, handleDeleteCourt }) => {
           onClick={() => handleDeleteCourt(court_id)}
         >
           <TrashIcon color={"#FAFAFF"} />
+        </button>
+      )}
+      {showCloseButton && (
+        <button
+          className="court-card__close-btn"
+          onClick={() => handleCloseButton()}
+        >
+          <CloseIcon color={"#FAFAFF"} />
         </button>
       )}
     </article>
