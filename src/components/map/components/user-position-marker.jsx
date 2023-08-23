@@ -2,10 +2,11 @@ import React from "react";
 
 // Componentes
 import { Marker } from "react-leaflet";
-import { IconMarker } from "./icon-marker";
+import { CourtMarkerIcon } from "./icons/court-marker-icon";
+import { UserMarkerIcon } from "./icons/user-marker-icon";
 
-const UserMarker = ({ markerPosition }) => {
-  return <Marker position={markerPosition} icon={IconMarker} />;
+const UserPositionMarker = ({ markerPosition }) => {
+  return <Marker position={markerPosition} icon={UserMarkerIcon} />;
 };
 
-export default UserMarker;
+export default UserPositionMarker;

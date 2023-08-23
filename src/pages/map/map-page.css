@@ -8,3 +8,12 @@
   width: 100vw;
   height: 100vh;
 }
+.map__court-card {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 13%;
+  left: 0;
+  z-index: 3;
+}

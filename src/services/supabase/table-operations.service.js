@@ -3,10 +3,17 @@ import { supabase } from "./create-client-supa";
 export async function fetchDataOnTable(
   tableName,
   filter = null,
-  filterValue = null
+  filterValue = null,
+  selectedColumns = null
 ) {
   try {
     let query = supabase.from(tableName).select();
+
+    if (selectedColumns) {
+      query = query.select(selectedColumns);
+    } else {
+      query = query.select(); // Seleccionar todas las columnas por defecto
+    }
 
     if (filter && filterValue) {
       query = query.eq(filter, filterValue);
