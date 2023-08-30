@@ -4,9 +4,10 @@ import "./court-tabs.css";
 // components
 import Btn from "../../../../components/layout/button/button";
 import Map from "../../../../components/map/map";
-import UserMarker from "../../../../components/map/components/user-position-marker";
 import Schedules from "../../../../components/schedules/schedules";
 import DescriptionTab from "./components/description-tab/description-tab";
+import { CourtMarkerIcon } from "../../../../components/map/components/icons/court-marker-icon";
+import { Marker } from "react-leaflet";
 
 const CourtTabs = ({
   description,
@@ -43,8 +44,10 @@ const CourtTabs = ({
       case "ubicacion":
         return (
           <Map
-            userLocation={coordinates}
-            UserMarker={<UserMarker markerPosition={coordinates} />}
+            mapPosition={coordinates}
+            SingleMarker={
+              <Marker position={coordinates} icon={CourtMarkerIcon} />
+            }
           />
         );
     }

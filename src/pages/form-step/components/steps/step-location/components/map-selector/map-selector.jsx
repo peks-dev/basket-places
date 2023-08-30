@@ -35,7 +35,7 @@ const MapSelector = ({ setTerritorySelected }) => {
   return (
     <div className="map-selector">
       <Map
-        userLocation={courtState.location.coordinates}
+        mapPosition={courtState.location.coordinates}
         DraggMarker={
           <DraggableMarker
             position={courtState.location.coordinates}

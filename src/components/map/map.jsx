@@ -3,8 +3,13 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./map.css";
 
-const Map = ({ mapPosition, CourtsMarkers, DraggMarker, UserMarker }) => {
-  console.log(mapPosition);
+const Map = ({
+  mapPosition,
+  CourtsMarkers,
+  SingleMarker,
+  DraggMarker,
+  UserMarker,
+}) => {
   return (
     <MapContainer center={mapPosition} zoom={13} scrollWheelZoom={false}>
       <TileLayer
@@ -12,6 +17,7 @@ const Map = ({ mapPosition, CourtsMarkers, DraggMarker, UserMarker }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {CourtsMarkers}
+      {SingleMarker}
       {DraggMarker}
       {UserMarker}
     </MapContainer>

@@ -69,6 +69,8 @@ const FormStep = () => {
       if (localStorage.getItem("countries")) {
         localStorage.removeItem("countries");
       }
+
+      console.log(courtState);
     };
   }, []);
 
@@ -91,7 +93,7 @@ const FormStep = () => {
                 </ul>
               </form>
             )}
-            {!loading && !success && (
+            {!loading && !success && courtState.location.coordinates.lat && (
               <div className="form-step__btns-wrap">
                 <>
                   <Btn
