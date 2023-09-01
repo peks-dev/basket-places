@@ -70,3 +70,10 @@
 .btn--secundary:active {
   color: var(--color-yellow);
 }
+
+.btn--absolute {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 4;
+}
