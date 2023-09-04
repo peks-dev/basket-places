@@ -12,6 +12,8 @@ import UserContext from "../../../../context/user/userContext";
 import CourtCard from "../../../../components/court-card-preview/court-card";
 import Title from "../../../../components/layout/title/title";
 import Modal from "../../../../components/modal/modal";
+import Loader from "../../../../components/loader/loader";
+import Error from "../../../../components/error/error";
 
 const UserCourts = () => {
   const { user } = useContext(UserContext);
@@ -32,19 +34,13 @@ const UserCourts = () => {
     }
   }, [loading, error, canchasData]);
 
-  if (error) {
-    console.log(error);
-  }
-
-  if (loading) {
-    return <div>cargando data...</div>;
-  }
-
   return (
     <div className="user-courts">
       <Title text={"BP registrados"} tag={"h2"} />
       <ul className="user-courts__wrap">
-        {courts.map((courtData, index) => (
+        {loading && <Loader />}
+        {error || deleteError ? <Error /> : null}
+        {courts.map((courtData) => (
           <li key={courtData.court_id} className="user-courts__item">
             <CourtCard
               courtData={courtData}

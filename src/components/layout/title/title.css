@@ -29,3 +29,10 @@
 .title--yellow {
   color: var(--color-yellow);
 }
+
+.title--acent {
+  color: var(--color-acent);
+}
+.title--black {
+  color: var(--color-black);
+}

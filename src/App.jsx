@@ -11,12 +11,13 @@ import SearchPage from "./pages/search/search";
 import UserProfilePage from "./pages/user-profile/user-profile";
 import Credentials from "./pages/credentials/credentials";
 import CourtDetails from "./pages/court-details/court-details";
+import EditCourt from "./pages/edit-court/edit-court";
+import RegisterCourtPage from "./pages/register-court/register-court";
 
 // Components
 import Navbar from "./components/layout/navbar/navbar";
 import UserContext from "./context/user/userContext";
 import ViewportBlocker from "./components/viewport-blocker/viewport-blocker";
-import FormStep from "./pages/form-step/form-step";
 
 //Render
 function App() {
@@ -52,7 +53,7 @@ function App() {
             element={
               user.id ? (
                 <CourtProvier>
-                  <FormStep />
+                  <RegisterCourtPage />
                 </CourtProvier>
               ) : (
                 <Credentials />
@@ -60,6 +61,18 @@ function App() {
             }
           />
           <Route path="/search/:courtId" element={<CourtDetails />} />
+          <Route
+            path="/edit-court/:courtId"
+            element={
+              user.id ? (
+                <CourtProvier>
+                  <EditCourt />
+                </CourtProvier>
+              ) : (
+                <Credentials />
+              )
+            }
+          />
         </Routes>
       </div>
     </Router>

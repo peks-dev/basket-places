@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-
 import "./map-page.css";
 
 // Context
@@ -11,6 +10,8 @@ import { Marker } from "react-leaflet";
 import UserPositionMarker from "../../components/map/components/user-position-marker";
 import { CourtMarkerIcon } from "../../components/map/components/icons/court-marker-icon";
 import CourtCard from "../../components/court-card-preview/court-card";
+import Error from "../../components/error/error";
+import Loader from "../../components/loader/loader";
 
 // utilities
 import { prepareCourtData } from "../../utilities/prepare-court-data";
@@ -29,23 +30,19 @@ const MapPage = () => {
   const defaultLocation = [20.97974498745322, -89.6202153569469];
 
   const handleMarkerClick = async (courtId) => {
-    console.log(`El marcador con court_id ${courtId} ha sido clickeado`);
     const adaptCourtData = await prepareCourtData(courtId);
     setCourtSelected(adaptCourtData);
-    console.log(adaptCourtData);
   };
 
   if (markersLoading) {
-    return <div>loading data...</div>;
+    return <Loader />;
   }
 
   if (markersError) {
-    return <div>hubo un error</div>;
+    return <Error />;
   }
 
   const userLocation = user.location || defaultLocation;
-
-  console.log(userLocation);
 
   return (
     <div className="map-wrap">

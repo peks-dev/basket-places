@@ -11,7 +11,6 @@ import {
 
 // context
 import CourtContext from "../../../../../../../context/court/court-context";
-
 // hooks
 import { useLocalStorage } from "../../../../../../../hooks/use-local-storage.hook";
 
@@ -19,6 +18,8 @@ import { useLocalStorage } from "../../../../../../../hooks/use-local-storage.ho
 import Btn from "../../../../../../../components/layout/button/button";
 import Title from "../../../../../../../components/layout/title/title";
 import DropdownSelector from "./components/dropdown-sector/dropdown-selector";
+import Loader from "../../../../../../../components/loader/loader";
+import Error from "../../../../../../../components/error/error";
 
 const TerritorySelector = ({ setTerritorySelected }) => {
   // Global State
@@ -119,12 +120,12 @@ const TerritorySelector = ({ setTerritorySelected }) => {
 
   // Esperar a que los datos estén listos
   if (status === "loading") {
-    return <div>Cargando la data...</div>;
+    return <Loader />;
   }
 
   // Mostrar mensaje de error en caso de error
   if (status === "error") {
-    return <div>Ha ocurrido un error al cargar los datos.</div>;
+    return <Error />;
   }
 
   return (

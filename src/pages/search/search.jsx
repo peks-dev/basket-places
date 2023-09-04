@@ -7,16 +7,19 @@ import { useCourtsData } from "../../hooks/use-courts-data.hook";
 
 // components
 import CourtCard from "../../components/court-card-preview/court-card";
+import Loader from "../../components/loader/loader";
+import Error from "../../components/error/error";
 
 const SearchPage = () => {
   const { canchasData, loading, error } = useCourtsData();
 
   if (error) {
     console.log(error);
+    return <Error />;
   }
 
   if (loading) {
-    return <div>cargando data...</div>;
+    return <Loader />;
   }
 
   return (
