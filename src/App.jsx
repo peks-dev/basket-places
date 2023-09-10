@@ -13,6 +13,7 @@ import Credentials from "./pages/credentials/credentials";
 import CourtDetails from "./pages/court-details/court-details";
 import EditCourt from "./pages/edit-court/edit-court";
 import RegisterCourtPage from "./pages/register-court/register-court";
+import Prueba from "./pages/prueba/prueba";
 
 // Components
 import Navbar from "./components/layout/navbar/navbar";
@@ -73,6 +74,7 @@ function App() {
               )
             }
           />
+          <Route path="/prueba" element={<Prueba/>}/>
         </Routes>
       </div>
     </Router>

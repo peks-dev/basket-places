@@ -30,8 +30,6 @@ export function useGetDataCourt(courtId) {
         courtId
       );
 
-      // Check if user.id is available
-
       // obtain imgs
       const imagesNames = await fetchDataOnTable("images", "court_id", courtId);
       const urlsPromises = imagesNames.map((imgName) => {

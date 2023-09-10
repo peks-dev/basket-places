@@ -1,5 +1,5 @@
 // SearchPage.js
-import React from "react";
+import React, { useEffect } from "react";
 import "./search.css";
 
 // hooks
@@ -12,6 +12,26 @@ import Error from "../../components/error/error";
 
 const SearchPage = () => {
   const { canchasData, loading, error } = useCourtsData();
+  // En el componente SearchPage
+  const handleScroll = () => {
+    localStorage.setItem("scrollPosition", window.scrollY);
+  };
+
+  // Agrega y retira el listener del evento de scroll
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // En el componente SearchPage
+  useEffect(() => {
+    const savedScrollPosition = localStorage.getItem("scrollPosition");
+    if (savedScrollPosition) {
+      window.scrollTo(0, parseInt(savedScrollPosition));
+    }
+  }, []);
 
   if (error) {
     console.log(error);
@@ -23,7 +43,7 @@ const SearchPage = () => {
   }
 
   return (
-    <div className="search-page">
+    <section className="search-page">
       <ul className="search-page__courts-container">
         {canchasData.map((courtData, index) => (
           <li key={index}>
@@ -35,7 +55,7 @@ const SearchPage = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

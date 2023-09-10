@@ -10,6 +10,8 @@ import CourtSlider from "./components/court-slider/court-slider";
 import CourtHeader from "./components/court-header/court-header";
 import CourtTabs from "./components/court-tabs/court-tabs";
 import Btn from "../../components/layout/button/button";
+import Loader from "../../components/loader/loader";
+import Error from "../../components/error/error";
 
 const CourtDetails = () => {
   const courtPath = useParams();
@@ -19,12 +21,12 @@ const CourtDetails = () => {
 
   if (loading) {
     // Muestra un componente de carga mientras se obtienen los datos
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {
     // Muestra un mensaje de error en caso de que haya ocurrido un error
-    return <div>Error: {error.message}</div>;
+    return <Error />;
   }
 
   if (!allDataCourt) {

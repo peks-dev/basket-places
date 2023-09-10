@@ -18,6 +18,7 @@ const MapSelector = ({ setTerritorySelected }) => {
     updateCoordinates(newPosition);
   };
 
+  // Si no se ha usado el draggmarker usar la posicion del usuario
   useEffect(() => {
     if (!Object.keys(courtState.location.coordinates).length) {
       updateCoordinates(user.location);
@@ -36,7 +37,8 @@ const MapSelector = ({ setTerritorySelected }) => {
     <div className="map-selector">
       <Map
         mapPosition={courtState.location.coordinates}
-        DraggMarker={
+        zoomLevel={14}
+        singleMarker={
           <DraggableMarker
             position={courtState.location.coordinates}
             onDragEnd={handleMarkerDragEnd}

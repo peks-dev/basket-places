@@ -45,7 +45,8 @@ const CourtTabs = ({
         return (
           <Map
             mapPosition={coordinates}
-            SingleMarker={
+            zoomLevel={13}
+            singleMarker={
               <Marker position={coordinates} icon={CourtMarkerIcon} />
             }
           />

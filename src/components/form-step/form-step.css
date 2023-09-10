@@ -4,10 +4,10 @@
   flex-direction: column;
   margin: 0 auto;
   height: 100%;
-  width: 90%;
+  width: 100%;
   max-width: 80rem;
-  padding-top: clamp(8rem, 10%, 12rem);
-  gap: 2rem;
+  padding-top: clamp(3rem, 8%, 8rem);
+  gap: clamp(1rem, 3%, 2rem);
 }
 .form-step__body {
   display: flex;

@@ -5,8 +5,8 @@ import { markerDataAdapter } from "../../../components/map/adapters/marker-data.
 // services
 import { fetchDataOnTable } from "../../../services/supabase/table-operations.service";
 
-export function useCourtsMarkersList() {
-  const [markersData, setMarkersData] = useState([]);
+export function useLocationsCourtsList() {
+  const [courtsList, setCourtsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -20,7 +20,7 @@ export function useCourtsMarkersList() {
           "court_id,lat,lng"
         );
         const adaptedMarkersData = markerDataAdapter(locationCourts);
-        setMarkersData(adaptedMarkersData);
+        setCourtsList(adaptedMarkersData);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -29,5 +29,5 @@ export function useCourtsMarkersList() {
 
     fetchLocationCourts();
   }, []);
-  return { markersData, loading, error };
+  return { courtsList, loading, error };
 }

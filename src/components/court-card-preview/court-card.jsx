@@ -1,9 +1,13 @@
 import React from "react";
 import "./court-card.css";
 
+
+
 // Components
 import CourtCardHeader from "./components/court-card-header/court-card-header";
 import CourtCardFooter from "./components/court-card-footer/court-card-footer";
+
+import { Link } from "react-router-dom";
 
 // iconos
 import TrashIcon from "./components/icons/delete-icon";
@@ -21,8 +25,11 @@ const CourtCard = ({
     courtData;
   const headerData = { name, country, state, city };
 
+
+
   return (
-    <article className="court-card">
+    <Link to={`/search/${court_id}`}>
+    <article className="court-card" >
       <CourtCardHeader data={headerData} />
       <figure className="court-card__img-wrap">
         <img src={images[0].publicUrl} alt="imagen de la cancha" />
@@ -45,6 +52,7 @@ const CourtCard = ({
         </button>
       )}
     </article>
+    </Link>
   );
 };
 

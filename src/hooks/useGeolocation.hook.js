@@ -1,4 +1,4 @@
-const useGeolocation = () => {
+const geolocation = () => {
   const getUserLocation = () => {
     return new Promise((resolve, reject) => {
       if (!("geolocation" in navigator)) {
@@ -22,4 +22,4 @@ const useGeolocation = () => {
   return getUserLocation;
 };
 
-export default useGeolocation;
+export default geolocation;

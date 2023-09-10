@@ -1,5 +1,5 @@
 .user-courts {
-  flex: 2 0 min(100%, 30rem);
+  flex: 2 0 min(40rem, 100%);
   position: relative;
 }
 .user-courts > h2 {

@@ -12,7 +12,7 @@ import {
   login,
 } from "../../services/supabase/auth.service";
 import { fetchDataOnTable } from "../../services/supabase/table-operations.service";
-import useGeolocation from "../../hooks/useGeolocation.hook";
+import geolocation from "../../hooks/useGeolocation.hook";
 
 const UserProvider = (props) => {
   const fetchProfile = async () => {
@@ -34,10 +34,11 @@ const UserProvider = (props) => {
 
   const userLocation = async () => {
     try {
-      const getUserLocation = useGeolocation();
+      const getUserLocation = geolocation();
       const coordinates = await getUserLocation();
       if (coordinates) {
         dispatch({ type: "GET_USER_LOCATION", payload: coordinates });
+        console.log(coordinates);
       }
       throw error;
     } catch (error) {
@@ -72,7 +73,6 @@ const UserProvider = (props) => {
       dispatch({ type: SET_USER_DATA, payload: JSON.parse(storedUser) });
     } else {
       fetchProfile();
-      userLocation();
     }
   }, []);
 
@@ -85,6 +85,7 @@ const UserProvider = (props) => {
     user,
     userLogout,
     userLogin,
+    userLocation,
   };
 
   return (

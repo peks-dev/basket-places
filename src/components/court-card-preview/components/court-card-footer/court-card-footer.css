@@ -16,6 +16,8 @@
   justify-content: center;
   gap: 1rem;
   font-size: clamp(1.4rem, 3vw, 1.7rem);
+  color: var(--color-white);
+  font-family: var(--font-body);
 }
 
 .court-card__footer-text span {

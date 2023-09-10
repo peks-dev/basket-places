@@ -8,3 +8,32 @@
 .leaflet-bottom {
   display: none;
 }
+
+.leaflet-popup-content-wrapper{
+  background-color: transparent;
+  border-radius: 2rem;
+}
+.leaflet-popup-tip{
+  background-color: var(--color-black);
+}
+
+.leaflet-popup-content{
+  margin: 0;
+  width: 40rem;
+  height: 25rem;
+}
+.leaflet-popup-content p{
+  margin: 0;
+}
+.leaflet-container a.leaflet-popup-close-button{
+  top: 1rem;
+  right: 1rem;
+  color: var(--color-white);
+  z-index: 2;
+}
+.leaflet-container a.leaflet-popup-close-button:hover, .leaflet-container a.leaflet-popup-close-button:focus{
+  color: var(--color-yellow);
+}
+.leaflet-popup-close-button span{
+  font-size: 2em;
+}
