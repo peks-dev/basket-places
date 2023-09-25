@@ -6,12 +6,13 @@ import Title from "../layout/title/title";
 import Txt from "../layout/text-body/text-body";
 import Btn from "../layout/button/button";
 
-const Modal = ({ title, message, onConfirm, onCancel }) => {
+const Modal = ({ title, message, children, onConfirm, onCancel }) => {
   return (
     <div className="modal-overlay">
       <div className="modal">
         <Title text={title} tag={"h2"} />
         <Txt content={message} style={"txt--center"} />
+        {children}
         <ul className="modal__btns-wrap">
           <li>
             <Btn

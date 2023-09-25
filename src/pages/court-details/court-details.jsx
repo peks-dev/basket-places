@@ -34,9 +34,6 @@ const CourtDetails = () => {
     return <div>No existe este Basket Place</div>;
   }
 
-  const goBack = () => {
-    navigate(-1);
-  };
   return (
     <div className="court-details-container">
       <Btn

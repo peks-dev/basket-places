@@ -4,16 +4,18 @@
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
+  max-width: 60rem;
   height: auto;
   background-color: var(--color-acent);
   animation: slide-in-out 5s ease-in-out;
   padding: 1rem 1.5rem;
   border-radius: 1.2rem;
+  z-index: 5;
 }
 .notification__message {
   color: var(--color-black);
   font-family: var(--font-body);
-  font-size: 2rem;
+  font-size: 2.3rem;
   line-height: normal;
   text-align: center;
 }

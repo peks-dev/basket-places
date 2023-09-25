@@ -36,7 +36,8 @@ const UserCourts = () => {
 
   return (
     <div className="user-courts">
-      <Title text={"BP registrados"} tag={"h2"} />
+      <Title text={"BP registrados"} style={"title--center"} tag={"h2"} />
+
       <ul className="user-courts__wrap">
         {loading && <Loader />}
         {error || deleteError ? <Error /> : null}
@@ -50,6 +51,7 @@ const UserCourts = () => {
           </li>
         ))}
       </ul>
+
       {showModal && (
         <Modal
           title="Confirmar Eliminación"

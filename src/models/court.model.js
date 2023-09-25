@@ -16,7 +16,7 @@ class CourtModel {
     this.game_level = game_level;
     this.place_type = place_type;
     this.floor_type = floor_type;
-    this.roof = false;
+    this.roof = undefined;
     this.location = {
       coordinates: {},
       country: null,

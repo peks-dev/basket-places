@@ -1,0 +1,22 @@
+.close-btn {
+  fill: none;
+  border-radius: 50%;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  z-index: 4;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.close-btn:hover {
+  transform: scale(1.1);
+}
+.close-btn svg {
+  margin: 0 auto;
+  width: 3rem;
+  height: 3rem;
+}
+
+.close-btn svg path {
+  fill: var(--color-white);
+}

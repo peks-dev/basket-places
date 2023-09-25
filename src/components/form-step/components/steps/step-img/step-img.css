@@ -1,31 +1,29 @@
 .step-imgs {
   width: 100%;
-  padding: 3% 8%;
-  font-family: var(--font-title);
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-  color: var(--color-yellow);
-  line-height: normal;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .step-imgs__uploader {
+  flex: 2 0 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   position: relative;
-  min-height: 25rem;
   border: none;
-  margin-top: 1rem;
 }
 .step-imgs__input {
   visibility: hidden;
 }
 .step-imgs__icon {
-  width: 4em;
-  height: 4em;
+  width: 7em;
+  height: 7em;
   fill: transparent;
 }
 .step-imgs__list-wrap {
+  flex: 1 0 40%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -36,6 +34,9 @@
 }
 .step-imgs__list-img {
   flex-basis: 20%;
+}
+.step-imgs__image-wrap {
+  position: relative;
 }
 .step-imgs__uploader button {
   margin-top: 0.6em;

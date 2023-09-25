@@ -5,6 +5,7 @@
 .user-courts > h2 {
   padding: 2rem 0;
 }
+
 .user-courts__wrap {
   display: flex;
   flex-direction: column;
@@ -12,6 +13,9 @@
   width: 100%;
   align-items: center;
   padding: 1rem 0 13rem 0;
+}
+.user-courts__item {
+  width: 90%;
 }
 
 .user-courts__item article {

@@ -74,7 +74,7 @@ function App() {
               )
             }
           />
-          <Route path="/prueba" element={<Prueba/>}/>
+          <Route path="/prueba" element={<Prueba />} />
         </Routes>
       </div>
     </Router>

@@ -1,7 +1,8 @@
 .map-selector {
   position: relative;
-  width: 100%;
+  width: 100% !important;
   height: 100%;
+  max-width: none !important;
 }
 .map-selector button {
   position: absolute;

@@ -3,6 +3,10 @@ import React, { useContext } from "react";
 // Context
 import CourtContext from "../../../../context/court/court-context";
 
+// Components
+import FormField from "../../../form/form-field/form-field";
+import Title from "../../../layout/title/title";
+
 const StepDescription = () => {
   const niveles = ["bajo", "medio", "alto"];
 
@@ -12,10 +16,10 @@ const StepDescription = () => {
     const { name, value } = e.target;
     // Nueva logica con el estado global
     switch (name) {
-      case "name":
+      case "nombre":
         updateName(value);
         break;
-      case "description":
+      case "descripcion":
         updateDescription(value);
         break;
       case "game_level":
@@ -27,53 +31,36 @@ const StepDescription = () => {
   };
 
   return (
-    <>
-      <div className="form__group">
-        <label className="form__field-name" htmlFor="name">
-          Nombre
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={courtState.name || ""}
-          onChange={handleInputChange}
-          className="form__input"
-        />
+    <div className="step-description">
+      <FormField
+        inputType={"text"}
+        inputValue={courtState.name || ""}
+        handleInputChange={handleInputChange}
+        inputName={"nombre"}
+      />
+      <FormField
+        inputType={"text"}
+        inputValue={courtState.description || ""}
+        handleInputChange={handleInputChange}
+        inputName={"descripcion"}
+      />
+
+      <div className="form__fields-wrap">
+        <Title tag={"h3"} text={"nivel de juego"} style={"title--label"} />
+        {niveles.map((level, index) => (
+          <FormField
+            key={index}
+            inputName={"game_level"}
+            inputType={"radio"}
+            inputValue={level}
+            inputId={`nivel-${level}`}
+            inputChecked={courtState.game_level === level}
+            handleInputChange={handleInputChange}
+            legendText={level}
+          />
+        ))}
       </div>
-      <div className="form__group">
-        <label className="form__field-name" htmlFor="description">
-          Descripción
-        </label>
-        <input
-          type="text"
-          id="description"
-          name="description"
-          onChange={handleInputChange}
-          value={courtState.description || ""}
-          className="form__input"
-        />
-      </div>
-      <div className="form__group">
-        Nivel
-        <ul className="form__inputs-wrap">
-          {niveles.map((level, index) => (
-            <li key={level} className="form__input-group">
-              <label htmlFor={`nivel-${level}`}>{level}</label>
-              <input
-                className={"form__input"}
-                type={"radio"}
-                name={"game_level"}
-                value={level}
-                checked={courtState.game_level === level}
-                id={`nivel-${level}`}
-                onChange={handleInputChange}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+    </div>
   );
 };
 

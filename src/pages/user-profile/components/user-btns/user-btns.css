@@ -1,0 +1,35 @@
+.user-btns-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  width: 100%;
+  padding: 0 3rem;
+  z-index: 6;
+}
+.user-btns__item-wrap {
+}
+.user-btns__item {
+  width: 4rem;
+  height: 4rem;
+}
+.user-btns__icon {
+  width: 100%;
+  height: 100%;
+  fill: var(--color-yellow);
+  cursor: pointer;
+}
+.user-btns__icon:hover,
+.user-btns__icon:focus {
+  transform: scale(1.2);
+}
+
+/* Modifiers */
+
+.user-btns__icon--red {
+  fill: #cd3401;
+  transform: scale(0.9);
+}

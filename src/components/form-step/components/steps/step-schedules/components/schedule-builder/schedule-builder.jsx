@@ -63,7 +63,7 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
   return (
     <>
       <div className="schedule-builder__set">
-        <Title tag={"h4"} text={"Elige los días"} style={"title--form-sub"} />
+        <Title tag={"h4"} text={"Elige los días"} style={"title--label"} />
         <ul className="schedule-builder__days-wrap">
           {days.map((day, index) => {
             return (
@@ -87,7 +87,7 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
           })}
         </ul>
         <label className="schedule-builder__timer" htmlFor="time-picker">
-          <Title tag={"h4"} text={"¿A qué hora?"} style={"title--form-sub"} />
+          <Title tag={"h4"} text={"¿A qué hora?"} style={"title--label"} />
           <input
             className="form__input"
             name="time-picker"

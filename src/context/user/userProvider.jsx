@@ -38,7 +38,7 @@ const UserProvider = (props) => {
       const coordinates = await getUserLocation();
       if (coordinates) {
         dispatch({ type: "GET_USER_LOCATION", payload: coordinates });
-        console.log(coordinates);
+        return coordinates;
       }
       throw error;
     } catch (error) {

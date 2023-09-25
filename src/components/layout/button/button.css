@@ -34,6 +34,13 @@
 .btn--ternary {
   color: var(--color-yellow);
 }
+.btn--ternary:hover {
+  color: var(--color-acent);
+}
+
+.btn--ternary:active {
+  transform: scale(1.2);
+}
 
 /* Modificadores en comun */
 .btn--primary:active,
@@ -42,24 +49,6 @@
   color: var(--color-white);
 }
 
-.btn--ternary:hover {
-  color: var(--color-acent);
-}
-
-.btn--ternary:active {
-  transform: scale(1.2);
-}
-.btn-prueba {
-  position: absolute;
-  top: 30px;
-  right: 15px;
-  z-index: 5;
-  font-family: var(--font-btn);
-  font-size: 2rem;
-  line-height: normal;
-  color: var(--color-white);
-  background-color: var(--color-black);
-}
 .btn--tab {
   color: var(--color-black);
 }

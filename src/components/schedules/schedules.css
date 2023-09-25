@@ -19,8 +19,8 @@
   flex: 3;
 }
 .schedules__day {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: clamp(2.8rem, 5vw, 4rem);
+  height: clamp(2.8rem, 5vw, 4rem);
   display: flex;
   border-radius: 50%;
   align-items: center;
@@ -31,7 +31,9 @@
 .schedules__day span {
   font-family: var(--font-body);
   color: var(--color-black);
-  font-size: 1.7rem;
+  font-size: 1.7em;
+  display: block;
+  font-weight: bold;
 }
 .schedules__time {
   font-family: var(--font-body);

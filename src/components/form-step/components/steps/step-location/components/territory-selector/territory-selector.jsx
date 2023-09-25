@@ -132,11 +132,7 @@ const TerritorySelector = ({ setTerritorySelected }) => {
     <div className="territory-selector-container">
       <ul className="territory-selector__wrap">
         <li className="territory-selector__group">
-          <Title
-            text={"país"}
-            style={"title--left title--form-sub"}
-            tag={"h3"}
-          />
+          <Title text={"país"} style={"title--left title--label"} tag={"h3"} />
           <DropdownSelector
             options={countries}
             name="country"
@@ -148,7 +144,7 @@ const TerritorySelector = ({ setTerritorySelected }) => {
           <li className="territory-selector__group">
             <Title
               text={"estado"}
-              style={"title--left title--form-sub"}
+              style={"title--left title--label"}
               tag={"h3"}
             />
             <DropdownSelector
@@ -163,7 +159,7 @@ const TerritorySelector = ({ setTerritorySelected }) => {
           <li className="territory-selector__group">
             <Title
               text={"ciudad"}
-              style={"title--left title--form-sub"}
+              style={"title--left title--label"}
               tag={"h3"}
             />
             <DropdownSelector

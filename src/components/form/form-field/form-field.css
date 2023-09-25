@@ -1,0 +1,83 @@
+.form__field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form__legend {
+  font-size: clamp(1.6rem, 3vw, 1.8rem);
+  color: var(--color-white);
+  line-height: normal;
+  text-align: center;
+  width: 100%;
+}
+.form__label {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 3.2vw, 2rem);
+  line-height: normal;
+  color: var(--color-yellow);
+  width: 100%;
+  text-transform: capitalize;
+}
+.form__input {
+  font-size: 2rem;
+}
+/* Todos los inputs */
+.form__input[type="text"],
+.form__input[type="email"],
+.form__input[type="password"] {
+  font-family: var(--font-body);
+  color: var(--color-white);
+  border-bottom: 0.2rem solid var(--color-yellow);
+  width: 85%;
+  margin: 0 auto;
+  line-height: normal;
+  border-radius: 0;
+}
+.form__input[type="radio"],
+.form__input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.form__input[type="time"] {
+  width: 100%;
+  height: 4.5rem;
+  background-color: var(--color-gray);
+  border-radius: 1.2rem;
+  color: var(--color-yellow);
+  font-size: clamp(2.2rem, 3.2vw, 2.8rem);
+  font-family: var(--font-title);
+  line-height: normal;
+  text-align: center;
+}
+
+/* pseudo - selectores */
+.form__input[type="radio"]:checked,
+.form__input[type="checkbox"]:checked {
+  background-color: var(--color-yellow);
+}
+
+.form__input[type="text"]:focus,
+.form__input[type="email"]:focus,
+.form__input[type="password"]:focus {
+  outline: none;
+  border: 0.1em solid var(--color-yellow);
+  border-radius: 0.2em;
+}
+
+/* Form Step para tipo radio y tipo checkbox */
+.form__fields-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.form__fields-wrap fieldset {
+  flex: 1 0 4rem;
+}
+.form__fields-wrap label {
+  display: none;
+}

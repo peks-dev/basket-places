@@ -1,30 +1,23 @@
-import React , {useContext, useState}from "react";
-import MapLeaflet from "../../components/map-leaflet/map-leaflet";
-import "./prueba.css"
+import React, { useState } from "react";
+import { useLocalStorage } from "../../hooks/use-local-storage.hook";
+import "./prueba.css";
 
-// Context
-import UserContext from "../../context/user/userContext";
+//Context
+import CourtContext from "../../context/court/court-context";
 
-// Utilities
+// componnets
+import Title from "../../components/layout/title/title";
+import Txt from "../../components/layout/text-body/text-body";
 import Btn from "../../components/layout/button/button";
+import FormField from "../../components/form/form-field/form-field";
+import Form from "../../components/form/form";
 
-const Prueba=()=>{
+const MiComponente = () => {
+  const handleInputChange = (e) => {
+    console.log(e.target.checked);
+  };
 
-    const {user} = useContext(UserContext)
-    const countryLocation = [20.97974498745322, -89.6202153569469];
-    const defaultLocation = user.location ? user.location : countryLocation;
-    const [flyTo, setFlyTo] = useState(false)
+  return <div>prueba</div>;
+};
 
-
-
-    const handleUserLocation = () => {
-        setFlyTo(true)
-    }
-
-    return <div className="prueba-container">
-        <MapLeaflet center={defaultLocation} zoom={13} userLocation={user.location} flyTo={flyTo}/>
-        <Btn text={"ubicacion"} variant={"btn--primary btn--map"} onClick={handleUserLocation}/>
-    </div>
-}
-
-export default Prueba;
+export default MiComponente;

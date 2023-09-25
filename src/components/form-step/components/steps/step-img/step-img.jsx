@@ -7,6 +7,7 @@ import UploadIcon from "../../../../../assets/form-step/upload-icon";
 // Small components
 import Txt from "../../../../../components/layout/text-body/text-body";
 import Btn from "../../../../../components/layout/button/button";
+import CloseBtn from "../../../../close-btn/close-btn";
 
 // Context
 import CourtContext from "../../../../../context/court/court-context";
@@ -30,8 +31,18 @@ const StepImgs = () => {
       })
     );
 
-    const filteredImages = horizontalImages.filter((file) => file !== null);
-    updateImages(filteredImages);
+    const existingImages = courtState.images || [];
+    const newImages = horizontalImages.filter((file) => file !== null);
+    const updatedImages = [...existingImages, ...newImages].slice(0, 4);
+
+    updateImages(updatedImages);
+  };
+
+  const handleRemoveImage = (e, index) => {
+    e.preventDefault();
+    const updatedImages = [...courtState.images];
+    updatedImages.splice(index, 1);
+    updateImages(updatedImages);
   };
 
   return (
@@ -65,11 +76,22 @@ const StepImgs = () => {
         {courtState.images
           ? courtState.images.map((image, index) => (
               <li key={index} className="step-imgs__list-img">
-                <img
-                  key={index}
-                  src={URL.createObjectURL(image)}
-                  alt={`Image ${index}`}
-                />
+                <div className="step-imgs__image-wrap">
+                  {typeof image === "string" ? (
+                    <img key={index} src={image} alt={`Image ${index}`} />
+                  ) : (
+                    <img
+                      key={index}
+                      src={URL.createObjectURL(image)}
+                      alt={`Image ${index}`}
+                    />
+                  )}
+                  <CloseBtn
+                    handleClick={(e) => {
+                      handleRemoveImage(e, index);
+                    }}
+                  />
+                </div>
               </li>
             ))
           : ""}
