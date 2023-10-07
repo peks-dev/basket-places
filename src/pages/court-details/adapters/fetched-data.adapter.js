@@ -7,7 +7,7 @@ export function adaptFetchedData(
 ) {
   const { owner, name, description, game_level, floor_type, place_type, roof } =
     courtData[0];
-  const { lng, lat, country, state, city } = locationData[0];
+  const { lng, lat, country, state, city, id } = locationData[0];
   const { transporte, wifi, tienda, bathroom } = serviceData[0];
 
   const imgs = urlImgs.map((e) => {

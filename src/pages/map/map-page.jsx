@@ -30,6 +30,7 @@ const MapPage = () => {
     courtsList,
     loading: markersLoading,
     error: markersError,
+    fetchLocationCourts,
   } = useLocationsCourtsList();
   const [courtSelected, setCourtSelected] = useState(null);
   const defaultMapPosition = [23.305952, -102.542565];
@@ -47,22 +48,24 @@ const MapPage = () => {
     }
   };
 
+  const handleReloadCourtsList = async () => {
+    try {
+      localStorage.removeItem("courtCoordinates");
+      await fetchLocationCourts();
+    } catch (error) {
+      throw error;
+    }
+  };
+
   const getUserLocation = () => {
     userLocation()
       .then((coordinates) => {
         mapRef.current.flyTo(coordinates, 13, { animate: true });
+        setMapPosition(coordinates);
       })
       .catch((error) => {
         alert("hubo un error" + error);
       });
-  };
-
-  const returnToUserLocation = () => {
-    if (!user.location) {
-      getUserLocation();
-    } else {
-      mapRef.current.flyTo(user.location, 13, { animate: true });
-    }
   };
 
   // Restablecer posicion del mapa

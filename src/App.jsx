@@ -34,6 +34,9 @@ function App() {
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
+      localStorage.removeItem("mapPosition");
+      localStorage.removeItem("mapZoom");
+      localStorage.removeItem("courtCoordinates");
     };
   }, []);
 

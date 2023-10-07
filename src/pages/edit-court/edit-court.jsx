@@ -28,7 +28,8 @@ const EditCourt = () => {
     return <Loader />; // Muestra un loader mientras se cargan los datos
   }
 
-  if (errorFiller) {
+  if (errorFiller || errorUpdater) {
+    console.log(errorUpdater);
     return <Error />; // Muestra un mensaje de error si ocurre un error
   }
 

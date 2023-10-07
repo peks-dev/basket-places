@@ -29,8 +29,6 @@ const StepServices = () => {
     }
   };
 
-  console.log(courtState);
-
   return (
     <div className="step-services">
       <div className="form__fields-wrap">

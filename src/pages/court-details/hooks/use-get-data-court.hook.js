@@ -36,6 +36,8 @@ export function useGetDataCourt(courtId) {
         return createImgUrl(courtData[0].owner, courtId, imgName.file_name);
       });
 
+      console.log(imagesNames);
+
       // Wait for all promises to resolve
       const urlImgs = await Promise.all(urlsPromises);
 

@@ -25,7 +25,6 @@ const UserProfilePage = () => {
   }
 
   const closeModal = () => {
-    setContextModal(null);
     setShowModal(false);
   };
 

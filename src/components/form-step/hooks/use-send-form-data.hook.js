@@ -56,12 +56,13 @@ export function useSendFormData() {
           // Comprimir la imagen antes de subirla
           const compressedImage = await compressImage(imageFile);
 
+          // subir img a storage
           await uploadFile(
             "imgs_courts",
             `${userId}/${court_id}/${compressedImage.name}`,
             compressedImage
           );
-          // Guardar el nombre de los archivos subidos
+          // Guardar nombres imgs en tabla
           const newObjectImage = {
             file_name: imageFile.name,
             court_id: court_id,

@@ -37,8 +37,6 @@ export function useFormFiller(courtId) {
   } = useContext(CourtContext);
 
   function fillCourtState(data) {
-    console.log(courtState);
-    console.log(data);
     // Territoy selection
     updateCountry(data.location.country);
     updateState(data.location.state);

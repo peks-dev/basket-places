@@ -62,6 +62,26 @@ export async function deleteDataOnTable(tableName, filter, filterValue) {
     }
     return data;
   } catch (error) {
-    throw new Error(`Error in deleteDataOnTable: ${error.message}`);
+    throw error;
+  }
+}
+
+export async function updateDataOnTable(
+  tableName,
+  objetUpdated,
+  filter,
+  filterValue
+) {
+  try {
+    const { error } = await supabase
+      .from(tableName)
+      .update(objetUpdated)
+      .eq(filter, filterValue);
+
+    if (error) {
+      throw new Error(`Error updating ${tableName}: ${error.message}`);
+    }
+  } catch (error) {
+    throw error;
   }
 }
