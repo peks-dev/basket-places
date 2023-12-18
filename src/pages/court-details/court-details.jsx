@@ -20,17 +20,14 @@ const CourtDetails = () => {
   const navigate = useNavigate();
 
   if (loading) {
-    // Muestra un componente de carga mientras se obtienen los datos
     return <Loader />;
   }
 
   if (error) {
-    // Muestra un mensaje de error en caso de que haya ocurrido un error
     return <Error />;
   }
 
   if (!allDataCourt) {
-    // Muestra un mensaje o componente alternativo si no hay datos de la corte
     return <div>No existe este Basket Place</div>;
   }
 

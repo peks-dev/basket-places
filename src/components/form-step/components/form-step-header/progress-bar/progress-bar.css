@@ -7,7 +7,7 @@
 }
 .form__progress-item {
   background-color: var(--color-black);
-  width: clamp(3.4rem, 6.5vw, 6rem);
+  width: clamp(3.4rem, 6.5vw, 5rem);
   padding: 0.6rem;
   border-radius: 50%;
 }

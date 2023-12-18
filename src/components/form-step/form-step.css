@@ -35,10 +35,11 @@
 .step-imgs,
 .step-court,
 .step-time,
-.step-services {
+.step-services,
+.territory-selector-container {
   width: 100%;
   max-width: 65rem;
-  padding: 2em 3em;
+  padding: 2em 3em 0 3em;
 }
 .step-description,
 .step-court {
