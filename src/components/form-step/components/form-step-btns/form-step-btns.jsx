@@ -31,7 +31,7 @@ const FormStepBtns = ({ onSend }) => {
           variant={currentStep === 5 ? "primary" : "arrow"}
           customStyle={"rotate"}
         >
-          {currentStep === 5 ? "enviar" : <ArrowIcon />}
+          {currentStep === 5 ? "enviar" : <ArrowIcon rotate={true} />}
         </Button>
       </li>
     </ul>

@@ -11,19 +11,15 @@
 }
 
 /* - - - - - - */
-.btn:hover,
-.btn:active,
-.btn--link:hover,
-.btn[data-variant="primary"]:hover {
-  transform: scale(1.1);
-}
-
-/* - - - - - - */
 .btn[data-variant="primary"] {
   background-color: var(--accent);
   color: var(--ternary);
 }
 /* - - - - - - */
+.btn[data-variant="secundary"]:hover {
+  background-color: transparent;
+  color: var(--ternary);
+}
 .btn[data-variant="secundary"]:hover {
   background-color: transparent;
   color: var(--accent);
@@ -58,15 +54,13 @@
 .btn[data-variant="arrow"] svg {
   height: 100%;
 }
-.btn[data-variant="arrow"]:active {
+.btn[data-variant="arrow"]:hover {
   color: var(--accent);
 }
-.rotate {
-  transform: rotate(180deg); /* evitar el hover del btn principal*/
+.btn[data-variant="arrow"]:active {
+  transform: scale(1.1);
 }
-.rotate:hover {
-  transform: rotate(180deg) scale(1.1); /* mantener la rotacion y escalar*/
-}
+
 /* - - - - - - */
 .btn--link {
   text-decoration: underline;
