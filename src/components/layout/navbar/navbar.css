@@ -19,7 +19,7 @@
   color: var(--ternary);
 }
 .navbar__link-item {
-  width: clamp(4.5rem, 9vw, 6rem);
+  width: clamp(4rem, 9vw, 5rem);
 }
 .navbar__link-item svg {
   height: 100%;
