@@ -2,30 +2,30 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import "./map-page.css";
 
 // Context
-import UserContext from "../../context/user/userContext";
+import UserContext from "@/context/user/userContext";
 
 // leaflet
 import { Marker, Popup } from "react-leaflet";
 
 // Components
-import Map from "../../components/map/map";
-import UserPositionMarker from "../../components/map/components/user-position-marker";
-import { CourtMarkerIcon } from "../../components/map/components/icons/court-marker-icon";
-import CourtCard from "../../components/court-card-preview/court-card";
-import Error from "../../components/error/error";
-import Loader from "../../components/loader/loader";
-import Btn from "../../components/layout/button/button";
+import Map from "@/components/map/map";
+import UserPositionMarker from "@/components/map/components/user-position-marker";
+import { CourtMarkerIcon } from "@/components/map/components/icons/court-marker-icon";
+import CourtCard from "@/components/court-card-preview/court-card";
+import Error from "@/components/error/error";
+import Loader from "@/components/loader/loader";
+import UserLocationBtn from "@/components/user-location-btn/user-location-btn";
 
 // utilities
-import { prepareCourtData } from "../../utilities/prepare-court-data";
-import { HandleMapMovement } from "../../components/map/utilities/safe-map-position.utility";
+import { prepareCourtData } from "@/utilities/prepare-court-data";
+import { HandleMapMovement } from "@/components/map/utilities/safe-map-position.utility";
 
 // hooks
 import { useLocationsCourtsList } from "./hooks/locations-courts-list.hook";
-import { useLocalStorage } from "../../hooks/use-local-storage.hook";
+import { useMapStore } from "@/context/mapStore";
 
 const MapPage = () => {
-  const { user, userLocation } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const {
     courtsList,
     loading: markersLoading,
@@ -33,59 +33,25 @@ const MapPage = () => {
     fetchLocationCourts,
   } = useLocationsCourtsList();
   const [courtSelected, setCourtSelected] = useState(null);
-  const defaultMapPosition = [23.305952, -102.542565];
-  const [mapPosition, setMapPosition] = useLocalStorage(
-    "mapPosition",
-    defaultMapPosition
-  );
-  const [mapZoom, setMapZoom] = useLocalStorage("mapZoom", 13);
+  const { mapPagePosition, updateMapPageCenter, updateMapPageZoom } =
+    useMapStore();
   const mapRef = useRef();
 
-  const handleMarkerClick = async (courtId) => {
+  async function handleMarkerClick(courtId) {
     if (courtId) {
       const adaptCourtData = await prepareCourtData(courtId);
       setCourtSelected(adaptCourtData);
     }
-  };
+  }
 
-  const handleReloadCourtsList = async () => {
+  async function handleReloadCourtsList() {
     try {
       localStorage.removeItem("courtCoordinates");
       await fetchLocationCourts();
     } catch (error) {
       throw error;
     }
-  };
-
-  const getUserLocation = () => {
-    userLocation()
-      .then((coordinates) => {
-        mapRef.current.flyTo(coordinates, 13, { animate: true });
-        setMapPosition(coordinates);
-      })
-      .catch((error) => {
-        alert("hubo un error" + error);
-      });
-  };
-
-  // Restablecer posicion del mapa
-  useEffect(() => {
-    if (
-      // verification on localStorage
-      localStorage.getItem("mapPosition") &&
-      localStorage.getItem("mapZoom")
-    ) {
-      // Position
-      const mapPositionItem = localStorage.getItem("mapPosition");
-      const mapPositionParced = JSON.parse(mapPositionItem);
-      setMapPosition(mapPositionParced);
-
-      // zoom
-      const mapZoomItem = localStorage.getItem("mapZoom");
-      const mapZoomParsed = JSON.parse(mapZoomItem);
-      setMapZoom(mapZoomParsed);
-    }
-  }, []);
+  }
 
   if (markersLoading) {
     return <Loader />;
@@ -99,49 +65,41 @@ const MapPage = () => {
     <div className="map-wrap">
       <Map
         mapRef={mapRef}
-        mapPosition={mapPosition}
-        mapPositionSave={
-          <HandleMapMovement
-            changePosition={setMapPosition}
-            changeZoom={setMapZoom}
-          />
-        }
-        zoomLevel={mapZoom}
-        CourtsMarkers={courtsList.map(
-          (
-            court // renderizar listado de canchas
-          ) => (
-            <Marker
-              key={court.court_id}
-              position={court.coordinates}
-              icon={CourtMarkerIcon}
-              eventHandlers={{
-                click: (e) => handleMarkerClick(court.court_id),
-              }}
-            >
-              <Popup minWidth={300}>
-                {courtSelected ? (
-                  <CourtCard
-                    courtData={courtSelected}
-                    showDeleteButton={false}
-                    showCloseButton={false}
-                  />
-                ) : (
-                  <Loader />
-                )}
-              </Popup>
-            </Marker>
-          )
-        )}
-        singleMarker={
-          user.location && <UserPositionMarker markerPosition={user.location} />
-        }
-      />
-      <Btn
-        text={"actualizar ubi"}
-        variant={"btn--primary btn--map"}
-        onClick={getUserLocation}
-      />
+        mapPosition={mapPagePosition.coordinates && mapPagePosition.coordinates}
+        zoomLevel={mapPagePosition.zoom && mapPagePosition.zoom}
+      >
+        <HandleMapMovement
+          changePosition={updateMapPageCenter}
+          changeZoom={updateMapPageZoom}
+        />
+        {user.location && <UserPositionMarker markerPosition={user.location} />}
+
+        {courtsList.map((court) => (
+          <Marker
+            key={court.court_id}
+            position={court.coordinates}
+            icon={CourtMarkerIcon}
+            eventHandlers={{
+              click: (e) => handleMarkerClick(court.court_id),
+            }}
+          >
+            <Popup minWidth={300}>
+              {courtSelected ? (
+                <CourtCard
+                  courtData={courtSelected}
+                  showDeleteButton={false}
+                  showCloseButton={false}
+                />
+              ) : (
+                <Loader />
+              )}
+            </Popup>
+          </Marker>
+        ))}
+      </Map>
+      <div className="map-controls-wrapper">
+        <UserLocationBtn mapRef={mapRef} />
+      </div>
     </div>
   );
 };
