@@ -18,12 +18,12 @@ class CourtModel {
     this.floor_type = floor_type;
     this.roof = false;
     this.location = {
-      coordinates: {},
+      coordinates: null,
       country: null,
       state: null,
       city: null,
     };
-    this.images = images;
+    this.images = [];
     this.schedules = [];
     this.services = {
       wifi: false,
