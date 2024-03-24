@@ -5,6 +5,7 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  padding: 1.5% 3%;
 }
 .arrow-container {
   height: 5rem;

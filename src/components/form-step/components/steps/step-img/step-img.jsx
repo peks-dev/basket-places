@@ -21,8 +21,17 @@ const StepImgs = () => {
 
     const horizontalImagesConfirmed = await Promise.all(
       selected.map(async (file) => {
-        const isHorizontal = await isImageHorizontal(file);
-        return isHorizontal ? file : null;
+        // Verificar si el archivo es una imagen
+        if (file.type.startsWith("image/")) {
+          const isHorizontal = await isImageHorizontal(file);
+          return isHorizontal ? file : null;
+        } else {
+          console.log(
+            "El archivo seleccionado no es una imagen válida:",
+            file.name
+          );
+          return null;
+        }
       })
     );
 
