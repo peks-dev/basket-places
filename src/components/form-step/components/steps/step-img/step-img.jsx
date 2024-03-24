@@ -61,7 +61,8 @@ const StepImgs = () => {
         <span className="yellow">todas deben ser horizontales</span>
       </p>
       <ul className="step-imgs__list-wrap">
-        {formData.images &&
+        {Array.isArray(formData.images) &&
+          formData.images.length > 0 &&
           formData.images.map((image, index) => (
             <li key={index} className="step-imgs__list-item">
               <div className="step-imgs__image-wrap">
