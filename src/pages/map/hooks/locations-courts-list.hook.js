@@ -13,7 +13,7 @@ export function useLocationsCourtsList() {
   const fetchLocationCourts = async () => {
     try {
       // Intenta obtener las coordenadas desde localStorage
-      const storedCoords = localStorage.getItem("courtCoordinates");
+      const storedCoords = localStorage.getItem("courtsLocations");
 
       if (storedCoords) {
         // Si las coordenadas están almacenadas, utiliza esas coordenadas
@@ -32,7 +32,7 @@ export function useLocationsCourtsList() {
 
         // Guarda las coordenadas en localStorage para futuras visitas
         localStorage.setItem(
-          "courtCoordinates",
+          "courtsLocations",
           JSON.stringify(adaptedMarkersData)
         );
 

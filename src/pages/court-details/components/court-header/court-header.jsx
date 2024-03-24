@@ -20,15 +20,15 @@ const CourtHeader = ({ game_level, courtName }) => {
     return stars;
   };
   return (
-    <div className="court-header">
+    <header className="court-header">
       <Title text={courtName} tag={"h1"} />
       <div className="court-header__wrap">
         <div className="court-header__details">
-          <div className="court-header__stars-wrap">
+          <ul className="court-header__stars-wrap">
             {renderStars(5, userRating).map((star, index) => (
               <li key={index}>{star}</li>
             ))}
-          </div>
+          </ul>
           <p className="txt txt--small">
             Nivel de juego:
             <span className="court-header__game-lvl">{game_level}</span>
@@ -49,7 +49,7 @@ const CourtHeader = ({ game_level, courtName }) => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

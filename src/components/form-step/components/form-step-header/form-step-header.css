@@ -1,7 +1,38 @@
 .form-step__header {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  padding: 1.5rem 0;
+}
+
+.form__progress-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.form__progress-item {
+  background-color: var(--primary);
+  width: clamp(3.4rem, 6.5vw, 5rem);
+  padding: 0.6rem;
+  border-radius: 50%;
+}
+.form__progress-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--accent);
+  text-anchor: middle;
+}
+
+/* Modificadores */
+.form__progress-item--active {
+  background-color: var(--accent);
+}
+.form__progress-item--active .form__progress-icon {
+  fill: var(--primary);
 }

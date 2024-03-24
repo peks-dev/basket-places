@@ -1,8 +1,4 @@
 .register-court-page {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  width: 100%;
   height: 100%;
-  width: 90%;
-  max-width: 80rem;
 }

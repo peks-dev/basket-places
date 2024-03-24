@@ -3,8 +3,9 @@ import { Marker } from "react-leaflet";
 
 const DraggableMarker = ({ position, onDragEnd }) => {
   const handleDragEnd = (event) => {
+    const newZoom = event.target._map._zoom;
     const newPosition = event.target.getLatLng();
-    onDragEnd(newPosition);
+    onDragEnd(newPosition, newZoom);
   };
 
   return (

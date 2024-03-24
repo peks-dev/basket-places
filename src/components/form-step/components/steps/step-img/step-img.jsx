@@ -1,82 +1,62 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef } from "react";
 import "./step-img.css";
 // utilities
 import { isImageHorizontal } from "./utilities/horizontal-check.utilitie";
-// icon
-import UploadIcon from "../../../../../assets/form-step/upload-icon";
-// Small components
-import Txt from "../../../../../components/layout/text-body/text-body";
-import Btn from "../../../../../components/layout/button/button";
-import CloseBtn from "../../../../close-btn/close-btn";
+
+import Button from "@/components/button/button";
+import CloseIcon from "@/components/icons/close-icon";
 
 // Context
-import CourtContext from "../../../../../context/court/court-context";
+import { useStepFormStore } from "@/context/stepFormStore";
 
 const StepImgs = () => {
   const fileInputRef = useRef(null);
-  const { updateImages, courtState } = useContext(CourtContext);
+  const { formData, updateImagesZ } = useStepFormStore();
 
-  const handleImgs = (event) => {
-    event.preventDefault();
-    fileInputRef.current.click();
-  };
+  console.log(formData);
+
   const handleImgsOnChange = async (event) => {
     const files = event.target.files;
     const selected = Array.from(files).slice(0, 4); // Limitar a 4 imágenes
 
-    const horizontalImages = await Promise.all(
+    const horizontalImagesConfirmed = await Promise.all(
       selected.map(async (file) => {
         const isHorizontal = await isImageHorizontal(file);
         return isHorizontal ? file : null;
       })
     );
 
-    const existingImages = courtState.images || [];
-    const newImages = horizontalImages.filter((file) => file !== null);
+    const existingImages = formData.images || []; // Guardar las anteriores
+    const newImages = horizontalImagesConfirmed.filter((file) => file !== null);
     const updatedImages = [...existingImages, ...newImages].slice(0, 4);
 
-    updateImages(updatedImages);
+    updateImagesZ(updatedImages);
+  };
+  const handleInput = (event) => {
+    event.preventDefault();
+    fileInputRef.current.click();
   };
 
   const handleRemoveImage = (e, index) => {
     e.preventDefault();
-    const updatedImages = [...courtState.images];
+    const updatedImages = [...formData.images];
     updatedImages.splice(index, 1);
-    updateImages(updatedImages);
+    updateImagesZ(updatedImages);
   };
 
   return (
     <div className="step-imgs">
-      <label htmlFor="uploader-files" className="step-imgs__uploader">
-        <UploadIcon style={"step-imgs__icon"} color={"#de9e36"} />
-        <div className="step-imgs__texts-wrap">
-          <Txt
-            content={"selecciona imagenes de tu galleria"}
-            style={"txt--center"}
-          />
-          <Txt content={"( Máximo 4 imagenes )"} style={"txt--center"} />
-        </div>
-        <Btn
-          text={"seleccionar"}
-          variant={"btn--primary"}
-          onClick={handleImgs}
-        ></Btn>
-
-        <input
-          ref={fileInputRef}
-          className="step-imgs__input"
-          type="file"
-          id="uploader-files"
-          multiple
-          accept="image/png, image/jpeg"
-          onChange={handleImgsOnChange}
-        />
-      </label>
+      <p>
+        Selecciona o toma 4 fotos como máximo
+        <br />
+        <span className="yellow">todas deben ser horizontales</span>
+      </p>
       <ul className="step-imgs__list-wrap">
-        {courtState.images
-          ? courtState.images.map((image, index) => (
-              <li key={index} className="step-imgs__list-img">
-                <div className="step-imgs__image-wrap">
+        {formData.images &&
+          formData.images.map((image, index) => (
+            <li key={index} className="step-imgs__list-item">
+              <div className="step-imgs__image-wrap">
+                <div className="step-imgs__image-container">
                   {typeof image === "string" ? (
                     <img key={index} src={image} alt={`Image ${index}`} />
                   ) : (
@@ -86,16 +66,37 @@ const StepImgs = () => {
                       alt={`Image ${index}`}
                     />
                   )}
-                  <CloseBtn
-                    handleClick={(e) => {
-                      handleRemoveImage(e, index);
-                    }}
-                  />
                 </div>
-              </li>
-            ))
-          : ""}
+                <p>{image.name}</p>
+              </div>
+
+              <Button
+                onClick={(e) => {
+                  handleRemoveImage(e, index);
+                }}
+                variant="step-img"
+                type="button"
+              >
+                <CloseIcon />
+              </Button>
+            </li>
+          ))}
       </ul>
+      {formData.images.length < 4 && (
+        <Button variant={"primary"} onClick={handleInput}>
+          seleccionar
+        </Button>
+      )}
+
+      <input
+        ref={fileInputRef}
+        className="step-imgs__input"
+        type="file"
+        id="uploader-files"
+        multiple
+        accept="image/png, image/jpeg"
+        onChange={handleImgsOnChange}
+      />
     </div>
   );
 };

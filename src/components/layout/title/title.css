@@ -1,17 +1,15 @@
 .title {
-  line-height: normal;
   font-family: var(--font-title);
-  font-size: clamp(2.3rem, 2.5vw, 3.2rem);
-  line-height: 1.2;
-  color: var(--color-orange);
-  text-align: center;
-  width: 100%;
+  text-transform: uppercase;
+  line-height: normal;
+}
+
+/* variants */
+.title[data-size="title--xlg"] {
+  font-size: 4rem;
 }
 
 /* Modificadores */
-.title--uppercase {
-  text-transform: uppercase;
-}
 .title--small {
   font-size: clamp(1.5rem, 1.4vw, 1.8rem);
 }
@@ -25,17 +23,7 @@
   padding-bottom: 1rem;
   text-align: left;
 }
-.title--left {
-  text-align: left;
-}
-
-.title--yellow {
-  color: var(--color-yellow);
-}
 
 .title--acent {
-  color: var(--color-acent);
-}
-.title--black {
-  color: var(--color-black);
+  color: var(--accent);
 }

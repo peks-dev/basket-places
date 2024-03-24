@@ -1,29 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./form-step-btns.css";
 
-// context
-import CourtContext from "../../../../context/court/court-context";
-
 // utilities
-import { nextStep, prevStep } from "../../utilities/manipulation-steps";
+import { useStepFormStore } from "@/context/stepFormStore";
 
 // Components
-import Btn from "../../../layout/button/button";
+import Button from "@/components/button/button";
+import ArrowIcon from "@/components/icons/arrow-icon";
 
-const FormStepBtns = ({ step, setStep, onSend }) => {
+const FormStepBtns = ({ onSend }) => {
   // states
-  const { courtState } = useContext(CourtContext);
+  const { formData, nextStep, prevStep, currentStep } = useStepFormStore();
 
-  // Btn functions
-  const handleNext = (e) => {
-    e.preventDefault();
-    nextStep(step, setStep);
-  };
-
-  const handlePrev = (e) => {
-    e.preventDefault();
-    prevStep(step, setStep);
-  };
   const handleSendFormData = (e) => {
     e.preventDefault();
     onSend();
@@ -33,20 +21,18 @@ const FormStepBtns = ({ step, setStep, onSend }) => {
   return (
     <ul className="form-step__btns-wrap">
       <li>
-        <Btn
-          onClick={handlePrev}
-          text={step === 0 ? "" : "atras"}
-          variant={"btn--secundary"}
-        />
+        <Button onClick={prevStep} variant={"arrow"}>
+          {currentStep === 0 ? "" : <ArrowIcon />}
+        </Button>
       </li>
       <li>
-        {courtState.location.coordinates.lat && (
-          <Btn
-            onClick={step === 5 ? handleSendFormData : handleNext}
-            text={step === 5 ? "enviar" : "siguiente"}
-            variant={step === 5 ? "btn--primary" : "btn--ternary"}
-          />
-        )}
+        <Button
+          onClick={currentStep === 5 ? handleSendFormData : nextStep}
+          variant={currentStep === 5 ? "primary" : "arrow"}
+          customStyle={"rotate"}
+        >
+          {currentStep === 5 ? "enviar" : <ArrowIcon />}
+        </Button>
       </li>
     </ul>
   );

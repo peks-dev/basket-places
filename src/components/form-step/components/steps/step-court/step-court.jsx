@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 // Context
-import CourtContext from "../../../../../context/court/court-context";
+import CourtContext from "@/context/court/court-context";
 
 // Components
 import Selector from "./components/selector";

@@ -4,13 +4,6 @@
   height: 100%;
   max-width: none !important;
 }
-.map-selector button {
-  position: absolute;
-  top: 20px;
-  right: 10px;
-  z-index: 10;
-  box-shadow: 0 0.5px 15px 1px rgba(25, 21, 21, 0.5);
-}
 
 .cargando {
   display: flex;

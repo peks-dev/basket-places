@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 
 // Context
-import CourtContext from "../../../../context/court/court-context";
+import CourtContext from "@/context/court/court-context";
 
 // Components
-import FormField from "../../../form/form-field/form-field";
-import Title from "../../../layout/title/title";
+import FormField from "@/components/form/form-field/form-field";
+import Title from "@/components/layout/title/title";
 
 const StepDescription = () => {
   const niveles = ["bajo", "medio", "alto"];

@@ -1,8 +1,17 @@
 .form-step__btns-wrap {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   align-items: center;
-  height: 15%;
+}
+.arrow-container {
+  height: 5rem;
+}
+.arrow-container svg {
+  height: 100%;
+}
+.flip {
+  transform: rotate(180deg);
 }

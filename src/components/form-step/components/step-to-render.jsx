@@ -8,8 +8,13 @@ import StepSchedule from "./steps/step-schedules/step-schedule";
 import StepServices from "./steps/step-services";
 import StepLocation from "./steps/step-location/step-location";
 
-const RenderStepContent = ({ stepToRender }) => {
-  switch (stepToRender) {
+// context
+import { useStepFormStore } from "@/context/stepFormStore";
+
+const RenderStepContent = () => {
+  const { currentStep } = useStepFormStore();
+
+  switch (currentStep) {
     case 0:
       return <StepLocation />;
     case 1:

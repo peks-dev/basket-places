@@ -3,11 +3,14 @@ import "./court-tabs.css";
 
 // components
 import Btn from "../../../../components/layout/button/button";
+import { CourtMarkerIcon } from "../../../../components/map/components/icons/court-marker-icon";
+import { Marker } from "react-leaflet";
+
+//Tabs components
 import Map from "../../../../components/map/map";
 import Schedules from "../../../../components/schedules/schedules";
 import DescriptionTab from "./components/description-tab/description-tab";
-import { CourtMarkerIcon } from "../../../../components/map/components/icons/court-marker-icon";
-import { Marker } from "react-leaflet";
+import ReviewTab from "./components/reviews-tab/review-tab";
 
 const CourtTabs = ({
   description,
@@ -51,6 +54,8 @@ const CourtTabs = ({
             }
           />
         );
+      case "reseñas":
+        return <ReviewTab />;
     }
   };
   return (

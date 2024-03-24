@@ -1,9 +1,12 @@
 .court-header {
+  flex: 1 0 auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
+  max-height: 13rem;
 }
 .court-header::before {
   content: "";
@@ -13,7 +16,9 @@
   height: 0.3rem;
   background-color: var(--color-black);
   order: 3;
-  border-radius: 50%;
+}
+.court-header__detais {
+  color: var(--color-white);
 }
 .court-header__wrap {
   display: flex;
@@ -25,7 +30,7 @@
 
 .court-header__game-lvl {
   font-family: var(--font-title);
-  color: var(--color-acent);
+  color: var(--color-yellow);
   font-size: clamp(1.5rem, 1.4vw, 1.8rem);
   margin-left: 1.5rem;
 }
@@ -33,6 +38,7 @@
 /* Left side */
 .court-header__stars-wrap {
   display: flex;
+  color: var(--color-yellow);
 }
 .court-header__stars-wrap li {
   width: clamp(2rem, 5vw, 3rem);

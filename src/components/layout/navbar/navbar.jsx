@@ -2,100 +2,57 @@ import React from "react";
 import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
 
+import Button from "@/components/button/button";
+
+// icons
+import SearchIcon from "@/components/icons/search-icon";
+import MapIcon from "@/components/icons/map-icon";
+import AddIcon from "@/components/icons/add-icon";
+import ProfileIcon from "@/components/icons/profile-icon";
+
 function Navbar() {
   const location = useLocation();
   return (
-    <>
-      <header className="navbar">
-        <nav className="navbar__wrap">
-          <ul className="navbar__links">
-            <li className="navbar__link-item">
+    <header className="navbar">
+      <nav className="navbar__wrap">
+        <ul className="navbar__links">
+          <li className={"navbar__link-item"}>
+            <Button customStyle={location.pathname === "/" && "btn--active"}>
               <Link to="/">
-                <svg
-                  version="1.0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="85.333"
-                  height="85.333"
-                  viewBox="0 0 64 64"
-                  className="navbar__icon"
-                  style={{
-                    fill:
-                      location.pathname === "/"
-                        ? "var(--color-yellow)"
-                        : "var(--color-white)",
-                  }}
-                >
-                  <path d="M44.1 1.7c-10.8 5.6-9.9 16.2 2.4 30.9 3.9 4.7 4.3 4.5 11.5-6.3 6-8.9 6.9-12.8 4.4-17.9-3.6-7.3-11.7-10.2-18.3-6.7zm10.1 8c2.2 2 2.3 6.1.1 8.5-3.4 3.8-10.3 1.1-10.3-4 0-5.4 6.2-8.1 10.2-4.5zM9.8 20.2l-9.8 4v19.4c0 10.9.4 19.5.9 19.9.6.3 5.1-1.1 10-3.1l9.1-3.6V36.4c0-11.2-.1-20.4-.2-20.3-.2 0-4.7 1.9-10 4.1zM24 36.5v20.3l6.8 2.7c3.7 1.5 7.3 2.9 8 3.2.9.4 1.2-3.1 1.2-15.3V31.5l-3.9-6.1c-3-4.6-4.8-6.4-8-7.6L24 16.2v20.3z" />
-                  <path d="M61.8 28.7c-.9 1.6-3.3 4.7-5.3 7-4 4.7-7.5 5.5-10.7 2.6-1.7-1.6-1.8-1.1-1.8 12v13.5l10-4 10-4V40.9c0-8.2-.1-14.9-.3-14.9-.1 0-1 1.2-1.9 2.7z" />
-                </svg>
+                <MapIcon />
               </Link>
-            </li>
-            <li className="navbar__link-item">
+            </Button>
+          </li>
+          <li className="navbar__link-item">
+            <Button
+              customStyle={location.pathname === "/search" && "btn--active"}
+            >
               <Link to="/search">
-                <svg
-                  version="1.0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="666.667"
-                  height="666.667"
-                  viewBox="0 0 500 500"
-                  className="navbar__icon"
-                  style={{
-                    fill:
-                      location.pathname === "/search"
-                        ? "var(--color-yellow)"
-                        : "var(--color-white)",
-                  }}
-                >
-                  <path d="M169.5 2.5C137.1 7.8 105.3 21 80 39.9c-9.4 7-26.2 23.2-34.5 33.1C20 103.6 2.8 147.8 1.3 187-.9 243 19 297.2 55.9 335.4c29.6 30.7 68.6 51.2 110.6 58.1 13.2 2.2 38.9 3 52 1.6 27-2.9 54.9-11.7 76.6-24.1l9.2-5.2 63.6 63.4c73 72.8 68.2 69 86.3 69.6 11.3.4 17.3-1.1 25.6-6.5 6.8-4.6 11.7-10.3 15.6-18.3 2.9-6.1 3.1-7.2 3.1-18 0-19.9 4.1-14.6-69.6-88.4-34.6-34.6-62.9-63.3-62.9-63.9 0-.5 2.2-4.6 4.9-9.1 9.2-15.2 18.8-42.3 22.5-63.6 3.7-20.8 3.1-51.4-1.4-72.5-8.2-38.9-25.7-71.3-53.9-99.6-27.6-27.7-61.9-46.3-100.6-54.5-10.5-2.3-14.9-2.7-35.5-3-17.2-.2-25.9.1-32.5 1.1zm57.5 58c26.4 5.8 51.1 19.6 71 39.5 19.8 19.7 32.5 43.2 38.2 70.7 3.2 15.3 3.2 42.6-.1 55.8-3.3 13.7-6.9 24.1-11.9 34-20.1 40.3-56.3 67.5-101.2 76.1-12.7 2.4-36.1 2.4-48.5 0-34-6.5-63.3-23.3-83.4-47.9-24.1-29.5-34-58.3-32.8-94.7.8-23.8 4.4-38.2 14.3-57.6 7.3-14 16.1-26.1 27.4-37.4 11.5-11.5 22.3-19.2 37.9-27 13.9-6.9 21.8-9.4 43.1-13.4 5.8-1.1 38.7.3 46 1.9z" />
-                  <path d="M174.5 91.5c-33.7 7.8-58.6 27.5-73.9 58.2-8.5 17.1-11.6 30.1-11.6 48.9 0 18.7 3.2 31.9 12.3 49.9 14.4 28.7 38.6 48.2 70.8 56.7 7.3 2 10.8 2.3 26.9 2.2 15.7 0 19.7-.4 26.3-2.2 20.8-5.7 36.5-14.8 50.8-29.4 15.2-15.6 23.3-29.5 28.7-49.7 2.3-8.6 2.5-11.5 2.6-27.6 0-16.4-.3-18.9-2.7-28-10.7-39.6-44.3-71.3-84.2-79.6-13.2-2.7-32.8-2.5-46 .6z" />
-                </svg>
+                <SearchIcon />
               </Link>
-            </li>
-            <li className="navbar__link-item">
+            </Button>
+          </li>
+          <li className="navbar__link-item">
+            <Button
+              customStyle={location.pathname === "/new-bp" && "btn--active"}
+            >
               <Link to="/new-bp">
-                <svg
-                  version="1.0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="120"
-                  height="120"
-                  viewBox="0 0 90 90"
-                  className="navbar__icon"
-                  style={{
-                    fill:
-                      location.pathname === "/new-bp"
-                        ? "var(--color-yellow)"
-                        : "var(--color-white)",
-                  }}
-                >
-                  <path d="M36.4 10.4C18.3 14.8 6.4 33.1 10 51.2 12.9 66.5 23.4 77 38.8 80c14.6 2.9 30.3-4.6 37.4-17.7 11.3-20.9 0-46.5-23.1-51.9-6.7-1.6-10-1.6-16.7 0zm11.4 24.3.3 7.2 7.2.3c6.9.3 7.2.4 7.2 2.8s-.3 2.5-7.2 2.8l-7.2.3-.3 7.2c-.3 6.9-.4 7.2-2.8 7.2s-2.5-.3-2.8-7.2l-.3-7.2-7.2-.3c-6.9-.3-7.2-.4-7.2-2.8s.3-2.5 7.3-2.8l7.2-.3v-6.8c0-7.4.4-8.3 3.5-7.9 1.8.3 2 1.1 2.3 7.5z" />
-                </svg>
+                <AddIcon />
               </Link>
-            </li>
-            <li className="navbar__link-item">
+            </Button>
+          </li>
+          <li className="navbar__link-item">
+            <Button
+              customStyle={location.pathname === "/profile" && "btn--active"}
+            >
               <Link to="/profile">
-                <svg
-                  version="1.0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="666.667"
-                  height="666.667"
-                  viewBox="0 0 500 500"
-                  className="navbar__icon"
-                  style={{
-                    fill:
-                      location.pathname === "/profile"
-                        ? "var(--color-yellow)"
-                        : "var(--color-white)",
-                  }}
-                >
-                  <path d="M231.5 23.1c-62.5 9-108.2 70.4-99.4 133.5 2.3 16.9 11.2 39.1 21.1 53.2 13.6 19.2 38.5 37.4 60.1 44.1 33.9 10.4 71.7 5.8 99.5-12.2 21-13.6 35.5-30.4 45.4-52.7 5.9-13.2 8.5-23.4 10-38 3.5-36.1-12.6-76.2-40.1-99.7-19.4-16.6-38.7-25.4-61.6-28.2-10.3-1.3-26.2-1.3-35 0z" />
-                  <path d="M144.9 243.9c-15 5.8-44.4 31.7-61.2 53.8-21.3 28-36.7 66.8-40.7 102.7-1.3 11.2-.4 17.6 3.4 24.1 4.9 8.1 10.3 11.5 33.5 20.7 109.9 43.6 235.9 43.4 342.8-.5 20.5-8.4 26.1-12.1 30.8-20.2 4-6.8 4.8-13.3 3-26.7-5.2-40.4-23.9-82.1-50-111.9-15.5-17.7-40-37.6-51.6-42-5.8-2.3-13.8-2.4-20.2-.5-2.6.8-9.5 4.3-15.4 7.8-13.1 7.9-25.1 13-38 16.5-9.2 2.5-11.2 2.7-31.3 2.7s-22.1-.2-31.3-2.7c-12.9-3.5-24.9-8.6-37.7-16.2-5.8-3.5-12.7-7-15.3-7.9-6.2-2.1-15-2-20.8.3z" />
-                </svg>
+                <ProfileIcon />
               </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </>
+            </Button>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 }
 

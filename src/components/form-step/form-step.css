@@ -2,44 +2,31 @@
 .form-step {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   margin: 0 auto;
   height: 100%;
-  width: 100%;
-  max-width: 80rem;
-  padding-top: clamp(3rem, 8%, 8rem);
-  gap: clamp(1rem, 3%, 2rem);
+  width: 95%;
+  max-width: 85rem;
+  overflow: hidden;
 }
 .form-step__body {
+  flex: 1 1 80%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  min-width: 100%;
-  min-height: 65%;
-  max-height: 65%;
-  background-color: var(--color-black);
+  background-color: var(--primary);
   border-radius: 1.2rem;
+  margin-bottom: 2rem;
+  padding: 5%;
 }
 .form-step__active {
+  flex: 1 1 80%;
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 2.5rem;
   align-items: center;
-  height: 85%;
   width: 100%;
   overflow-y: auto;
-}
-
-.step-description,
-.step-imgs,
-.step-court,
-.step-time,
-.step-services,
-.territory-selector-container {
-  width: 100%;
-  max-width: 65rem;
-  padding: 2em 3em 0 3em;
 }
 .step-description,
 .step-court {

@@ -44,41 +44,43 @@ function App() {
     <Router>
       {isViewportTooSmall && <ViewportBlocker />}
       <div className="App">
+        <main className="app-content">
+          <Routes>
+            <Route path="/" element={<MapPage />} />
+            <Route
+              path="/profile"
+              element={user.id ? <UserProfilePage /> : <Credentials />}
+            />
+            <Route path="/search" element={<SearchPage />} />
+            <Route
+              path="/new-bp"
+              element={
+                user.id ? (
+                  <CourtProvier>
+                    <RegisterCourtPage />
+                  </CourtProvier>
+                ) : (
+                  <Credentials />
+                )
+              }
+            />
+            <Route path="/search/:courtId" element={<CourtDetails />} />
+            <Route
+              path="/edit-court/:courtId"
+              element={
+                user.id ? (
+                  <CourtProvier>
+                    <EditCourt />
+                  </CourtProvier>
+                ) : (
+                  <Credentials />
+                )
+              }
+            />
+            <Route path="/prueba" element={<Prueba />} />
+          </Routes>
+        </main>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<MapPage />} />
-          <Route
-            path="/profile"
-            element={user.id ? <UserProfilePage /> : <Credentials />}
-          />
-          <Route path="/search" element={<SearchPage />} />
-          <Route
-            path="/new-bp"
-            element={
-              user.id ? (
-                <CourtProvier>
-                  <RegisterCourtPage />
-                </CourtProvier>
-              ) : (
-                <Credentials />
-              )
-            }
-          />
-          <Route path="/search/:courtId" element={<CourtDetails />} />
-          <Route
-            path="/edit-court/:courtId"
-            element={
-              user.id ? (
-                <CourtProvier>
-                  <EditCourt />
-                </CourtProvier>
-              ) : (
-                <Credentials />
-              )
-            }
-          />
-          <Route path="/prueba" element={<Prueba />} />
-        </Routes>
       </div>
     </Router>
   );

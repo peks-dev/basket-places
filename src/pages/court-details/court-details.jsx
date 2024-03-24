@@ -32,7 +32,7 @@ const CourtDetails = () => {
   }
 
   return (
-    <div className="court-details-container">
+    <article className="court-details-container">
       <Btn
         text={"atras"}
         variant={"btn--primary btn--absolute"}
@@ -40,11 +40,13 @@ const CourtDetails = () => {
           navigate(-1);
         }}
       />
-      <CourtSlider images={allDataCourt.images} />
-      <CourtHeader
-        game_level={allDataCourt.game_level}
-        courtName={allDataCourt.name}
-      />
+      <header>
+        <CourtSlider images={allDataCourt.images} />
+        <CourtHeader
+          game_level={allDataCourt.game_level}
+          courtName={allDataCourt.name}
+        />
+      </header>
       <CourtTabs
         description={allDataCourt.description}
         services={allDataCourt.services}
@@ -53,7 +55,7 @@ const CourtDetails = () => {
         schedules={allDataCourt.schedules}
         coordinates={allDataCourt.location.coordinates}
       />
-    </div>
+    </article>
   );
 };
 

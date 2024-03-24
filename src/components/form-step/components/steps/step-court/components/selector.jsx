@@ -1,8 +1,8 @@
 import React from "react";
 
 //components
-import FormField from "../../../../../form/form-field/form-field";
-import Title from "../../../../../layout/title/title";
+import FormField from "@/components/form/form-field/form-field";
+import Title from "@/components/layout/title/title";
 
 const Selector = ({
   title,

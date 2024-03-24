@@ -1,32 +1,28 @@
 .navbar {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 10px;
-  background-color: var(--color-black);
-  width: 80%;
-  max-width: 50rem;
-  height: auto;
-  border-radius: 2rem;
-  z-index: 100;
+  flex: 0 0 auto;
+  width: 100%;
+  z-index: 10;
+  padding-bottom: 1rem;
 }
 .navbar__wrap {
+  width: 85%;
+  margin: 0 auto;
   padding: 10px 5px;
+  border-radius: 2rem;
+  max-width: 50rem;
+  background-color: var(--primary);
 }
 .navbar__links {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  color: var(--ternary);
 }
-.navbar__icon {
-  /* fill: var(--color-white); */
-  width: 25px;
-  height: 25px;
+.navbar__link-item {
+  width: clamp(4.5rem, 9vw, 6rem);
 }
-
-.navbar__icon:hover {
-  fill: var(--color-yellow);
+.navbar__link-item svg {
+  height: 100%;
 }
 
 /* Viewport Block*/

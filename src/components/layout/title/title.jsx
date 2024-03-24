@@ -1,9 +1,13 @@
 import React from "react";
 import "./title.css";
-const Title = ({ tag, text, style }) => {
-  const Tag = tag; // El nombre de la etiqueta HTML se asigna a la constante Tag
+const Title = ({ tag, text, customStyle, size }) => {
+  const Tag = tag; // Nivel de heading
 
-  return <Tag className={`title ${style}`}>{text}</Tag>;
+  return (
+    <Tag className={`title ${customStyle}`} data-size={size}>
+      {text}
+    </Tag>
+  );
 };
 
 export default Title;

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 
 // utilities
-import CourtContext from "../../../../context/court/court-context";
+import CourtContext from "@/context/court/court-context";
 // componentes
-import Title from "../../../layout/title/title";
-import FormField from "../../../form/form-field/form-field";
+import Title from "@/components/layout/title/title";
+import FormField from "@/components/form/form-field/form-field";
 
 const StepServices = () => {
   const {

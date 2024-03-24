@@ -2,15 +2,15 @@ import React from "react";
 import "./progress-bar.css";
 
 // Iconos
-import MarkerIcon from "../../../../../assets/form-step/marker-icon";
-import CourtIcon from "../../../../../assets/form-step/court-icon";
-import DayIcon from "../../../../../assets/form-step/day-icon";
-import DocumentIcon from "../../../../../assets/form-step/document-icon";
-import ListIcon from "../../../../../assets/form-step/list-icon";
-import ImgIcon from "../../../../../assets/form-step/img-icon";
+import MarkerIcon from "@/assets/form-step/marker-icon";
+import CourtIcon from "@/assets/form-step/court-icon";
+import DayIcon from "@/assets/form-step/day-icon";
+import DocumentIcon from "@/assets/form-step/document-icon";
+import ListIcon from "@/assets/form-step/list-icon";
+import ImgIcon from "@/assets/form-step/img-icon";
 
 // Componentes
-import Title from "../../../../layout/title/title";
+import Title from "@/components/layout/title/title";
 
 const ProgressBar = ({ step }) => {
   const icons = [
