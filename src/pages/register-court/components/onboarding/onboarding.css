@@ -1,0 +1,15 @@
+.onboarding {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  height: 100%;
+  width: 85%;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.onboarding__svg-container {
+  width: clamp(10rem, 15vw, 20rem);
+}
