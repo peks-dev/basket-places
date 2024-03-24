@@ -1,18 +1,22 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./index.css";
+
+//components
+import App from "./App";
+
+//context
 import UserProvider from "./context/user/userProvider";
 import { useStepFormStore } from "@/context/stepFormStore";
 
 const Index = () => {
   const { resetStepForm } = useStepFormStore();
   useEffect(() => {
-    // Acciones de limpieza al cargar la aplicación
-
+    // Acciones de limpieza
+    window.addEventListener("beforeunload", resetStepForm);
     return () => {
-      // Acciones de limpieza al desmontar la aplicación (cuando se cierre la pestaña del navegador, por ejemplo)
-      resetStepForm();
+      // Remover acciones de limpieza (cerrar pestaña o recargarla)
+      window.removeEventListener("beforeunload", resetStepForm);
     };
   }, []);
 
