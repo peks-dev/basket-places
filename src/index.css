@@ -2,25 +2,21 @@
 
 /* importar fonts}*/
 @font-face {
-  font-family: black-rider;
-  src: url("./assets/fonts/black-rider.regular.ttf");
+  font-family: black-han-sans;
+  src: url("/fonts/BlackHanSans-Regular.woff");
 }
 @font-face {
-  font-family: kglife;
-  src: url("./assets/fonts/KgLifeIsMessy-Z518.ttf");
-}
-@font-face {
-  font-family: zai-hong;
-  src: url("./assets/fonts/zai_HongKongGraffiti.ttf");
+  font-family: balsamiq-sans;
+  src: url("/fonts/BalsamiqSans-Regular.woff");
 }
 /* Aquí definimos las Custom properties */
 :root {
   --negro: #393939;
   /* Tipografía */
 
-  --font-title: kglife;
-  --font-btn: black-rider;
-  --font-body: zai-hong;
+  --font-title: black-han-sans;
+  --font-btn: black-han-sans;
+  --font-body: balsamiq-sans;
   /* Color pallete*/
   --color-orange: #c86804;
   --color-yellow: #de9e36;
@@ -29,17 +25,24 @@
   --color-gray: #46494c;
   --color-white: #fafaff;
   --color-red: #bc331d;
+  --dark-2: #524f4c;
+
+  --accent: #de9e36;
+  --background: #3a3d3f;
+  --primary: #242628;
+  --secundary: #f5f6f6;
+  --ternary: #636363;
 
   font-size: 62.5%;
 }
 
 /* Las adaptamos al modo oscuro */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --color-black: #252422;
     --color-white: #ececec;
   }
-}
+} */
 /* Opcional */
 /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
 /* Opcional */
@@ -125,6 +128,11 @@ em {
   color: inherit;
 }
 
+p {
+  font-size: clamp(1.8rem, 2vw, 2rem);
+  line-height: normal;
+}
+
 /* Evitamos problemas con los pseudoelementos de quotes */
 blockquote:before,
 blockquote:after,
@@ -136,12 +144,12 @@ q:after {
 
 /* Configuramos el texto que seleccionamos */
 ::-moz-selection {
-  background-color: var(--color-yellow);
-  color: var(--color-black);
+  background-color: var(--accent);
+  color: var(--primary);
 }
 ::selection {
-  background-color: var(--color-yellow);
-  color: var(--color-black);
+  background-color: var(--accent);
+  color: var(--primary);
 }
 
 /* Nivelamos problemas de tipografías y colocación de formularios */
@@ -177,7 +185,7 @@ td {
 svg {
   width: 100%;
   display: block;
-  fill: var(--color-white);
+  fill: currentColor;
 }
 
 /* (Probándolo, no usar en producción) En el caso de añadir una  */
@@ -188,11 +196,12 @@ svg {
 /* Configuramos la tipografía para toda la web */
 body {
   position: relative;
-  min-height: 100vh;
+  height: 100dvh;
+  width: 100dvw;
   font-size: 100%;
   font-family: var(--font-body);
-  color: var(--color-white);
-  background-color: var(--color-gray);
+  color: var(--secundary);
+  background-color: var(--background);
   /* opcional */
   line-height: 1.4em;
   /* opcional */
@@ -205,4 +214,9 @@ body {
   -webkit-font-smoothing: antialiased;
   /* opcional */
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
 }
