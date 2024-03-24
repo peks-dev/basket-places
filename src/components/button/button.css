@@ -1,0 +1,81 @@
+.btn {
+  width: fit-content;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--ternary);
+  padding: 0.5rem 1rem;
+  border-radius: 1.3rem;
+  font-size: 1.5rem;
+  font-family: var(--font-btn);
+  text-transform: uppercase;
+}
+
+/* - - - - - - */
+.btn:hover,
+.btn:active,
+.btn--link:hover,
+.btn[data-variant="primary"]:hover {
+  transform: scale(1.1);
+}
+
+/* - - - - - - */
+.btn[data-variant="primary"] {
+  background-color: var(--accent);
+  color: var(--ternary);
+}
+/* - - - - - - */
+.btn[data-variant="secundary"]:hover {
+  background-color: transparent;
+  color: var(--accent);
+}
+/* - - - - - - */
+.btn[data-variant="btn--navbar"] {
+  background-color: var(--accent);
+  color: var(--primary);
+}
+
+/* - - - - - - */
+.btn[data-variant="map-control"] {
+  width: 6rem;
+}
+
+/* - - - - - - */
+.btn[data-variant="step-img"] {
+  background-color: transparent;
+  color: var(--accent);
+  width: clamp(3rem, 8vw, 4rem);
+  padding: 0;
+}
+.btn[data-variant="step-img"]:active {
+  color: var(--accent);
+}
+/* - - - - - - */
+.btn[data-variant="arrow"] {
+  background-color: transparent;
+  width: 5rem;
+  padding: 0;
+}
+.btn[data-variant="arrow"] svg {
+  height: 100%;
+}
+.btn[data-variant="arrow"]:active {
+  color: var(--accent);
+}
+.rotate {
+  transform: rotate(180deg); /* evitar el hover del btn principal*/
+}
+.rotate:hover {
+  transform: rotate(180deg) scale(1.1); /* mantener la rotacion y escalar*/
+}
+/* - - - - - - */
+.btn--link {
+  text-decoration: underline;
+}
+.btn--link:hover {
+  color: var(--secundary);
+}
+
+.btn--active {
+  background-color: var(--accent);
+  color: var(--primary);
+}
