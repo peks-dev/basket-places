@@ -28,12 +28,21 @@
   --dark-2: #524f4c;
 
   --accent: #de9e36;
-  --background: #3a3d3f;
-  --primary: #242628;
-  --secundary: #f5f6f6;
   --ternary: #636363;
 
   font-size: 62.5%;
+}
+
+[data-theme="dark"] {
+  --background: #3a3d3f;
+  --primary: #242628;
+  --secundary: #f5f6f6;
+}
+
+[data-theme="light"] {
+  --background: #f5f6f6;
+  --primary: #b9c0bf;
+  --secundary: #242628;
 }
 
 /* Las adaptamos al modo oscuro */

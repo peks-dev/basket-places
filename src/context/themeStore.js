@@ -6,10 +6,16 @@ export const useThemeStore = create(
     (set) => ({
       currentTheme: "dark",
       changeTheme: () =>
-        set((state) => ({
-          ...state,
-          currentTheme: state.currentTheme === "dark" ? "light" : "dark",
-        })),
+        set((state) => {
+          document.body.setAttribute(
+            "data-theme",
+            state.currentTheme === "dark" ? "dark" : "light"
+          );
+          return {
+            ...state,
+            currentTheme: state.currentTheme === "dark" ? "light" : "dark",
+          };
+        }),
     }),
     { name: "theme-state" }
   )

@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 
 // Context
 import CourtProvier from "./context/court/court-provider";
+import { useThemeStore } from "@/context/themeStore";
 
 // Pages
 import MapPage from "./pages/map/map-page";
@@ -25,14 +26,16 @@ import ThemeButton from "@/components/theme-button/theme-button";
 function App() {
   const { user } = useContext(UserContext);
   const [isViewportTooSmall, setIsViewportTooSmall] = useState(false);
+  const { changeTheme } = useThemeStore();
 
   useEffect(() => {
     const handleResize = () => {
       setIsViewportTooSmall(window.innerWidth < 250);
     };
     handleResize(); // Verificar el tamaño del viewport al cargar la aplicación
-
+    changeTheme();
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
       localStorage.removeItem("courtsLocations");
@@ -43,7 +46,7 @@ function App() {
     <Router>
       {isViewportTooSmall && <ViewportBlocker />}
       <div className="App">
-        <main className="app-content">
+        <main className={`app-content`}>
           <Routes>
             <Route path="/" element={<MapPage />} />
             <Route
