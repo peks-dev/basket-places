@@ -4,18 +4,16 @@ import Button from "@/components/button/button";
 import { useThemeStore } from "@/context/themeStore";
 
 const ThemeButton = () => {
-  const { currentTheme, changeTheme } = useThemeStore();
+  const { currentTheme, changeTheme, applyTheme } = useThemeStore();
 
-  const buttonStyle = currentTheme === "dark" ? "dark" : "light";
+  function handleChangeTheme() {
+    changeTheme();
+    applyTheme();
+  }
 
   return (
-    <Button
-      variant={"theme"}
-      type="button"
-      onClick={changeTheme}
-      customStyle={buttonStyle}
-    >
-      theme: {currentTheme}
+    <Button variant={"theme"} type="button" onClick={handleChangeTheme}>
+      modo actual: {currentTheme}
     </Button>
   );
 };

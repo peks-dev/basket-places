@@ -79,5 +79,5 @@
 .btn--active {
   background-color: var(--accent) !important;
   border-color: var(--accent) !important;
-  color: var(--primary) !important;
+  color: #242628 !important;
 }

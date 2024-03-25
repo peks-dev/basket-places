@@ -26,14 +26,14 @@ import ThemeButton from "@/components/theme-button/theme-button";
 function App() {
   const { user } = useContext(UserContext);
   const [isViewportTooSmall, setIsViewportTooSmall] = useState(false);
-  const { changeTheme } = useThemeStore();
+  const { applyTheme } = useThemeStore();
 
   useEffect(() => {
     const handleResize = () => {
       setIsViewportTooSmall(window.innerWidth < 250);
     };
     handleResize(); // Verificar el tamaño del viewport al cargar la aplicación
-    changeTheme();
+    applyTheme();
     window.addEventListener("resize", handleResize);
 
     return () => {
