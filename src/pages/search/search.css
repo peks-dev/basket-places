@@ -1,13 +1,25 @@
 .search-page {
-}
-
-.search-page__courts-container,
-.search-page__courts-container li {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.search-page__header {
+  flex: 0 0 auto;
+  padding: 3% 5% 4rem 5%;
+  text-align: right;
 }
 
 .search-page__courts-container {
+  flex: 1 1 70%;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
   gap: 3rem;
+  overflow-y: scroll;
+  margin: auto;
+}
+.search-page__courts-container li {
+  max-height: 25rem;
+  max-width: 40rem;
 }

@@ -6,8 +6,15 @@ import { useThemeStore } from "@/context/themeStore";
 const ThemeButton = () => {
   const { currentTheme, changeTheme } = useThemeStore();
 
+  const buttonStyle = currentTheme === "dark" ? "dark" : "light";
+
   return (
-    <Button type="button" onClick={changeTheme}>
+    <Button
+      variant={"theme"}
+      type="button"
+      onClick={changeTheme}
+      customStyle={buttonStyle}
+    >
       theme: {currentTheme}
     </Button>
   );

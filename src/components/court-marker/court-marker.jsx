@@ -15,11 +15,11 @@ import CourtCard from "@/components/court-card-preview/court-card";
 import Loader from "@/components/loader/loader";
 
 const CourtMarker = React.memo(
-  ({ courtId, markerPosition, showPopup }) => {
+  ({ courtId, markerPosition, showPopup, isDraggable, onDragEnd }) => {
     const [courtDetails, setCourtDetails] = useState(null);
     const { currentTheme } = useThemeStore();
     const iconUrl =
-      currentTheme === "dark" ? courtIconSvgDark : courtIconSvgLight;
+      currentTheme === "dark" ? courtIconSvgLight : courtIconSvgDark;
 
     async function handlePopUp() {
       if (!courtDetails) {
@@ -27,10 +27,16 @@ const CourtMarker = React.memo(
         setCourtDetails(adaptCourtData);
       }
     }
-    console.log(courtDetails);
+
+    const handleDragEnd = (event) => {
+      const newZoom = event.target._map._zoom;
+      const newPosition = event.target.getLatLng();
+      onDragEnd(newPosition, newZoom);
+    };
     return (
       <Marker
         position={markerPosition}
+        draggable={isDraggable}
         icon={L.icon({
           iconUrl: iconUrl,
           iconRetinaUrl: iconUrl,
@@ -42,7 +48,10 @@ const CourtMarker = React.memo(
           className: "icono-masiso",
         })}
         eventHandlers={{
-          click: (e) => handlePopUp(e),
+          click: (e) => {
+            showPopup && handlePopUp(e);
+          },
+          dragend: handleDragEnd,
         }}
       >
         {showPopup && (

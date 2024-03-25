@@ -9,6 +9,7 @@ import { useCourtsData } from "../../hooks/use-courts-data.hook";
 import CourtCard from "../../components/court-card-preview/court-card";
 import Loader from "../../components/loader/loader";
 import Error from "../../components/error/error";
+import Title from "@/components/layout/title/title";
 
 const SearchPage = () => {
   const { canchasData, loading, error } = useCourtsData();
@@ -44,6 +45,9 @@ const SearchPage = () => {
 
   return (
     <section className="search-page">
+      <header className="search-page__header">
+        <Title tag={"h1"} text={"recientes"} size={"title--xlg"} />
+      </header>
       <ul className="search-page__courts-container">
         {canchasData.map((courtData, index) => (
           <li key={index}>

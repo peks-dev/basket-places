@@ -6,8 +6,8 @@ import UserContext from "@/context/user/userContext";
 
 // Component
 import Map from "@/components/map/map";
-import DraggableMarker from "@/components/map/components/dragg-marker";
 import Loader from "@/components/loader/loader";
+import CourtMarker from "@/components/court-marker/court-marker";
 
 import { useStepFormStore } from "@/context/stepFormStore";
 import { useMapStore } from "@/context/mapStore";
@@ -50,8 +50,9 @@ const StepLocation = () => {
           }
           zoomLevel={mapStepFormPosition.zoom ? mapStepFormPosition.zoom : 14}
         >
-          <DraggableMarker
-            position={mapStepFormPosition.coordinates}
+          <CourtMarker
+            markerPosition={mapStepFormPosition.coordinates}
+            isDraggable={true}
             onDragEnd={handleMarkerDragEnd}
           />
         </Map>

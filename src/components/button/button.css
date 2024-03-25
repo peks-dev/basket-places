@@ -8,6 +8,7 @@
   font-size: 1.5rem;
   font-family: var(--font-btn);
   text-transform: uppercase;
+  border: 0.2rem solid var(--ternary);
 }
 
 /* - - - - - - */
@@ -16,7 +17,8 @@
   color: var(--ternary);
 }
 /* - - - - - - */
-.btn[data-variant="secundary"]:hover {
+.btn[data-variant="secundary"] {
+  border: none;
   background-color: transparent;
   color: var(--ternary);
 }
@@ -26,6 +28,7 @@
 }
 /* - - - - - - */
 .btn[data-variant="btn--navbar"] {
+  border-color: var(--ternary);
   background-color: var(--accent);
   color: var(--primary);
 }
@@ -33,6 +36,13 @@
 /* - - - - - - */
 .btn[data-variant="map-control"] {
   width: 6rem;
+}
+/* - - - - - - */
+.btn[data-variant="theme"] {
+  position: fixed;
+  bottom: 20%;
+  left: 1.5rem;
+  z-index: 20;
 }
 
 /* - - - - - - */
@@ -47,6 +57,7 @@
 }
 /* - - - - - - */
 .btn[data-variant="arrow"] {
+  border: none;
   background-color: transparent;
   width: 5rem;
   padding: 0;
@@ -54,10 +65,9 @@
 .btn[data-variant="arrow"] svg {
   height: 100%;
 }
-.btn[data-variant="arrow"]:hover {
-  color: var(--accent);
-}
+
 .btn[data-variant="arrow"]:active {
+  color: var(--accent);
   transform: scale(1.1);
 }
 
@@ -65,11 +75,9 @@
 .btn--link {
   text-decoration: underline;
 }
-.btn--link:hover {
-  color: var(--secundary);
-}
 
 .btn--active {
-  background-color: var(--accent);
-  color: var(--primary);
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--primary) !important;
 }
