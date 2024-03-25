@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./court-card-footer.css";
 
 // Components
-import Btn from "../../../layout/button/button";
+import Button from "@/components/button/button";
 
 const CourtCardFooter = ({ game_level, court_id }) => {
   return (
@@ -12,7 +12,7 @@ const CourtCardFooter = ({ game_level, court_id }) => {
         nivel de juego <span>{game_level}</span>
       </p>
       <Link to={`/search/${court_id}`}>
-        <Btn text={"ver detalles"} variant={"btn--secundary"} />
+        <Button variant={"secundary"}>ver detalles</Button>
       </Link>
     </footer>
   );

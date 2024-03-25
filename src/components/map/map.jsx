@@ -5,7 +5,7 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import { openStreetMapTile } from "./const/tile-layers";
 import "leaflet/dist/leaflet.css";
 
-const Map = ({ mapPosition, zoomLevel, children, mapRef }) => {
+const Map = ({ mapPosition, zoomLevel, children, mapRef, courtsMarkers }) => {
   const defaultPosition = [24.005386577116106, -99.11535224115887];
   const defaultZoom = [4];
   return (
@@ -18,6 +18,7 @@ const Map = ({ mapPosition, zoomLevel, children, mapRef }) => {
         attribution={openStreetMapTile.attribution}
         url={openStreetMapTile.url}
       />
+      {courtsMarkers}
       {children}
     </MapContainer>
   );

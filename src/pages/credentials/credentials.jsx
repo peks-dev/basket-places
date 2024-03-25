@@ -5,7 +5,7 @@ import "./credentials.css";
 import Login from "./components/login/login";
 import SignUp from "./components/sign-up/sign-up";
 import CredentialsWelcome from "./components/welcome/crd-welcome";
-import Btn from "../../components/layout/button/button";
+import Button from "@/components/button/button";
 import NotificationPopup from "../../components/notification-popup/notification-popup";
 
 // utilities
@@ -47,13 +47,14 @@ function Credentials() {
   return (
     <section className="credentials">
       {credentialStep !== "welcome" && (
-        <Btn
-          text={"atras"}
-          variant={"btn--secundary btn--absolute"}
+        <Button
+          variant={"primary"}
           onClick={() => {
             setCredentialStep("welcome");
           }}
-        />
+        >
+          atras
+        </Button>
       )}
 
       <RenderStepContent />

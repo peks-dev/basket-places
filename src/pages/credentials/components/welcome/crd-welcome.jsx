@@ -3,7 +3,7 @@ import "./crd-welcome.css";
 
 // components
 import CredentialImg from "../../../../assets/profile/add-bp.png";
-import Btn from "../../../../components/layout/button/button";
+import Button from "@/components/button/button";
 import Title from "../../../../components/layout/title/title";
 import Txt from "../../../../components/layout/text-body/text-body";
 
@@ -35,18 +35,14 @@ const CredentialsWelcome = ({ setState }) => {
 
       <ul className="crd-welcome__btns-container">
         <li className="crd-welcome__btn-wrap">
-          <Btn
-            text={"iniciar sesion"}
-            variant={"btn--primary"}
-            onClick={renderLoginForm}
-          />
+          <Button variant={"primary"} onClick={renderLoginForm}>
+            iniciar sesion
+          </Button>
         </li>
         <li className="crd-welcome__btn-wrap">
-          <Btn
-            text={"registrarme"}
-            variant={"btn--secundary btn--small"}
-            onClick={renderRegisterForm}
-          />
+          <Button variant={"secundary"} onClick={renderRegisterForm}>
+            registrarme
+          </Button>
         </li>
       </ul>
     </>

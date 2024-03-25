@@ -8,7 +8,7 @@ import { register } from "../../../../services/supabase/auth.service";
 import Form from "../../../../components/form/form";
 import FormField from "../../../../components/form/form-field/form-field";
 import Title from "../../../../components/layout/title/title";
-import Btn from "../../../../components/layout/button/button";
+import Button from "@/components/button/button";
 
 const SignUp = ({ notificationState, messageState }) => {
   const [formValues, setFormValues] = useState({ correo: "", contraseña: "" });
@@ -64,11 +64,9 @@ const SignUp = ({ notificationState, messageState }) => {
           inputValue={formValues.contraseña}
           handleInputChange={handleInputChange}
         />
-        <Btn
-          text={"registrarme"}
-          variant={"btn--primary"}
-          onClick={handleSignUp}
-        />
+        <Button variant={"primary"} onClick={handleSignUp}>
+          registrarme
+        </Button>
       </Form>
     </>
   );

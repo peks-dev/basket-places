@@ -9,7 +9,7 @@ import { useGetDataCourt } from "./hooks/use-get-data-court.hook";
 import CourtSlider from "./components/court-slider/court-slider";
 import CourtHeader from "./components/court-header/court-header";
 import CourtTabs from "./components/court-tabs/court-tabs";
-import Btn from "../../components/layout/button/button";
+import Button from "@/components/button/button";
 import Loader from "../../components/loader/loader";
 import Error from "../../components/error/error";
 
@@ -33,13 +33,14 @@ const CourtDetails = () => {
 
   return (
     <article className="court-details-container">
-      <Btn
-        text={"atras"}
-        variant={"btn--primary btn--absolute"}
+      <Button
+        variant={"primary"}
         onClick={() => {
           navigate(-1);
         }}
-      />
+      >
+        atras
+      </Button>
       <header>
         <CourtSlider images={allDataCourt.images} />
         <CourtHeader

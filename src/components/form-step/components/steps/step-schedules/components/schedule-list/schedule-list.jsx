@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 // Components
-import Btn from "../../../../../../../components/layout/button/button";
+import Button from "@/components/button/button";
 import Schedules from "../../../../../../../components/schedules/schedules";
 
 // Context
@@ -19,21 +19,20 @@ const ScheduleList = ({ setBuildingSchedule }) => {
       <Schedules schedules={courtState.schedules} />
       <ul className="step-time__btns-wrap">
         <li>
-          <Btn
-            text={"Añadir"}
-            variant={"btn--primary"}
+          <Button
+            variant={"primary"}
             onClick={() => {
               setBuildingSchedule(true);
             }}
-          />
+          >
+            agregar
+          </Button>
         </li>
         {courtState.schedules.length > 0 && (
           <li>
-            <Btn
-              text={"Eliminar"}
-              variant={"btn--secundary"}
-              onClick={handleDeleteSet}
-            />
+            <Button variant={"secundary"} onClick={handleDeleteSet}>
+              eliminar
+            </Button>
           </li>
         )}
       </ul>

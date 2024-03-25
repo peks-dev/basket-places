@@ -39,8 +39,6 @@ const StepLocation = () => {
     }
   }, [mapStepFormPosition.coordinates, user.location]);
 
-  console.log(mapStepFormPosition);
-
   return (
     <div className="map-selector">
       {loadingMap ? (

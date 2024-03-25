@@ -3,7 +3,7 @@ import "./review-tab.css";
 import Comment from "./components/comment/comment";
 
 // components
-import Btn from "../../../../../../components/layout/button/button";
+import Button from "@/components/button/button";
 import CommentIcon from "./components/comment-icon";
 
 function hola() {
@@ -20,7 +20,9 @@ const ReviewTab = () => {
           </div>
           <p className="txt txt--small">comentarios</p>
         </div>
-        <Btn text={"dejar reseña"} variant={"btn--primary"} onClick={hola} />
+        <Button variant={"primary"} onClick={hola}>
+          valorar
+        </Button>
       </div>
       <ul className="review__comments-container">
         <li>

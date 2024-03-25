@@ -1,64 +1,91 @@
 .court-card {
-  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 2rem;
-  width: 100%;
-  height: 100%;
-  max-width: 40rem;
-  max-height: 25rem;
-  cursor: pointer;
-}
-
-.court-card__img-wrap {
-  position: relative;
-  display: flex;
-  height: 70%;
-  width: 100%;
+  align-items: stretch;
   overflow: hidden;
-  border-radius: 2rem 2rem 0 0;
+  border-radius: 1.2rem;
+  color: var(--secundary);
 }
-
-.court-card__img-wrap img {
-  width: 100%;
-  object-fit: cover;
-  object-position: center center;
+.court-card__header {
+  position: relative;
+  flex: 1 1 70%;
+  overflow: hidden;
 }
-
-.court-card__img-wrap::before {
-  content: "";
+.court-card__img-container {
   width: 100%;
   height: 100%;
+}
+.court-card__img-container img {
+  height: 100%;
+}
+.court-card__info-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 2rem 2rem 0 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
-
-.court-card__delete-btn,
-.court-card__close-btn {
-  width: 4rem;
-  height: 4rem;
-  padding: 0.6rem;
-  position: absolute;
-  z-index: 3;
-  cursor: pointer;
-  top: 1rem;
-  right: 1rem;
+.court-card__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary);
+  border-radius: 1rem;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  align-items: center;
+  height: fit-content;
 }
-.court-card__delete-btn:hover,
-.court-card__close-btn:hover {
-  transform: scale(1.2);
+.court-card__text-wrapper::before {
+  content: "";
+  display: block;
+  background-color: var(--ternary);
+  width: 100%;
+  height: 0.2rem;
+  order: 2;
 }
-
-.court-card__delete-btn {
-  border-radius: 50%;
-  background-color: var(--color-red);
-  top: -1rem;
-  right: -1rem;
+.court-card__name {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  width: 100%;
+  order: 1;
 }
-.court-card__close-btn:hover button path {
-  fill: var(--color-yellow);
+.court-card__location {
+  width: 100%;
+  order: 3;
+}
+.court-card__location p {
+  font-size: 1.3rem;
+  width: 100%;
+}
+.court-card__rating {
+  background-color: var(--primary);
+  border-radius: 1rem;
+  align-self: self-start;
+  font-size: 2rem;
+  padding: 1rem 1.2rem;
+  font-family: var(--font-title);
+  align-self: self-end;
+}
+.court-card__footer {
+  flex: 0 0 auto;
+  border-top: 0.6rem solid var(--accent);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--primary);
+}
+.court-card__level {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.court-card__level span {
+  font-size: 1.8rem;
+  font-family: var(--font-title);
 }

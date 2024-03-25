@@ -3,7 +3,7 @@ import "./schedule-builder.css";
 
 // Components
 import Title from "../../../../../../../components/layout/title/title";
-import Btn from "../../../../../../../components/layout/button/button";
+import Button from "@/components/button/button";
 import NotificationPopup from "../../../../../../../components/notification-popup/notification-popup";
 
 //Context
@@ -98,20 +98,19 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
         </label>
         <ul className="step-time__btns-wrap">
           <li>
-            <Btn
-              text={"Guardar"}
-              variant={"btn--primary"}
-              onClick={handleAddSet}
-            />
+            <Button variant={"primary"} onClick={handleAddSet}>
+              guardar
+            </Button>
           </li>
           <li>
-            <Btn
-              text={"Cancelar"}
-              variant={"btn--secundary"}
+            <Button
+              variant={"secundary"}
               onClick={() => {
                 setBuildingSchedule(false);
               }}
-            />
+            >
+              cancelar
+            </Button>
           </li>
         </ul>
       </div>

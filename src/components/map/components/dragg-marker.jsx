@@ -1,6 +1,6 @@
 import React from "react";
 import { Marker } from "react-leaflet";
-import { CourtMarkerIcon } from "@/components/map/components/icons/court-marker-icon";
+import CourtMarkerIcon from "./icons/court-marker-icon";
 
 const DraggableMarker = ({ position, onDragEnd }) => {
   const handleDragEnd = (event) => {

@@ -8,7 +8,7 @@ import UserContext from "../../../../context/user/userContext";
 import Form from "../../../../components/form/form";
 import FormField from "../../../../components/form/form-field/form-field";
 import Title from "../../../../components/layout/title/title";
-import Btn from "../../../../components/layout/button/button";
+import Button from "@/components/button/button";
 
 const Login = ({ notificationState, messageState }) => {
   const [formValues, setFormValues] = useState({ correo: "", contraseña: "" });
@@ -67,12 +67,12 @@ const Login = ({ notificationState, messageState }) => {
           inputValue={formValues.contraseña}
           handleInputChange={handleInputChange}
         />
-        <Btn text={"ingresar"} variant={"btn--primary"} onClick={handleLogin} />
-        <Btn
-          text={"recuperar contraseña"}
-          variant={"btn--secundary btn--small"}
-          onClick={handleRecoveryPass}
-        />
+        <Button variant={"primary"} onClick={handleLogin}>
+          ingresar
+        </Button>
+        <Button variant={"secundary"} onClick={handleRecoveryPass}>
+          recuperar password
+        </Button>
       </Form>
     </>
   );

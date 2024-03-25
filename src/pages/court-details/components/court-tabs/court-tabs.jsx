@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "./court-tabs.css";
 
 // components
-import Btn from "../../../../components/layout/button/button";
-import { CourtMarkerIcon } from "../../../../components/map/components/icons/court-marker-icon";
+import Button from "@/components/button/button";
+import CourtMarkerIcon from "../../../../components/map/components/icons/court-marker-icon";
 import { Marker } from "react-leaflet";
+import CourtMarker from "@/components/court-marker/court-marker";
 
 //Tabs components
 import Map from "../../../../components/map/map";
@@ -46,13 +47,9 @@ const CourtTabs = ({
 
       case "ubicacion":
         return (
-          <Map
-            mapPosition={coordinates}
-            zoomLevel={13}
-            singleMarker={
-              <Marker position={coordinates} icon={CourtMarkerIcon} />
-            }
-          />
+          <Map mapPosition={coordinates} zoomLevel={13}>
+            <CourtMarker markerPosition={coordinates} />
+          </Map>
         );
       case "reseñas":
         return <ReviewTab />;
@@ -64,13 +61,14 @@ const CourtTabs = ({
         {tabsNames.map((tab, index) => {
           return (
             <li key={index}>
-              <Btn
-                text={tab}
+              <Button
                 onClick={handleTabToRender}
                 variant={
                   tab === tabActive ? "btn--tab btn--tab-active" : "btn--tab"
                 }
-              />
+              >
+                tab
+              </Button>
             </li>
           );
         })}
