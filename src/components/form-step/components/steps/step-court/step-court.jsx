@@ -38,7 +38,7 @@ const StepCourt = () => {
     {
       type: "checkbox",
       name: "roof",
-      title: "¿Esta techado?",
+      title: "tiene techo",
       options: [{ key: "si", value: true }],
       selected: courtState.roof,
     },
@@ -55,7 +55,10 @@ const StepCourt = () => {
     },
   ];
   return (
-    <div className="step-court">
+    <div
+      className="step-court"
+      style={{ width: "100%", height: "100%", padding: "2.5rem" }}
+    >
       {selectors.map((selector, index) => (
         <Selector
           key={index}

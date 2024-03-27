@@ -8,8 +8,9 @@ import Button from "@/components/button/button";
 
 const CourtCard = ({ courtData }) => {
   const navigate = useNavigate();
+
   const handleClick = () => {
-    navigate(`/search/${court_id}`);
+    navigate(`/search/${courtData.court_id}`);
   };
   console.log(courtData);
   return (

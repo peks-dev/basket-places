@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
+import "./step-description.css";
 
 // Context
 import CourtContext from "@/context/court/court-context";
 
 // Components
 import FormField from "@/components/form/form-field/form-field";
-import Title from "@/components/layout/title/title";
 
 const StepDescription = () => {
   const niveles = ["bajo", "medio", "alto"];
@@ -46,7 +46,7 @@ const StepDescription = () => {
       />
 
       <div className="form__fields-wrap">
-        <Title tag={"h3"} text={"nivel de juego"} style={"title--label"} />
+        <h3 className={"form__label"}>nivel de juego</h3>
         {niveles.map((level, index) => (
           <FormField
             key={index}

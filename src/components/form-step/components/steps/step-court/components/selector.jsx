@@ -14,7 +14,7 @@ const Selector = ({
 }) => {
   return (
     <div className="form__fields-wrap">
-      <Title tag={"h3"} text={title} style={"title--label"} />
+      <h3 className={"form__label"}>{title}</h3>
       {options.map((option, index) => (
         <FormField
           key={index}

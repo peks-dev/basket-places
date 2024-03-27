@@ -5,12 +5,13 @@
   padding-bottom: 1rem;
 }
 .navbar__wrap {
-  width: 85%;
+  width: 70%;
   margin: 0 auto;
-  padding: 10px 5px;
+  padding: 0.7rem 0.5rem;
   border-radius: 2rem;
-  max-width: 50rem;
+  max-width: 40rem;
   background-color: var(--primary);
+  border: var(--global-border-size) solid var(--ternary);
 }
 .navbar__links {
   display: flex;

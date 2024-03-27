@@ -4,10 +4,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
+  color: var(--ternary);
 }
 .form__legend {
   font-size: clamp(1.6rem, 3vw, 1.8rem);
-  color: var(--color-white);
   line-height: normal;
   text-align: center;
   width: 100%;
@@ -16,9 +17,9 @@
   font-family: var(--font-title);
   font-size: clamp(1.8rem, 3.2vw, 2rem);
   line-height: normal;
-  color: var(--color-yellow);
+  color: var(--secundary);
   width: 100%;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 .form__input {
   font-size: 2rem;
@@ -29,19 +30,21 @@
 .form__input[type="password"] {
   font-family: var(--font-body);
   color: var(--color-white);
-  border-bottom: 0.2rem solid var(--color-yellow);
+  border: 0.2rem solid var(--ternary);
   width: 85%;
   margin: 0 auto;
   line-height: normal;
-  border-radius: 0;
+  border-radius: 1.2rem;
+  padding: 0.5rem 2rem;
 }
 .form__input[type="radio"],
 .form__input[type="checkbox"] {
   width: 1.2em;
   height: 1.2em;
-  background-color: var(--color-white);
+  background-color: var(--ternary);
   border-radius: 50%;
   cursor: pointer;
+  margin-top: 1rem;
 }
 .form__input[type="time"] {
   width: 100%;
@@ -58,23 +61,24 @@
 /* pseudo - selectores */
 .form__input[type="radio"]:checked,
 .form__input[type="checkbox"]:checked {
-  background-color: var(--color-yellow);
+  background-color: var(--accent);
 }
 
 .form__input[type="text"]:focus,
 .form__input[type="email"]:focus,
 .form__input[type="password"]:focus {
   outline: none;
-  border: 0.1em solid var(--color-yellow);
-  border-radius: 0.2em;
+  border-color: var(--accent);
 }
 
 /* Form Step para tipo radio y tipo checkbox */
 .form__fields-wrap {
   display: flex;
   flex-wrap: wrap;
+  gap: 1.5rem;
   width: 100%;
 }
+
 .form__fields-wrap fieldset {
   flex: 1 0 4rem;
 }

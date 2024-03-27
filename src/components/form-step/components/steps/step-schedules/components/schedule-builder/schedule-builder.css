@@ -11,22 +11,45 @@
   align-items: center;
   overflow-x: scroll;
   height: 8rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-acent);
   width: 100%;
 }
-.schedule-builder__days-item {
-  font-family: var(--font-body);
+.schedule-builder__days-wrap::-webkit-scrollbar {
+  display: none;
+}
+.schedule-builder__day {
+  position: relative;
+  border-radius: 1.2rem;
+  width: fit-content;
+}
+.schedule-builder__day-label {
   font-size: 2rem;
-  color: var(--color-white);
-  background-color: var(--color-gray);
+  color: var(--secundary);
+  min-width: min-content;
   padding: 0.5rem 1rem;
   border-radius: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: normal;
+  position: relative;
+  z-index: 3;
 }
+.schedule-builder__day input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin-top: 0;
+  z-index: 2;
+  border-radius: 1.2rem;
+}
+.schedule-builder__day
+  input[type="checkbox"]:checked
+  + .schedule-builder__day-label {
+  color: var(--secundary);
+}
+
 .schedule-builder__timer {
   display: flex;
   flex-direction: column;
@@ -36,10 +59,4 @@
 }
 #time-picker {
   width: 70%;
-}
-
-/* Modificadores */
-.schedule-builder__days-item input[type="checkbox"] {
-  width: 0.8em;
-  height: 0.8em;
 }

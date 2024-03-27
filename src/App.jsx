@@ -20,7 +20,6 @@ import Prueba from "./pages/prueba/prueba";
 import Navbar from "./components/layout/navbar/navbar";
 import UserContext from "./context/user/userContext";
 import ViewportBlocker from "./components/viewport-blocker/viewport-blocker";
-import ThemeButton from "@/components/theme-button/theme-button";
 
 //Render
 function App() {
@@ -81,7 +80,6 @@ function App() {
             />
             <Route path="/prueba" element={<Prueba />} />
           </Routes>
-          <ThemeButton />
         </main>
         <Navbar />
       </div>

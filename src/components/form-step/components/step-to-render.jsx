@@ -2,7 +2,7 @@ import React from "react";
 
 //steps
 import StepImgs from "./steps/step-img/step-img";
-import StepDescription from "./steps/step-description";
+import StepDescription from "./steps/step-description/step-description";
 import StepCourt from "./steps/step-court/step-court";
 import StepSchedule from "./steps/step-schedules/step-schedule";
 import StepServices from "./steps/step-services";

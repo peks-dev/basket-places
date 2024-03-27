@@ -30,9 +30,12 @@ const StepServices = () => {
   };
 
   return (
-    <div className="step-services">
+    <div
+      className="step-services"
+      style={{ width: "100%", height: "100%", padding: "2.5rem" }}
+    >
       <div className="form__fields-wrap">
-        <Title tag={"h3"} text={"servicios"} style={"title--label"} />
+        <h3 className={"form__label"}>servicios</h3>
         {serviceConfig.map((service, index) => (
           <FormField
             key={index}

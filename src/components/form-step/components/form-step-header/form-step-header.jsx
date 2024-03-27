@@ -31,7 +31,7 @@ const FormStepHeader = () => {
     "imagenes",
     "descripcion",
     "cancha",
-    "días y horarios",
+    "dias y horarios",
     "servicios",
   ];
 

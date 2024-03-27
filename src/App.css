@@ -7,8 +7,10 @@
   align-items: stretch;
 }
 .app-content {
+  position: relative;
   flex: 2 1 80%;
   width: 100%;
+  z-index: 2;
 }
 
 .responsive {

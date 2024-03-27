@@ -5,9 +5,10 @@
 }
 .schedules__set {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  border: var(--global-border-size) solid var(--secundary);
+  padding: 1rem 0.8rem;
+  border-radius: 1.2rem;
 }
 .schedules__days-wrap {
   display: flex;
@@ -16,7 +17,7 @@
   gap: 0.6rem;
   align-items: center;
   width: 75%;
-  flex: 3;
+  flex: 3 1 80%;
 }
 .schedules__day {
   width: clamp(2.8rem, 5vw, 4rem);
@@ -26,7 +27,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  background-color: var(--color-acent);
+  background-color: var(--accent);
 }
 .schedules__day span {
   font-family: var(--font-body);
@@ -37,7 +38,7 @@
 }
 .schedules__time {
   font-family: var(--font-body);
-  color: var(--color-white);
+  color: var(--secundary);
   font-size: 2.2rem;
-  flex: 1;
+  flex: 0 0 auto;
 }

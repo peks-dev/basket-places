@@ -63,31 +63,31 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
   return (
     <>
       <div className="schedule-builder__set">
-        <Title tag={"h4"} text={"Elige los días"} style={"title--label"} />
+        <h2 className={"form__label"}>elige los dias</h2>
         <ul className="schedule-builder__days-wrap">
           {days.map((day, index) => {
             return (
-              <li key={index}>
+              <li key={index} className="schedule-builder__day">
                 <label
-                  className="schedule-builder__days-item"
+                  className="schedule-builder__day-label"
                   htmlFor={`day-${day}`}
                 >
                   {day}
-                  <input
-                    className="form__input"
-                    type="checkbox"
-                    name="days"
-                    id={`day-${day}`}
-                    value={day}
-                    onChange={handleInputChange}
-                  />
                 </label>
+                <input
+                  className="form__input"
+                  type="checkbox"
+                  name="days"
+                  id={`day-${day}`}
+                  value={day}
+                  onChange={handleInputChange}
+                />
               </li>
             );
           })}
         </ul>
         <label className="schedule-builder__timer" htmlFor="time-picker">
-          <Title tag={"h4"} text={"¿A qué hora?"} style={"title--label"} />
+          <h3 className={"form__label"}>horario</h3>
           <input
             className="form__input"
             name="time-picker"

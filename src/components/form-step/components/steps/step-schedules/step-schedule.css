@@ -1,5 +1,7 @@
 .step-time {
   width: 100%;
+  height: 100%;
+  padding: 2.5rem;
 }
 
 .step-time__btns-wrap {

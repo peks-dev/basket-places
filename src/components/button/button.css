@@ -34,15 +34,11 @@
 }
 
 /* - - - - - - */
+.btn[data-variant="theme"],
 .btn[data-variant="map-control"] {
-  width: 6rem;
-}
-/* - - - - - - */
-.btn[data-variant="theme"] {
-  position: fixed;
-  bottom: 20%;
-  left: 1.5rem;
-  z-index: 20;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 5rem;
 }
 
 /* - - - - - - */

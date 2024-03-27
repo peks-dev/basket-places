@@ -73,6 +73,7 @@ const MapPage = () => {
         ))}
       </Map>
       <div className="map-controls-wrapper">
+        <ThemeButton />
         <UserLocationBtn mapRef={mapRef} />
       </div>
     </div>

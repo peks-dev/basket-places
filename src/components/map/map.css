@@ -58,3 +58,27 @@
   color: currentColor;
   transform: scale(2.5) !important;
 }
+
+/* ---- zoom map control styles */
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  color: var(--ternary);
+}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar :hover {
+  color: var(--accent);
+}
+.leaflet-touch .leaflet-bar {
+  border: 0.1rem solid var(--ternary) !important;
+}
+
+.leaflet-control-zoom-out,
+.leaflet-control-zoom-in {
+  background-color: var(--primary) !important;
+  border: none;
+}
+.leaflet-bar a {
+  border: 0.1rem solid var(--ternary) !important;
+}
+
+/* -------- */
