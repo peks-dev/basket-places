@@ -3,6 +3,7 @@ import "./user-profile.css";
 
 // Context
 import UserContext from "../../context/user/userContext";
+import { useStepFormStore } from "@/context/stepFormStore";
 
 // components
 import UserInfo from "./components/user-info/user-info";
@@ -13,9 +14,11 @@ import UserBtns from "./components/user-btns/user-btns";
 const UserProfilePage = () => {
   const { user, userLogout } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
+  const { resetStepForm } = useStepFormStore();
 
   //  Modal functions
   const confirmLogOut = () => {
+    resetStepForm();
     userLogout();
     closeModal();
   };

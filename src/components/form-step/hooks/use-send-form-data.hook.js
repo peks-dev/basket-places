@@ -16,22 +16,64 @@ export function useSendFormData() {
 
   const registerCourt = async (formData, userId) => {
     try {
+      console.log(formData);
       setLoading(true);
       const resultado = verifiedData(formData);
       if (resultado !== null) {
         throw new Error(resultado);
       }
 
-      const { location, images, services, schedules, ...mainTableData } =
-        formData;
+      const {
+        location,
+        images,
+        services,
+        schedules,
+        name,
+        description,
+        game_level,
+        place_type,
+        floor_type,
+        roof,
+      } = formData;
+
       const { lng, lat } = location.coordinates;
+      console.log(lng, lat);
       const owner = userId;
+
+      let mainTableData = {
+        name,
+        description,
+        game_level,
+        place_type,
+        floor_type,
+        roof,
+        images: [],
+      };
+
+      await Promise.all(
+        images.map(async (imageFile) => {
+          // Guardar nombres imgs en tabla
+          const imgName = imageFile.name;
+          mainTableData.images.push(imgName);
+        })
+      );
 
       const resultMainTable = await insertDataOnTable("courts", {
         ...mainTableData,
         owner,
       });
       const court_id = resultMainTable[0].id;
+
+      images.map(async (imageFile) => {
+        // subir img a storage
+        const compressedImage = await compressImage(imageFile);
+
+        await uploadFile(
+          "imgs_courts",
+          `${userId}/${court_id}/${compressedImage.name}`,
+          compressedImage
+        );
+      });
 
       await insertDataOnTable("locations", {
         lng,
@@ -51,30 +93,10 @@ export function useSendFormData() {
       const servicesFormated = { ...services, court_id };
       await insertDataOnTable("services", servicesFormated);
 
-      await Promise.all(
-        images.map(async (imageFile) => {
-          // Comprimir la imagen antes de subirla
-          const compressedImage = await compressImage(imageFile);
-
-          // subir img a storage
-          await uploadFile(
-            "imgs_courts",
-            `${userId}/${court_id}/${compressedImage.name}`,
-            compressedImage
-          );
-          // Guardar nombres imgs en tabla
-          const newObjectImage = {
-            file_name: imageFile.name,
-            court_id: court_id,
-          };
-          await insertDataOnTable("images", newObjectImage);
-        })
-      );
-
       setCourtId(court_id);
       setSuccess(true);
     } catch (error) {
-      setError("Error al insertar los datos: " + error.message);
+      setError(error);
     } finally {
       setLoading(false);
     }

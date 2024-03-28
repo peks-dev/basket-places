@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./step-description.css";
 
 // Context
-import CourtContext from "@/context/court/court-context";
+import { useStepFormStore } from "@/context/stepFormStore";
 
 // Components
 import FormField from "@/components/form/form-field/form-field";
 
 const StepDescription = () => {
+  const { formData, updateName, updateDescription, updateGameLevel } =
+    useStepFormStore();
+
   const niveles = ["bajo", "medio", "alto"];
 
-  const { courtState, updateName, updateDescription, updateGameLevel } =
-    useContext(CourtContext);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     // Nueva logica con el estado global
@@ -34,13 +35,13 @@ const StepDescription = () => {
     <div className="step-description">
       <FormField
         inputType={"text"}
-        inputValue={courtState.name || ""}
+        inputValue={formData.name || ""}
         handleInputChange={handleInputChange}
         inputName={"nombre"}
       />
       <FormField
         inputType={"text"}
-        inputValue={courtState.description || ""}
+        inputValue={formData.description || ""}
         handleInputChange={handleInputChange}
         inputName={"descripcion"}
       />
@@ -54,7 +55,7 @@ const StepDescription = () => {
             inputType={"radio"}
             inputValue={level}
             inputId={`nivel-${level}`}
-            inputChecked={courtState.game_level === level}
+            inputChecked={formData.game_level === level}
             handleInputChange={handleInputChange}
             legendText={level}
           />

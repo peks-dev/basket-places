@@ -7,16 +7,16 @@ import { courtCardDataAdapter } from "../components/court-card-preview/adapters/
 
 export async function prepareCourtData(courtId) {
   try {
+    // tabla principal
     const courtData = await fetchDataOnTable("courts", "id", courtId);
     const locationData = await fetchDataOnTable(
       "locations",
       "court_id",
       courtId
     );
-    const imagesNames = await fetchDataOnTable("images", "court_id", courtId);
 
-    const urlsPromises = imagesNames.map((imgName) => {
-      return createImgUrl(courtData[0].owner, courtId, imgName.file_name);
+    const urlsPromises = courtData[0].images.map((imgName) => {
+      return createImgUrl(courtData[0].owner, courtId, imgName);
     });
 
     const urlImgs = await Promise.all(urlsPromises);

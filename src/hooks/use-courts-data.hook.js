@@ -12,13 +12,15 @@ export function useCourtsData(filter = null, filterValue = null) {
     try {
       let courts;
 
+      // Conocer cuantas canchas tiene el usuario
       if (filter && filterValue) {
         courts = await fetchDataOnTable("courts", filter, filterValue);
       } else {
         courts = await fetchDataOnTable("courts");
       }
-      const dataPromises = courts.map((court) => prepareCourtData(court.id));
 
+      // Extraer los datos de cada cancha del usuario
+      const dataPromises = courts.map((court) => prepareCourtData(court.id));
       const courtsDataList = await Promise.all(dataPromises);
 
       setCanchasData(courtsDataList);

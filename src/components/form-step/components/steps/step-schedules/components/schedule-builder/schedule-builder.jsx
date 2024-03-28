@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./schedule-builder.css";
 
 // Components
-import Title from "../../../../../../../components/layout/title/title";
 import Button from "@/components/button/button";
-import NotificationPopup from "../../../../../../../components/notification-popup/notification-popup";
+import NotificationPopup from "@/components/notification-popup/notification-popup";
 
 //Context
-import CourtContext from "../../../../../../../context/court/court-context";
+import { useStepFormStore } from "@/context/stepFormStore";
 
 // utilities
-import { ResetNotification } from "../../../../../../../utilities/reset-notification.utilitie";
+import { ResetNotification } from "@/utilities/reset-notification.utilitie";
 import { setScheduleStates } from "../../utilities/set-schedules-states";
 
 // Array
@@ -29,7 +28,7 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
     time: time,
   };
 
-  const { updateSchedule } = useContext(CourtContext);
+  const { updateSchedule } = useStepFormStore();
 
   // Reset notification
   useEffect(() => {
@@ -40,7 +39,7 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
   const handleAddSet = (event) => {
     event.preventDefault();
 
-    // 1.- No data error control
+    // 1.- Error control
     if (selectedDays.length === 0 || !time) {
       setNotificationMessage("Selecciona minimo un día y una hora");
       setShowNotification(true);

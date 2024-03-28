@@ -1,9 +1,9 @@
 // services
-import { deleteDataOnTable } from "../../../../../services/supabase/table-operations.service";
-import { deleteObjectFromStorage } from "../../../../../services/supabase/storage-operations.service";
+import { deleteDataOnTable } from "@/services/supabase/table-operations.service";
+import { deleteObjectFromStorage } from "@/services/supabase/storage-operations.service";
 
 // utilities
-import { extractFilesNames } from "../../../../../utilities/extract-imgs-names.utility";
+import { extractFilesNames } from "@/utilities/extract-imgs-names.utility";
 
 export async function deleteCourt(userId, courtId, images) {
   try {

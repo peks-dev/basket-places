@@ -5,7 +5,7 @@ import "./error.css";
 import Title from "../layout/title/title";
 import Txt from "../layout/text-body/text-body";
 
-const Error = () => {
+const Error = ({ error }) => {
   return (
     <div className="error-container">
       <Title
@@ -13,10 +13,7 @@ const Error = () => {
         tag={"h1"}
         style={"title--center title--acent title--small"}
       />
-      <Txt
-        content={"recarga la pagina o verifica tu conexion a internet"}
-        style={"txt--center"}
-      />
+      <Txt content={error.message} style={"txt--center"} />
     </div>
   );
 };

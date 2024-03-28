@@ -3,6 +3,7 @@ import "./step-img.css";
 // utilities
 import { isImageHorizontal } from "./utilities/horizontal-check.utilitie";
 
+// Components
 import Button from "@/components/button/button";
 import CloseIcon from "@/components/icons/close-icon";
 
@@ -11,9 +12,7 @@ import { useStepFormStore } from "@/context/stepFormStore";
 
 const StepImgs = () => {
   const fileInputRef = useRef(null);
-  const { formData, updateImagesZ } = useStepFormStore();
-
-  console.log(formData);
+  const { formData, updateImages } = useStepFormStore();
 
   const handleImgsOnChange = async (event) => {
     const files = event.target.files;
@@ -39,7 +38,7 @@ const StepImgs = () => {
     const newImages = horizontalImagesConfirmed.filter((file) => file !== null);
     const updatedImages = [...existingImages, ...newImages].slice(0, 4);
 
-    updateImagesZ(updatedImages);
+    updateImages(updatedImages);
   };
   const handleInput = (event) => {
     event.preventDefault();
@@ -50,9 +49,9 @@ const StepImgs = () => {
     e.preventDefault();
     const updatedImages = [...formData.images];
     updatedImages.splice(index, 1);
-    updateImagesZ(updatedImages);
+    updateImages(updatedImages);
   };
-
+  console.log(formData);
   return (
     <div className="step-imgs">
       <p>

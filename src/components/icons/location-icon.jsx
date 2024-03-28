@@ -7,8 +7,7 @@ const LocationIcon = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      class="lucide lucide-locate-fixed"
+      strokeWidth="2"
     >
       <line x1="2" x2="5" y1="12" y2="12" />
       <line x1="19" x2="22" y1="12" y2="12" />

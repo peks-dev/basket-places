@@ -19,14 +19,12 @@ const UserCourts = () => {
   const { user } = useContext(UserContext);
   const { canchasData, loading, error } = useCourtsData("owner", user.id);
   const [courts, setCourts] = useState([]);
-  const {
-    showModal,
-    courtToDelete,
-    deleteError,
-    handleDeleteButtonClick,
-    handleConfirmDelete,
-    handleCancelDelete,
-  } = useCourtDeletion(user.id, courts, setCourts);
+
+  // realizar el fetch a la tabla courts y filtrando por id la columna owner
+  // Pasar esa lista de courts_ids a cardDataAdapter
+  // Añadirlas al estado
+  // quitar el estado de carga
+  // renderizar un courtCard por cada cancha
 
   useEffect(() => {
     if (!loading && !error) {
@@ -40,26 +38,13 @@ const UserCourts = () => {
 
       <ul className="user-courts__wrap">
         {loading && <Loader />}
-        {error || deleteError ? <Error /> : null}
+        {error ? <Error /> : null}
         {courts.map((courtData) => (
           <li key={courtData.court_id} className="user-courts__item">
-            <CourtCard
-              courtData={courtData}
-              showDeleteButton={true}
-              handleDeleteCourt={handleDeleteButtonClick}
-            />
+            <CourtCard courtData={courtData} />
           </li>
         ))}
       </ul>
-
-      {showModal && (
-        <Modal
-          title="Confirmar Eliminación"
-          message={`¿Estás seguro de que deseas eliminar la cancha ${courtToDelete.name}?`}
-          onConfirm={handleConfirmDelete}
-          onCancel={handleCancelDelete}
-        />
-      )}
     </div>
   );
 };

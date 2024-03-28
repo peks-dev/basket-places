@@ -43,14 +43,11 @@
   height: auto;
   display: flex;
   justify-content: space-between;
-  background-color: var(--ternary);
   border-radius: 1.2rem;
-  padding: 0.5rem 2rem;
-  border: 0.3rem solid var(--ternary);
+  padding: 0.7rem 2rem;
+  border: 0.3rem solid var(--secundary);
 }
-.step-imgs__list-item:hover {
-  border-color: var(--accent);
-}
+
 .step-imgs__image-wrap {
   display: flex;
   align-items: center;
@@ -60,8 +57,8 @@
   height: clamp(3rem, 10vh, 6rem);
   border-radius: 1rem;
   overflow: hidden;
-  border: 0.3rem solid var(--secundary);
   max-width: 10rem;
+  border: 0.2rem solid var(--accent);
 }
 .step-imgs__image-wrap img {
   height: 100%;

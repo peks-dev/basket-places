@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 
 // Components
 import Button from "@/components/button/button";
-import Schedules from "../../../../../../../components/schedules/schedules";
+import Schedules from "@/components/schedules/schedules";
 
 // Context
-import CourtContext from "../../../../../../../context/court/court-context";
+import { useStepFormStore } from "@/context/stepFormStore";
 
 const ScheduleList = ({ setBuildingSchedule }) => {
-  const { courtState, removeSchedule } = useContext(CourtContext);
+  const { formData, removeSchedule } = useStepFormStore();
 
   const handleDeleteSet = (event) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ const ScheduleList = ({ setBuildingSchedule }) => {
   };
   return (
     <div className="schedule-list__sets">
-      <Schedules schedules={courtState.schedules} />
+      <Schedules schedules={formData.schedules} />
       <ul className="step-time__btns-wrap">
         <li>
           <Button
@@ -28,7 +28,7 @@ const ScheduleList = ({ setBuildingSchedule }) => {
             agregar
           </Button>
         </li>
-        {courtState.schedules.length > 0 && (
+        {formData.schedules.length > 0 && (
           <li>
             <Button variant={"secundary"} onClick={handleDeleteSet}>
               eliminar

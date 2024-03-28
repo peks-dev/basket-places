@@ -16,7 +16,7 @@ const FormStep = ({ loadingState, errorState, successState, sendFunction }) => {
       <form className="form-step__body">
         <div className="form-step__active">
           {loadingState && <Loader />}
-          {errorState && <Error />}
+          {errorState && <Error error={errorState} />}
           {successState && <div> Datos enviados correctamente</div>}
           {!loadingState && !successState && !errorState && (
             <RenderStepContent />

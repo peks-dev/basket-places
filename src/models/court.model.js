@@ -27,8 +27,8 @@ class CourtModel {
     this.schedules = [];
     this.services = {
       wifi: false,
-      tienda: false,
-      transporte: false,
+      shop: false,
+      transport: false,
       bathroom: false,
     };
   }

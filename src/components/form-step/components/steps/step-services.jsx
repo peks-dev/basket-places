@@ -1,25 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 
-// utilities
-import CourtContext from "@/context/court/court-context";
 // componentes
-import Title from "@/components/layout/title/title";
 import FormField from "@/components/form/form-field/form-field";
+// Context
+import { useStepFormStore } from "@/context/stepFormStore";
 
 const StepServices = () => {
-  const {
-    courtState,
-    updateWifi,
-    updateTienda,
-    updateTransporte,
-    updateBaños,
-  } = useContext(CourtContext);
+  const { formData, updateWifi, updateShop, updateTransport, updateBathroom } =
+    useStepFormStore();
 
   const serviceConfig = [
     { name: "wifi", updateFunction: updateWifi },
-    { name: "tienda", updateFunction: updateTienda },
-    { name: "transporte", updateFunction: updateTransporte },
-    { name: "bathroom", updateFunction: updateBaños },
+    { name: "shop", updateFunction: updateShop },
+    { name: "transport", updateFunction: updateTransport },
+    { name: "bathroom", updateFunction: updateBathroom },
   ];
 
   const handleInputChange = (e, updateFunction) => {
@@ -42,7 +36,7 @@ const StepServices = () => {
             inputName={"services"}
             inputType={"checkbox"}
             inputId={service.name}
-            inputChecked={courtState.services[service.name] === true}
+            inputChecked={formData.services[service.name] === true}
             handleInputChange={(e) =>
               handleInputChange(e, service.updateFunction)
             }

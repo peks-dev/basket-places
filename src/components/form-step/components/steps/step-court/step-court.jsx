@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 
 // Context
-import CourtContext from "@/context/court/court-context";
+import { useStepFormStore } from "@/context/stepFormStore";
 
 // Components
 import Selector from "./components/selector";
 
 const StepCourt = () => {
-  const { courtState, updatePlaceType, updateRoof, updateFloorType } =
-    useContext(CourtContext);
+  const { formData, updatePlaceType, updateRoof, updateFloorType } =
+    useStepFormStore();
 
   const handleInputChange = (e) => {
     const { name, value, checked } = e.target;
@@ -33,14 +33,14 @@ const StepCourt = () => {
         { key: "deportivo", value: "deportivo" },
         { key: "parque", value: "parque" },
       ],
-      selected: courtState.place_type,
+      selected: formData.place_type,
     },
     {
       type: "checkbox",
       name: "roof",
       title: "tiene techo",
       options: [{ key: "si", value: true }],
-      selected: courtState.roof,
+      selected: formData.roof,
     },
     {
       type: "radio",
@@ -51,7 +51,7 @@ const StepCourt = () => {
         { key: "cemento", value: "cemento" },
         { key: "otro", value: "otro" },
       ],
-      selected: courtState.floor_type,
+      selected: formData.floor_type,
     },
   ];
   return (

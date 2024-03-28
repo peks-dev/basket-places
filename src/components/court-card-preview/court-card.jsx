@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./court-card.css";
 
+import { deleteCourt } from "@/pages/user-profile/components/user-courts/utilities/delete-court";
 // hooks
 import { useNavigate } from "react-router-dom";
+import UserContext from "@/context/user/userContext";
 // Components
 import Button from "@/components/button/button";
 
 const CourtCard = ({ courtData }) => {
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   const handleClick = () => {
     navigate(`/search/${courtData.court_id}`);
   };
-  console.log(courtData);
+
+  function handleDeleteCourt() {
+    deleteCourt(user.id, courtData.court_id, courtData.images);
+  }
+
   return (
     <article className="court-card">
       <header className="court-card__header">
@@ -29,6 +36,9 @@ const CourtCard = ({ courtData }) => {
             </div>
           </div>
           <div className="court-card__rating">4</div>
+          <Button onClick={handleDeleteCourt} variant={"primary"}>
+            eliminar
+          </Button>
         </div>
       </header>
       <footer className="court-card__footer">
