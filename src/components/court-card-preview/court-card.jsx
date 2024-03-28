@@ -20,6 +20,8 @@ const CourtCard = ({ courtData }) => {
     deleteCourt(user.id, courtData.court_id, courtData.images);
   }
 
+  console.log(courtData.images);
+
   return (
     <article className="court-card">
       <header className="court-card__header">

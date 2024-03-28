@@ -7,7 +7,12 @@ import { extractFilesNames } from "@/utilities/extract-imgs-names.utility";
 
 export async function deleteCourt(userId, courtId, images) {
   try {
-    const imgsNames = extractFilesNames(images);
+    const imgsNames = [];
+    images.map((img) => {
+      const imgUrlSplit = img.publicUrl.split("/");
+      const imgName = imgUrlSplit.pop();
+      imgsNames.push(imgName);
+    });
     const result = await deleteDataOnTable("courts", "id", courtId);
 
     if (result === null) {
