@@ -1,21 +1,8 @@
 .user-profile-page {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: stretch;
   position: relative;
-}
-.user-profile-page::after {
-  content: "";
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 15%;
-  width: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(70, 73, 76, 0),
-    rgba(70, 73, 76, 1)
-  );
 }

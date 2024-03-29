@@ -7,7 +7,7 @@ const Button = ({ type, onClick, variant, customStyle, disable, children }) => {
     <button
       type={type}
       onClick={onClick}
-      className={`btn ${customStyle}`}
+      className={`btn ${customStyle ? customStyle : ""}`}
       data-variant={variant}
       disabled={disable}
     >

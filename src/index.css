@@ -11,24 +11,14 @@
 }
 /* Aquí definimos las Custom properties */
 :root {
-  --negro: #393939;
   /* Tipografía */
-
   --font-title: black-han-sans;
   --font-btn: black-han-sans;
   --font-body: balsamiq-sans;
   /* Color pallete*/
-  --color-orange: #c86804;
-  --color-yellow: #de9e36;
-  --color-acent: #d3831d;
-  --color-black: #252422;
-  --color-gray: #46494c;
-  --color-white: #fafaff;
-  --color-red: #bc331d;
-  --dark-2: #524f4c;
-
   --accent: #de9e36;
   --ternary: #636363;
+  --black: #242628;
 
   font-size: 62.5%;
 }

@@ -1,49 +1,42 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./user-courts.css";
 
-// Hooks
-import { useCourtsData } from "../../../../hooks/use-courts-data.hook";
-import useCourtDeletion from "./hooks/use-court-deletion.hook";
-
-// context
-import UserContext from "../../../../context/user/userContext";
-
-// Components
-import CourtCard from "../../../../components/court-card-preview/court-card";
-import Title from "../../../../components/layout/title/title";
-import Modal from "../../../../components/modal/modal";
-import Loader from "../../../../components/loader/loader";
-import Error from "../../../../components/error/error";
+import UserCourtsRegistered from "./components/user-courts-registered";
+import Button from "@/components/button/button";
 
 const UserCourts = () => {
-  const { user } = useContext(UserContext);
-  const { canchasData, loading, error } = useCourtsData("owner", user.id);
-  const [courts, setCourts] = useState([]);
+  const [activeButton, setActiveButton] = useState("register");
 
-  // realizar el fetch a la tabla courts y filtrando por id la columna owner
-  // Pasar esa lista de courts_ids a cardDataAdapter
-  // Añadirlas al estado
-  // quitar el estado de carga
-  // renderizar un courtCard por cada cancha
-
-  useEffect(() => {
-    if (!loading && !error) {
-      setCourts(canchasData);
-    }
-  }, [loading, error, canchasData]);
-
+  function handleShowRegisterCourts() {
+    setActiveButton("register");
+  }
+  function handleShowFavoritesCourts() {
+    setActiveButton("favorites");
+  }
   return (
     <div className="user-courts">
-      <Title text={"BP registrados"} style={"title--center"} tag={"h2"} />
-
+      <div className="user-courts__btns-wrap">
+        <Button
+          variant={activeButton !== "register" && "secundary"}
+          onClick={handleShowRegisterCourts}
+          customStyle={activeButton === "register" ? "active" : ""}
+        >
+          registrados
+        </Button>
+        <Button
+          variant={activeButton !== "favorites" && "secundary"}
+          onClick={handleShowFavoritesCourts}
+          customStyle={activeButton === "favorites" ? "active" : ""}
+        >
+          favoritos
+        </Button>
+      </div>
       <ul className="user-courts__wrap">
-        {loading && <Loader />}
-        {error ? <Error /> : null}
-        {courts.map((courtData) => (
-          <li key={courtData.court_id} className="user-courts__item">
-            <CourtCard courtData={courtData} />
-          </li>
-        ))}
+        {activeButton === "register" ? (
+          <UserCourtsRegistered />
+        ) : (
+          <div>canchas favoritas</div>
+        )}
       </ul>
     </div>
   );

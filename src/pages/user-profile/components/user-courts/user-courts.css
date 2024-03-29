@@ -1,23 +1,16 @@
 .user-courts {
-  flex: 2 0 min(40rem, 100%);
-  position: relative;
-}
-.user-courts > h2 {
-  padding: 2rem 0;
-}
-
-.user-courts__wrap {
+  flex: 1 1 80%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  padding: 2.5%;
+}
+.user-courts__btns-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-around;
   width: 100%;
-  align-items: center;
-  padding: 1rem 0 13rem 0;
 }
-.user-courts__item {
-  width: 90%;
-}
-
-.user-courts__item article {
-  margin: 0 auto;
+.user-courts__wrap {
+  flex: 1 1 80%;
+  padding-top: 2rem;
 }

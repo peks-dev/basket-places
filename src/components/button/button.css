@@ -1,7 +1,7 @@
 .btn {
   width: fit-content;
   cursor: pointer;
-  background-color: var(--primary);
+  background-color: var(--accent);
   color: var(--ternary);
   padding: 0.5rem 1rem;
   border-radius: 1.3rem;
@@ -9,6 +9,12 @@
   font-family: var(--font-btn);
   text-transform: uppercase;
   border: 0.2rem solid var(--ternary);
+}
+.btn:hover {
+  color: var(--black);
+}
+.btn:active {
+  transform: scale(1.1);
 }
 
 /* - - - - - - */
@@ -23,7 +29,6 @@
   color: var(--ternary);
 }
 .btn[data-variant="secundary"]:hover {
-  background-color: transparent;
   color: var(--accent);
 }
 /* - - - - - - */
@@ -68,6 +73,23 @@
 .btn[data-variant="arrow"]:active {
   color: var(--accent);
   transform: scale(1.1);
+}
+/* - - - - - - */
+
+.btn[data-variant="icon"] {
+  width: clamp(3.5rem, 6vw, 5vw);
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  margin: 0 0 1rem auto;
+}
+
+.active {
+  color: var(--black);
+  border-color: var(--black);
+}
+.btn > svg {
+  fill: transparent;
 }
 
 /* - - - - - - */

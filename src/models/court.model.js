@@ -9,8 +9,10 @@ class CourtModel {
     ubi,
     images,
     schedules,
-    services
+    services,
+    owner
   ) {
+    this.owner = null;
     this.name = name;
     this.description = description;
     this.game_level = game_level;

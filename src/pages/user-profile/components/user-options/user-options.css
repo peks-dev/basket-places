@@ -1,0 +1,18 @@
+.user-options {
+  position: absolute;
+  top: 1.8rem;
+  right: 5%;
+  z-index: 3;
+}
+.user-options__wrapper {
+  padding: 1rem;
+  border-radius: 1.2rem;
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 11px 57px 96px rgba(0, 0, 0, 0.1);
+}
+.user-options__wrapper button {
+  width: 100%;
+}

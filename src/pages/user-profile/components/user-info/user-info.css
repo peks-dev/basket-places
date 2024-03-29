@@ -1,65 +1,38 @@
 .user-info {
-  position: sticky;
-  top: 0;
+  flex: 0 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  flex: 1 2 min(25rem, 100%);
-  background-color: var(--color-black);
+  background-color: var(--accent);
   border-radius: 0 0 1.8rem 1.8rem;
-  padding-bottom: 1rem;
-  z-index: 5;
+  padding: 2.5%;
+  gap: 2rem;
 }
 .user-info__header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  text-align: center;
-  width: 90%;
-  padding-top: 10%;
 }
 .user-info__avatar {
-  width: clamp(7rem, 5vw, 10rem);
-  height: clamp(7rem, 5vw, 10rem);
-  border-radius: 20rem;
-  border: 0.3rem solid var(--color-acent);
+  width: clamp(7rem, 10vw, 14rem);
+  height: clamp(7rem, 10vw, 14rem);
+  border-radius: 50%;
+  border: 0.3rem solid var(--primary);
+  overflow: hidden;
 }
-.user-info__btns-wrap {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 2rem;
-  right: 0;
-  width: 100%;
-  padding: 0 3rem;
-}
-.user-info__icon-btn-wrap {
-  width: 4rem;
-  height: 4rem;
-}
-.user-info__icon-btn {
-  width: 100%;
+.user-info__avatar img {
   height: 100%;
-  fill: var(--color-yellow);
-  cursor: pointer;
 }
-.user-info__icon-btn:hover,
-.user-info__icon-btn:focus {
-  transform: scale(1.2);
+.user-info__text-wrap {
+  color: #242628;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.user-info__text-wrap p {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  text-transform: uppercase;
 }
 .user-info__link {
   font-size: 2rem;
-  color: var(--color-yellow);
   text-decoration: underline;
-}
-
-/* Modifiers */
-
-.user-info__icon-btn--red {
-  fill: #cd3401;
-  transform: scale(0.9);
 }
