@@ -16,10 +16,10 @@ const ThemeButton = () => {
 
   return (
     <Button
-      variant={"theme"}
+      variant={"map-control"}
       type="button"
       onClick={handleChangeTheme}
-      customStyle={currentTheme === "light" ? "btn--active" : ""}
+      customStyle={currentTheme === "light" ? "active" : "inactive"}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

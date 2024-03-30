@@ -17,7 +17,7 @@ const CourtServices = ({ services }) => {
             content={"tienda"}
             style={"txt--small txt--center txt--orange"}
           />
-          <ShopIcon color={services.tienda === true ? "#c86804" : "#000000"} />
+          <ShopIcon color={services.shop === true ? "#c86804" : "#000000"} />
         </li>
         <li>
           <Txt content={"baños"} style={"txt--small txt--center txt--orange"} />
@@ -35,7 +35,7 @@ const CourtServices = ({ services }) => {
             style={"txt--small txt--center txt--orange"}
           />
           <TransportIcon
-            color={services.transporte === true ? "#c86804" : "#000000"}
+            color={services.transport === true ? "#c86804" : "#000000"}
           />
         </li>
       </ul>

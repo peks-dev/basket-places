@@ -3,8 +3,6 @@ import "./court-tabs.css";
 
 // components
 import Button from "@/components/button/button";
-import CourtMarkerIcon from "../../../../components/map/components/icons/court-marker-icon";
-import { Marker } from "react-leaflet";
 import CourtMarker from "@/components/court-marker/court-marker";
 
 //Tabs components

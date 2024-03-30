@@ -1,22 +1,29 @@
 .court-header {
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  max-height: 13rem;
 }
-.court-header::before {
-  content: "";
-  bottom: 0;
-  left: 0;
-  width: 80%;
-  height: 0.3rem;
-  background-color: var(--color-black);
-  order: 3;
+.court-header__btns-wrap {
+  display: flex;
+  gap: 2rem;
+  padding: 0.8rem 1rem;
+  background-color: var(--primary);
+  border-radius: 2rem;
 }
+
+.court-header__image-container {
+  height: 20rem;
+  width: 100%;
+}
+.court-tabsPro {
+  width: 100%;
+  flex: 1 1 60%;
+}
+
 .court-header__detais {
   color: var(--color-white);
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 // adapter
-import { markerDataAdapter } from "../../../components/map/adapters/marker-data.adapter";
+import { markerDataAdapter } from "@/adapters/marker-data.adapter";
 // services
-import { fetchDataOnTable } from "../../../services/supabase/table-operations.service";
+import { fetchDataOnTable } from "@/services/supabase/table-operations.service";
 
 export function useLocationsCourtsList() {
   const [courtsList, setCourtsList] = useState([]);

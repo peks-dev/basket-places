@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 //leaflet
 import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
-// utilities
-import { prepareCourtData } from "@/utilities/prepare-court-data";
 // global state
 import { useThemeStore } from "@/context/themeStore";
 //icons
@@ -13,19 +11,19 @@ import courtIconSvgLight from "/icons/court-marker-light.svg";
 // components
 import CourtCard from "@/components/court-card-preview/court-card";
 import Loader from "@/components/loader/loader";
+// hooks
+import { useFetchCourtData } from "@/lib/court-data-fetch";
 
 const CourtMarker = React.memo(
   ({ courtId, markerPosition, showPopup, isDraggable, onDragEnd }) => {
-    const [courtDetails, setCourtDetails] = useState(null);
+    const { loading, error, fetchAllCourtData, courtInfo } =
+      useFetchCourtData();
     const { currentTheme } = useThemeStore();
     const iconUrl =
       currentTheme === "dark" ? courtIconSvgLight : courtIconSvgDark;
 
     async function handlePopUp() {
-      if (!courtDetails) {
-        const adaptCourtData = await prepareCourtData(courtId);
-        setCourtDetails(adaptCourtData);
-      }
+      fetchAllCourtData(courtId);
     }
 
     const handleDragEnd = (event) => {
@@ -56,7 +54,7 @@ const CourtMarker = React.memo(
       >
         {showPopup && (
           <Popup>
-            {courtDetails ? <CourtCard courtData={courtDetails} /> : <Loader />}
+            {loading ? <Loader /> : <CourtCard courtData={courtInfo} />}
           </Popup>
         )}
       </Marker>

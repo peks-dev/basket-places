@@ -21,7 +21,7 @@ const UserLocationBtn = ({ mapRef }) => {
     <Button
       variant={`map-control`}
       onClick={getUserLocation}
-      customStyle={user.location && "btn--active"}
+      customStyle={user.location ? "active" : "inactive"}
     >
       <LocationIcon />
     </Button>

@@ -38,6 +38,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", handleResize);
       localStorage.removeItem("courtsLocations");
+      localStorage.removeItem("registered-user-courts");
     };
   }, []);
 

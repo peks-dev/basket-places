@@ -4,6 +4,8 @@ import "./court-card.css";
 import { deleteCourt } from "@/pages/user-profile/components/user-courts/utilities/delete-court";
 // hooks
 import { useNavigate } from "react-router-dom";
+// context
+import { useCourtDetailsStore } from "@/context/courtDetailsStore";
 import UserContext from "@/context/user/userContext";
 // Components
 import Button from "@/components/button/button";
@@ -11,34 +13,36 @@ import Button from "@/components/button/button";
 const CourtCard = ({ courtData }) => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
+  const { saveCourtData } = useCourtDetailsStore();
 
   const handleClick = () => {
-    navigate(`/search/${courtData.court_id}`);
+    saveCourtData(courtData);
+    navigate(`/search/${courtData.id}`);
   };
 
   function handleDeleteCourt() {
-    deleteCourt(user.id, courtData.court_id, courtData.images);
+    deleteCourt(user.id, courtData.id, courtData.images);
   }
-  console.log(courtData);
+
   return (
     <article className="court-card">
       <header className="court-card__header">
         <picture className="court-card__img-container">
-          <img src={courtData.images[0].publicUrl} alt="court cover" />
+          <img src={courtData.images[0]} alt="court cover" />
         </picture>
         <div className="court-card__info-wrapper">
           <div className="court-card__text-wrapper">
             <h2 className="court-card__name">{courtData.name}</h2>
             <div className="court-card__location">
               <p>
-                {courtData.country}, {courtData.state}
+                {courtData.location.state}, {courtData.location.city}
               </p>
             </div>
           </div>
           <div className="court-card__rating">4</div>
-          <Button onClick={handleDeleteCourt} variant={"primary"}>
+          {/* <Button onClick={handleDeleteCourt} variant={"primary"}>
             eliminar
-          </Button>
+          </Button> */}
         </div>
       </header>
       <footer className="court-card__footer">

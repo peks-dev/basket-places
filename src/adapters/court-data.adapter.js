@@ -16,6 +16,7 @@ export async function consolidateCourtData(initialData) {
   } = initialData;
   try {
     // transpasar datos
+    courtData.id = id;
     courtData.owner = owner;
     courtData.name = name;
     courtData.description = description;
@@ -24,20 +25,21 @@ export async function consolidateCourtData(initialData) {
     courtData.floor_type = floor_type;
     courtData.roof = roof;
 
-    // fetch tabla locations
+    // fetch table locations
     const locationData = await fetchDataOnTable(
       "locations",
       "court_id",
       initialData.id
     );
-    const { lat, lng, country, state, city } = locationData;
+
+    const { lat, lng, country, state, city } = locationData[0];
 
     courtData.location.coordinates = { lat, lng };
     courtData.location.country = country;
     courtData.location.state = state;
     courtData.location.city = city;
 
-    // Crear url de imagenes
+    // Create img urls
     images.map((image) => {
       const imageUrl = `https://rkmuvbbnbbajhimhcxmq.supabase.co/storage/v1/object/public/imgs_courts/${owner}/${id}/${image}`;
       courtData.images.push(imageUrl);

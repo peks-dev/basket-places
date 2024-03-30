@@ -5,7 +5,9 @@ export const verifiedData = (object) => {
   entries.forEach((entry) => {
     const [key, value] = entry;
     if (value === undefined || !value) {
-      errors.push("No seleccionaste nada en " + key);
+      if (key !== "id" && key !== "owner") {
+        errors.push("No seleccionaste nada en " + key);
+      }
     }
     if (key === "location") {
       if (

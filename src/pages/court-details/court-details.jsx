@@ -1,25 +1,38 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
 import "./court-details.css";
 
 // hooks
-import { useGetDataCourt } from "./hooks/use-get-data-court.hook";
-
+import { useFetchCourtData } from "@/lib/court-data-fetch";
+import { useCourtDetailsStore } from "@/context/courtDetailsStore";
+import { useParams } from "react-router-dom";
 // Components
 import CourtSlider from "./components/court-slider/court-slider";
 import CourtHeader from "./components/court-header/court-header";
 import CourtTabs from "./components/court-tabs/court-tabs";
-import Button from "@/components/button/button";
 import Loader from "../../components/loader/loader";
 import Error from "../../components/error/error";
 
 const CourtDetails = () => {
   const courtPath = useParams();
   const courtId = courtPath.courtId;
-  const { allDataCourt, loading, error } = useGetDataCourt(courtId);
-  const navigate = useNavigate();
+  const { loading, fetchAllCourtData, courtInfo, error } = useFetchCourtData();
+  const { courtData, emptyGlobalCourtData, saveCourtData } =
+    useCourtDetailsStore();
+  const [loadingPage, setLoadingPage] = useState(true);
 
-  if (loading) {
+  useEffect(() => {
+    if (!courtData.id) {
+      fetchAllCourtData(courtId);
+      if (!loading) {
+        saveCourtData(courtInfo);
+      }
+    } else {
+      setLoadingPage(false);
+    }
+  }, [courtId]);
+
+  if (loadingPage) {
     return <Loader />;
   }
 
@@ -27,35 +40,14 @@ const CourtDetails = () => {
     return <Error />;
   }
 
-  if (!allDataCourt) {
+  if (!courtData) {
     return <div>No existe este Basket Place</div>;
   }
 
   return (
     <article className="court-details-container">
-      <Button
-        variant={"primary"}
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        atras
-      </Button>
-      <header>
-        <CourtSlider images={allDataCourt.images} />
-        <CourtHeader
-          game_level={allDataCourt.game_level}
-          courtName={allDataCourt.name}
-        />
-      </header>
-      <CourtTabs
-        description={allDataCourt.description}
-        services={allDataCourt.services}
-        floor_type={allDataCourt.floor_type}
-        roof={allDataCourt.roof}
-        schedules={allDataCourt.schedules}
-        coordinates={allDataCourt.location.coordinates}
-      />
+      <CourtHeader />
+      <div className="court-tabsPro">hola</div>
     </article>
   );
 };

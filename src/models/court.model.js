@@ -12,6 +12,7 @@ class CourtModel {
     services,
     owner
   ) {
+    this.id = null;
     this.owner = null;
     this.name = name;
     this.description = description;

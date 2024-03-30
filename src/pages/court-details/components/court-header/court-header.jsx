@@ -1,54 +1,41 @@
 import React from "react";
 import "./court-header.css";
 
-import Title from "../../../../components/layout/title/title";
-
+import { useNavigate } from "react-router-dom";
+// components
+import Button from "@/components/button/button";
 // Icons
 import StarIcon from "../../../../assets/bp-details/components/star-icon";
+import ArrowIcon from "@/components/icons/arrow-icon";
+import ShareIcon from "@/components/icons/share-icon";
 
-const CourtHeader = ({ game_level, courtName }) => {
-  const userRating = 3; // Valor de la valoración del usuario (puedes cambiarlo según sea necesario)
+// context
+import { useCourtDetailsStore } from "@/context/courtDetailsStore";
 
-  const renderStars = (totalStars, filledStars) => {
-    const stars = [];
+const CourtHeader = ({ game_level, courtName, images, owner }) => {
+  const userRating = 3; // Valoracion simulacion
+  const navigate = useNavigate();
+  const { courtData, emptyGlobalCourtData } = useCourtDetailsStore();
 
-    for (let i = 1; i <= totalStars; i++) {
-      const color = i <= filledStars ? "#DE9E36" : "#252422";
-      stars.push(<StarIcon key={i} color={color} />);
-    }
+  function handleBack() {
+    emptyGlobalCourtData();
+    navigate(-1);
+  }
 
-    return stars;
-  };
   return (
     <header className="court-header">
-      <Title text={courtName} tag={"h1"} />
-      <div className="court-header__wrap">
-        <div className="court-header__details">
-          <ul className="court-header__stars-wrap">
-            {renderStars(5, userRating).map((star, index) => (
-              <li key={index}>{star}</li>
-            ))}
-          </ul>
-          <p className="txt txt--small">
-            Nivel de juego:
-            <span className="court-header__game-lvl">{game_level}</span>
-          </p>
-        </div>
-        <div className="court-header__author">
-          <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7zHY0kwvS1sAWPfs3IPAsgHaFj%26pid%3DApi&f=1&ipt=13f98e2c6a76556fce2fadfefba87e65d68644d347d0d7a94a523c350793a237&ipo=images"
-            alt="imagen de perfil"
-          />
-          <div className="court-header__author-name">
-            <span>Autor</span>
-            <Title
-              text={"peks"}
-              style={"title--small title--yellow"}
-              tag={"h2"}
-            />
-          </div>
-        </div>
+      <div className="court-header__btns-wrap">
+        <Button variant={"back"} onClick={handleBack}>
+          <ArrowIcon />
+        </Button>
+        <Button variant={"secundary"} customStyle={"btn--icon"}>
+          <ShareIcon />
+        </Button>
       </div>
+      <picture className="court-header__image-container">
+        <img src={courtData.images[0]} alt="" />
+      </picture>
+      <p>{courtData.name}</p>
     </header>
   );
 };

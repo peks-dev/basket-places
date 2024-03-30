@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-
 // services
 import { fetchDataOnTable } from "@/services/supabase/table-operations.service";
 // context
@@ -13,45 +12,56 @@ const UserCourtsRegistered = () => {
   const [courts, setCourts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const { user } = useContext(UserContext);
-  // realizar el fetch a la tabla courts y filtrando por id la columna owner
+
+  // traer todas las canchas relacionadas con el usuario
   async function fetchCourtsData() {
     try {
-      const res = await fetchDataOnTable("courts", "owner", `${user.id}`);
       let courtsAdapted = [];
-      res.map(async (court) => {
+      const res = await fetchDataOnTable("courts", "owner", `${user.id}`);
+      for (const court of res) {
         const dataAdapted = await consolidateCourtData(court);
         courtsAdapted.push(dataAdapted);
-      });
+      }
+      // guardar en local storage
+      const courtsJSON = JSON.stringify(courtsAdapted);
+      localStorage.setItem("registered-user-courts", courtsJSON);
+      // guardar en estado
       setCourts(courtsAdapted);
-      console.log(courtsAdapted);
       setLoading(false);
     } catch (error) {
       setError(error);
+      setLoading(false);
     }
   }
-  useEffect(() => {
-    fetchCourtsData();
-  }, [user]);
-  // Pasar esa lista de courts_ids a cardDataAdapter
-  // Añadirlas al estado
-  // quitar el estado de carga
-  // renderizar un courtCard por cada cancha
 
+  useEffect(() => {
+    // verificar si ya se hizo el fetch
+    if (!localStorage.getItem("registered-user-courts")) {
+      fetchCourtsData();
+    } else {
+      const fetchedCourts = JSON.parse(
+        localStorage.getItem("registered-user-courts")
+      );
+      setCourts(fetchedCourts);
+      setLoading(false);
+    }
+  }, [user.id]);
+
+  // verificar si no hay errores
   if (error) {
+    console.log(error);
     return <div>hubo un error</div>;
   }
   // Verificar si todavía se están cargando los datos
   if (loading) {
     return <div>Cargando...</div>;
   }
-  console.log(courts);
+
   return (
     <>
-      {courts.map((courtData) => (
-        <li key={courtData.court_id} className="user-courts__item">
-          <p>hola</p>
+      {courts.map((courtData, index) => (
+        <li key={index} className="user-courts__item">
           <CourtCard courtData={courtData} />
         </li>
       ))}
