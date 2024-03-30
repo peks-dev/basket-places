@@ -21,14 +21,14 @@ const FormStepBtns = ({ onSend }) => {
   return (
     <ul className="form-step__btns-wrap">
       <li>
-        <Button onClick={prevStep} variant={"arrow"}>
+        <Button onClick={prevStep} variant={"secundary"}>
           {currentStep === 0 ? "" : <ArrowIcon />}
         </Button>
       </li>
       <li>
         <Button
           onClick={currentStep === 5 ? handleSendFormData : nextStep}
-          variant={currentStep === 5 ? "primary" : "arrow"}
+          variant={currentStep === 5 ? "" : "secundary"}
           customStyle={"rotate"}
         >
           {currentStep === 5 ? "enviar" : <ArrowIcon rotate={true} />}

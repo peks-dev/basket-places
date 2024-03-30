@@ -12,7 +12,7 @@ import courtIconSvgLight from "/icons/court-marker-light.svg";
 import CourtCard from "@/components/court-card-preview/court-card";
 import Loader from "@/components/loader/loader";
 // hooks
-import { useFetchCourtData } from "@/lib/court-data-fetch";
+import { useFetchCourtData } from "@/lib/fetch-court-data";
 
 const CourtMarker = React.memo(
   ({ courtId, markerPosition, showPopup, isDraggable, onDragEnd }) => {

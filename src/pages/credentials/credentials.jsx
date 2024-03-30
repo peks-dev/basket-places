@@ -46,16 +46,7 @@ function Credentials() {
   // Componente a renderizar
   return (
     <section className="credentials">
-      {credentialStep !== "welcome" && (
-        <Button
-          variant={"primary"}
-          onClick={() => {
-            setCredentialStep("welcome");
-          }}
-        >
-          atras
-        </Button>
-      )}
+      {credentialStep !== "welcome" && <div>atras</div>}
 
       <RenderStepContent />
       {showNotification && <NotificationPopup message={notificationMessage} />}

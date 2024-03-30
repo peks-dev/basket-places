@@ -26,7 +26,6 @@ const UserProvider = (props) => {
         );
         dispatch({ type: SET_USER_DATA, payload: profile[0] });
       }
-      throw new Error("No hay session iniciada");
     } catch (error) {
       throw error;
     }

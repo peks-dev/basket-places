@@ -1,24 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./user-options.css";
 
 // components
 import Button from "@/components/button/button";
+import LogoutButton from "@/components/logout-button";
 import OptionsIcon from "@/components/icons/options-icon";
 // context
-import UserContext from "@/context/user/userContext";
+
 import { useCourtDetailsStore } from "@/context/courtDetailsStore";
-import { useStepFormStore } from "@/context/stepFormStore";
 
 const UserOptions = () => {
   const [showOptions, setShowOptions] = useState(false);
-  const { user, userLogout } = useContext(UserContext);
-  const { resetStepForm } = useStepFormStore();
   const { emptyGlobalCourtData } = useCourtDetailsStore();
-
-  function handleLogout() {
-    userLogout();
-    resetStepForm();
-  }
 
   function handleDeleteAcc() {
     emptyGlobalCourtData();
@@ -30,7 +23,7 @@ const UserOptions = () => {
   return (
     <div className="user-options">
       <Button
-        variant={"icon"}
+        variant={"options"}
         onClick={handleShowOptions}
         customStyle={showOptions ? "active" : ""}
       >
@@ -38,7 +31,7 @@ const UserOptions = () => {
       </Button>
       {showOptions && (
         <div className={`user-options__wrapper ${showOptions ? "active" : ""}`}>
-          <Button onClick={handleLogout}> cerrar sesion</Button>
+          <LogoutButton />
           <Button>editar perfil</Button>
           <Button variant={"secundary"} onClick={handleDeleteAcc}>
             eliminar cuenta

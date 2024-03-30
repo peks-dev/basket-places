@@ -18,8 +18,8 @@ function Navbar() {
         <ul className="navbar__links">
           <li className={"navbar__link-item"}>
             <Button
-              customStyle={location.pathname === "/" && "btn--active"}
-              variant={"secundary"}
+              customStyle={location.pathname === "/" ? "active" : "inactive"}
+              variant={"navbar"}
             >
               <Link to="/">
                 <MapIcon />
@@ -28,8 +28,10 @@ function Navbar() {
           </li>
           <li className="navbar__link-item">
             <Button
-              customStyle={location.pathname === "/search" && "btn--active"}
-              variant={"secundary"}
+              customStyle={
+                location.pathname === "/search" ? "active" : "inactive"
+              }
+              variant={"navbar"}
             >
               <Link to="/search">
                 <SearchIcon />
@@ -38,8 +40,10 @@ function Navbar() {
           </li>
           <li className="navbar__link-item">
             <Button
-              customStyle={location.pathname === "/new-bp" && "btn--active"}
-              variant={"secundary"}
+              customStyle={
+                location.pathname === "/new-bp" ? "active" : "inactive"
+              }
+              variant={"navbar"}
             >
               <Link to="/new-bp">
                 <AddIcon />
@@ -48,8 +52,10 @@ function Navbar() {
           </li>
           <li className="navbar__link-item">
             <Button
-              customStyle={location.pathname === "/profile" && "btn--active"}
-              variant={"secundary"}
+              customStyle={
+                location.pathname === "/profile" ? "active" : "inactive"
+              }
+              variant={"navbar"}
             >
               <Link to="/profile">
                 <ProfileIcon />

@@ -51,7 +51,7 @@ const StepImgs = () => {
     updatedImages.splice(index, 1);
     updateImages(updatedImages);
   };
-  console.log(formData);
+
   return (
     <div className="step-imgs">
       <p>
@@ -83,7 +83,7 @@ const StepImgs = () => {
                 onClick={(e) => {
                   handleRemoveImage(e, index);
                 }}
-                variant="step-img"
+                variant="secundary"
                 type="button"
               >
                 <CloseIcon />

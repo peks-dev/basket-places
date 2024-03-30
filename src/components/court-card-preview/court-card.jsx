@@ -17,7 +17,7 @@ const CourtCard = ({ courtData }) => {
 
   const handleClick = () => {
     saveCourtData(courtData);
-    navigate(`/search/${courtData.id}`);
+    navigate(`/courts/${courtData.id}`);
   };
 
   function handleDeleteCourt() {

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
+
 import "./index.css";
 import "./global.css";
 import "./body-bg.css";

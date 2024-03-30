@@ -29,7 +29,7 @@
 .form__input[type="email"],
 .form__input[type="password"] {
   font-family: var(--font-body);
-  color: var(--color-white);
+  color: var(--secundary);
   border: 0.2rem solid var(--ternary);
   width: 85%;
   margin: 0 auto;

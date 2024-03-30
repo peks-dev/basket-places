@@ -1,9 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
 // Context
-import CourtProvier from "./context/court/court-provider";
 import { useThemeStore } from "@/context/themeStore";
 
 // Pages
@@ -18,12 +17,11 @@ import Prueba from "./pages/prueba/prueba";
 
 // Components
 import Navbar from "./components/layout/navbar/navbar";
-import UserContext from "./context/user/userContext";
 import ViewportBlocker from "./components/viewport-blocker/viewport-blocker";
+import AuthForm from "@/components/auth-form/auth-form";
 
 //Render
 function App() {
-  const { user } = useContext(UserContext);
   const [isViewportTooSmall, setIsViewportTooSmall] = useState(false);
   const { applyTheme } = useThemeStore();
 
@@ -37,6 +35,7 @@ function App() {
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      // clean localStorage
       localStorage.removeItem("courtsLocations");
       localStorage.removeItem("registered-user-courts");
     };
@@ -49,36 +48,12 @@ function App() {
         <main className={`app-content`}>
           <Routes>
             <Route path="/" element={<MapPage />} />
-            <Route
-              path="/profile"
-              element={user.id ? <UserProfilePage /> : <Credentials />}
-            />
+            <Route path="/login" element={<AuthForm />} />
+            <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route
-              path="/new-bp"
-              element={
-                user.id ? (
-                  <CourtProvier>
-                    <RegisterCourtPage />
-                  </CourtProvier>
-                ) : (
-                  <Credentials />
-                )
-              }
-            />
-            <Route path="/search/:courtId" element={<CourtDetails />} />
-            <Route
-              path="/edit-court/:courtId"
-              element={
-                user.id ? (
-                  <CourtProvier>
-                    <EditCourt />
-                  </CourtProvier>
-                ) : (
-                  <Credentials />
-                )
-              }
-            />
+            <Route path="/new-bp" element={<RegisterCourtPage />} />
+            <Route path="/courts/:courtId" element={<CourtDetails />} />
+            <Route path="/edit-court/:courtId" element={<EditCourt />} />
             <Route path="/prueba" element={<Prueba />} />
           </Routes>
         </main>

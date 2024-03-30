@@ -1,70 +1,58 @@
 import { useState } from "react";
+import "./auth-form.css";
+
+// lib
+import useAuthActions from "./hooks/useAuthActions";
 
 // Components
-import AuthHeader from "./components/auth-header";
-import Button from "@/ui/btn/button";
+import AuthHeader from "./components/auth-form-header";
+import AuthFormFooter from "./components/auth-form-footer";
+import Button from "@/components/button/button";
+import FormField from "@/components/form/form-field/form-field";
+
 export default function AuthForm() {
   const [action, setAction] = useState("signIn");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const actions = [
-    {
-      name: "signUp",
-      submitBtnText: "registrarse",
-      headerTitle: "crear cuenta",
-      function: () => {
-        alert("cuenta creada");
-      },
-    },
-    {
-      name: "signIn",
-      submitBtnText: "ingresar cuenta",
-      headerTitle: "iniciar sesion",
-      function: () => {
-        alert("sesion iniciada");
-      },
-    },
-    {
-      name: "recoveryPass",
-      submitBtnText: "recuperar",
-      headerTitle: "recuperar cuenta",
-      function: () => {
-        alert("recuperacion de cuenta");
-      },
-    },
-  ];
+  const actions = useAuthActions();
 
   const actionSelected = actions.find((e) => e.name === action);
 
+  function handleInputChange(e) {
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else {
+      setPassword(e.target.value);
+    }
+  }
+
   return (
-    <div className="auth-form">
+    <section className="auth-form">
       <form
-        action={actionSelected.actionForm}
+        onSubmit={actionSelected.submitFunction}
         className="auth-form-wrapper"
         method="post"
       >
         <AuthHeader headingText={actionSelected.headerTitle} />
-        <div>email input</div>
+        <FormField
+          inputType={"email"}
+          inputName={"email"}
+          handleInputChange={handleInputChange}
+          inputValue={email}
+        />
         {action !== "recovery" && ( // No show input password on recovery pass
-          <div>contraseña input</div>
+          <FormField
+            inputType={"password"}
+            inputName={"password"}
+            handleInputChange={handleInputChange}
+            inputValue={password}
+          />
         )}
         <Button type={"submit"} variant={"primary"}>
           {actionSelected.submitBtnText}
         </Button>
-        <div className="auth-form__footer">
-          <p>¿Tienes cuenta?</p>
-          <Button
-            className="btn btn--link"
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            Ingresar
-          </Button>
-        </div>
+        <AuthFormFooter switcherFn={setAction} currentAction={action} />
       </form>
-    </div>
+    </section>
   );
 }

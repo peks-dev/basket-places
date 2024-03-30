@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./court-details.css";
 
 // hooks
-import { useFetchCourtData } from "@/lib/court-data-fetch";
+import { useFetchCourtData } from "@/lib/fetch-court-data";
 import { useCourtDetailsStore } from "@/context/courtDetailsStore";
 import { useParams } from "react-router-dom";
 // Components
@@ -17,10 +17,10 @@ const CourtDetails = () => {
   const courtPath = useParams();
   const courtId = courtPath.courtId;
   const { loading, fetchAllCourtData, courtInfo, error } = useFetchCourtData();
-  const { courtData, emptyGlobalCourtData, saveCourtData } =
-    useCourtDetailsStore();
+  const { courtData, saveCourtData } = useCourtDetailsStore();
   const [loadingPage, setLoadingPage] = useState(true);
 
+  console.log("render");
   useEffect(() => {
     if (!courtData.id) {
       fetchAllCourtData(courtId);

@@ -10,20 +10,46 @@
   text-transform: uppercase;
   border: 0.2rem solid var(--ternary);
 }
+/* - - - - - - */
 .btn:hover {
   color: var(--black);
 }
 .btn:active {
   transform: scale(1.1);
 }
-
-/* - - - - - - */
-.btn[data-variant="primary"] {
-  background-color: var(--accent);
-  color: var(--ternary);
+.active {
+  color: var(--black) !important;
+  border-color: var(--black);
 }
 /* - - - - - - */
-.btn[data-variant="secundary"] {
+.inactive {
+  background-color: var(--primary);
+}
+.inactive:hover {
+  color: var(--accent);
+}
+/* - - - - - - */
+.btn svg {
+  height: 100%;
+  max-width: 6rem;
+}
+.btn a {
+  font-family: var(--font-body);
+  height: 100%;
+  width: 100%;
+}
+
+/* - - - - - - */
+.btn[data-variant="navbar"] {
+  border-color: transparent;
+  padding: 0;
+}
+.btn[data-variant="navbar"] a {
+  padding: 0.5rem 1rem;
+}
+/* - - - - - - */
+.btn[data-variant="secundary"],
+.btn[data-variant="options"] {
   border: none;
   background-color: transparent;
   color: var(--ternary);
@@ -31,48 +57,18 @@
 .btn[data-variant="secundary"]:hover {
   color: var(--accent);
 }
-/* - - - - - - */
-.btn[data-variant="btn--navbar"] {
-  border-color: var(--ternary);
-  background-color: var(--accent);
-  color: var(--primary);
+.btn[data-variant="secundary"] svg {
+  height: 100%;
+  padding: 0;
 }
-
 /* - - - - - - */
 .btn[data-variant="map-control"] {
   padding: 0.5rem;
   border-radius: 50%;
   width: 5rem;
 }
-
-/* - - - - - - */
-.btn[data-variant="step-img"] {
-  background-color: var(--ternary);
-  color: var(--primary);
-  width: clamp(3rem, 6.5vw, 5.5rem);
-  padding: 0.5rem;
-}
-.btn[data-variant="step-img"]:hover {
-  background-color: var(--accent);
-}
-.btn[data-variant="step-img"]:active {
-  transform: scale(1.1);
-}
-/* - - - - - - */
-.btn[data-variant="arrow"] {
-  border: none;
-  background-color: transparent;
-  width: 5rem;
-  padding: 0;
-}
-.btn[data-variant="arrow"] svg {
-  height: 100%;
-  fill: var(--ternary);
-}
-
-.btn[data-variant="arrow"]:active {
-  color: var(--accent);
-  transform: scale(1.1);
+.btn[data-variant="map-control"] svg {
+  fill: transparent;
 }
 /* - - - - - - */
 .btn[data-variant="back"] {
@@ -86,43 +82,20 @@
   fill: var(--black);
 }
 /* - - - - - - */
-.btn[data-variant="icon"] {
-  width: clamp(3.5rem, 6vw, 5rem);
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  margin: 0 0 1rem auto;
+.btn[data-variant="options"] {
+  margin: 0 0 0 auto;
 }
-.btn[data-variant="icon"]:hover svg {
-  fill: var(--accent);
-}
-/* - - - - - - */
-.active {
-  color: var(--black);
-  border-color: var(--black);
-}
-.btn > svg {
+.btn[data-variant="options"] svg {
   fill: transparent;
 }
-
-/* - - - - - - */
-.inactive {
-  background-color: var(--primary);
+.btn[data-variant="options"]:hover svg {
+  color: var(--black);
 }
-.inactive:hover {
-  color: var(--accent);
-}
-.btn--link {
-  text-decoration: underline;
-}
-
-.btn--active {
-  background-color: var(--accent) !important;
-  border-color: var(--accent) !important;
-  color: #242628 !important;
-}
-
-.btn--icon {
-  width: clamp(3.5rem, 6vw, 5vw);
+.btn[data-variant="link"] {
+  background-color: transparent;
   padding: 0;
+  border: none;
+  text-decoration: underline;
+  text-transform: capitalize;
+  color: var(--secundary);
 }
