@@ -17,14 +17,14 @@ const UserCourts = () => {
     <div className="user-courts">
       <div className="user-courts__btns-wrap">
         <Button
-          variant={activeButton !== "register" && "secundary"}
+          variant={"secundary"}
           onClick={handleShowRegisterCourts}
           customStyle={activeButton === "register" ? "active" : ""}
         >
           registrados
         </Button>
         <Button
-          variant={activeButton !== "favorites" && "secundary"}
+          variant={"secundary"}
           onClick={handleShowFavoritesCourts}
           customStyle={activeButton === "favorites" ? "active" : ""}
         >
