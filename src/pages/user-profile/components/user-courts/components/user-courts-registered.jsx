@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 // services
 import { fetchDataOnTable } from "@/services/supabase/table-operations.service";
 // context
-import UserContext from "@/context/user/userContext";
+import { useUserStore } from "@/context/userStore";
 // hooks
 import { consolidateCourtData } from "@/adapters/court-data.adapter";
 // components
@@ -12,13 +12,13 @@ const UserCourtsRegistered = () => {
   const [courts, setCourts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { user } = useContext(UserContext);
+  const { profile } = useUserStore();
 
   // traer todas las canchas relacionadas con el usuario
   async function fetchCourtsData() {
     try {
       let courtsAdapted = [];
-      const res = await fetchDataOnTable("courts", "owner", `${user.id}`);
+      const res = await fetchDataOnTable("courts", "owner", `${profile.id}`);
       for (const court of res) {
         const dataAdapted = await consolidateCourtData(court);
         courtsAdapted.push(dataAdapted);
@@ -46,7 +46,7 @@ const UserCourtsRegistered = () => {
       setCourts(fetchedCourts);
       setLoading(false);
     }
-  }, [user.id]);
+  }, [profile.id]);
 
   // verificar si no hay errores
   if (error) {

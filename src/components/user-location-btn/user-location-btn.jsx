@@ -1,16 +1,20 @@
-import UserContext from "@/context/user/userContext";
-import { useContext } from "react";
+import React from "react";
+
+// context
+import { useUserStore } from "@/context/userStore";
 
 import Button from "../button/button";
 import LocationIcon from "@/components/icons/location-icon";
+import geolocation from "@/utilities/geolocation.utility";
 
 const UserLocationBtn = ({ mapRef }) => {
-  const { user, userLocation } = useContext(UserContext);
+  const { profile, updateUserLocation } = useUserStore();
 
-  function getUserLocation() {
-    userLocation()
+  function handleUserLocation() {
+    geolocation()
       .then((coordinates) => {
         mapRef.current.flyTo(coordinates, 13, { animate: true });
+        updateUserLocation(coordinates);
       })
       .catch((error) => {
         alert("hubo un error" + error);
@@ -20,8 +24,8 @@ const UserLocationBtn = ({ mapRef }) => {
   return (
     <Button
       variant={`map-control`}
-      onClick={getUserLocation}
-      customStyle={user.location ? "active" : "inactive"}
+      onClick={handleUserLocation}
+      customStyle={profile.location ? "active" : "inactive"}
     >
       <LocationIcon />
     </Button>

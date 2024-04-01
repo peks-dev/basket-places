@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./register-court.css";
 
 // Context
-import UserContext from "../../context/user/userContext";
 import { useStepFormStore } from "../../context/stepFormStore";
 
 // components
@@ -15,17 +14,18 @@ import { useSendFormData } from "@/components/form-step/hooks/use-send-form-data
 const RegisterCourtPage = () => {
   const { isFormStarted } = useStepFormStore();
   const { loading, error, success, registerCourt } = useSendFormData();
-  const { user } = useContext(UserContext);
   const { formData } = useStepFormStore();
+
   if (error) {
     console.log(error);
   }
+
   return (
     <section className="register-court-page">
       {isFormStarted ? (
         <FormStep
           sendFunction={() => {
-            registerCourt(formData, user.id);
+            registerCourt(formData);
           }}
           loadingState={loading}
           errorState={error}

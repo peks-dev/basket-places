@@ -1,14 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect } from "react";
 
-// Context
-import UserContext from "@/context/user/userContext";
 import { useStepFormStore } from "@/context/stepFormStore";
 
 // Hooks
 import { useFetchCourtData } from "@/lib/fetch-court-data";
 
 export function useFormFiller(courtId) {
-  const { user } = useContext(UserContext);
   const {
     loading,
     error,

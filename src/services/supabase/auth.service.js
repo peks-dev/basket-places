@@ -51,11 +51,11 @@ export async function getSession() {
   try {
     const { data, error } = await supabase.auth.getSession();
     if (error) {
-      return console.log("error: ", error);
+      throw error;
     }
-    return data.session;
+    return data;
   } catch (error) {
-    return error;
+    throw error;
   }
 }
 

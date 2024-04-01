@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useUserStore } from "@/context/userStore";
+
 // services
 import { insertDataOnTable } from "../../../services/supabase/table-operations.service";
 import { uploadFile } from "../../../services/supabase/storage-operations.service";
@@ -13,8 +15,9 @@ export function useSendFormData() {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [courtId, setCourtId] = useState(null);
+  const { profile } = useUserStore();
 
-  const registerCourt = async (formData, userId) => {
+  const registerCourt = async (formData) => {
     try {
       console.log(formData);
       setLoading(true);
@@ -38,7 +41,7 @@ export function useSendFormData() {
 
       const { lng, lat } = location.coordinates;
       console.log(lng, lat);
-      const owner = userId;
+      const owner = profile.id;
 
       let mainTableData = {
         name,
@@ -70,7 +73,7 @@ export function useSendFormData() {
 
         await uploadFile(
           "imgs_courts",
-          `${userId}/${court_id}/${compressedImage.name}`,
+          `${owner}/${court_id}/${compressedImage.name}`,
           compressedImage
         );
       });
@@ -84,7 +87,7 @@ export function useSendFormData() {
         court_id,
       });
 
-      const schedulesWithCourtId = formData.schedules.map((schedule) => ({
+      const schedulesWithCourtId = schedules.map((schedule) => ({
         ...schedule,
         court_id,
       }));

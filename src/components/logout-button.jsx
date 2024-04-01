@@ -1,18 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 //context
-import UserContext from "@/context/user/userContext";
 import { useStepFormStore } from "@/context/stepFormStore";
+import { useUserStore } from "@/context/userStore";
 
 //components
 import Button from "@/components/button/button";
 
 const LogoutButton = () => {
-  const { userLogout } = useContext(UserContext);
+  const { logout } = useUserStore();
   const { resetStepForm } = useStepFormStore();
 
   function handleLogout() {
-    userLogout();
+    logout();
     resetStepForm();
+    if (localStorage.getItem("registered-user-courts")) {
+      localStorage.removeItem("registered-user-courts");
+    }
   }
   return (
     <>

@@ -9,7 +9,6 @@ import "./body-bg.css";
 import App from "./App";
 
 //context
-import UserProvider from "./context/user/userProvider";
 import { useStepFormStore } from "@/context/stepFormStore";
 
 const Index = () => {
@@ -25,9 +24,7 @@ const Index = () => {
 
   return (
     <React.StrictMode>
-      <UserProvider>
-        <App />
-      </UserProvider>
+      <App />
     </React.StrictMode>
   );
 };

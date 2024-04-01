@@ -1,8 +1,8 @@
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import "./map-page.css";
 
 // Context
-import UserContext from "@/context/user/userContext";
+import { useUserStore } from "@/context/userStore";
 
 // Components
 import Map from "@/components/map/map";
@@ -22,7 +22,7 @@ import { useLocationsCourtsList } from "./hooks/locations-courts-list.hook";
 import { useMapStore } from "@/context/mapStore";
 
 const MapPage = () => {
-  const { user } = useContext(UserContext);
+  const { profile } = useUserStore();
   const {
     courtsList,
     loading: markersLoading,
@@ -62,7 +62,9 @@ const MapPage = () => {
           changePosition={updateMapPageCenter}
           changeZoom={updateMapPageZoom}
         />
-        {user.location && <UserPositionMarker markerPosition={user.location} />}
+        {profile.location && (
+          <UserPositionMarker markerPosition={profile.location} />
+        )}
         {courtsList.map((court) => (
           <CourtMarker
             key={court.court_id}

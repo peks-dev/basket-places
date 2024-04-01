@@ -1,5 +1,12 @@
 class UserModel {
-  constructor(id, apodo, avatar_url, website, bio, location) {
+  constructor(
+    id = null,
+    apodo = null,
+    avatar_url = null,
+    website = null,
+    bio = null,
+    location = null
+  ) {
     this.id = id;
     this.avatar_url = avatar_url;
     this.apodo = apodo;

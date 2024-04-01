@@ -1,8 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./step-location.css";
-
-// Context
-import UserContext from "@/context/user/userContext";
 
 // Component
 import Map from "@/components/map/map";
@@ -10,13 +7,14 @@ import Loader from "@/components/loader/loader";
 import CourtMarker from "@/components/court-marker/court-marker";
 // context
 import { useStepFormStore } from "@/context/stepFormStore";
+import { useUserStore } from "@/context/userStore";
 import { useMapStore } from "@/context/mapStore";
 
 // Services
 import { reverseGeocoding } from "@/services/geoapify/reverse-geocoding";
 
 const StepLocation = () => {
-  const { user } = useContext(UserContext);
+  const { profile } = useUserStore();
   const [loadingMap, setLoadingMap] = useState(true);
   const {
     formData,
@@ -46,17 +44,17 @@ const StepLocation = () => {
       console.log("solicitud api realizada");
     }
   }
-  // set coordinates to global state court
+  // set coordinates on map
   useEffect(() => {
     if (!mapStepFormPosition.coordinates) {
-      if (user.location) {
-        updateCoordinates(user.location);
-        updateMapStepFormCenter(user.location);
+      if (profile.location) {
+        updateCoordinates(profile.location);
+        updateMapStepFormCenter(profile.location);
       }
     } else {
       setLoadingMap(false);
     }
-  }, [mapStepFormPosition.coordinates, user.location]);
+  }, [mapStepFormPosition.coordinates, profile.location]);
 
   return (
     <div className="map-selector">

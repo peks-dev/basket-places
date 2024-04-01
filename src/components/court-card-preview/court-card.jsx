@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./court-card.css";
 
 import { deleteCourt } from "@/pages/user-profile/components/user-courts/utilities/delete-court";
@@ -6,13 +6,13 @@ import { deleteCourt } from "@/pages/user-profile/components/user-courts/utiliti
 import { useNavigate } from "react-router-dom";
 // context
 import { useCourtDetailsStore } from "@/context/courtDetailsStore";
-import UserContext from "@/context/user/userContext";
+import { useUserStore } from "@/context/userStore.js";
 // Components
 import Button from "@/components/button/button";
 
 const CourtCard = ({ courtData }) => {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+  const { profile } = useUserStore();
   const { saveCourtData } = useCourtDetailsStore();
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ const CourtCard = ({ courtData }) => {
   };
 
   function handleDeleteCourt() {
-    deleteCourt(user.id, courtData.id, courtData.images);
+    deleteCourt(profile.id, courtData.id, courtData.images);
   }
 
   return (

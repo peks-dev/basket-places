@@ -1,8 +1,9 @@
 .user-info {
   display: flex;
+  align-items: center;
   background-color: var(--accent);
   border-radius: 0 0 1.8rem 1.8rem;
-  padding: 2.5%;
+  padding: 1.5rem;
   gap: 2rem;
   height: 15%;
 }
@@ -12,11 +13,13 @@
   gap: 1.5rem;
 }
 .user-info__avatar {
-  width: clamp(7rem, 10vw, 14rem);
-  height: clamp(7rem, 10vw, 14rem);
+  width: clamp(7rem, 10vw, 10rem);
+  height: clamp(7rem, 10vw, 10rem);
+
   border-radius: 50%;
   border: 0.3rem solid var(--primary);
   overflow: hidden;
+  max-width: 100%;
 }
 .user-info__avatar img {
   height: 100%;

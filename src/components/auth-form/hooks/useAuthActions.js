@@ -1,13 +1,15 @@
-import { useCallback, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 // contexts
-import UserContext from "@/context/user/userContext";
+import { useStepFormStore } from "@/context/stepFormStore";
+import { useUserStore } from "@/context/userStore";
 
 // Custom hook que maneja las acciones
 export default function useAuthActions() {
-  const { userLogin } = useContext(UserContext);
+  const { startRegister } = useStepFormStore();
+  const { login } = useUserStore();
+  const historyState = history.state.usr;
   const navigate = useNavigate();
-  const { state } = useLocation();
 
   // Definimos las acciones dentro del hook
   const actions = [
@@ -31,12 +33,14 @@ export default function useAuthActions() {
         // convertir la data en un objeto clave - valor
         const formProps = Object.fromEntries(formData);
         try {
-          await userLogin(formProps.email, formProps.password);
+          await login(formProps.email, formProps.password);
+          if (historyState.path === "/new-bp") {
+            startRegister();
+          }
+          navigate(historyState.path);
         } catch (error) {
           console.log(error);
           throw error;
-        } finally {
-          navigate(state.path);
         }
       }, []),
     },

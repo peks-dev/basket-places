@@ -84,6 +84,7 @@
 /* - - - - - - */
 .btn[data-variant="options"] {
   margin: 0 0 0 auto;
+  max-width: 6rem;
 }
 .btn[data-variant="options"] svg {
   fill: transparent;
