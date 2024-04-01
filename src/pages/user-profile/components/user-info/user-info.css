@@ -6,6 +6,7 @@
   padding: 1.5rem;
   gap: 2rem;
   height: 15%;
+  position: relative;
 }
 .user-info__header {
   display: flex;

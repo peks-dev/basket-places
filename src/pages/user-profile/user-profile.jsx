@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import "./user-profile.css";
+import "./responsive.css";
 
 // context
 import { useUserStore } from "@/context/userStore";

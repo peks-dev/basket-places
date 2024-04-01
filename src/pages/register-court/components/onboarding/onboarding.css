@@ -11,5 +11,5 @@
   margin: 0 auto;
 }
 .onboarding__svg-container {
-  width: clamp(10rem, 15vw, 20rem);
+  width: clamp(20rem, 35vw, 40rem);
 }

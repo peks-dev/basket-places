@@ -7,8 +7,7 @@
   overflow: hidden;
   border-radius: 1.2rem;
   color: var(--secundary);
-  max-height: 37rem;
-  max-width: 50rem;
+  max-height: 30rem;
 }
 .court-card__header {
   position: relative;
