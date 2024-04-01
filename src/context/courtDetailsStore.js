@@ -12,7 +12,10 @@ export const useCourtDetailsStore = create(
         set((state) => ({
           courtData: newCourtData,
         })),
-      emptyGlobalCourtData: () => set((state) => ({ courtData: courtData })),
+      emptyGlobalCourtData: () =>
+        set((state) => ({
+          courtData: courtData,
+        })),
     }),
     { name: "court-details-data" }
   )

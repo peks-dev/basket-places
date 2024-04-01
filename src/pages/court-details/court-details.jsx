@@ -7,11 +7,11 @@ import { useFetchCourtData } from "@/lib/fetch-court-data";
 import { useCourtDetailsStore } from "@/context/courtDetailsStore";
 import { useParams } from "react-router-dom";
 // Components
-import CourtSlider from "./components/court-slider/court-slider";
-import CourtHeader from "./components/court-header/court-header";
+import CourtDetailSlider from "./components/court-detail-slider/court-detail-slider";
 import CourtTabs from "./components/court-tabs/court-tabs";
 import Loader from "../../components/loader/loader";
 import Error from "../../components/error/error";
+import CourtDetailHeader from "./components/court-detail-header/court-detaill-header";
 
 const CourtDetails = () => {
   const courtPath = useParams();
@@ -46,8 +46,9 @@ const CourtDetails = () => {
 
   return (
     <article className="court-details-container">
-      <CourtHeader />
-      <div className="court-tabsPro">hola</div>
+      <CourtDetailSlider />
+      <CourtDetailHeader />
+      <CourtTabs />
     </article>
   );
 };

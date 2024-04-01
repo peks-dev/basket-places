@@ -1,45 +1,24 @@
-.court-tabs-container {
+.court-details__tabs-wrap {
+  height: 50%;
   width: 100%;
-  height: 38%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex: 2 1 auto;
+  gap: 1rem;
 }
-.court-tabs__header {
+.court-details__tabs-buttons {
+  flex: 0 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  margin: 2rem 0;
-}
-.court-tabs__content {
-  background-color: var(--color-black);
-  border-radius: 2rem;
-  width: 90%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2em;
-  overflow-x: auto;
+  justify-content: space-around;
+}
+.court-details__tabs-buttons button {
+  font-size: 1.3rem;
 }
 
-.court-tabs__content .schedules {
-  width: 90%;
-  margin-top: 1rem;
-}
-
-/* Personalizar el scroll*/
-.court-tabs__content::-webkit-scrollbar-thumb {
-  background-color: var(--color-yellow);
-  border-radius: 6px;
-}
-.court-tabs__content::-webkit-scrollbar {
-  width: 10px;
-}
-.court-tabs__content::-webkit-scrollbar-track,
-.court-tabs__content::-webkit-scrollbar-corner {
-  background-color: var(--color-black);
-  border-radius: 2rem;
+.court-details__tab-content {
+  flex: 1 1 80%;
+  background-color: var(--primary);
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 1.2rem;
 }

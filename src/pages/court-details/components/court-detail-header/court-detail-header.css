@@ -1,0 +1,48 @@
+.court-detail-header {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+  height: 15%;
+}
+.court-detail-header__wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.court-detail__name {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  text-transform: uppercase;
+  line-height: normal;
+}
+.court-detail__rating {
+  display: flex;
+  gap: 0.5rem;
+}
+.court-detail__icon-container {
+  max-width: 3rem;
+  color: var(--accent);
+}
+
+.court-detail__game-level {
+  display: flex;
+  height: 100%;
+}
+.court-detail__game-level p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  line-height: normal;
+  margin: auto 0;
+  font-size: 1.6rem;
+}
+.court-detail__game-level span {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}

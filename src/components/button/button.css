@@ -38,6 +38,9 @@
   height: 100%;
   width: 100%;
 }
+.no-padding {
+  padding: 0;
+}
 
 /* - - - - - - */
 .btn[data-variant="navbar"] {
@@ -76,11 +79,13 @@
 }
 /* - - - - - - */
 .btn[data-variant="back"] {
-  width: 6rem;
   color: var(--ternary);
+  padding: 0.2rem 0.4rem;
 }
 .btn[data-variant="back"] svg {
+  width: 4rem;
   fill: var(--ternary);
+  padding: 0;
 }
 .btn[data-variant="back"]:hover svg {
   fill: var(--black);
