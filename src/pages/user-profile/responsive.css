@@ -1,16 +1,1 @@
-@media screen and (min-width: 1080px) {
-  .user-profile-page {
-    flex-direction: row;
-  }
-  .user-info {
-    height: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: end;
-    padding-bottom: 5rem;
-  }
-  .user-courts {
-    width: 100%;
-    height: 100%;
-  }
-}
+

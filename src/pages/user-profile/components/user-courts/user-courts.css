@@ -21,3 +21,10 @@
   border-top: 0.5rem solid var(--ternary);
   border-bottom: 0.5rem solid var(--ternary);
 }
+
+@media screen and (min-width: 1080px) {
+  .user-courts {
+    width: 100%;
+    height: 100%;
+  }
+}

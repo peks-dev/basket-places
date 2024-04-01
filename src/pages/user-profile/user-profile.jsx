@@ -1,11 +1,8 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import "./user-profile.css";
-import "./responsive.css";
-
 // context
 import { useUserStore } from "@/context/userStore";
-
 // components
 import UserInfo from "./components/user-info/user-info";
 import UserCourts from "./components/user-courts/user-courts";
