@@ -1,11 +1,11 @@
 import React from "react";
 // components
-import DescriptionTab from "./components/description-tab/description-tab";
-import ReviewTab from "./components/reviews-tab/review-tab";
-import LocationTab from "./components/location-tab/location-tab";
-import SchedulesTab from "./components/schedules-tab/schedules-tab";
+import DescriptionTab from "../components/description-tab/description-tab";
+import ReviewTab from "../components/reviews-tab/review-tab";
+import LocationTab from "../components/location-tab/location-tab";
+import SchedulesTab from "../components/schedules-tab/schedules-tab";
 
-const ActiveTabRendered = () => {
+const ActiveTabRendered = ({ tabActive }) => {
   switch (tabActive) {
     case "descripcion":
       return <DescriptionTab />;

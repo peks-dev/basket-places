@@ -1,0 +1,22 @@
+.comments-counter,
+.comments-counter__wrapper,
+.comments-counter__wrapper p {
+  display: flex;
+  align-items: center;
+}
+
+.comments-counter {
+  justify-content: space-between;
+}
+.comments-counter__wrapper {
+  gap: 2rem;
+}
+
+.comments-counter__icon-container {
+  width: 3rem;
+  color: var(--accent);
+}
+
+.comments-counter__wrapper p {
+  gap: 1rem;
+}

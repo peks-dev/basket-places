@@ -1,0 +1,39 @@
+.tab-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+/* general for all tabs except tab location*/
+.tab-wrapper.tab-description,
+.tab-wrapper.tab-schedules,
+.tab-reviews {
+  padding: 2rem 1.5rem;
+}
+/* - - - - - - - - - */
+
+.tab-wrapper.tab-description {
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2rem;
+}
+.tab-wrapper.tab-description > p {
+  text-align: center;
+  width: 100%;
+  flex: 1 0 30%;
+}
+/* - - - - - - - - - */
+.tab-wrapper.tab-schedules ul {
+  width: 100%;
+}
+
+/* - - - - - - - - - */
+.tab-reviews {
+  flex-direction: column;
+  gap: 3rem;
+}
+.tab-reviews__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

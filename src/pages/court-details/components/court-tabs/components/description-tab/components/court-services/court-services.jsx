@@ -1,45 +1,38 @@
 import React from "react";
 import "./court-services.css";
 
-import Title from "../../../../../../../../components/layout/title/title";
+// context
+import { useCourtDetailsStore } from "@/context/courtDetailsStore";
+
 import ShopIcon from "./components/shop-icon";
 import BathroomIcon from "./components/bathroom-icon";
 import TransportIcon from "./components/transport-icon";
 import WifiIcon from "./components/wifi-icon";
-import Txt from "../../../../../../../../components/layout/text-body/text-body";
 
-const CourtServices = ({ services }) => {
+const CourtServices = () => {
+  const { courtData } = useCourtDetailsStore();
+
+  const servicesArr = [
+    { name: "shop", icon: ShopIcon },
+    { name: "bathroom", icon: BathroomIcon },
+    { name: "wifi", icon: WifiIcon },
+    { name: "transport", icon: TransportIcon },
+  ];
+
   return (
-    <div className="services-container">
-      <ul className="services__icons-wrap">
-        <li>
-          <Txt
-            content={"tienda"}
-            style={"txt--small txt--center txt--orange"}
-          />
-          <ShopIcon color={services.shop === true ? "#c86804" : "#000000"} />
-        </li>
-        <li>
-          <Txt content={"baños"} style={"txt--small txt--center txt--orange"} />
-          <BathroomIcon
-            color={services.bathroom === true ? "#c86804" : "#000000"}
+    <ul className="services-wrapper">
+      {servicesArr.map((service, index) => (
+        <li key={index} className="services__icon-container">
+          <service.icon
+            color={
+              courtData.services[service.name]
+                ? "var(--secundary)"
+                : "var(--ternary)"
+            }
           />
         </li>
-        <li>
-          <Txt content={"wifi"} style={"txt--small txt--center txt--orange"} />
-          <WifiIcon color={services.wifi === true ? "#c86804" : "#000000"} />
-        </li>
-        <li>
-          <Txt
-            content={"transporte"}
-            style={"txt--small txt--center txt--orange"}
-          />
-          <TransportIcon
-            color={services.transport === true ? "#c86804" : "#000000"}
-          />
-        </li>
-      </ul>
-    </div>
+      ))}
+    </ul>
   );
 };
 

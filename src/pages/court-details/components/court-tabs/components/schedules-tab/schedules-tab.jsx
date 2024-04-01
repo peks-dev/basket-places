@@ -1,13 +1,16 @@
 import React from "react";
-
+// context
+import { useCourtDetailsStore } from "@/context/courtDetailsStore";
 // Components
-import Schedules from "../../../../../../components/schedules/schedules";
+import TabWrapper from "../tab-wrapper/tab-wrapper";
+import Schedules from "@/components/schedules/schedules";
 
-const SchedulesTab = ({ schedules }) => {
+const SchedulesTab = () => {
+  const { courtData } = useCourtDetailsStore();
   return (
-    <>
-      <Schedules schedules={schedules} />
-    </>
+    <TabWrapper variant="tab-schedules">
+      <Schedules schedules={courtData.schedules} />
+    </TabWrapper>
   );
 };
 

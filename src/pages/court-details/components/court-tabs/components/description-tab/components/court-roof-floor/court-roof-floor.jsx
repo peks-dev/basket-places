@@ -1,22 +1,28 @@
 import React from "react";
 import "./court-roof-floor.css";
 
-// Components
-import Txt from "../../../../../../../../components/layout/text-body/text-body";
-import Title from "../../../../../../../../components/layout/title/title";
+// context
+import { useCourtDetailsStore } from "@/context/courtDetailsStore";
+// components
 
-const CourtRoofFloor = ({ floor_type, roof }) => {
+const CourtRoofFloor = () => {
+  const { courtData } = useCourtDetailsStore();
+
   return (
-    <div className="roof-floor-container">
-      <div>
-        <Title text={"suelo"} tag={"h2"} style={"title--small"} />
-        <Txt content={floor_type} style={"txt--center"} />
-      </div>
-      <div>
-        <Title text={"techo"} tag={"h2"} style={"title--small"} />
-        <Txt content={roof === true ? "si" : "no"} style={"txt--center"} />
-      </div>
-    </div>
+    <ul className="roof-floor-wrapper">
+      <li>
+        <p>
+          <span>suelo</span>
+          {courtData.floor_type}
+        </p>
+      </li>
+      <li>
+        <p>
+          <span>techo</span>
+          {courtData.roof ? "si" : "no"}
+        </p>
+      </li>
+    </ul>
   );
 };
 

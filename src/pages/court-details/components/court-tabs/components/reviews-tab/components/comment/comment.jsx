@@ -1,6 +1,7 @@
 import React from "react";
 import "./comment.css";
-import StarIcon from "../../../../../../../../assets/bp-details/components/star-icon";
+//components
+import BasketballIcon from "@/components/icons/basketball-icon";
 
 const Comment = () => {
   return (
@@ -12,18 +13,20 @@ const Comment = () => {
             alt="user avatar"
           />
         </picture>
-        <p className="comment__user">peks</p>
-        <ul className="comment__stars">
-          <li>
-            <StarIcon />
-          </li>
-          <li>
-            <StarIcon />
-          </li>
-          <li>
-            <StarIcon />
-          </li>
-        </ul>
+        <div className="comment__header-wrapper">
+          <p className="comment__user">peks</p>
+          <ul className="comment__rating">
+            <li>
+              <BasketballIcon />
+            </li>
+            <li>
+              <BasketballIcon />
+            </li>
+            <li>
+              <BasketballIcon />
+            </li>
+          </ul>
+        </div>
       </header>
       <p className="comment__content">
         Cantan muchos fouls, eso hace que el juego no sea fluido y se pelean

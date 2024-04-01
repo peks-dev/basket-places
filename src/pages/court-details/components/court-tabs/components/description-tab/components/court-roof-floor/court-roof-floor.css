@@ -1,16 +1,25 @@
-.roof-floor-container {
+.roof-floor-wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
-  padding-bottom: 2rem;
+  justify-content: space-around;
 }
-.roof-floor-container div {
+
+.roof-floor-wrapper li {
+  padding: 1rem;
+  border-radius: 1.2rem;
+  border: 0.2rem solid var(--secundary);
+  width: 12rem;
+  display: flex;
+  align-items: center;
+}
+.roof-floor-wrapper li p {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8em;
-  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
+.roof-floor-wrapper li p span {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  font-size: 1.5rem;
 }
