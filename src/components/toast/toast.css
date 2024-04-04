@@ -1,0 +1,37 @@
+.toast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.toast {
+  padding: 1rem;
+  min-width: 20rem;
+  min-height: 2rem;
+  background-color: var(--secundary);
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: var(--primary);
+  font-size: 1.8rem;
+  z-index: 10;
+}
+.toast__icon {
+  width: 3rem;
+}
+.toast__icon svg {
+  fill: none;
+}
+.toast[data-variant="error"] {
+  border-left: 1rem solid red;
+}
+.toast[data-variant="error"] .toast__icon {
+  color: red;
+}

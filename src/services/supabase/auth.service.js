@@ -1,4 +1,5 @@
 import { supabase } from "./create-client-supa";
+import { ConnectionError, ValidationError } from "@/models/errors.model";
 
 export async function login(userEmail, userPassword) {
   try {
@@ -12,10 +13,6 @@ export async function login(userEmail, userPassword) {
     }
     return data;
   } catch (error) {
-    if (error === undefined) {
-      return;
-    }
-
     throw error;
   }
 }

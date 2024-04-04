@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 // Context
 import { useThemeStore } from "@/context/themeStore";
+import { useToastStore } from "@/context/toastStore";
 
 // Pages
 import MapPage from "./pages/map/map-page";
@@ -13,15 +14,19 @@ import CourtDetails from "./pages/court-details/court-details";
 import EditCourt from "./pages/edit-court/edit-court";
 import RegisterCourtPage from "./pages/register-court/register-court";
 import Prueba from "./pages/prueba/prueba";
+import LoginPage from "./pages/login/login";
 
 // Components
-import Navbar from "./components/layout/navbar/navbar";
+import Navbar from "@/components/layout/navbar/navbar";
 import ViewportBlocker from "./components/viewport-blocker/viewport-blocker";
-import AuthForm from "@/components/auth-form/auth-form";
+import Toast from "@/components/Toast/toast";
+// hooks
+import useToast from "@/hooks/use-toast.hook";
 
 //Render
 function App() {
   const [isViewportTooSmall, setIsViewportTooSmall] = useState(false);
+  const { alerts, resetToast } = useToastStore();
   const { applyTheme } = useThemeStore();
 
   useEffect(() => {
@@ -44,10 +49,10 @@ function App() {
     <Router>
       {isViewportTooSmall && <ViewportBlocker />}
       <div className="App">
-        <main className={`app-content`}>
+        <main className={"app-content"}>
           <Routes>
             <Route path="/" element={<MapPage />} />
-            <Route path="/login" element={<AuthForm />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/new-bp" element={<RegisterCourtPage />} />
@@ -57,6 +62,14 @@ function App() {
           </Routes>
         </main>
         <Navbar />
+        {
+          // Notifications system
+          <div className="toast-list">
+            {alerts.map((t) => (
+              <Toast key={t.id} type={t.type} text={t.text} />
+            ))}
+          </div>
+        }
       </div>
     </Router>
   );

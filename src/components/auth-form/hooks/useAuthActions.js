@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 // contexts
 import { useStepFormStore } from "@/context/stepFormStore";
 import { useUserStore } from "@/context/userStore";
+import { useToastStore } from "@/context/toastStore";
+import { create } from "zustand";
 
 // Custom hook que maneja las acciones
 export default function useAuthActions() {
   const { startRegister } = useStepFormStore();
   const { login } = useUserStore();
+  const { createToast } = useToastStore();
   const historyState = history.state.usr;
   const navigate = useNavigate();
 
@@ -39,8 +42,12 @@ export default function useAuthActions() {
           }
           navigate(historyState.path);
         } catch (error) {
-          console.log(error);
-          throw error;
+          console.log(error.message);
+          if (error.message === "Invalid login credentials") {
+            createToast("email o contraseña invalidos", "error");
+          } else if (error.message === "Failed to fetch") {
+            createToast("no tienes conexión a internet", "noConnection");
+          }
         }
       }, []),
     },

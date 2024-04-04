@@ -1,36 +1,19 @@
 import React, { useState } from "react";
 import "./user-courts.css";
 
+// components
 import UserCourtsRegistered from "./components/user-courts-registered";
-import Button from "@/components/button/button";
+import UserCourtsButtons from "./components/user-courts-btns";
 
 const UserCourts = () => {
   const [activeButton, setActiveButton] = useState("register");
 
-  function handleShowRegisterCourts() {
-    setActiveButton("register");
-  }
-  function handleShowFavoritesCourts() {
-    setActiveButton("favorites");
-  }
   return (
     <div className="user-courts">
-      <div className="user-courts__btns-wrap">
-        <Button
-          variant={"secundary"}
-          onClick={handleShowRegisterCourts}
-          customStyle={activeButton === "register" ? "active" : ""}
-        >
-          registrados
-        </Button>
-        <Button
-          variant={"secundary"}
-          onClick={handleShowFavoritesCourts}
-          customStyle={activeButton === "favorites" ? "active" : ""}
-        >
-          favoritos
-        </Button>
-      </div>
+      <UserCourtsButtons
+        setStateBtn={setActiveButton}
+        stateBtn={activeButton}
+      />
       <ul className="user-courts__wrap">
         {activeButton === "register" ? (
           <UserCourtsRegistered />

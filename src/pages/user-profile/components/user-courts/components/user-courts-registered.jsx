@@ -7,6 +7,7 @@ import { useUserStore } from "@/context/userStore";
 import { consolidateCourtData } from "@/adapters/court-data.adapter";
 // components
 import CourtCard from "@/components/court-card-preview/court-card";
+import { ErrorBoundary } from "@/utilities/error-boundaries";
 
 const UserCourtsRegistered = () => {
   const [courts, setCourts] = useState(null);
@@ -30,8 +31,10 @@ const UserCourtsRegistered = () => {
       setCourts(courtsAdapted);
       setLoading(false);
     } catch (error) {
+      console.log(error.message);
       setError(error);
       setLoading(false);
+      throw error;
     }
   }
 
@@ -48,11 +51,6 @@ const UserCourtsRegistered = () => {
     }
   }, [profile.id]);
 
-  // verificar si no hay errores
-  if (error) {
-    console.log(error);
-    return <div>hubo un error</div>;
-  }
   // Verificar si todavía se están cargando los datos
   if (loading) {
     return <div>Cargando...</div>;
@@ -60,11 +58,14 @@ const UserCourtsRegistered = () => {
 
   return (
     <>
-      {courts.map((courtData, index) => (
-        <li key={index} className="user-courts__item">
-          <CourtCard courtData={courtData} />
-        </li>
-      ))}
+      <ErrorBoundary error={error}>
+        {courts &&
+          courts.map((courtData, index) => (
+            <li key={index} className="user-courts__item">
+              <CourtCard courtData={courtData} />
+            </li>
+          ))}
+      </ErrorBoundary>
     </>
   );
 };
