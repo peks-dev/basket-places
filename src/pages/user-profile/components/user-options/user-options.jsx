@@ -8,13 +8,16 @@ import OptionsIcon from "@/components/icons/options-icon";
 // context
 
 import { useCourtDetailsStore } from "@/context/courtDetailsStore";
+import { useToastStore } from "@/context/toastStore";
 
 const UserOptions = () => {
   const [showOptions, setShowOptions] = useState(false);
   const { emptyGlobalCourtData } = useCourtDetailsStore();
+  const { resetToast } = useToastStore();
 
   function handleDeleteAcc() {
     emptyGlobalCourtData();
+    resetToast();
   }
 
   function handleShowOptions() {

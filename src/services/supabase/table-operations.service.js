@@ -1,4 +1,5 @@
 import { supabase } from "./create-client-supa";
+import { ConnectionError } from "@/models/errors.model";
 
 export async function fetchDataOnTable(
   tableName,
@@ -39,8 +40,14 @@ export async function insertDataOnTable(tableName, objectToInsert) {
       .from(tableName)
       .insert(objectToInsert)
       .select();
-    if (error) {
-      throw new Error(`no se pudo insertar los data en la tabla ${tableName}`);
+    if (error.message === "TypeError: Failed to fetch") {
+      throw new ConnectionError(
+        "no se pudo conectar al servidor, revisa tu conexion a internet"
+      );
+    } else if (error) {
+      throw new Error(
+        "algo salio mal al enviar los datos, intentalo de nuevo mas tarde"
+      );
     }
     return data;
   } catch (error) {

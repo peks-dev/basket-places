@@ -6,7 +6,7 @@ export const verifiedData = (object) => {
     const [key, value] = entry;
     if (value === undefined || !value) {
       if (key !== "id" && key !== "owner") {
-        errors.push("No seleccionaste nada en " + key);
+        errors.push("Faltan campos por rellenar");
       }
     }
     if (key === "location") {

@@ -20,7 +20,7 @@ export class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError || this.props.error) {
       // Puedes renderizar cualquier UI de respaldo personalizada.
-      return <h1>Algo salió mal.</h1>;
+      return <p>Algo salió mal :c recarga la pagina.</p>;
     }
     return this.props.children;
   }

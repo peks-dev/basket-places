@@ -16,6 +16,10 @@ import { reverseGeocoding } from "@/services/geoapify/reverse-geocoding";
 const StepLocation = () => {
   const { profile } = useUserStore();
   const [loadingMap, setLoadingMap] = useState(true);
+  const defaultMarkerPosition = {
+    lat: 24.005386577116106,
+    lng: -99.11535224115887,
+  };
   const {
     formData,
     updateCoordinates,
@@ -44,6 +48,7 @@ const StepLocation = () => {
       console.log("solicitud api realizada");
     }
   }
+
   // set coordinates on map
   useEffect(() => {
     if (!mapStepFormPosition.coordinates) {
@@ -51,6 +56,7 @@ const StepLocation = () => {
         updateCoordinates(profile.location);
         updateMapStepFormCenter(profile.location);
       }
+      setLoadingMap(false);
     } else {
       setLoadingMap(false);
     }
@@ -68,7 +74,11 @@ const StepLocation = () => {
           zoomLevel={mapStepFormPosition.zoom ? mapStepFormPosition.zoom : 14}
         >
           <CourtMarker
-            markerPosition={mapStepFormPosition.coordinates}
+            markerPosition={
+              mapStepFormPosition.coordinates
+                ? mapStepFormPosition.coordinates
+                : defaultMarkerPosition
+            }
             isDraggable={true}
             onDragEnd={handleMarkerDragEnd}
           />

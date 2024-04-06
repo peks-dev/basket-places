@@ -6,6 +6,7 @@ import { useStepFormStore } from "@/context/stepFormStore";
 
 // Components
 import FormField from "@/components/form/form-field/form-field";
+import StepDescriptionTextArea from "./components/step-description-text-area";
 
 const StepDescription = () => {
   const { formData, updateName, updateDescription, updateGameLevel } =
@@ -39,11 +40,10 @@ const StepDescription = () => {
         handleInputChange={handleInputChange}
         inputName={"nombre"}
       />
-      <FormField
-        inputType={"text"}
-        inputValue={formData.description || ""}
+
+      <StepDescriptionTextArea
+        handleValue={formData.description || ""}
         handleInputChange={handleInputChange}
-        inputName={"descripcion"}
       />
 
       <div className="form__fields-wrap">

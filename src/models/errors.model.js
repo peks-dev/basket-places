@@ -6,8 +6,9 @@ export class ConnectionError extends Error {
 }
 
 export class ValidationError extends Error {
-  constructor(message) {
+  constructor(message, emptyFields) {
     super(message);
     this.name = "ValidationError";
+    this.emptyFields = emptyFields;
   }
 }

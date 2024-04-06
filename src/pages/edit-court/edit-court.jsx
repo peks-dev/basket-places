@@ -10,7 +10,6 @@ import { useFormFiller } from "./hooks/use-form-filler";
 // components
 import FormStep from "../../components/form-step/form-step";
 import Loader from "../../components/loader/loader";
-import Error from "../../components/error/error";
 
 const EditCourt = () => {
   const courtPath = useParams();

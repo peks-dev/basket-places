@@ -10,7 +10,7 @@ import ArrowIcon from "@/components/icons/arrow-icon";
 
 const FormStepBtns = ({ onSend }) => {
   // states
-  const { formData, nextStep, prevStep, currentStep } = useStepFormStore();
+  const { nextStep, prevStep, currentStep } = useStepFormStore();
 
   const handleSendFormData = (e) => {
     e.preventDefault();

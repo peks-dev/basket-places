@@ -9,7 +9,7 @@ import { useThemeStore } from "@/context/themeStore";
 
 const Map = ({ mapPosition, zoomLevel, children, mapRef, courtsMarkers }) => {
   const { currentTheme } = useThemeStore();
-  const defaultPosition = [24.005386577116106, -99.11535224115887];
+  const defaultPosition = { lat: 24.005386577116106, lng: -99.11535224115887 };
   const defaultZoom = [4];
   const mapAtribution =
     currentTheme === "dark"
@@ -18,9 +18,11 @@ const Map = ({ mapPosition, zoomLevel, children, mapRef, courtsMarkers }) => {
   const mapUrl =
     currentTheme === "dark" ? mapBoxTile.url : openStreetMapTile.url;
 
+  const centerPosition = mapPosition ? mapPosition : defaultPosition;
+
   return (
     <MapContainer
-      center={mapPosition ? mapPosition : defaultPosition}
+      center={centerPosition}
       zoom={zoomLevel ? zoomLevel : defaultZoom}
       ref={mapRef}
     >

@@ -1,39 +1,37 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // Context
 import { useThemeStore } from "@/context/themeStore";
 import { useToastStore } from "@/context/toastStore";
 
 // Pages
+const Prueba = React.lazy(() => import("./pages/prueba/prueba"));
 import MapPage from "./pages/map/map-page";
-import SearchPage from "./pages/search/search";
-import UserProfilePage from "./pages/user-profile/user-profile";
-import CourtDetails from "./pages/court-details/court-details";
-import EditCourt from "./pages/edit-court/edit-court";
-import RegisterCourtPage from "./pages/register-court/register-court";
-import Prueba from "./pages/prueba/prueba";
 import LoginPage from "./pages/login/login";
+import SearchPage from "./pages/search/search";
+import EditCourt from "./pages/edit-court/edit-court";
+import CourtDetails from "./pages/court-details/court-details";
+import UserProfilePage from "./pages/user-profile/user-profile";
+import RegisterCourtPage from "./pages/register-court/register-court";
 
 // Components
+import Toast from "@/components/Toast/toast";
 import Navbar from "@/components/layout/navbar/navbar";
 import ViewportBlocker from "./components/viewport-blocker/viewport-blocker";
-import Toast from "@/components/Toast/toast";
-// hooks
-import useToast from "@/hooks/use-toast.hook";
 
 //Render
 function App() {
   const [isViewportTooSmall, setIsViewportTooSmall] = useState(false);
-  const { alerts, resetToast } = useToastStore();
+  const { alerts } = useToastStore();
   const { applyTheme } = useThemeStore();
 
   useEffect(() => {
     const handleResize = () => {
       setIsViewportTooSmall(window.innerWidth < 250);
     };
-    handleResize(); // Verificar el tamaño del viewport al cargar la aplicación
+    handleResize(); // Check viewport size on load
     applyTheme();
     window.addEventListener("resize", handleResize);
 
@@ -63,7 +61,7 @@ function App() {
         </main>
         <Navbar />
         {
-          // Notifications system
+          // Notification system
           <div className="toast-list">
             {alerts.map((t) => (
               <Toast key={t.id} type={t.type} text={t.text} />

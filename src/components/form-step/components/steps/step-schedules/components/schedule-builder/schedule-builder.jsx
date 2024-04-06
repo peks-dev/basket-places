@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./schedule-builder.css";
-
-// Components
-import Button from "@/components/button/button";
-import NotificationPopup from "@/components/notification-popup/notification-popup";
-
 //Context
 import { useStepFormStore } from "@/context/stepFormStore";
-
 // utilities
 import { ResetNotification } from "@/utilities/reset-notification.utilitie";
 import { setScheduleStates } from "../../utilities/set-schedules-states";
-
-// Array
-import { days } from "../../const/days";
+import ScheduleBuilderButtons from "./components/schedule-builder-buttons";
+// Components
+import NotificationPopup from "@/components/notification-popup/notification-popup";
+import ScheduleDaysSelector from "./components/schedule-days-selector";
+import ScheduleTimeSelector from "./components/schedule-time-selector";
 
 const ScheduleBuilder = ({ setBuildingSchedule }) => {
   // Nofitication states
@@ -62,62 +58,14 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
   return (
     <>
       <div className="schedule-builder__set">
-        <h2 className={"form__label"}>elige los dias</h2>
-        <ul className="schedule-builder__days-wrap">
-          {days.map((day, index) => {
-            return (
-              <li key={index} className="schedule-builder__day">
-                <label
-                  className="schedule-builder__day-label"
-                  htmlFor={`day-${day}`}
-                >
-                  {day}
-                </label>
-                <input
-                  className="form__input"
-                  type="checkbox"
-                  name="days"
-                  id={`day-${day}`}
-                  value={day}
-                  onChange={handleInputChange}
-                />
-              </li>
-            );
-          })}
-        </ul>
-        <label className="schedule-builder__timer" htmlFor="time-picker">
-          <h3 className={"form__label"}>horario</h3>
-          <input
-            className="form__input"
-            name="time-picker"
-            id="time-picker"
-            type="time"
-            onChange={handleInputChange}
-          />
-        </label>
-        <ul className="step-time__btns-wrap">
-          <li>
-            <Button variant={"primary"} onClick={handleAddSet}>
-              guardar
-            </Button>
-          </li>
-          <li>
-            <Button
-              variant={"secundary"}
-              onClick={() => {
-                setBuildingSchedule(false);
-              }}
-            >
-              cancelar
-            </Button>
-          </li>
-        </ul>
+        <ScheduleDaysSelector handleInputChange={handleInputChange} />
+        <ScheduleTimeSelector handleInputChange={handleInputChange} />
+        <ScheduleBuilderButtons
+          saveFn={handleAddSet}
+          cancelFn={setBuildingSchedule}
+        />
       </div>
-      {showNotification ? (
-        <NotificationPopup message={notificationMessage} />
-      ) : (
-        ""
-      )}
+      {showNotification && <NotificationPopup message={notificationMessage} />}
     </>
   );
 };

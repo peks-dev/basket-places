@@ -11,7 +11,7 @@ import StepLocation from "./steps/step-location/step-location";
 // context
 import { useStepFormStore } from "@/context/stepFormStore";
 
-const RenderStepContent = () => {
+const RenderStep = () => {
   const { currentStep } = useStepFormStore();
 
   switch (currentStep) {
@@ -32,4 +32,4 @@ const RenderStepContent = () => {
   }
 };
 
-export default RenderStepContent;
+export default RenderStep;

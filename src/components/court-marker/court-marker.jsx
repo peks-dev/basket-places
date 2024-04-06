@@ -19,6 +19,7 @@ const CourtMarker = React.memo(
     const { loading, error, fetchAllCourtData, courtInfo } =
       useFetchCourtData();
     const { currentTheme } = useThemeStore();
+
     const iconUrl =
       currentTheme === "dark" ? courtIconSvgLight : courtIconSvgDark;
 
@@ -31,6 +32,7 @@ const CourtMarker = React.memo(
       const newPosition = event.target.getLatLng();
       onDragEnd(newPosition, newZoom);
     };
+
     return (
       <Marker
         position={markerPosition}

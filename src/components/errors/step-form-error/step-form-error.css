@@ -1,0 +1,42 @@
+.step-form-error {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  max-width: 70rem;
+  height: 100%;
+}
+
+.step-form-error__icon {
+  color: var(--error);
+  max-width: 20rem;
+}
+
+.step-form-error__icon svg {
+  fill: none;
+}
+.step-form-error p {
+  width: 80%;
+  text-align: center;
+  color: var(--error);
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  line-height: normal;
+}
+
+.step-form-error__fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.step-form-error__fields li {
+  font-size: 1.6rem;
+  border: 0.3rem solid var(--error);
+  border-radius: 1.2rem;
+  padding: 0.5rem 0.8rem;
+  color: var(--error);
+}

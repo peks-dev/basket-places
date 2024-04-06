@@ -7,7 +7,7 @@ import { useUserStore } from "@/context/userStore";
 // Components
 import Map from "@/components/map/map";
 import UserPositionMarker from "@/components/map/components/user-position-marker";
-import Error from "@/components/error/error";
+import Error from "@/components/errors/error";
 import Loader from "@/components/loader/loader";
 import UserLocationBtn from "@/components/user-location-btn/user-location-btn";
 import CourtMarker from "@/components/court-marker/court-marker";

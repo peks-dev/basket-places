@@ -1,29 +1,35 @@
 import { useState } from "react";
-
+// context
 import { useUserStore } from "@/context/userStore";
-
+import { useStepFormStore } from "@/context/stepFormStore";
+// models
+import { ValidationError, ConnectionError } from "@/models/errors.model";
 // services
-import { insertDataOnTable } from "../../../services/supabase/table-operations.service";
-import { uploadFile } from "../../../services/supabase/storage-operations.service";
+import { insertDataOnTable } from "@/services/supabase/table-operations.service";
+import { uploadFile } from "@/services/supabase/storage-operations.service";
 
 // utilities
-import { verifiedData } from "../utilities/verified-data.utilitie";
-import { compressImage } from "../../../utilities/compress-img.utility";
+import { compressImage } from "@/utilities/compress-img.utility";
+import validateStepFormData from "@/utilities/validate-step-form-data.utility";
 
 export function useSendFormData() {
+  const { formData } = useStepFormStore();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
-  const [courtId, setCourtId] = useState(null);
   const { profile } = useUserStore();
 
-  const registerCourt = async (formData) => {
+  function resetError() {
+    setError(null);
+  }
+
+  const registerCourt = async () => {
     try {
-      console.log(formData);
       setLoading(true);
-      const resultado = verifiedData(formData);
-      if (resultado !== null) {
-        throw new Error(resultado);
+      const resultado = validateStepFormData(formData);
+      if (resultado.length > 0) {
+        console.log(resultado);
+        throw new ValidationError("no dejes campos vacios", resultado);
       }
 
       const {
@@ -40,9 +46,8 @@ export function useSendFormData() {
       } = formData;
 
       const { lng, lat } = location.coordinates;
-      console.log(lng, lat);
       const owner = profile.id;
-
+      // prepare structure to send at courts table
       let mainTableData = {
         name,
         description,
@@ -66,18 +71,18 @@ export function useSendFormData() {
         owner,
       });
       const court_id = resultMainTable[0].id;
-
+      // handle images
       images.map(async (imageFile) => {
         // subir img a storage
         const compressedImage = await compressImage(imageFile);
-
+        // creacion de la url
         await uploadFile(
           "imgs_courts",
           `${owner}/${court_id}/${compressedImage.name}`,
           compressedImage
         );
       });
-
+      // handle location
       await insertDataOnTable("locations", {
         lng,
         lat,
@@ -86,24 +91,27 @@ export function useSendFormData() {
         city: location.city,
         court_id,
       });
-
+      // handle schedules
       const schedulesWithCourtId = schedules.map((schedule) => ({
         ...schedule,
         court_id,
       }));
       await insertDataOnTable("schedules", schedulesWithCourtId);
-
+      // handle Services
       const servicesFormated = { ...services, court_id };
       await insertDataOnTable("services", servicesFormated);
 
-      setCourtId(court_id);
-      setSuccess(true);
+      setSuccess(court_id);
     } catch (error) {
-      setError(error);
+      if (error.name === "Failed to fetch") {
+        setError(new ConnectionError("no tienes conexion a internet"));
+      } else {
+        setError(error);
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  return { loading, error, success, courtId, registerCourt };
+  return { loading, error, success, registerCourt, resetError };
 }

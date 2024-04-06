@@ -3,3 +3,14 @@
   width: 100%;
   padding: 2.5rem;
 }
+
+.step-description > fieldset:nth-child(2) {
+  flex: 2 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-description > fieldset:nth-child(2) .form__input {
+  height: 100%;
+  display: flex;
+}

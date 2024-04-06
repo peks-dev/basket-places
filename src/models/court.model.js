@@ -1,39 +1,38 @@
 class CourtModel {
   constructor(
-    name,
-    description,
-    game_level,
-    place_type,
-    floor_type,
-    roof,
-    ubi,
-    images,
-    schedules,
-    services,
-    owner
+    name = null,
+    description = null,
+    game_level = null,
+    place_type = null,
+    floor_type = null,
+    roof = false,
+    coordinates = null,
+    state = null,
+    city = null,
+    country = null,
+    images = [],
+    schedules = [],
+    services = { wifi: false, shop: false, transport: false, bathroom: false },
+    owner = null,
+    id = null
   ) {
-    this.id = null;
-    this.owner = null;
+    this.id = id;
+    this.owner = owner;
     this.name = name;
     this.description = description;
     this.game_level = game_level;
     this.place_type = place_type;
     this.floor_type = floor_type;
-    this.roof = false;
+    this.roof = roof;
     this.location = {
-      coordinates: null,
-      country: null,
-      state: null,
-      city: null,
+      coordinates: coordinates,
+      country: country,
+      state: state,
+      city: city,
     };
-    this.images = [];
-    this.schedules = [];
-    this.services = {
-      wifi: false,
-      shop: false,
-      transport: false,
-      bathroom: false,
-    };
+    this.images = images;
+    this.schedules = schedules;
+    this.services = services;
   }
 }
 
