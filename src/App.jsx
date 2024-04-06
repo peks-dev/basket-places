@@ -17,7 +17,7 @@ import UserProfilePage from "./pages/user-profile/user-profile";
 import RegisterCourtPage from "./pages/register-court/register-court";
 
 // Components
-import Toast from "@/components/Toast/toast";
+import Toast from "@/components/toast/toast";
 import Navbar from "@/components/layout/navbar/navbar";
 import ViewportBlocker from "./components/viewport-blocker/viewport-blocker";
 
