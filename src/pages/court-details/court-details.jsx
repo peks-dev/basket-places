@@ -10,8 +10,8 @@ import { useParams } from "react-router-dom";
 import CourtDetailHeader from "./components/court-detail-header/court-detaill-header";
 import CourtDetailSlider from "./components/court-detail-slider/court-detail-slider";
 import CourtTabs from "./components/court-tabs/court-tabs";
+import ErrorDisplay from "@/components/errors/error-display/error-display";
 import Loader from "@/components/loader/loader";
-import Error from "@/components/errors/error";
 
 const CourtDetails = () => {
   const courtPath = useParams();
@@ -20,7 +20,6 @@ const CourtDetails = () => {
   const { courtData, saveCourtData } = useCourtDetailsStore();
   const [loadingPage, setLoadingPage] = useState(true);
 
-  console.log("render");
   useEffect(() => {
     if (!courtData.id) {
       fetchAllCourtData(courtId);
@@ -37,7 +36,7 @@ const CourtDetails = () => {
   }
 
   if (error) {
-    return <Error />;
+    return <ErrorDisplay error={error} />;
   }
 
   if (!courtData) {

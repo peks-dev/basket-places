@@ -5,7 +5,7 @@ import FormStepHeader from "./components/form-step-header/form-step-header";
 import FormStepBtns from "./components/form-step-btns/form-step-btns";
 import RenderStep from "./components/step-to-render";
 import Loader from "@/components/loader/loader";
-import StepFormError from "@/components/errors/step-form-error/step-form-error";
+import ErrorDisplay from "@/components/errors/error-display/error-display";
 import { ErrorBoundary } from "../../utilities/error-boundaries";
 
 // hooks
@@ -19,7 +19,7 @@ const FormStep = () => {
     if (loading) {
       return <Loader />;
     } else if (error) {
-      return <StepFormError error={error} resetError={resetError} />;
+      return <ErrorDisplay error={error} resetError={resetError} />;
     } else if (success) {
       return <div>Datos enviados correctamente</div>;
     } else {

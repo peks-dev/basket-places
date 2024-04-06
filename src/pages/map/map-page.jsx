@@ -3,23 +3,19 @@ import "./map-page.css";
 
 // Context
 import { useUserStore } from "@/context/userStore";
-
-// Components
-import Map from "@/components/map/map";
-import UserPositionMarker from "@/components/map/components/user-position-marker";
-import Error from "@/components/errors/error";
-import Loader from "@/components/loader/loader";
-import UserLocationBtn from "@/components/user-location-btn/user-location-btn";
-import CourtMarker from "@/components/court-marker/court-marker";
-import ThemeButton from "@/components/theme-button/theme-button";
-
 // utilities
-
 import { HandleMapMovement } from "@/components/map/utilities/safe-map-position.utility";
-
 // hooks
 import { useLocationsCourtsList } from "./hooks/locations-courts-list.hook";
 import { useMapStore } from "@/context/mapStore";
+// Components
+import UserPositionMarker from "@/components/map/components/user-position-marker";
+import UserLocationBtn from "@/components/user-location-btn/user-location-btn";
+import ErrorDisplay from "@/components/errors/error-display/error-display";
+import CourtMarker from "@/components/court-marker/court-marker";
+import ThemeButton from "@/components/theme-button/theme-button";
+import Loader from "@/components/loader/loader";
+import Map from "@/components/map/map";
 
 const MapPage = () => {
   const { profile } = useUserStore();
@@ -48,7 +44,7 @@ const MapPage = () => {
   }
 
   if (markersError) {
-    return <Error />;
+    return <ErrorDisplay />;
   }
 
   return (

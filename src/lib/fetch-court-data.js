@@ -3,6 +3,7 @@ import { useState } from "react";
 import { fetchDataOnTable } from "@/services/supabase/table-operations.service";
 // models
 import CourtModel from "@/models/court.model.js";
+import { ConnectionError } from "@/models/errors.model";
 
 export function useFetchCourtData() {
   const [loading, setLoading] = useState(true);
@@ -11,21 +12,20 @@ export function useFetchCourtData() {
 
   async function fetchAllCourtData(courtId) {
     let courtData = new CourtModel();
-
-    const initialData = await fetchDataOnTable("courts", "id", courtId);
-
-    const {
-      owner,
-      name,
-      description,
-      game_level,
-      place_type,
-      floor_type,
-      roof,
-      id,
-      images,
-    } = initialData[0];
     try {
+      const initialData = await fetchDataOnTable("courts", "id", courtId);
+
+      const {
+        owner,
+        name,
+        description,
+        game_level,
+        place_type,
+        floor_type,
+        roof,
+        id,
+        images,
+      } = initialData[0];
       // transpasar datos
       courtData.id = id;
       courtData.owner = owner;
@@ -76,8 +76,13 @@ export function useFetchCourtData() {
 
       setCourtInfo(courtData);
     } catch (error) {
-      setError(error);
-      setLoading(false);
+      if (error.message === "TypeError: Failed to fetch") {
+        setError(
+          new ConnectionError("no pudo obtenerse los datos, revisa tu conexion")
+        );
+      } else {
+        setError(new Error("algo salio mal, intentalo mas tarde"));
+      }
     } finally {
       setLoading(false);
     }

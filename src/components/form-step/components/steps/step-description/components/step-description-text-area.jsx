@@ -13,7 +13,7 @@ const StepDescriptionTextArea = ({ handleValue, handleInputChange }) => {
         value={handleValue}
         onChange={handleInputChange}
         id="descripcion"
-        maxlength="135"
+        maxLength="135"
       />
     </fieldset>
   );

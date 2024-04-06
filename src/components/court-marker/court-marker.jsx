@@ -6,9 +6,10 @@ import L from "leaflet";
 // global state
 import { useThemeStore } from "@/context/themeStore";
 //icons
-import courtIconSvgDark from "/icons/court-marker-dark.svg";
 import courtIconSvgLight from "/icons/court-marker-light.svg";
+import courtIconSvgDark from "/icons/court-marker-dark.svg";
 // components
+import ErrorDisplay from "@/components/errors/error-display/error-display";
 import CourtCard from "@/components/court-card-preview/court-card";
 import Loader from "@/components/loader/loader";
 // hooks
@@ -23,7 +24,7 @@ const CourtMarker = React.memo(
     const iconUrl =
       currentTheme === "dark" ? courtIconSvgLight : courtIconSvgDark;
 
-    async function handlePopUp() {
+    function handlePopUp() {
       fetchAllCourtData(courtId);
     }
 
@@ -31,6 +32,20 @@ const CourtMarker = React.memo(
       const newZoom = event.target._map._zoom;
       const newPosition = event.target.getLatLng();
       onDragEnd(newPosition, newZoom);
+    };
+
+    if (error) {
+      console.log(error.name);
+    }
+
+    const renderContent = () => {
+      if (error) {
+        return <ErrorDisplay error={error} />;
+      } else if (loading) {
+        return <Loader />;
+      } else {
+        return <CourtCard courtData={courtInfo} />;
+      }
     };
 
     return (
@@ -54,11 +69,7 @@ const CourtMarker = React.memo(
           dragend: handleDragEnd,
         }}
       >
-        {showPopup && (
-          <Popup>
-            {loading ? <Loader /> : <CourtCard courtData={courtInfo} />}
-          </Popup>
-        )}
+        {showPopup && <Popup>{renderContent()}</Popup>}
       </Marker>
     );
   },

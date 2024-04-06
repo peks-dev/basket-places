@@ -23,9 +23,8 @@ export async function fetchDataOnTable(
     const { data, error } = await query;
 
     if (error) {
-      throw new Error(
-        `No se pudo extraer los datos de la tabla ${tableName}: ${error}`
-      );
+      console.log(error);
+      throw new Error(error.message);
     }
 
     return data;

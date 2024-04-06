@@ -1,4 +1,4 @@
-.step-form-error {
+.error-display {
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -7,33 +7,34 @@
   padding-top: 2rem;
   max-width: 70rem;
   height: 100%;
+  width: 100%;
 }
 
-.step-form-error__icon {
+.error-display__icon {
   color: var(--error);
-  max-width: 20rem;
+  max-width: 30%;
 }
 
-.step-form-error__icon svg {
+.error-display__icon svg {
   fill: none;
 }
-.step-form-error p {
+.error-display p {
   width: 80%;
   text-align: center;
   color: var(--error);
-  font-size: 2.4rem;
+  font-size: clamp(1.5rem, 3.4vw, 2.7rem);
   text-transform: uppercase;
   line-height: normal;
 }
 
-.step-form-error__fields {
+.error-display__fields {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
-.step-form-error__fields li {
+.error-display__fields li {
   font-size: 1.6rem;
   border: 0.3rem solid var(--error);
   border-radius: 1.2rem;
