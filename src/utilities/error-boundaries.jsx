@@ -1,4 +1,5 @@
 import React from "react";
+import ErrorDisplay from "@/components/errors/error-display/error-display";
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError || this.props.error) {
       // Puedes renderizar cualquier UI de respaldo personalizada.
-      return <p>Algo salió mal :c recarga la pagina.</p>;
+      return <ErrorDisplay error={this.props.error} />;
     }
     return this.props.children;
   }

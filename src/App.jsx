@@ -15,6 +15,7 @@ import EditCourt from "./pages/edit-court/edit-court";
 import CourtDetails from "./pages/court-details/court-details";
 import UserProfilePage from "./pages/user-profile/user-profile";
 import RegisterCourtPage from "./pages/register-court/register-court";
+import UpdatePasswordPage from "./pages/update-password/update-password";
 
 // Components
 import Toast from "@/components/toast/toast";
@@ -57,6 +58,7 @@ function App() {
             <Route path="/courts/:courtId" element={<CourtDetails />} />
             <Route path="/edit-court/:courtId" element={<EditCourt />} />
             <Route path="/prueba" element={<Prueba />} />
+            <Route path="/update-password" element={<UpdatePasswordPage />} />
           </Routes>
         </main>
         <Navbar />

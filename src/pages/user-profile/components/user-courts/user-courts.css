@@ -20,6 +20,21 @@
   padding: 1rem 0;
   border-top: 0.5rem solid var(--ternary);
   border-bottom: 0.5rem solid var(--ternary);
+  position: relative;
+}
+.user-courts__empty {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+.user-courts__icon {
+  width: 15rem;
 }
 
 @media screen and (min-width: 1080px) {

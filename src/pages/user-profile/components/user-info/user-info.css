@@ -48,5 +48,6 @@
     align-items: flex-start;
     justify-content: end;
     padding-bottom: 5rem;
+    min-width: 20rem;
   }
 }

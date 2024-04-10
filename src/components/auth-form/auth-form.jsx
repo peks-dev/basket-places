@@ -40,7 +40,7 @@ export default function AuthForm() {
           handleInputChange={handleInputChange}
           inputValue={email}
         />
-        {action !== "recovery" && ( // No show input password on recovery pass
+        {action !== "recoveryPass" && ( // No show input password on recovery pass
           <FormField
             inputType={"password"}
             inputName={"password"}

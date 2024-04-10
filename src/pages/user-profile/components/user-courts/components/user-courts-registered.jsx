@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 // services
 import { fetchDataOnTable } from "@/services/supabase/table-operations.service";
+// models
+import { ConnectionError } from "@/models/errors.model";
 // context
 import { useUserStore } from "@/context/userStore";
 // hooks
@@ -8,6 +10,8 @@ import { consolidateCourtData } from "@/adapters/court-data.adapter";
 // components
 import CourtCard from "@/components/court-card-preview/court-card";
 import { ErrorBoundary } from "@/utilities/error-boundaries";
+import CloseIcon from "@/components/icons/close-icon";
+import Loader from "@/components/loader/loader";
 
 const UserCourtsRegistered = () => {
   const [courts, setCourts] = useState(null);
@@ -31,10 +35,12 @@ const UserCourtsRegistered = () => {
       setCourts(courtsAdapted);
       setLoading(false);
     } catch (error) {
-      console.log(error.message);
-      setError(error);
+      if (error.message === "TypeError: Failed to fetch") {
+        setError(new ConnectionError("revisa tu conexion a internet"));
+      } else {
+        setError(new Error("algo salio mal, intentalo mas tarde"));
+      }
       setLoading(false);
-      throw error;
     }
   }
 
@@ -53,18 +59,26 @@ const UserCourtsRegistered = () => {
 
   // Verificar si todavía se están cargando los datos
   if (loading) {
-    return <div>Cargando...</div>;
+    return <Loader />;
   }
-
+  console.log(courts);
   return (
     <>
       <ErrorBoundary error={error}>
-        {courts &&
+        {courts.lenght > 0 ? (
           courts.map((courtData, index) => (
             <li key={index} className="user-courts__item">
               <CourtCard courtData={courtData} />
             </li>
-          ))}
+          ))
+        ) : (
+          <div className="user-courts__empty">
+            <div className="user-courts__icon">
+              <CloseIcon />
+            </div>
+            <p>aun no tienes canchas registradas</p>
+          </div>
+        )}
       </ErrorBoundary>
     </>
   );

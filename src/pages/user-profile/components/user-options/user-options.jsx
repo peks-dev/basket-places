@@ -5,6 +5,7 @@ import "./user-options.css";
 import Button from "@/components/button/button";
 import LogoutButton from "@/components/logout-button";
 import OptionsIcon from "@/components/icons/options-icon";
+import EditProfile from "@/components/edit-profile/edit-profile";
 // context
 
 import { useCourtDetailsStore } from "@/context/courtDetailsStore";
@@ -23,6 +24,7 @@ const UserOptions = () => {
   function handleShowOptions() {
     setShowOptions((state) => !state);
   }
+
   return (
     <div className="user-options">
       <Button
@@ -35,7 +37,7 @@ const UserOptions = () => {
       {showOptions && (
         <div className={`user-options__wrapper ${showOptions ? "active" : ""}`}>
           <LogoutButton />
-          <Button>editar perfil</Button>
+          <EditProfile />
           <Button variant={"secundary"} onClick={handleDeleteAcc}>
             eliminar cuenta
           </Button>

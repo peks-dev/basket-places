@@ -13,6 +13,7 @@ const ErrorDisplay = ({ error, resetError }) => {
     ValidationError: { icon: <AlertIcon />, buttonText: "editar formulario" },
     ConnectionError: { icon: <WifiOffIcon />, buttonText: "volver a intentar" },
   };
+  console.log(error);
   return (
     <div className="error-display">
       <div className="error-display__icon">

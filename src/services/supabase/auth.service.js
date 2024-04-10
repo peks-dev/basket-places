@@ -55,5 +55,44 @@ export async function getSession() {
     throw error;
   }
 }
+export async function resetPassword(userEmail) {
+  try {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(
+      userEmail,
+      {
+        redirectTo: "http://localhost:5173/update-password",
+      }
+    );
+    if (error) {
+      throw error;
+    }
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
 
-export default { getSession, login, logout, register };
+export async function updatePassword(newPassword) {
+  try {
+    const { data, error } = await supabase.auth.updateUser({
+      password: newPassword,
+    });
+    if (error) {
+      throw error;
+    }
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default {
+  getSession,
+  login,
+  logout,
+  register,
+  resetPassword,
+  updatePassword,
+};

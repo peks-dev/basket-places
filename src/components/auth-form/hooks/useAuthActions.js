@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useStepFormStore } from "@/context/stepFormStore";
 import { useUserStore } from "@/context/userStore";
 import { useToastStore } from "@/context/toastStore";
-import { create } from "zustand";
+import { resetPassword, register } from "@/services/supabase/auth.service";
 
 // Custom hook que maneja las acciones
 export default function useAuthActions() {
@@ -20,9 +20,16 @@ export default function useAuthActions() {
       name: "signUp",
       submitBtnText: "registrarse",
       headerTitle: "crear cuenta",
-      submitFunction: useCallback((e) => {
+      submitFunction: useCallback(async (e) => {
         e.preventDefault();
-        alert("cuenta creada");
+        const formData = new FormData(e.currentTarget);
+        const formProps = Object.fromEntries(formData);
+        try {
+          await register(formProps.email, formProps.password);
+          alert("confirma tu correo");
+        } catch (error) {
+          console.log(error);
+        }
       }, []),
     },
     {
@@ -42,11 +49,12 @@ export default function useAuthActions() {
           }
           navigate(historyState.path);
         } catch (error) {
-          console.log(error.message);
           if (error.message === "Invalid login credentials") {
             createToast("email o contraseña invalidos", "error");
           } else if (error.message === "Failed to fetch") {
             createToast("no tienes conexión a internet", "noConnection");
+          } else {
+            createToast("no se pudo iniciar sesion", "error");
           }
         }
       }, []),
@@ -55,9 +63,19 @@ export default function useAuthActions() {
       name: "recoveryPass",
       submitBtnText: "recuperar",
       headerTitle: "recuperar cuenta",
-      submitFunction: useCallback((e) => {
+      submitFunction: useCallback(async (e) => {
         e.preventDefault();
-        alert("recuperacion de cuenta");
+        // Recolectar la data
+        const formData = new FormData(e.currentTarget);
+        // convertir la data en un objeto clave - valor
+        const formProps = Object.fromEntries(formData);
+        console.log(formProps);
+        try {
+          await resetPassword(formProps.email);
+          alert("revisa tu correo");
+        } catch (error) {
+          console.log(error);
+        }
       }, []),
     },
   ];
