@@ -1,54 +1,109 @@
 import React, { useState, useRef } from "react";
 import "./edit-profile.css";
-
-// components
+// Servicios
+import {
+  updateDataOnTable,
+  fetchDataOnTable,
+} from "@/services/supabase/table-operations.service";
+import {
+  uploadFile,
+  deleteObjectFromStorage,
+} from "@/services/supabase/storage-operations.service";
+// Contexto
+import { useUserStore } from "@/context/userStore";
+// Utilidades
+import compressAvatar from "@/utilities/compress-avatar";
+// Componentes
 import Button from "@/components/button/button";
 import Modal from "@/components/modal/modal";
 import ImageAddIcon from "@/components/icons/image-add-icon";
 import FormField from "../form/form-field/form-field";
+import LoaderBtn from "@/components/loader-btn/loader-btn";
 
 const EditProfile = () => {
+  const { profile, refreshProfile } = useUserStore();
   const [showModal, setShowModal] = useState(false);
-  const [previewImage, setPreviewImage] = useState(null);
-  const [name, setName] = useState("");
+  const [formData, setFormData] = useState({ name: "", avatar: null });
+  const [loading, setLoading] = useState(false);
   const inputRef = useRef();
-
-  function saveChanges() {
-    alert("se envio todo");
-  }
-  function exitEditProfile() {
-    setShowModal(false);
-    setPreviewImage(null);
-    setName("");
-  }
 
   const handleImageChange = (event) => {
     const selectedFile = event.target.files[0];
     if (selectedFile) {
-      setPreviewImage(URL.createObjectURL(selectedFile));
+      setFormData({ ...formData, avatar: selectedFile });
     }
   };
-  function handleNameChange(e) {
-    e.preventDefault();
-    setName(e.target.value);
-  }
 
-  function handleChangeAvatar() {
-    // hacer click en el input
+  const handleNameChange = (e) => {
+    setFormData({ ...formData, name: e.target.value });
+  };
+
+  const handleChangeAvatar = () => {
     inputRef.current.click();
-  }
+  };
+  const exitEditProfile = () => {
+    setShowModal(false);
+    // Limpiar datos del formulario al salir
+    setFormData({ name: "", avatar: null });
+  };
+
+  const updateProfile = async () => {
+    try {
+      setLoading(true);
+      const { name, avatar } = formData;
+
+      if (avatar) {
+        const compressedImage = await compressAvatar(avatar);
+        const avatarUrl = `https://rkmuvbbnbbajhimhcxmq.supabase.co/storage/v1/object/public/avatars/${profile.id}/${compressedImage.name}`;
+
+        await uploadFile(
+          "avatars",
+          `${profile.id}/${compressedImage.name}`,
+          compressedImage
+        );
+        await updateDataOnTable(
+          "profiles",
+          { avatar_url: avatarUrl },
+          "id",
+          profile.id
+        );
+
+        // delete old image
+        const url = profile.avatar_url;
+        const parts = url.split("/");
+        const oldImgName = parts[parts.length - 1];
+        await deleteObjectFromStorage("avatars", `${profile.id}/${oldImgName}`);
+      }
+
+      if (name) {
+        await updateDataOnTable("profiles", { apodo: name }, "id", profile.id);
+      }
+
+      // refresh profile ui
+      if (avatar || name) {
+        const newData = await fetchDataOnTable("profiles", "id", profile.id);
+        refreshProfile(newData[0]);
+      }
+
+      // Cerrar modal después de actualizar
+      exitEditProfile();
+    } catch (error) {
+      console.log(error);
+      // Manejar errores, mostrar mensajes al usuario, etc.
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
-      <Button
-        onClick={() => {
-          setShowModal(true);
-        }}
-      >
-        editar perfil
-      </Button>
+      <Button onClick={() => setShowModal(true)}>editar perfil</Button>
       {showModal && (
-        <Modal onConfirm={saveChanges} onCancel={exitEditProfile}>
+        <Modal
+          onConfirm={updateProfile}
+          onCancel={exitEditProfile}
+          confirmBtnChild={loading ? <LoaderBtn /> : "guardar"}
+        >
           <form className="edit-profile">
             <input
               ref={inputRef}
@@ -57,24 +112,23 @@ const EditProfile = () => {
               className="edit-profile__input-file"
             />
             <div className="edit-profile__avatar">
-              {previewImage ? (
-                <img src={previewImage} alt="Preview" />
+              {formData.avatar ? (
+                <img src={URL.createObjectURL(formData.avatar)} alt="Preview" />
               ) : (
                 <ImageAddIcon />
               )}
             </div>
-
             <Button
-              type={"button"}
+              type="button"
               onClick={handleChangeAvatar}
-              variant={"secundary"}
+              variant="secundary"
             >
               cambiar avatar
             </Button>
             <FormField
-              inputName={"apodo"}
-              inputType={"text"}
-              inputValue={name}
+              inputName="apodo"
+              inputType="text"
+              inputValue={formData.name}
               handleInputChange={handleNameChange}
             />
           </form>

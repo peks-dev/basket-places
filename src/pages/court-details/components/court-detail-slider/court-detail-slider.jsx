@@ -1,11 +1,13 @@
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./court-detail-slider.css";
 
-import { useNavigate } from "react-router-dom";
+// utilities
+import shareContent from "@/utilities/share-content.utility";
+
 // components
 import Button from "@/components/button/button";
 // Icons
-import StarIcon from "../../../../assets/bp-details/components/star-icon";
 import ArrowIcon from "@/components/icons/arrow-icon";
 import ShareIcon from "@/components/icons/share-icon";
 
@@ -14,6 +16,7 @@ import { useCourtDetailsStore } from "@/context/courtDetailsStore";
 import { useUserStore } from "@/context/userStore";
 
 const CourtDetailSlider = () => {
+  const location = useLocation();
   const userRating = 3; // Valoracion simulacion
   const navigate = useNavigate();
   const { courtData, emptyGlobalCourtData } = useCourtDetailsStore();
@@ -24,13 +27,21 @@ const CourtDetailSlider = () => {
     navigate(-1);
   }
 
+  function handleShare() {
+    shareContent(courtData.name, courtData.description, location.pathname);
+  }
+
   return (
     <div className="court-details__slider">
       <div className="court-details__buttons-wrap">
         <Button variant={"back"} onClick={handleBack}>
           <ArrowIcon />
         </Button>
-        <Button variant={"secundary"} customStyle={"no-padding"}>
+        <Button
+          variant={"secundary"}
+          customStyle={"no-padding"}
+          onClick={handleShare}
+        >
           <ShareIcon />
         </Button>
       </div>
@@ -46,7 +57,7 @@ const CourtDetailSlider = () => {
         </div>
         <div className="court-details__slider-dots">
           {courtData.images.map((img, index) => (
-            <Button variant={"secundary"} type={"button"}>
+            <Button variant={"secundary"} type={"button"} key={index}>
               <div className="dot"></div>
             </Button>
           ))}

@@ -61,11 +61,11 @@ const UserCourtsRegistered = () => {
   if (loading) {
     return <Loader />;
   }
-  console.log(courts);
+
   return (
     <>
       <ErrorBoundary error={error}>
-        {courts.lenght > 0 ? (
+        {courts.length > 0 ? (
           courts.map((courtData, index) => (
             <li key={index} className="user-courts__item">
               <CourtCard courtData={courtData} />

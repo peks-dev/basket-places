@@ -5,7 +5,7 @@ import "./modal.css";
 import Button from "@/components/button/button";
 import CloseIcon from "@/components/icons/close-icon";
 
-const Modal = ({ children, onConfirm, onCancel }) => {
+const Modal = ({ children, onConfirm, onCancel, confirmBtnChild }) => {
   return (
     <dialog className="modal-overlay">
       <div className="modal">
@@ -14,7 +14,7 @@ const Modal = ({ children, onConfirm, onCancel }) => {
           <Button onClick={onCancel} variant={"secundary"}>
             <CloseIcon />
           </Button>
-          <Button onClick={onConfirm}>confirmar</Button>
+          <Button onClick={onConfirm}>{confirmBtnChild}</Button>
         </div>
       </div>
     </dialog>

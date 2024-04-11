@@ -37,6 +37,7 @@ export const useUserStore = create(
           ...state,
           profile: { ...state.profile, location: coordinates },
         })),
+      refreshProfile: (data) => set((state) => ({ ...state, profile: data })),
       resetUserGlobalState: () => set(userData),
     }),
     { name: "session-data" }

@@ -2,8 +2,8 @@ import React from "react";
 import "./user-info.css";
 
 // context
-
 import { useUserStore } from "@/context/userStore";
+
 // components
 import UserOptions from "../user-options/user-options";
 
