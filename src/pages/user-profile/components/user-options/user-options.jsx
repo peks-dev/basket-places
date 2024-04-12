@@ -6,20 +6,10 @@ import Button from "@/components/button/button";
 import LogoutButton from "@/components/logout-button";
 import OptionsIcon from "@/components/icons/options-icon";
 import EditProfile from "@/components/edit-profile/edit-profile";
-// context
-
-import { useCourtDetailsStore } from "@/context/courtDetailsStore";
-import { useToastStore } from "@/context/toastStore";
+import DeleteAccountButton from "@/components/delete-account-button";
 
 const UserOptions = () => {
   const [showOptions, setShowOptions] = useState(false);
-  const { emptyGlobalCourtData } = useCourtDetailsStore();
-  const { resetToast } = useToastStore();
-
-  function handleDeleteAcc() {
-    emptyGlobalCourtData();
-    resetToast();
-  }
 
   function handleShowOptions() {
     setShowOptions((state) => !state);
@@ -38,9 +28,7 @@ const UserOptions = () => {
         <div className={`user-options__wrapper ${showOptions ? "active" : ""}`}>
           <LogoutButton />
           <EditProfile />
-          <Button variant={"secundary"} onClick={handleDeleteAcc}>
-            eliminar cuenta
-          </Button>
+          <DeleteAccountButton />
         </div>
       )}
     </div>

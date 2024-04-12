@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import "./court-details.css";
 
 // hooks
 import { useFetchCourtData } from "@/lib/fetch-court-data";
-import { useCourtDetailsStore } from "@/context/courtDetailsStore";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 // Components
 import CourtDetailHeader from "./components/court-detail-header/court-detaill-header";
 import CourtDetailSlider from "./components/court-detail-slider/court-detail-slider";
@@ -14,24 +12,25 @@ import ErrorDisplay from "@/components/errors/error-display/error-display";
 import Loader from "@/components/loader/loader";
 
 const CourtDetails = () => {
-  const courtPath = useParams();
-  const courtId = courtPath.courtId;
+  const courtId = useParams().courtId;
+  const state = useLocation().state;
   const { loading, fetchAllCourtData, courtInfo, error } = useFetchCourtData();
-  const { courtData, saveCourtData } = useCourtDetailsStore();
+  const [courtData, setCourtData] = useState(null);
   const [loadingPage, setLoadingPage] = useState(true);
 
   useEffect(() => {
-    if (!courtData.id) {
+    if (!state.id) {
       fetchAllCourtData(courtId);
-      if (!loading) {
-        saveCourtData(courtInfo);
-      }
+      setCourtData(courtInfo);
+      console.log("hola");
     } else {
-      setLoadingPage(false);
+      setCourtData(state);
     }
-  }, [courtId]);
 
-  if (loadingPage) {
+    setLoadingPage(false);
+  }, [courtId, state]);
+
+  if (loadingPage || loading) {
     return <Loader />;
   }
 
@@ -45,8 +44,8 @@ const CourtDetails = () => {
 
   return (
     <article className="court-details-container">
-      <CourtDetailSlider />
-      <CourtDetailHeader />
+      <CourtDetailSlider courtData={courtData} />
+      <CourtDetailHeader courtData={courtData} />
       <CourtTabs />
     </article>
   );

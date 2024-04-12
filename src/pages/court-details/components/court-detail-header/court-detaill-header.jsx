@@ -4,11 +4,7 @@ import "./court-detail-header.css";
 //components
 import BasketballIcon from "@/components/icons/basketball-icon";
 
-// context
-import { useCourtDetailsStore } from "@/context/courtDetailsStore";
-
-const CourtDetailHeader = () => {
-  const { courtData } = useCourtDetailsStore();
+const CourtDetailHeader = ({ courtData }) => {
   const rating = 5;
   const stars = [];
 

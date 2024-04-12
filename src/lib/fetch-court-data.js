@@ -6,11 +6,12 @@ import CourtModel from "@/models/court.model.js";
 import { ConnectionError } from "@/models/errors.model";
 
 export function useFetchCourtData() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [courtInfo, setCourtInfo] = useState(null);
 
   async function fetchAllCourtData(courtId) {
+    setLoading(true);
     let courtData = new CourtModel();
     try {
       const initialData = await fetchDataOnTable("courts", "id", courtId);

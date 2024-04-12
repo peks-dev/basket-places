@@ -1,5 +1,4 @@
 import { supabase } from "./create-client-supa";
-import { ConnectionError, ValidationError } from "@/models/errors.model";
 
 export async function login(userEmail, userPassword) {
   try {
@@ -66,7 +65,7 @@ export async function resetPassword(userEmail) {
     if (error) {
       throw error;
     }
-    console.log(data);
+
     return data;
   } catch (error) {
     throw error;
@@ -81,7 +80,21 @@ export async function updatePassword(newPassword) {
     if (error) {
       throw error;
     }
-    console.log(data);
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function deleteUser(userId) {
+  try {
+    const { data, error } = await supabase.rpc("delete_user_auth", {
+      user_id: userId,
+    });
+    if (error) {
+      throw new Error(error.message);
+    }
     return data;
   } catch (error) {
     throw error;

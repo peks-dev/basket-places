@@ -1,6 +1,6 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Context
 import { useThemeStore } from "@/context/themeStore";
@@ -57,8 +57,8 @@ function App() {
             <Route path="/new-bp" element={<RegisterCourtPage />} />
             <Route path="/courts/:courtId" element={<CourtDetails />} />
             <Route path="/edit-court/:courtId" element={<EditCourt />} />
-            <Route path="/prueba" element={<Prueba />} />
             <Route path="/update-password" element={<UpdatePasswordPage />} />
+            <Route path="/prueba" element={<Prueba />} />
           </Routes>
         </main>
         <Navbar />

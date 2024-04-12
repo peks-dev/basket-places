@@ -28,7 +28,11 @@ export default function useAuthActions() {
           await register(formProps.email, formProps.password);
           alert("confirma tu correo");
         } catch (error) {
-          console.log(error);
+          if (error.message === "Failed to fetch") {
+            createToast("no tienes conexión a internet", "noConnection");
+          } else {
+            createToast("no se pudo registrar tu cuenta", "error");
+          }
         }
       }, []),
     },
@@ -74,7 +78,11 @@ export default function useAuthActions() {
           await resetPassword(formProps.email);
           alert("revisa tu correo");
         } catch (error) {
-          console.log(error);
+          if (error.message === "Failed to fetch") {
+            createToast("no tienes conexión a internet", "noConnection");
+          } else {
+            createToast("no pudimos restablecer tu contraseña", "error");
+          }
         }
       }, []),
     },

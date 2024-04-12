@@ -1,13 +1,7 @@
 import React from "react";
 import "./court-roof-floor.css";
 
-// context
-import { useCourtDetailsStore } from "@/context/courtDetailsStore";
-// components
-
-const CourtRoofFloor = () => {
-  const { courtData } = useCourtDetailsStore();
-
+const CourtRoofFloor = ({ courtData }) => {
   return (
     <ul className="roof-floor-wrapper">
       <li>

@@ -1,17 +1,13 @@
 import React from "react";
 import "./court-services.css";
 
-// context
-import { useCourtDetailsStore } from "@/context/courtDetailsStore";
-
+// components
 import ShopIcon from "./components/shop-icon";
 import BathroomIcon from "./components/bathroom-icon";
 import TransportIcon from "./components/transport-icon";
 import WifiIcon from "./components/wifi-icon";
 
-const CourtServices = () => {
-  const { courtData } = useCourtDetailsStore();
-
+const CourtServices = ({ courtData }) => {
   const servicesArr = [
     { name: "shop", icon: ShopIcon },
     { name: "bathroom", icon: BathroomIcon },

@@ -5,7 +5,6 @@ import { deleteCourt } from "@/pages/user-profile/components/user-courts/utiliti
 // hooks
 import { useNavigate } from "react-router-dom";
 // context
-import { useCourtDetailsStore } from "@/context/courtDetailsStore";
 import { useUserStore } from "@/context/userStore.js";
 // Components
 import Button from "@/components/button/button";
@@ -13,11 +12,9 @@ import Button from "@/components/button/button";
 const CourtCard = ({ courtData }) => {
   const navigate = useNavigate();
   const { profile } = useUserStore();
-  const { saveCourtData } = useCourtDetailsStore();
 
   const handleClick = () => {
-    saveCourtData(courtData);
-    navigate(`/courts/${courtData.id}`);
+    navigate(`/courts/${courtData.id}`, { state: courtData });
   };
 
   function handleDeleteCourt() {

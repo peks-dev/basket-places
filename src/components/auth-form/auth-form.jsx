@@ -1,14 +1,13 @@
 import { useState } from "react";
 import "./auth-form.css";
-
 // lib
 import useAuthActions from "./hooks/useAuthActions";
-
 // Components
 import AuthHeader from "./components/auth-form-header";
 import AuthFormFooter from "./components/auth-form-footer";
 import Button from "@/components/button/button";
 import FormField from "@/components/form/form-field/form-field";
+import FormFieldPassword from "../form/form-field-password/form-field-password";
 
 export default function AuthForm() {
   const [action, setAction] = useState("signIn");
@@ -41,11 +40,9 @@ export default function AuthForm() {
           inputValue={email}
         />
         {action !== "recoveryPass" && ( // No show input password on recovery pass
-          <FormField
-            inputType={"password"}
-            inputName={"password"}
-            handleInputChange={handleInputChange}
+          <FormFieldPassword
             inputValue={password}
+            handleInputChange={handleInputChange}
           />
         )}
         <Button type={"submit"} variant={"primary"}>

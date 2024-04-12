@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 // components
 import DescriptionTab from "../components/description-tab/description-tab";
 import ReviewTab from "../components/reviews-tab/review-tab";
@@ -6,14 +7,16 @@ import LocationTab from "../components/location-tab/location-tab";
 import SchedulesTab from "../components/schedules-tab/schedules-tab";
 
 const ActiveTabRendered = ({ tabActive }) => {
+  const courtData = useLocation().state;
+
   switch (tabActive) {
     case "descripcion":
-      return <DescriptionTab />;
+      return <DescriptionTab courtData={courtData} />;
     case "horarios":
-      return <SchedulesTab />;
+      return <SchedulesTab courtData={courtData} />;
 
     case "ubicacion":
-      return <LocationTab />;
+      return <LocationTab courtData={courtData} />;
     case "comentarios":
       return <ReviewTab />;
   }
