@@ -56,7 +56,7 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/new-bp" element={<RegisterCourtPage />} />
             <Route path="/courts/:courtId" element={<CourtDetails />} />
-            <Route path="/edit-court/:courtId" element={<EditCourt />} />
+            <Route path="/edit-court/" element={<EditCourt />} />
             <Route path="/update-password" element={<UpdatePasswordPage />} />
             <Route path="/prueba" element={<Prueba />} />
           </Routes>

@@ -2,33 +2,37 @@ import React, { useEffect } from "react";
 import "./edit-court.css";
 
 // router
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 // hooks
 import { useFormFiller } from "./hooks/use-form-filler";
+import { useStepFormStore } from "@/context/stepFormStore";
+import { useMapStore } from "@/context/mapStore";
 
 // components
 import FormStep from "../../components/form-step/form-step";
-import Loader from "../../components/loader/loader";
+import Loader from "@/components/loader/loader";
 
 const EditCourt = () => {
-  const courtPath = useParams();
-  const courtId = courtPath.courtId;
+  const courtData = useLocation().state;
+  const { resetStepForm } = useStepFormStore();
+  const { loading } = useFormFiller(courtData);
+  const { resetMapStepForm } = useMapStore();
 
   useEffect(() => {
-    // verificar si esta la cancha en localStorage
-    // si no, hacer llamado back-end
-    // cargar data en el step form
-  }, []);
+    return () => {
+      resetStepForm();
+      resetMapStepForm();
+    };
+  }, [courtData]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="edit-court">
-      <FormStep
-        loadingState={loadingUpdater}
-        errorState={errorUpdater}
-        successState={successUpdater}
-        sendFunction={updateCourt}
-      />
+      <FormStep />
     </div>
   );
 };

@@ -52,7 +52,9 @@ const StepLocation = () => {
   // set coordinates on map
   useEffect(() => {
     if (!mapStepFormPosition.coordinates) {
-      if (profile.location) {
+      if (formData.location.coordinates) {
+        updateMapStepFormCenter(formData.location.coordinates);
+      } else if (profile.location) {
         updateCoordinates(profile.location);
         updateMapStepFormCenter(profile.location);
       }

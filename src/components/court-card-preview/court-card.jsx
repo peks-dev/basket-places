@@ -3,14 +3,16 @@ import "./court-card.css";
 
 import { deleteCourt } from "@/pages/user-profile/components/user-courts/utilities/delete-court";
 // hooks
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 // context
 import { useUserStore } from "@/context/userStore.js";
 // Components
 import Button from "@/components/button/button";
+import EditCourtButton from "@/components/edit-court-button/edit-court-button";
 
 const CourtCard = ({ courtData }) => {
   const navigate = useNavigate();
+  const currentPath = useLocation().pathname;
   const { profile } = useUserStore();
 
   const handleClick = () => {
@@ -36,7 +38,12 @@ const CourtCard = ({ courtData }) => {
               </p>
             </div>
           </div>
-          <div className="court-card__rating">4</div>
+          <div className="court-card__right">
+            <div className="court-card__rating">4</div>
+            {currentPath === "/profile" && (
+              <EditCourtButton courtData={courtData} />
+            )}
+          </div>
           {/* <Button onClick={handleDeleteCourt} variant={"primary"}>
             eliminar
           </Button> */}
