@@ -8,19 +8,19 @@ import Loader from "@/components/loader/loader";
 import ErrorDisplay from "@/components/errors/error-display/error-display";
 import { ErrorBoundary } from "../../utilities/error-boundaries";
 
-// hooks
-import { useSendFormData } from "@/components/form-step/hooks/use-send-form-data.hook";
-
-const FormStep = () => {
-  const { loading, error, success, registerCourt, resetError } =
-    useSendFormData();
-
+const FormStep = ({
+  loadingState,
+  errorState,
+  successState,
+  resetErrorFn,
+  sendFormFn,
+}) => {
   const renderContent = () => {
-    if (loading) {
+    if (loadingState) {
       return <Loader />;
-    } else if (error) {
-      return <ErrorDisplay error={error} resetError={resetError} />;
-    } else if (success) {
+    } else if (errorState) {
+      return <ErrorDisplay error={errorState} resetError={resetErrorFn} />;
+    } else if (successState) {
       return <div>Datos enviados correctamente</div>;
     } else {
       return (
@@ -36,8 +36,8 @@ const FormStep = () => {
       <FormStepHeader />
       <form className="form-step__body">
         <div className="form-step__active">{renderContent()}</div>
-        {!loading && !success && !error && (
-          <FormStepBtns onSend={registerCourt} />
+        {!loadingState && !successState && !errorState && (
+          <FormStepBtns onSend={sendFormFn} />
         )}
       </form>
     </div>

@@ -51,7 +51,7 @@ const StepImgs = () => {
     updatedImages.splice(index, 1);
     updateImages(updatedImages);
   };
-
+  console.log(formData.images);
   return (
     <div className="step-imgs">
       <p>

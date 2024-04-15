@@ -1,4 +1,3 @@
-// hooks/use-canchas-data.hook.js
 import { useState, useEffect } from "react";
 import { fetchDataOnTable } from "../services/supabase/table-operations.service";
 import { prepareCourtData } from "../utilities/prepare-court-data";

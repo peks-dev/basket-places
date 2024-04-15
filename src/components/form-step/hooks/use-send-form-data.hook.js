@@ -12,7 +12,7 @@ import { uploadFile } from "@/services/supabase/storage-operations.service";
 import { compressImage } from "@/utilities/compress-img.utility";
 import validateStepFormData from "@/utilities/validate-step-form-data.utility";
 
-export function useSendFormData() {
+export function useRegisterNewCourt() {
   const { formData } = useStepFormStore();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

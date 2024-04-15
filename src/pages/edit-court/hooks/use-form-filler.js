@@ -21,6 +21,7 @@ export function useFormFiller(courtData) {
     updateBathroom,
     updateTransport,
     updateShop,
+    updateId,
   } = useStepFormStore();
 
   function fillCourtState(data) {
@@ -50,6 +51,8 @@ export function useFormFiller(courtData) {
     updateBathroom(data.services.bathroom);
     updateTransport(data.services.transport);
     updateShop(data.services.shop);
+
+    updateId(data.id);
     setLoading(false);
   }
 

@@ -33,6 +33,7 @@ export const useStepFormStore = create(
           }
         });
       },
+      resetSteps: () => set((state) => ({ ...state, currentStep: 0 })),
       resetStepForm: () => {
         set(initialState);
       },
@@ -162,6 +163,11 @@ export const useStepFormStore = create(
               bathroom: newBathroom,
             },
           },
+        })),
+      updateId: (courtId) =>
+        set((state) => ({
+          ...state,
+          formData: { ...state.formData, id: courtId },
         })),
     }),
     { name: "step-form" }

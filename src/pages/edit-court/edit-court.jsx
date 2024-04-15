@@ -1,25 +1,32 @@
 import React, { useEffect } from "react";
 import "./edit-court.css";
-
 // router
-import { useParams, useLocation } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 // hooks
 import { useFormFiller } from "./hooks/use-form-filler";
+import { useEditCourt } from "@/hooks/use-edit.court";
+// context
 import { useStepFormStore } from "@/context/stepFormStore";
 import { useMapStore } from "@/context/mapStore";
-
 // components
-import FormStep from "../../components/form-step/form-step";
+import FormStep from "@/components/form-step/form-step";
 import Loader from "@/components/loader/loader";
 
 const EditCourt = () => {
   const courtData = useLocation().state;
-  const { resetStepForm } = useStepFormStore();
+  const { resetStepForm, resetSteps } = useStepFormStore();
   const { loading } = useFormFiller(courtData);
   const { resetMapStepForm } = useMapStore();
+  const {
+    error,
+    loading: loadingSendForm,
+    success,
+    resetError,
+    sendCourtUpdates,
+  } = useEditCourt();
 
   useEffect(() => {
+    resetSteps();
     return () => {
       resetStepForm();
       resetMapStepForm();
@@ -32,7 +39,13 @@ const EditCourt = () => {
 
   return (
     <div className="edit-court">
-      <FormStep />
+      <FormStep
+        successState={success}
+        errorState={error}
+        loadingState={loadingSendForm}
+        sendFormFn={sendCourtUpdates}
+        resetErrorFn={resetError}
+      />
     </div>
   );
 };

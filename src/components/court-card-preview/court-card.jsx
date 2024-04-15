@@ -43,10 +43,10 @@ const CourtCard = ({ courtData }) => {
             {currentPath === "/profile" && (
               <EditCourtButton courtData={courtData} />
             )}
+            <Button onClick={handleDeleteCourt} variant={"secundary"}>
+              eliminar
+            </Button>
           </div>
-          {/* <Button onClick={handleDeleteCourt} variant={"primary"}>
-            eliminar
-          </Button> */}
         </div>
       </header>
       <footer className="court-card__footer">

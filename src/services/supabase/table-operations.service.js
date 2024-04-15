@@ -39,14 +39,8 @@ export async function insertDataOnTable(tableName, objectToInsert) {
       .from(tableName)
       .insert(objectToInsert)
       .select();
-    if (error.message === "TypeError: Failed to fetch") {
-      throw new ConnectionError(
-        "no se pudo conectar al servidor, revisa tu conexion a internet"
-      );
-    } else if (error) {
-      throw new Error(
-        "algo salio mal al enviar los datos, intentalo de nuevo mas tarde"
-      );
+    if (error) {
+      throw new Error(error.message);
     }
     return data;
   } catch (error) {

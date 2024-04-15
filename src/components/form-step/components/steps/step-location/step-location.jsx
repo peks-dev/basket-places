@@ -37,8 +37,8 @@ const StepLocation = () => {
     updateCoordinates(newPosition);
     updateMapStepFormCenter(newPosition);
     updateMapStepFormZoom(newZoom);
-    // reverse geocoding logic
 
+    // reverse geocoding logic
     if (!formData.location.city) {
       const { lat, lng } = newPosition;
       const res = await reverseGeocoding(lat, lng);
@@ -48,6 +48,8 @@ const StepLocation = () => {
       console.log("solicitud api realizada");
     }
   }
+
+  console.log(formData.location);
 
   // set coordinates on map
   useEffect(() => {
