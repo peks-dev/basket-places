@@ -1,13 +1,13 @@
 // services
 import { deleteDataOnTable } from "@/services/supabase/table-operations.service";
 import { deleteObjectFromStorage } from "@/services/supabase/storage-operations.service";
+import { useState } from "react";
 
-export async function deleteCourt(userId, courtId, images) {
+export async function useDeleteCourt(userId, courtId, images) {
   try {
     const imgsNames = [];
-
     images.map((img) => {
-      const imgUrlSplit = img.split("/");
+      const imgUrlSplit = img.publicUrl.split("/");
       const imgName = imgUrlSplit.pop();
       imgsNames.push(imgName);
     });

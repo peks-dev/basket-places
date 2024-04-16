@@ -22,6 +22,7 @@ export function useFormFiller(courtData) {
     updateTransport,
     updateShop,
     updateId,
+    updateOwner,
   } = useStepFormStore();
 
   function fillCourtState(data) {
@@ -38,7 +39,7 @@ export function useFormFiller(courtData) {
     updateName(data.name);
     updateDescription(data.description);
     updateGameLevel(data.game_level);
-    // cancha Step
+    // cancha status
     updatePlaceType(data.place_type);
     updateRoof(data.roof);
     updateFloorType(data.floor_type);
@@ -53,11 +54,11 @@ export function useFormFiller(courtData) {
     updateShop(data.services.shop);
 
     updateId(data.id);
+    updateOwner(data.owner);
     setLoading(false);
   }
 
   useEffect(() => {
-    // Ejecuta la función fillCourtState solo una vez cuando se cumplan las condiciones
     fillCourtState(courtData);
   }, [courtData]);
 

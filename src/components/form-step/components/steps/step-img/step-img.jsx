@@ -51,7 +51,7 @@ const StepImgs = () => {
     updatedImages.splice(index, 1);
     updateImages(updatedImages);
   };
-  console.log(formData.images);
+
   return (
     <div className="step-imgs">
       <p>
@@ -76,7 +76,11 @@ const StepImgs = () => {
                     />
                   )}
                 </div>
-                <p>{image.name}</p>
+                {typeof image === "string" ? (
+                  <p>{image.split("/").pop()}</p>
+                ) : (
+                  <p> {image.name}</p>
+                )}
               </div>
 
               <Button

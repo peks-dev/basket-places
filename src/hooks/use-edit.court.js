@@ -1,4 +1,6 @@
 import { useState } from "react";
+// models
+import { ValidationError } from "@/models/errors.model";
 // services
 import {
   updateDataOnTable,
@@ -41,125 +43,129 @@ export function useEditCourt() {
 
         const differences = compareObjects(formData, courtInDataBase);
 
-        // handle images changes
-        if (differences.images) {
-          let newImages = { images: [] };
-          const resultado = differences.images.newData.reduce(
-            (acumulador, elemento) => {
-              if (typeof elemento === "string") {
-                acumulador.strings.push(elemento);
-              } else {
-                acumulador.noStrings.push(elemento);
-              }
-              return acumulador;
-            },
-            { strings: [], noStrings: [] }
-          );
+        // has differences?
+        if (Object.keys(differences).length > 0) {
+          // handle images changes
+          if (differences.images) {
+            let newImages = { images: [] };
+            const resultado = differences.images.newData.reduce(
+              (acumulador, elemento) => {
+                if (typeof elemento === "string") {
+                  acumulador.strings.push(elemento);
+                } else {
+                  acumulador.noStrings.push(elemento);
+                }
+                return acumulador;
+              },
+              { strings: [], noStrings: [] }
+            );
 
-          const imgsDeleted = differences.images.oldData.filter(
-            (img) => !resultado.strings.includes(img)
-          );
-          const imgNamesDeleted = imgsDeleted.map((url) => {
-            const partesUrl = url.split("/");
-            return partesUrl[partesUrl.length - 1];
-          });
+            const imgsDeleted = differences.images.oldData.filter(
+              (img) => !resultado.strings.includes(img)
+            );
+            const imgNamesDeleted = imgsDeleted.map((url) => {
+              const partesUrl = url.split("/");
+              return partesUrl[partesUrl.length - 1];
+            });
 
-          // delete imgs on storage
-          for (const img of imgNamesDeleted) {
-            await deleteObjectFromStorage(
-              "imgs_courts",
-              `${profile.id}/${formData.id}/${img}`
+            // delete imgs on storage
+            for (const img of imgNamesDeleted) {
+              await deleteObjectFromStorage(
+                "imgs_courts",
+                `${profile.id}/${formData.id}/${img}`
+              );
+            }
+            // insert new imgs on storage
+            for (const img of resultado.noStrings) {
+              const compressedImage = await compressImage(img);
+              console.log(compressedImage);
+              newImages.images.push(compressedImage.name);
+              // creacion de la url
+              await uploadFile(
+                "imgs_courts",
+                `${courtInDataBase.owner}/${formData.id}/${compressedImage.name}`,
+                compressedImage
+              );
+            }
+
+            await updateDataOnTable("courts", newImages, "id", formData.id);
+          }
+
+          // handle schedules
+          if (differences.schedules) {
+            await deleteDataOnTable("schedules", "court_id", formData.id);
+            // adapt data
+            const schedulesWithCourtId = differences.schedules.newData.map(
+              (schedule) => ({
+                ...schedule,
+                court_id: formData.id,
+              })
+            );
+            await insertDataOnTable("schedules", schedulesWithCourtId);
+          }
+          // handle location
+          if (differences.location) {
+            // prepare data
+            const { city, state, country, coordinates } =
+              differences.location.newData;
+            const { lat, lng } = coordinates;
+            const locationUpdate = { city, state, country, lat, lng };
+
+            // send data
+            await updateDataOnTable(
+              "locations",
+              locationUpdate,
+              "court_id",
+              formData.id
             );
           }
-          // insert new imgs on storage
-          for (const img of resultado.noStrings) {
-            const compressedImage = await compressImage(img);
-            console.log(compressedImage);
-            newImages.images.push(compressedImage.name);
-            // creacion de la url
-            await uploadFile(
-              "imgs_courts",
-              `${courtInDataBase.owner}/${formData.id}/${compressedImage.name}`,
-              compressedImage
+          // handle services
+          if (differences.services) {
+            await updateDataOnTable(
+              "services",
+              differences.services.newData,
+              "court_id",
+              formData.id
             );
           }
 
-          await updateDataOnTable("courts", newImages, "id", formData.id);
-        }
+          // handle main data
+          const dataForMainTable = {};
 
-        // handle schedules
-        if (differences.schedules) {
-          await deleteDataOnTable("schedules", "court_id", formData.id);
-          // adapt data
-          const schedulesWithCourtId = differences.schedules.newData.map(
-            (schedule) => ({
-              ...schedule,
-              court_id: formData.id,
-            })
-          );
-          await insertDataOnTable("schedules", schedulesWithCourtId);
-        }
-        // handle location
-        if (differences.location) {
-          // prepare data
-          const { city, state, country, coordinates } =
-            differences.location.newData;
-          const { lat, lng } = coordinates;
-          const locationUpdate = { city, state, country, lat, lng };
+          if (differences.name) {
+            dataForMainTable.name = differences.name.newData;
+          }
+          if (differences.description) {
+            dataForMainTable.description = differences.description.newData;
+          }
+          if (differences.game_level) {
+            dataForMainTable.game_level = differences.game_level.newData;
+          }
+          if (differences.place_type) {
+            dataForMainTable.place_type = differences.place_type.newData;
+          }
+          if (differences.roof) {
+            dataForMainTable.roof = differences.roof.newData;
+          }
+          if (differences.floor_type) {
+            dataForMainTable.floor_type = differences.floor_type.newData;
+          }
 
           // send data
-          await updateDataOnTable(
-            "locations",
-            locationUpdate,
-            "court_id",
-            formData.id
-          );
-        }
-        // handle services
-        if (differences.services) {
-          await updateDataOnTable(
-            "services",
-            differences.services.newData,
-            "court_id",
-            formData.id
-          );
-        }
+          if (Object.keys(dataForMainTable).length > 0) {
+            // El objeto no está vacío, tiene al menos una propiedad
+            await updateDataOnTable(
+              "courts",
+              dataForMainTable,
+              "id",
+              formData.id
+            );
+          }
 
-        // handle main data
-        const dataForMainTable = {};
-
-        if (differences.name) {
-          dataForMainTable.name = differences.name.newData;
+          setSuccess(true);
+        } else {
+          setError(new ValidationError("no has cambiado nada"));
         }
-        if (differences.description) {
-          dataForMainTable.description = differences.description.newData;
-        }
-        if (differences.game_level) {
-          dataForMainTable.game_level = differences.game_level.newData;
-        }
-        if (differences.place_type) {
-          dataForMainTable.place_type = differences.place_type.newData;
-        }
-        if (differences.roof) {
-          dataForMainTable.roof = differences.roof.newData;
-        }
-        if (differences.floor_type) {
-          dataForMainTable.floor_type = differences.floor_type.newData;
-        }
-
-        // send data
-        if (Object.keys(dataForMainTable).length > 0) {
-          // El objeto no está vacío, tiene al menos una propiedad
-          console.log(dataForMainTable);
-          await updateDataOnTable(
-            "courts",
-            dataForMainTable,
-            "id",
-            formData.id
-          );
-        }
-
-        setSuccess(true);
       }
     } catch (error) {
       setError(error);

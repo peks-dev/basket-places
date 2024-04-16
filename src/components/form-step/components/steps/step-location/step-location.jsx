@@ -49,8 +49,6 @@ const StepLocation = () => {
     }
   }
 
-  console.log(formData.location);
-
   // set coordinates on map
   useEffect(() => {
     if (!mapStepFormPosition.coordinates) {

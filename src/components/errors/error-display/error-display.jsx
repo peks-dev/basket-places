@@ -13,16 +13,16 @@ const ErrorDisplay = ({ error, resetError }) => {
     ValidationError: { icon: <AlertIcon />, buttonText: "editar formulario" },
     ConnectionError: { icon: <WifiOffIcon />, buttonText: "volver a intentar" },
   };
-  console.log(error);
+  console.log(error.name);
   return (
     <div className="error-display">
-      <div className="error-display__icon">
+      {/* <div className="error-display__icon">
         {errorTypeContent[error.name].icon ? (
           errorTypeContent[error.name].icon
         ) : (
           <AlertIcon />
         )}
-      </div>
+      </div> */}
       <p>{error.message}</p>
       <ul className="error-display__fields">
         {error.emptyFields &&

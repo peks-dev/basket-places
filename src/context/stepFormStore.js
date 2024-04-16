@@ -169,6 +169,11 @@ export const useStepFormStore = create(
           ...state,
           formData: { ...state.formData, id: courtId },
         })),
+      updateOwner: (newOwner) =>
+        set((state) => ({
+          ...state,
+          formData: { ...state.formData, owner: newOwner },
+        })),
     }),
     { name: "step-form" }
   )

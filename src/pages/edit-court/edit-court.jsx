@@ -14,7 +14,7 @@ import Loader from "@/components/loader/loader";
 
 const EditCourt = () => {
   const courtData = useLocation().state;
-  const { resetStepForm, resetSteps } = useStepFormStore();
+  const { formData, resetStepForm, resetSteps } = useStepFormStore();
   const { loading } = useFormFiller(courtData);
   const { resetMapStepForm } = useMapStore();
   const {
@@ -26,6 +26,7 @@ const EditCourt = () => {
   } = useEditCourt();
 
   useEffect(() => {
+    // start in first step
     resetSteps();
     return () => {
       resetStepForm();
@@ -35,6 +36,10 @@ const EditCourt = () => {
 
   if (loading) {
     return <Loader />;
+  }
+
+  if (!formData.id) {
+    return <div>no hay datos</div>;
   }
 
   return (
