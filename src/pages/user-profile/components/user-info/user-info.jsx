@@ -21,9 +21,6 @@ const UserInfo = () => {
       </picture>
       <div className="user-info__text-wrap">
         <p className="user-info__name">{profile.apodo}</p>
-        <a className="user-info__link" href={profile.website}>
-          {profile.website}
-        </a>
       </div>
       <UserOptions />
     </header>
