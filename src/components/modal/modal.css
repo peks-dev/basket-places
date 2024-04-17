@@ -59,3 +59,7 @@
 .modal__text {
   text-align: center;
 }
+
+.modal > form {
+  width: 90%;
+}

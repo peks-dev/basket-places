@@ -4,6 +4,7 @@ import "./comments-counter.css";
 // components
 import Button from "@/components/button/button";
 import CommentIcon from "@/components/icons/comment-icon";
+import CommentButton from "@/components/comment-button";
 
 const CommentsCounter = () => {
   return (
@@ -16,7 +17,7 @@ const CommentsCounter = () => {
           <span>33</span>comentarios
         </p>
       </div>
-      <Button type={"button"}>comentar</Button>
+      <CommentButton />
     </div>
   );
 };

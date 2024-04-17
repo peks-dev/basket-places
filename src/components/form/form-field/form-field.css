@@ -25,6 +25,7 @@
 }
 .form__input {
   font-size: 2rem;
+  resize: none;
 }
 /* Todos los inputs */
 .form__input[type="text"],
@@ -86,4 +87,9 @@
 }
 .form__fields-wrap label {
   display: none;
+}
+
+/* text area */
+#comment {
+  height: 15rem;
 }

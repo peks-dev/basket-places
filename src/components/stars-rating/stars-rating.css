@@ -1,0 +1,18 @@
+.stars-rating {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 4rem;
+}
+
+.stars-rating input {
+  display: none;
+}
+.stars-rating__icon-container {
+  width: 5rem;
+  color: var(--ternary);
+}
+
+.stars-rating__icon-container:hover,
+.stars-rating__icon-container.accent {
+  color: var(--accent);
+}

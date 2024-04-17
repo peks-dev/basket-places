@@ -23,7 +23,6 @@ const CourtDetails = () => {
       try {
         const courtInfo = await fetchAllCourtData(courtId);
         setCourtData(courtInfo);
-        console.log("se hizo el fetch de datos");
       } catch (error) {
         console.log(error);
       } finally {
