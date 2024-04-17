@@ -41,6 +41,11 @@
 .no-padding {
   padding: 0;
 }
+/* - - - - - - */
+
+.court-card-btn {
+  width: 100%;
+}
 
 /* - - - - - - */
 .btn[data-variant="navbar"] {
@@ -109,4 +114,16 @@
   text-transform: capitalize;
   color: var(--secundary);
   font-size: 1.2rem;
+}
+
+.btn[data-variant="delete"] {
+  background-color: var(--error);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn[data-variant="delete"]:hover {
+  background-color: var(--error);
+  color: var(--white);
+  border-color: var(--white);
 }

@@ -10,7 +10,11 @@ const EditCourtButton = ({ courtData }) => {
     navigate("/edit-court", { state: courtData });
   }
   return (
-    <Button type={"button"} onClick={handleEditCourt} variant={"court-card"}>
+    <Button
+      type={"button"}
+      onClick={handleEditCourt}
+      customStyle={"court-card-btn"}
+    >
       editar
     </Button>
   );

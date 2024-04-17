@@ -8,7 +8,6 @@ import { ConnectionError } from "@/models/errors.model";
 export function useFetchCourtData() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [courtInfo, setCourtInfo] = useState(null);
 
   async function fetchAllCourtData(courtId) {
     setLoading(true);
@@ -75,7 +74,7 @@ export function useFetchCourtData() {
       courtData.services.wifi = wifi;
       courtData.services.shop = shop;
 
-      setCourtInfo(courtData);
+      return courtData;
     } catch (error) {
       if (error.message === "TypeError: Failed to fetch") {
         setError(
@@ -89,5 +88,5 @@ export function useFetchCourtData() {
     }
   }
 
-  return { loading, error, fetchAllCourtData, courtInfo };
+  return { loading, error, fetchAllCourtData };
 }

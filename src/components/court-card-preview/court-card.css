@@ -63,14 +63,23 @@
   font-size: 1.3rem;
   width: 100%;
 }
+.court-card__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: end;
+  position: relative;
+}
 .court-card__rating {
   background-color: var(--primary);
   border-radius: 1rem;
-  align-self: self-start;
   font-size: 2rem;
   padding: 1rem 1.2rem;
   font-family: var(--font-title);
-  align-self: self-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .court-card__footer {
   flex: 0 0 auto;

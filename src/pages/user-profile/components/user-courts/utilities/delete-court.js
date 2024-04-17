@@ -1,8 +1,10 @@
 // services
 import { deleteDataOnTable } from "@/services/supabase/table-operations.service";
 import { deleteObjectFromStorage } from "@/services/supabase/storage-operations.service";
+import { useUserCourtsRegisteredStore } from "@/context/userCourtsRegisteredStore";
 
 export async function deleteCourt(userId, courtId, images) {
+  const { resetUserCourtsList } = useUserCourtsRegisteredStore();
   try {
     const imgsNames = [];
 
@@ -19,6 +21,7 @@ export async function deleteCourt(userId, courtId, images) {
       });
 
       const runPromise = await Promise.all(dataPromise);
+      resetUserCourtsList();
       return runPromise;
     } else {
       throw new Error(`Unexpected result while deleting court: ${result}`);

@@ -6,9 +6,7 @@ import ReviewTab from "../components/reviews-tab/review-tab";
 import LocationTab from "../components/location-tab/location-tab";
 import SchedulesTab from "../components/schedules-tab/schedules-tab";
 
-const ActiveTabRendered = ({ tabActive }) => {
-  const courtData = useLocation().state;
-
+const ActiveTabRendered = ({ tabActive, courtData }) => {
   switch (tabActive) {
     case "descripcion":
       return <DescriptionTab courtData={courtData} />;

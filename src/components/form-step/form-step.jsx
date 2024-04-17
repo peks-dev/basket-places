@@ -1,12 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./form-step.css";
+// context
+import { useStepFormStore } from "@/context/stepFormStore";
 // Components
 import FormStepHeader from "./components/form-step-header/form-step-header";
 import FormStepBtns from "./components/form-step-btns/form-step-btns";
 import RenderStep from "./components/step-to-render";
 import Loader from "@/components/loader/loader";
 import ErrorDisplay from "@/components/errors/error-display/error-display";
-import { ErrorBoundary } from "../../utilities/error-boundaries";
+
+import Button from "@/components/button/button";
 
 const FormStep = ({
   loadingState,
@@ -15,19 +19,31 @@ const FormStep = ({
   resetErrorFn,
   sendFormFn,
 }) => {
+  const navigate = useNavigate();
+  const { resetStepForm } = useStepFormStore();
+
+  function handleNavite() {
+    resetStepForm();
+    navigate(`/courts/${successState}`);
+  }
+
   const renderContent = () => {
     if (loadingState) {
       return <Loader />;
     } else if (errorState) {
       return <ErrorDisplay error={errorState} resetError={resetErrorFn} />;
     } else if (successState) {
-      return <div>Datos enviados correctamente</div>;
-    } else {
+      console.log(successState);
       return (
-        <ErrorBoundary>
-          <RenderStep />
-        </ErrorBoundary>
+        <div>
+          <h3>Datos enviados correctamente</h3>
+          <Button type={"button"} onClick={handleNavite}>
+            ver detalles
+          </Button>
+        </div>
       );
+    } else {
+      return <RenderStep />;
     }
   };
 

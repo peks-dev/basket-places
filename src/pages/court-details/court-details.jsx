@@ -14,21 +14,30 @@ import Loader from "@/components/loader/loader";
 const CourtDetails = () => {
   const courtId = useParams().courtId;
   const state = useLocation().state;
-  const { loading, fetchAllCourtData, courtInfo, error } = useFetchCourtData();
+  const { loading, fetchAllCourtData, error } = useFetchCourtData();
   const [courtData, setCourtData] = useState(null);
   const [loadingPage, setLoadingPage] = useState(true);
 
   useEffect(() => {
-    if (!state.id) {
-      fetchAllCourtData(courtId);
-      setCourtData(courtInfo);
-      console.log("hola");
+    const fetchData = async () => {
+      try {
+        const courtInfo = await fetchAllCourtData(courtId);
+        setCourtData(courtInfo);
+        console.log("se hizo el fetch de datos");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoadingPage(false);
+      }
+    };
+
+    if (!state) {
+      fetchData();
     } else {
       setCourtData(state);
+      setLoadingPage(false);
     }
-
-    setLoadingPage(false);
-  }, [courtId, state]);
+  }, [courtId]);
 
   if (loadingPage || loading) {
     return <Loader />;
@@ -46,7 +55,7 @@ const CourtDetails = () => {
     <article className="court-details-container">
       <CourtDetailSlider courtData={courtData} />
       <CourtDetailHeader courtData={courtData} />
-      <CourtTabs />
+      <CourtTabs courtData={courtData} />
     </article>
   );
 };

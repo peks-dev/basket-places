@@ -2,6 +2,8 @@ import { useState } from "react";
 // context
 import { useUserStore } from "@/context/userStore";
 import { useStepFormStore } from "@/context/stepFormStore";
+import { useMapStore } from "@/context/mapStore";
+import { useUserCourtsRegisteredStore } from "@/context/userCourtsRegisteredStore";
 // models
 import { ValidationError, ConnectionError } from "@/models/errors.model";
 // services
@@ -18,6 +20,8 @@ export function useRegisterNewCourt() {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const { profile } = useUserStore();
+  const { resetMapStepForm } = useMapStore();
+  const { resetUserCourtsList } = useUserCourtsRegisteredStore();
 
   function resetError() {
     setError(null);
@@ -101,6 +105,8 @@ export function useRegisterNewCourt() {
       const servicesFormated = { ...services, court_id };
       await insertDataOnTable("services", servicesFormated);
 
+      resetMapStepForm();
+      resetUserCourtsList();
       setSuccess(court_id);
     } catch (error) {
       if (error.name === "Failed to fetch") {

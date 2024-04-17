@@ -38,6 +38,9 @@
   right: 1rem;
   width: 5.5rem;
 }
+.modal__btns-wrap > button:nth-child(2) {
+  width: 100%;
+}
 .modal__icon {
   max-width: 20rem;
 }
@@ -50,6 +53,7 @@
   text-transform: uppercase;
   font-size: 3rem;
   line-height: normal;
+  text-align: center;
 }
 
 .modal__text {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //leaflet
 import { Marker, Popup } from "react-leaflet";
@@ -17,15 +17,16 @@ import { useFetchCourtData } from "@/lib/fetch-court-data";
 
 const CourtMarker = React.memo(
   ({ courtId, markerPosition, showPopup, isDraggable, onDragEnd }) => {
-    const { loading, error, fetchAllCourtData, courtInfo } =
-      useFetchCourtData();
+    const { loading, error, fetchAllCourtData } = useFetchCourtData();
     const { currentTheme } = useThemeStore();
+    const [courtInfo, setCourtInfo] = useState(null);
 
     const iconUrl =
       currentTheme === "dark" ? courtIconSvgLight : courtIconSvgDark;
 
-    function handlePopUp() {
-      fetchAllCourtData(courtId);
+    async function handlePopUp() {
+      const courtData = await fetchAllCourtData(courtId);
+      setCourtInfo(courtData);
     }
 
     const handleDragEnd = (event) => {

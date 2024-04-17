@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 // services
 import { fetchDataOnTable } from "@/services/supabase/table-operations.service";
 // models
 import { ConnectionError } from "@/models/errors.model";
 // context
 import { useUserStore } from "@/context/userStore";
+import { useUserCourtsRegisteredStore } from "@/context/userCourtsRegisteredStore";
 // hooks
 import { consolidateCourtData } from "@/adapters/court-data.adapter";
+import { useFetchCourtData } from "@/lib/fetch-court-data";
 // components
 import CourtCard from "@/components/court-card-preview/court-card";
 import { ErrorBoundary } from "@/utilities/error-boundaries";
@@ -14,48 +16,32 @@ import CloseIcon from "@/components/icons/close-icon";
 import Loader from "@/components/loader/loader";
 
 const UserCourtsRegistered = () => {
-  const [courts, setCourts] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
   const { profile } = useUserStore();
+  const { saveUserCourtsRegistered, userCourtsList } =
+    useUserCourtsRegisteredStore();
+  const { loading, error, fetchAllCourtData } = useFetchCourtData();
 
   // traer todas las canchas relacionadas con el usuario
-  async function fetchCourtsData() {
+  async function fetchUserCourts() {
     try {
       let courtsAdapted = [];
       const res = await fetchDataOnTable("courts", "owner", `${profile.id}`);
       for (const court of res) {
-        const dataAdapted = await consolidateCourtData(court);
+        const dataAdapted = await fetchAllCourtData(court.id);
         courtsAdapted.push(dataAdapted);
       }
-      // guardar en local storage
-      const courtsJSON = JSON.stringify(courtsAdapted);
-      localStorage.setItem("registered-user-courts", courtsJSON);
-      // guardar en estado
-      setCourts(courtsAdapted);
-      setLoading(false);
+      saveUserCourtsRegistered(courtsAdapted);
     } catch (error) {
-      if (error.message === "TypeError: Failed to fetch") {
-        setError(new ConnectionError("revisa tu conexion a internet"));
-      } else {
-        setError(new Error("algo salio mal, intentalo mas tarde"));
-      }
-      setLoading(false);
+      console.log(error.name);
+      throw error;
     }
   }
 
   useEffect(() => {
-    // verificar si ya se hizo el fetch
-    if (!localStorage.getItem("registered-user-courts")) {
-      fetchCourtsData();
-    } else {
-      const fetchedCourts = JSON.parse(
-        localStorage.getItem("registered-user-courts")
-      );
-      setCourts(fetchedCourts);
-      setLoading(false);
+    if (userCourtsList.length < 1) {
+      fetchUserCourts();
     }
-  }, [profile.id]);
+  }, [profile.id, userCourtsList]);
 
   // Verificar si todavía se están cargando los datos
   if (loading) {
@@ -65,8 +51,8 @@ const UserCourtsRegistered = () => {
   return (
     <>
       <ErrorBoundary error={error}>
-        {courts.length > 0 ? (
-          courts.map((courtData, index) => (
+        {userCourtsList.length > 0 ? (
+          userCourtsList.map((courtData, index) => (
             <li key={index} className="user-courts__item">
               <CourtCard courtData={courtData} />
             </li>

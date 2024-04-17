@@ -1,27 +1,21 @@
 import React from "react";
 import "./court-card.css";
 
-import { deleteCourt } from "@/pages/user-profile/components/user-courts/utilities/delete-court";
 // hooks
 import { useNavigate, useLocation } from "react-router-dom";
-// context
-import { useUserStore } from "@/context/userStore.js";
+
 // Components
 import Button from "@/components/button/button";
 import EditCourtButton from "@/components/edit-court-button/edit-court-button";
+import DeleteCourtButton from "@/components/delete-court-button/delete-court-button";
 
 const CourtCard = ({ courtData }) => {
   const navigate = useNavigate();
   const currentPath = useLocation().pathname;
-  const { profile } = useUserStore();
 
   const handleClick = () => {
     navigate(`/courts/${courtData.id}`, { state: courtData });
   };
-
-  function handleDeleteCourt() {
-    deleteCourt(profile.id, courtData.id, courtData.images);
-  }
 
   return (
     <article className="court-card">
@@ -39,13 +33,13 @@ const CourtCard = ({ courtData }) => {
             </div>
           </div>
           <div className="court-card__right">
-            <div className="court-card__rating">4</div>
             {currentPath === "/profile" && (
-              <EditCourtButton courtData={courtData} />
+              <>
+                <EditCourtButton courtData={courtData} />
+                <DeleteCourtButton courtData={courtData} />
+              </>
             )}
-            <Button onClick={handleDeleteCourt} variant={"secundary"}>
-              eliminar
-            </Button>
+            <div className="court-card__rating">4</div>
           </div>
         </div>
       </header>

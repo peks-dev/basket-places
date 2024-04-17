@@ -28,7 +28,7 @@ export async function uploadFile(bucket, path, file) {
     if (error) {
       throw error;
     }
-    console.log(data);
+
     return data;
   } catch (error) {
     throw error;

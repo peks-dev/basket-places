@@ -1,30 +1,42 @@
 // services
 import { deleteDataOnTable } from "@/services/supabase/table-operations.service";
 import { deleteObjectFromStorage } from "@/services/supabase/storage-operations.service";
+import { useUserCourtsRegisteredStore } from "@/context/userCourtsRegisteredStore";
 import { useState } from "react";
 
-export async function useDeleteCourt(userId, courtId, images) {
-  try {
-    const imgsNames = [];
-    images.map((img) => {
-      const imgUrlSplit = img.publicUrl.split("/");
-      const imgName = imgUrlSplit.pop();
-      imgsNames.push(imgName);
-    });
-    const result = await deleteDataOnTable("courts", "id", courtId);
+export function useDeleteCourt() {
+  const { resetUserCourtsList } = useUserCourtsRegisteredStore();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    if (result === null) {
-      const dataPromise = imgsNames.map((img) => {
-        deleteObjectFromStorage("imgs_courts", `${userId}/${courtId}/${img}`);
+  const deleteCourtById = async (userId, courtId, images) => {
+    try {
+      setLoading(true);
+      const imgsNames = [];
+      images.map((img) => {
+        const imgName = img.split("/").pop();
+        imgsNames.push(imgName);
       });
+      const result = await deleteDataOnTable("courts", "id", courtId);
 
-      const runPromise = await Promise.all(dataPromise);
-      return runPromise;
-    } else {
-      throw new Error(`Unexpected result while deleting court: ${result}`);
+      if (result === null) {
+        const dataPromise = imgsNames.map((img) => {
+          deleteObjectFromStorage("imgs_courts", `${userId}/${courtId}/${img}`);
+        });
+
+        const runPromise = await Promise.all(dataPromise);
+        resetUserCourtsList();
+        return runPromise;
+      } else {
+        throw new Error(`Unexpected result while deleting court: ${result}`);
+      }
+    } catch (error) {
+      console.error(error);
+      setError(error);
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error(error); // Logging the error for debugging purposes
-    throw error;
-  }
+  };
+
+  return { loading, error, deleteCourtById };
 }

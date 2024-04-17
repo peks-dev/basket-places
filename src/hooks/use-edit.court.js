@@ -1,6 +1,8 @@
 import { useState } from "react";
 // models
 import { ValidationError } from "@/models/errors.model";
+// context
+import { useUserCourtsRegisteredStore } from "@/context/userCourtsRegisteredStore";
 // services
 import {
   updateDataOnTable,
@@ -26,6 +28,8 @@ export function useEditCourt() {
   const [success, setSuccess] = useState(false);
   const { formData } = useStepFormStore();
   const { profile } = useUserStore();
+  const { resetUserCourtsList, userCourtsList } =
+    useUserCourtsRegisteredStore();
 
   async function sendCourtUpdates() {
     try {
@@ -33,11 +37,7 @@ export function useEditCourt() {
       // make sure every field has data
       const emptyFields = validateStepFormData(formData);
       if (emptyFields.length < 1) {
-        const userCourts = JSON.parse(
-          localStorage.getItem("registered-user-courts")
-        );
-
-        const courtInDataBase = userCourts.find(
+        const courtInDataBase = userCourtsList.find(
           (court) => court.id === formData.id
         );
 
@@ -161,13 +161,14 @@ export function useEditCourt() {
               formData.id
             );
           }
-
+          resetUserCourtsList();
           setSuccess(true);
         } else {
           setError(new ValidationError("no has cambiado nada"));
         }
       }
     } catch (error) {
+      console.log(error.message);
       setError(error);
     } finally {
       setLoading(false);
