@@ -1,6 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+// utilities
+import { getRandomId } from "../utilities/random-id.utility";
+
 const initialState = {
   alerts: [],
 };
@@ -10,7 +13,7 @@ export const useToastStore = create(
     (set) => ({
       ...initialState,
       createToast: (text, type) => {
-        const id = Date.now();
+        const id = getRandomId();
         const timeoutId = setTimeout(() => {
           set((state) => ({
             ...state,

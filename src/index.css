@@ -19,7 +19,9 @@
   --accent: #de9e36;
   --ternary: #636363;
   --black: #242628;
+
   --error: #e5383b;
+  --success: #59a24d;
 
   --white: #f5f6f6;
 
@@ -38,16 +40,6 @@
   --secundary: #242628;
 }
 
-/* Las adaptamos al modo oscuro */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --color-black: #252422;
-    --color-white: #ececec;
-  }
-} */
-/* Opcional */
-/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
-/* Opcional */
 /* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
 @media (prefers-reduced-motion: reduce) {
   * {

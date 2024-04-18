@@ -92,4 +92,5 @@
 /* text area */
 #comment {
   height: 15rem;
+  width: 100%;
 }

@@ -30,8 +30,14 @@
   fill: none;
 }
 .toast[data-variant="error"] {
-  border-left: 1rem solid red;
+  border-left: 1rem solid var(--error);
 }
 .toast[data-variant="error"] .toast__icon {
-  color: red;
+  color: var(--error);
+}
+.toast[data-variant="success"] {
+  border-left: 1rem solid var(--success);
+}
+.toast[data-variant="success"] .toast__icon {
+  color: var(--success);
 }

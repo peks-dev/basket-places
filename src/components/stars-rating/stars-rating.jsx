@@ -8,8 +8,6 @@ const StarsRating = ({ setRating, rating }) => {
     setRating(value); // Actualiza el estado de la valoración
   };
 
-  console.log(rating);
-
   return (
     <fieldset className="stars-rating">
       {[1, 2, 3, 4, 5].map((value) => (

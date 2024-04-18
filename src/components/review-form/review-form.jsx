@@ -2,10 +2,7 @@ import React, { useState } from "react";
 
 import StarsRating from "@/components/stars-rating/stars-rating";
 
-const ReviewForm = () => {
-  const [comment, setComment] = useState("");
-  const [rating, setRating] = useState("");
-
+const ReviewForm = ({ comment, setComment, rating, setRating }) => {
   function handleInputChange(e) {
     setComment(e.target.value);
   }

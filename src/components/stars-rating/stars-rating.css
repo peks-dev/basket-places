@@ -7,6 +7,7 @@
 .stars-rating input {
   display: none;
 }
+
 .stars-rating__icon-container {
   width: 5rem;
   color: var(--ternary);
