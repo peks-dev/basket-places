@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./court-details.css";
+// context
+import { useCommentStore } from "@/context/commentsStore.";
 
 // hooks
 import { useFetchCourtData } from "@/lib/fetch-court-data";
@@ -17,8 +19,10 @@ const CourtDetails = () => {
   const { loading, fetchAllCourtData, error } = useFetchCourtData();
   const [courtData, setCourtData] = useState(null);
   const [loadingPage, setLoadingPage] = useState(true);
+  const { resetComments } = useCommentStore();
 
   useEffect(() => {
+    // build fetch function
     const fetchData = async () => {
       try {
         const courtInfo = await fetchAllCourtData(courtId);
@@ -30,12 +34,18 @@ const CourtDetails = () => {
       }
     };
 
+    // verify if data exist
     if (!state) {
       fetchData();
     } else {
       setCourtData(state);
       setLoadingPage(false);
     }
+
+    // On unmount component
+    return () => {
+      resetComments();
+    };
   }, [courtId]);
 
   if (loadingPage || loading) {

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./owner-badge.css";
+import defaultUserImg from "/images/user-profile.svg";
 // lib
 import { useFetchOwnerBadge } from "@/lib/fetch-owner-badge-data";
 
@@ -21,7 +22,10 @@ const OwnerBadge = ({ ownerId }) => {
   return (
     <div className="owner">
       <picture className="owner__avatar">
-        <img src={ownerData.avatar_url} alt="" />
+        <img
+          src={loading || error ? defaultUserImg : ownerData.avatar_url}
+          alt=""
+        />
       </picture>
       <p className="owner__name">{ownerData.apodo}</p>
     </div>

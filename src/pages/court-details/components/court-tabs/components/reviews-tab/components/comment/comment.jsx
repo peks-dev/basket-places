@@ -13,10 +13,6 @@ const Comment = ({ userId, comment, rating }) => {
     getUser(userId);
   }, []);
 
-  if (loading) {
-    return <p>cargando comentario</p>;
-  }
-
   if (error) {
     return <div>error</div>;
   }
@@ -33,12 +29,14 @@ const Comment = ({ userId, comment, rating }) => {
       <header className="comment__header">
         <picture className="comment__avatar">
           <img
-            src={user.avatar_url ? user.avatar_url : defaultUserImg}
+            src={user ? user.avatar_url : defaultUserImg}
             alt="user avatar"
           />
         </picture>
         <div className="comment__header-wrapper">
-          <p className="comment__user">{user.apodo}</p>
+          <p className="comment__user">
+            {loading ? "...cargando" : user.apodo}
+          </p>
           <ul className="comment__rating">{ratingIcons}</ul>
         </div>
       </header>
