@@ -6,3 +6,6 @@
   align-items: center;
   gap: 3rem;
 }
+.comments-box li {
+  width: 100%;
+}

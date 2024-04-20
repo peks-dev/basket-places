@@ -5,12 +5,9 @@ import { useFetchUser } from "@/lib/fetch-user-data";
 //components
 import BasketballIcon from "@/components/icons/basketball-icon";
 import defaultUserImg from "/images/user-profile.svg";
-import Loader from "@/components/loader/loader";
 
 const Comment = ({ userId, comment, rating }) => {
   const { loading, error, user, getUser } = useFetchUser();
-
-  console;
 
   useEffect(() => {
     getUser(userId);

@@ -1,0 +1,22 @@
+.comments-header,
+.comments__counter,
+.comments__counter p {
+  display: flex;
+  align-items: center;
+}
+
+.comments-header {
+  justify-content: space-between;
+}
+.comments__counter {
+  gap: 2rem;
+}
+
+.comments__counter-icon {
+  width: 3rem;
+  color: var(--accent);
+}
+
+.comments__counter p {
+  gap: 1rem;
+}

@@ -31,10 +31,9 @@
   font-family: var(--font-title);
   font-size: clamp(1.8rem, 2vw, 2rem);
   text-transform: uppercase;
-  color: var(--color-yellow);
+  color: var(--secundary);
   align-self: flex-end;
   justify-self: center;
-  width: 90%;
 }
 .comment__rating {
   display: flex;

@@ -5,12 +5,9 @@ import "./court-detail-slider.css";
 import Button from "@/components/button/button";
 import ShareButton from "@/components/share-button/share-button";
 import BackButton from "@/components/back-button";
-// context
-import { useUserStore } from "@/context/userStore";
+import OwnerBadge from "@/components/owner-badge/owner-badge";
 
 const CourtDetailSlider = ({ courtData }) => {
-  const { profile } = useUserStore();
-
   return (
     <div className="court-details__slider">
       <div className="court-details__buttons-wrap">
@@ -21,12 +18,7 @@ const CourtDetailSlider = ({ courtData }) => {
         <img src={courtData.images[0]} alt="" />
       </picture>
       <div className="court-details__slider-wrap">
-        <div className="owner">
-          <picture className="owner__avatar">
-            <img src={profile.avatar_url} alt="" />
-          </picture>
-          <p className="owner__name">peks</p>
-        </div>
+        <OwnerBadge ownerId={courtData.owner} />
         <div className="court-details__slider-dots">
           {courtData.images.map((img, index) => (
             <Button variant={"secundary"} type={"button"} key={index}>
