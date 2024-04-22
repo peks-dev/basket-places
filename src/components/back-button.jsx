@@ -7,7 +7,7 @@ import ArrowIcon from "@/components/icons/arrow-icon";
 const BackButton = () => {
   const navigate = useNavigate();
   function handleBack() {
-    navigate(-1);
+    navigate(-1, { state: null, replace: true });
   }
 
   return (

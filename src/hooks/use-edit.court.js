@@ -3,6 +3,9 @@ import { useState } from "react";
 import { ValidationError } from "@/models/errors.model";
 // context
 import { useUserCourtsRegisteredStore } from "@/context/userCourtsRegisteredStore";
+import { useStepFormStore } from "@/context/stepFormStore";
+import { useUserStore } from "@/context/userStore";
+
 // services
 import {
   updateDataOnTable,
@@ -17,10 +20,6 @@ import {
 import validateStepFormData from "@/utilities/validate-step-form-data.utility";
 import { compareObjects } from "@/utilities/compare-objects.utility";
 import { compressImage } from "@/utilities/compress-img.utility";
-
-// context
-import { useStepFormStore } from "@/context/stepFormStore";
-import { useUserStore } from "@/context/userStore";
 
 export function useEditCourt() {
   const [loading, setLoading] = useState(false);
@@ -161,8 +160,9 @@ export function useEditCourt() {
               formData.id
             );
           }
+
           resetUserCourtsList();
-          setSuccess(true);
+          setSuccess(formData.id);
         } else {
           setError(new ValidationError("no has cambiado nada"));
         }

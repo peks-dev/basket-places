@@ -81,7 +81,7 @@ export default function useAuthActions() {
           if (error.message === "Failed to fetch") {
             createToast("no tienes conexión a internet", "noConnection");
           } else {
-            createToast("no pudimos restablecer tu contraseña", "error");
+            createToast("error al recuperar tu contraseña", "error");
           }
         }
       }, []),

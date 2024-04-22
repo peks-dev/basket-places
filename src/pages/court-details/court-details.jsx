@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./court-details.css";
 // context
 import { useCommentStore } from "@/context/commentsStore.";
-
 // hooks
 import { useFetchCourtData } from "@/lib/fetch-court-data";
 import { useParams, useLocation } from "react-router-dom";

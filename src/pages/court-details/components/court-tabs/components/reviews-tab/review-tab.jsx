@@ -14,7 +14,7 @@ import ErrorDisplay from "@/components/errors/error-display/error-display";
 
 const ReviewTab = () => {
   const { loading, error, getCommentsForCourt } = useFetchComments();
-  const { commentsList } = useCommentStore();
+  const { commentsList, fetchCommentsStatus } = useCommentStore();
   const courtId = useParams().courtId;
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const ReviewTab = () => {
       getCommentsForCourt(courtId);
       console.log("fetch ejecutado");
     }
-  }, []);
+  }, [fetchCommentsStatus]);
 
   if (loading) {
     return <Loader />;
@@ -39,5 +39,4 @@ const ReviewTab = () => {
     </TabWrapper>
   );
 };
-
 export default ReviewTab;

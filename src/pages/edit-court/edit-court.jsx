@@ -13,6 +13,7 @@ import FormStep from "@/components/form-step/form-step";
 import Loader from "@/components/loader/loader";
 
 const EditCourt = () => {
+  const location = useLocation();
   const courtData = useLocation().state;
   const { formData, resetStepForm, resetSteps } = useStepFormStore();
   const { loading } = useFormFiller(courtData);
@@ -27,6 +28,7 @@ const EditCourt = () => {
 
   useEffect(() => {
     // start in first step
+    console.log(location);
     resetSteps();
     return () => {
       resetStepForm();
