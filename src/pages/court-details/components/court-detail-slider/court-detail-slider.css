@@ -23,9 +23,9 @@
   display: flex;
   position: relative;
   justify-content: space-between;
-  margin: auto auto 0 auto;
+  margin: auto auto 0 0;
   z-index: 4;
-  width: 95%;
+  width: auto;
 }
 .court-details__image-container {
   height: 90%;
@@ -41,19 +41,4 @@
 .court-details__image-container img,
 .owner__avatar img {
   height: 100%;
-}
-.court-details__slider-dots {
-  display: flex;
-  background-color: var(--primary);
-  border-radius: 1.5rem;
-  padding: 0.5rem 1rem;
-  align-self: center;
-  gap: 1rem;
-  border: 0.5rem solid var(--background);
-}
-.dot {
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  background-color: currentColor;
 }

@@ -4,7 +4,7 @@ import defaultUserImg from "/images/user-profile.svg";
 // lib
 import { useFetchOwnerBadge } from "@/lib/fetch-owner-badge-data";
 
-const OwnerBadge = ({ ownerId }) => {
+const OwnerBadge = ({ ownerId, variant }) => {
   const { loading, error, ownerData, getOwnerBadgeData } = useFetchOwnerBadge();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const OwnerBadge = ({ ownerId }) => {
   }
 
   return (
-    <div className="owner">
+    <div className="owner" data-variant={variant}>
       <picture className="owner__avatar">
         <img
           src={loading || error ? defaultUserImg : ownerData.avatar_url}

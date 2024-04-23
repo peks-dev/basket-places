@@ -24,7 +24,7 @@ const FormStep = ({
 
   function handleNavite() {
     resetStepForm();
-    navigate(`/courts/${successState}`);
+    navigate(`/courts/${successState}`, { replace: true });
   }
 
   const renderContent = () => {
@@ -33,7 +33,7 @@ const FormStep = ({
     } else if (errorState) {
       return <ErrorDisplay error={errorState} resetError={resetErrorFn} />;
     } else if (successState) {
-      console.log(successState);
+      // succesState === court id
       return (
         <div>
           <h3>Datos enviados correctamente</h3>
