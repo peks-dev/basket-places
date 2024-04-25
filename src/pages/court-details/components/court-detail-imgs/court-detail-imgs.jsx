@@ -1,21 +1,16 @@
 import React from "react";
-import "./court-detail-slider.css";
-
-import { useSwiperSlide } from "swiper/react";
+import "./court-detail-imgs.css";
 
 // components
-import Button from "@/components/button/button";
 import ShareButton from "@/components/share-button/share-button";
 import BackButton from "@/components/back-button";
 import OwnerBadge from "@/components/owner-badge/owner-badge";
 import SliderImgsCourt from "@/components/slider/slider";
 
-const CourtDetailSlider = ({ courtData }) => {
-  const swiperSlide = useSwiperSlide();
-  console.log(swiperSlide);
+const CourtDetailImgs = ({ courtData }) => {
   return (
-    <div className="court-details__slider">
-      <div className="court-details__buttons-wrap">
+    <div className="court-details__imgs">
+      <div className="court-details__imgs-buttons">
         <BackButton />
         <ShareButton currentCourt={courtData} />
       </div>
@@ -25,4 +20,4 @@ const CourtDetailSlider = ({ courtData }) => {
   );
 };
 
-export default CourtDetailSlider;
+export default CourtDetailImgs;

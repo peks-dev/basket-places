@@ -24,7 +24,7 @@ const CourtDetailHeader = ({ courtData }) => {
       </div>
       <div className="court-detail__game-level">
         <p>
-          nivel de juego <span>{courtData.game_level}</span>
+          nivel de juego: <span>{courtData.game_level}</span>
         </p>
       </div>
     </header>

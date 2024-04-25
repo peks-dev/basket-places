@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./court-details.css";
+
 // context
 import { useCommentStore } from "@/context/commentsStore.";
 // hooks
 import { useFetchCourtData } from "@/lib/fetch-court-data";
 import { useParams, useLocation } from "react-router-dom";
 // Components
+import CourtDetailImgs from "./components/court-detail-imgs/court-detail-imgs";
 import CourtDetailHeader from "./components/court-detail-header/court-detaill-header";
-import CourtDetailSlider from "./components/court-detail-slider/court-detail-slider";
 import CourtTabs from "./components/court-tabs/court-tabs";
 import ErrorDisplay from "@/components/errors/error-display/error-display";
 import Loader from "@/components/loader/loader";
@@ -61,7 +62,7 @@ const CourtDetails = () => {
 
   return (
     <article className="court-details-container">
-      <CourtDetailSlider courtData={courtData} />
+      <CourtDetailImgs courtData={courtData} />
       <CourtDetailHeader courtData={courtData} />
       <CourtTabs courtData={courtData} />
     </article>

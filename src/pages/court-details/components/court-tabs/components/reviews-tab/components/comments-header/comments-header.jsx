@@ -12,7 +12,8 @@ const CommentsHeader = ({ numberOfComments }) => {
           <CommentIcon />
         </div>
         <p>
-          <span>{numberOfComments}</span>comentarios
+          <span>{numberOfComments ? numberOfComments : "no hay"}</span>
+          comentarios
         </p>
       </div>
       <CommentButton />

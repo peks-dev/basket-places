@@ -9,6 +9,7 @@ const FormField = ({
   inputChecked,
   handleInputChange,
   legendText,
+  limit,
 }) => {
   return (
     <fieldset className="form__field">
@@ -25,6 +26,7 @@ const FormField = ({
         value={inputValue || ""}
         onChange={handleInputChange}
         checked={inputChecked}
+        maxLength={limit ? limit : null}
       />
     </fieldset>
   );

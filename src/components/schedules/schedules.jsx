@@ -1,8 +1,6 @@
 import React from "react";
 import "./schedules.css";
 
-import Txt from "../layout/text-body/text-body";
-
 const Schedules = ({ schedules }) => {
   return (
     <ul className="schedules">
@@ -17,12 +15,7 @@ const Schedules = ({ schedules }) => {
               ))}
             </ul>
           }
-          {
-            <Txt
-              content={schedule.time.slice(0, 5)}
-              style={"schedules__time"}
-            />
-          }
+          {<p className={"schedules__time"}>{schedule.time.slice(0, 5)}</p>}
         </li>
       ))}
     </ul>

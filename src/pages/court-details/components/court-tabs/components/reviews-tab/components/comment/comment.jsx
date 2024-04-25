@@ -1,21 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./comment.css";
 // lib
 import { useFetchUser } from "@/lib/fetch-user-data";
 //components
 import BasketballIcon from "@/components/icons/basketball-icon";
 import defaultUserImg from "/images/user-profile.svg";
+import DeleteCommentButton from "@/components/delete-comment-button";
 
-const Comment = ({ userId, comment, rating }) => {
+const Comment = ({ userId, comment, rating, courtId }) => {
   const { loading, error, user, getUser } = useFetchUser();
-
-  useEffect(() => {
-    getUser(userId);
-  }, []);
-
-  if (error) {
-    return <div>error</div>;
-  }
+  const [canDelete, setCanDelete] = useState(false);
 
   // Genera un array con la cantidad de elementos igual al rating
   const ratingIcons = Array.from({ length: rating }, (_, index) => (
@@ -23,6 +17,20 @@ const Comment = ({ userId, comment, rating }) => {
       <BasketballIcon />
     </li>
   ));
+
+  useEffect(() => {
+    getUser(userId);
+  }, [userId]);
+
+  useEffect(() => {
+    if (!loading && user && user.id === userId) {
+      setCanDelete(true);
+    }
+  }, [loading, userId]);
+
+  if (error) {
+    return <div>error</div>;
+  }
 
   return (
     <article className="comment">
@@ -41,6 +49,7 @@ const Comment = ({ userId, comment, rating }) => {
         </div>
       </header>
       <p className="comment__content">{comment}</p>
+      {canDelete ? <DeleteCommentButton courtId={courtId} /> : null}
     </article>
   );
 };

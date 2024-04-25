@@ -46,6 +46,13 @@
 .court-card-btn {
   width: 100%;
 }
+/* - - - - - - */
+
+.delete-comment-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
 
 /* - - - - - - */
 .btn[data-variant="navbar"] {

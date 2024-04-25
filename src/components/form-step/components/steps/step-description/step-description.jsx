@@ -39,6 +39,7 @@ const StepDescription = () => {
         inputValue={formData.name || ""}
         handleInputChange={handleInputChange}
         inputName={"nombre"}
+        limit={20}
       />
 
       <StepDescriptionTextArea

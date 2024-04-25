@@ -130,6 +130,7 @@ const EditProfile = () => {
               inputType="text"
               inputValue={formData.name}
               handleInputChange={handleNameChange}
+              limit={20}
             />
           </form>
         </Modal>

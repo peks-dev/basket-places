@@ -19,14 +19,16 @@ const ScheduleList = ({ setBuildingSchedule }) => {
       <Schedules schedules={formData.schedules} />
       <ul className="step-time__btns-wrap">
         <li>
-          <Button
-            variant={"primary"}
-            onClick={() => {
-              setBuildingSchedule(true);
-            }}
-          >
-            agregar
-          </Button>
+          {formData.schedules.length < 5 && (
+            <Button
+              variant={"primary"}
+              onClick={() => {
+                setBuildingSchedule(true);
+              }}
+            >
+              agregar
+            </Button>
+          )}
         </li>
         {formData.schedules.length > 0 && (
           <li>

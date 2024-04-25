@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 // components
 import DescriptionTab from "../components/description-tab/description-tab";
 import ReviewTab from "../components/reviews-tab/review-tab";

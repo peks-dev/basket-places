@@ -27,7 +27,7 @@ const ReviewTab = () => {
   if (loading) {
     return <Loader />;
   }
-
+  console.log(fetchCommentsStatus);
   if (error) {
     return <ErrorDisplay error={error} />;
   }
@@ -35,7 +35,12 @@ const ReviewTab = () => {
   return (
     <TabWrapper variant="tab-reviews">
       <CommentsHeader numberOfComments={commentsList.length} />
-      <CommentsBox comments={commentsList} />
+
+      {commentsList.length > 0 ? (
+        <CommentsBox comments={commentsList} />
+      ) : (
+        <div>no hay comentarios</div>
+      )}
     </TabWrapper>
   );
 };

@@ -7,6 +7,7 @@
   border: 0.2rem solid var(--secundary);
   border-radius: 1.5rem;
   gap: 2rem;
+  position: relative;
 }
 .comment__avatar {
   background-color: var(--color-acent);

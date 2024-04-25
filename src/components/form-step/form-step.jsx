@@ -9,7 +9,7 @@ import FormStepBtns from "./components/form-step-btns/form-step-btns";
 import RenderStep from "./components/step-to-render";
 import Loader from "@/components/loader/loader";
 import ErrorDisplay from "@/components/errors/error-display/error-display";
-
+import Success from "@/components/success/success";
 import Button from "@/components/button/button";
 
 const FormStep = ({
@@ -35,12 +35,11 @@ const FormStep = ({
     } else if (successState) {
       // succesState === court id
       return (
-        <div>
-          <h3>Datos enviados correctamente</h3>
-          <Button type={"button"} onClick={handleNavite}>
-            ver detalles
-          </Button>
-        </div>
+        <Success
+          btnFn={handleNavite}
+          btnText={"ver detalles"}
+          title={"cancha registrada"}
+        />
       );
     } else {
       return <RenderStep />;

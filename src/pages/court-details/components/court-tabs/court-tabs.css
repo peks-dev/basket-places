@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-width: 140rem;
+  margin: 0 auto;
 }
 .court-details__tabs-buttons {
   flex: 0 0 auto;
@@ -12,7 +14,7 @@
   justify-content: space-around;
 }
 .court-details__tabs-buttons button {
-  font-size: 1.3rem;
+  font-size: clamp(1.3rem, 2vw, 2.2rem);
 }
 
 .court-details__tab-content {
@@ -22,4 +24,6 @@
   margin: 0 auto;
   border-radius: 1.2rem;
   overflow: hidden;
+}
+@media screen and (min-width: 800px) {
 }

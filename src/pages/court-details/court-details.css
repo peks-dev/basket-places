@@ -4,4 +4,13 @@
   overflow-y: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 250rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 800px) {
+  .court-details-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 2.5%;
+  }
 }

@@ -52,6 +52,7 @@ const ScheduleBuilder = ({ setBuildingSchedule }) => {
 
   // Rellenar los states con los inputs
   const handleInputChange = (e) => {
+    // utilitie
     setScheduleStates(e, setSelectedDays, setTime);
   };
 
