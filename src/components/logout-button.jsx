@@ -16,9 +16,6 @@ const LogoutButton = () => {
     logout();
     resetStepForm();
     resetUserCourtsList();
-    if (localStorage.getItem("registered-user-courts")) {
-      localStorage.removeItem("registered-user-courts");
-    }
   }
   return (
     <>

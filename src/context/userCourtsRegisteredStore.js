@@ -5,8 +5,11 @@ export const useUserCourtsRegisteredStore = create(
   persist(
     (set) => ({
       userCourtsList: [],
-      saveUserCourtsRegistered: (courts) => set({ userCourtsList: courts }),
-      resetUserCourtsList: () => set({ userCourtsList: [] }),
+      courtsFetched: false,
+      saveUserCourtsRegistered: (courts) =>
+        set({ courtsFetched: true, userCourtsList: courts }),
+      resetUserCourtsList: () =>
+        set({ courtsFetched: false, userCourtsList: [] }),
     }),
     { name: "user-courts-registered" }
   )

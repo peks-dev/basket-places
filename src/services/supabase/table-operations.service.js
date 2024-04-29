@@ -1,5 +1,4 @@
 import { supabase } from "./create-client-supa";
-import { ConnectionError } from "@/models/errors.model";
 
 export async function fetchDataOnTable(
   tableName,
@@ -23,7 +22,6 @@ export async function fetchDataOnTable(
     const { data, error } = await query;
 
     if (error) {
-      console.log(error);
       throw new Error(error.message);
     }
 

@@ -105,9 +105,9 @@ export function useRegisterNewCourt() {
       const servicesFormated = { ...services, court_id };
       await insertDataOnTable("services", servicesFormated);
 
-      resetMapStepForm();
-      resetUserCourtsList();
-      setSuccess(court_id);
+      resetMapStepForm(); // formatear el step location
+      resetUserCourtsList(); // volver hacer el fetch de datos
+      setSuccess(court_id); // mandar el id de la cancha para crear la url
     } catch (error) {
       if (error.name === "Failed to fetch") {
         setError(new ConnectionError("no tienes conexion a internet"));

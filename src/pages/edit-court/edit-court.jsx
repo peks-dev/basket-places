@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./edit-court.css";
 // router
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 // hooks
 import { useFormFiller } from "./hooks/use-form-filler";
 import { useEditCourt } from "@/hooks/use-edit.court";
@@ -11,12 +11,12 @@ import { useMapStore } from "@/context/mapStore";
 // components
 import FormStep from "@/components/form-step/form-step";
 import Loader from "@/components/loader/loader";
+import ErrorDisplay from "../../components/errors/error-display/error-display";
 
 const EditCourt = () => {
-  const location = useLocation();
   const courtData = useLocation().state;
-  const { formData, resetStepForm, resetSteps } = useStepFormStore();
-  const { loading } = useFormFiller(courtData);
+  const { resetStepForm, resetSteps } = useStepFormStore();
+  const { loading, error: fillError } = useFormFiller(courtData);
   const { resetMapStepForm } = useMapStore();
   const {
     error,
@@ -28,7 +28,6 @@ const EditCourt = () => {
 
   useEffect(() => {
     // start in first step
-    console.log(location);
     resetSteps();
     return () => {
       resetStepForm();
@@ -40,8 +39,8 @@ const EditCourt = () => {
     return <Loader />;
   }
 
-  if (!formData.id) {
-    return <div>no hay datos</div>;
+  if (fillError) {
+    return <ErrorDisplay error={fillError} />;
   }
 
   return (

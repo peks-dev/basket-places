@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./user-courts.css";
 
 // components
-import UserCourtsRegistered from "./components/user-courts-registered";
+import UserCourtsRegistered from "@/components/user-courts-registered/user-courts-registered";
 import UserCourtsButtons from "./components/user-courts-btns";
 
 const UserCourts = () => {

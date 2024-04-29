@@ -9,6 +9,7 @@ import Button from "@/components/button/button";
 
 const SearchPage = () => {
   const { resetToast } = useToastStore();
+
   return (
     <section className="search-page">
       <h1>search page</h1>

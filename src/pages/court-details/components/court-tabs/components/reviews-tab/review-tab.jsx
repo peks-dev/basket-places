@@ -20,14 +20,13 @@ const ReviewTab = () => {
   useEffect(() => {
     if (commentsList.length < 1) {
       getCommentsForCourt(courtId);
-      console.log("fetch ejecutado");
     }
   }, [fetchCommentsStatus]);
 
   if (loading) {
     return <Loader />;
   }
-  console.log(fetchCommentsStatus);
+
   if (error) {
     return <ErrorDisplay error={error} />;
   }

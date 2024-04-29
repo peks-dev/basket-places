@@ -22,7 +22,7 @@ const CourtDetails = () => {
   const { resetComments } = useCommentStore();
 
   useEffect(() => {
-    // build fetch function
+    // Build fetch function
     const fetchData = async () => {
       try {
         const courtInfo = await fetchAllCourtData(courtId);
@@ -34,7 +34,7 @@ const CourtDetails = () => {
       }
     };
 
-    // verify if data exist
+    // Verify if data exist
     if (!state) {
       fetchData();
     } else {
@@ -54,10 +54,6 @@ const CourtDetails = () => {
 
   if (error) {
     return <ErrorDisplay error={error} />;
-  }
-
-  if (!courtData) {
-    return <div>No existe este Basket Place</div>;
   }
 
   return (
