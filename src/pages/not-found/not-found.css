@@ -1,0 +1,25 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  height: 100%;
+  width: 100%;
+  color: var(--error);
+}
+.not-found__icon {
+  width: 20rem;
+  height: 20rem;
+}
+
+.not-found__icon svg {
+  fill: none;
+}
+
+.not-found__title {
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 4vw, 5rem);
+  text-transform: uppercase;
+  line-height: normal;
+}

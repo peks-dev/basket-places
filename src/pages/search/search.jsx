@@ -1,9 +1,7 @@
-// SearchPage.js
 import React from "react";
 import "./search.css";
 // context
 import { useToastStore } from "@/context/toastStore";
-
 // components
 import Button from "@/components/button/button";
 
