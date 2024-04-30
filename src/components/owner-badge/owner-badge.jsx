@@ -3,6 +3,8 @@ import "./owner-badge.css";
 import defaultUserImg from "/images/user-profile.svg";
 // lib
 import { useFetchOwnerBadge } from "@/lib/fetch-owner-badge-data";
+// components
+import OwnerBadgeSkeleton from "@/components/skeletons/owner-badge-skeleton/owner-badge-skeleton";
 
 const OwnerBadge = ({ ownerId, variant }) => {
   const { loading, error, ownerData, getOwnerBadgeData } = useFetchOwnerBadge();
@@ -12,7 +14,7 @@ const OwnerBadge = ({ ownerId, variant }) => {
   }, [ownerId]);
 
   if (loading) {
-    return <div>...cargando</div>;
+    return <OwnerBadgeSkeleton />;
   }
 
   if (error) {

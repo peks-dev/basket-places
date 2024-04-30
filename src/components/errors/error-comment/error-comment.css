@@ -1,0 +1,20 @@
+.error-comment {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--error);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  border: 0.2rem solid var(--secundary);
+}
+
+.error-comment__icon {
+  width: 3rem;
+}
+.error-comment__icon svg {
+  fill: none;
+}
+
+.error-comment p {
+  font-size: 2rem;
+}

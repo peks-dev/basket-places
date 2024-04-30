@@ -4,8 +4,10 @@ import "./comment.css";
 import { useFetchUser } from "@/lib/fetch-user-data";
 //components
 import BasketballIcon from "@/components/icons/basketball-icon";
-import defaultUserImg from "/images/user-profile.svg";
 import DeleteCommentButton from "@/components/delete-comment-button";
+import UserAvatar from "@/components/user-avatar/user-avatar";
+import AvatarSkeleton from "@/components/skeletons/avatar-skeleton/avatar-skeleton";
+import ErrorComment from "@/components/errors/error-comment/error-comment";
 
 const Comment = ({ userId, comment, rating, courtId }) => {
   const { loading, error, user, getUser } = useFetchUser();
@@ -29,18 +31,17 @@ const Comment = ({ userId, comment, rating, courtId }) => {
   }, [loading, userId]);
 
   if (error) {
-    return <div>error</div>;
+    return <ErrorComment />;
   }
 
   return (
     <article className="comment">
       <header className="comment__header">
-        <picture className="comment__avatar">
-          <img
-            src={user ? user.avatar_url : defaultUserImg}
-            alt="user avatar"
-          />
-        </picture>
+        {loading ? (
+          <AvatarSkeleton variant={"comment__avatar"} />
+        ) : (
+          <UserAvatar imgUrl={user.avatar_url} variant={"comment__avatar"} />
+        )}
         <div className="comment__header-wrapper">
           <p className="comment__user">
             {loading ? "...cargando" : user.apodo}

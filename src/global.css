@@ -5,3 +5,21 @@
 .danger {
   color: var(--error);
 }
+
+/* animations */
+
+/* skeleton loader animation */
+@keyframes shimmer {
+  0% {
+    background-color: #f2f2f2; /* color gris claro */
+    opacity: 0.6;
+  }
+  50% {
+    background-color: #e5e5e5; /* color gris medio */
+    opacity: 0.8;
+  }
+  100% {
+    background-color: #f2f2f2; /* color gris claro */
+    opacity: 0.6;
+  }
+}

@@ -14,7 +14,7 @@
 .user-courts__wrap {
   flex: 1 1 80%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(35rem, 100%), 1fr));
   overflow-y: scroll;
   gap: 2rem;
   padding: 1rem 0;

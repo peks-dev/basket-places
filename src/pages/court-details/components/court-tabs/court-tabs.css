@@ -24,6 +24,7 @@
   margin: 0 auto;
   border-radius: 1.2rem;
   overflow: hidden;
+  position: relative;
 }
 @media screen and (min-width: 800px) {
 }

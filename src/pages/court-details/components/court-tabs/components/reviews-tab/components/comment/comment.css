@@ -9,13 +9,7 @@
   gap: 2rem;
   position: relative;
 }
-.comment__avatar {
-  background-color: var(--color-acent);
-  border-radius: 50%;
-  overflow: hidden;
-  width: 5rem;
-  border: 0.3rem solid var(--accent);
-}
+
 .comment__header {
   width: 100%;
   display: flex;
@@ -32,16 +26,13 @@
   font-family: var(--font-title);
   font-size: clamp(1.8rem, 2vw, 2rem);
   text-transform: uppercase;
-  color: var(--secundary);
-  align-self: flex-end;
-  justify-self: center;
 }
 .comment__rating {
   display: flex;
   gap: 0.2rem;
   align-self: center;
-  justify-self: center;
-  width: 90%;
+
+  width: min-content;
 }
 .comment__rating li {
   width: clamp(2rem, 2vw, 2.9rem);

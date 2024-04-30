@@ -4,6 +4,7 @@ import "./search.css";
 import { useToastStore } from "@/context/toastStore";
 // components
 import Button from "@/components/button/button";
+import AvatarSkeleton from "@/components/skeletons/avatar-skeleton/avatar-skeleton";
 
 const SearchPage = () => {
   const { resetToast } = useToastStore();
@@ -14,6 +15,9 @@ const SearchPage = () => {
       <Button type={"button"} onClick={resetToast}>
         limpiar notificaciones
       </Button>
+      <div>
+        <AvatarSkeleton variant={"comment__avatar"} />
+      </div>
     </section>
   );
 };

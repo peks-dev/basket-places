@@ -16,7 +16,6 @@
 .user-info__avatar {
   width: clamp(7rem, 10vw, 10rem);
   height: clamp(7rem, 10vw, 10rem);
-
   border-radius: 50%;
   border: 0.3rem solid var(--primary);
   overflow: hidden;
