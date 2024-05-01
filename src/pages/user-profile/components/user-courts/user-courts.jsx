@@ -4,6 +4,7 @@ import "./user-courts.css";
 // components
 import UserCourtsRegistered from "@/components/user-courts-registered/user-courts-registered";
 import UserCourtsButtons from "./components/user-courts-btns";
+import ComingSoon from "@/components/coming-soon/coming-soon";
 
 const UserCourts = () => {
   const [activeButton, setActiveButton] = useState("register");
@@ -18,7 +19,7 @@ const UserCourts = () => {
         {activeButton === "register" ? (
           <UserCourtsRegistered />
         ) : (
-          <div>canchas favoritas</div>
+          <ComingSoon />
         )}
       </ul>
     </div>
