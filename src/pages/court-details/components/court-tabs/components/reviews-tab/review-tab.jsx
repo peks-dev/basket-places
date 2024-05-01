@@ -34,11 +34,7 @@ const ReviewTab = () => {
   return (
     <TabWrapper variant="tab-reviews">
       <CommentsHeader numberOfComments={commentsList.length} />
-      {commentsList.length > 0 ? (
-        <CommentsBox comments={commentsList} />
-      ) : (
-        <div>no hay comentarios</div>
-      )}
+      {commentsList.length > 0 ? <CommentsBox comments={commentsList} /> : null}
     </TabWrapper>
   );
 };
