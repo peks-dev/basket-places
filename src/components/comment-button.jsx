@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 // context
 import { useUserStore } from "@/context/userStore";
 import { useToastStore } from "@/context/toastStore";
@@ -18,12 +18,17 @@ const CommentButton = () => {
   const { loading, error, success, sendCourtReview } = useSendReview();
   const { profile } = useUserStore();
   const { createToast } = useToastStore();
+  const navigate = useNavigate();
   const courtId = useParams().courtId;
 
   function handleModal() {
-    setComment("");
-    setRating("");
-    setShowModal((prevState) => !prevState);
+    if (profile.id) {
+      setComment("");
+      setRating("");
+      setShowModal((prevState) => !prevState);
+    } else {
+      navigate("/login");
+    }
   }
 
   async function handleSendForm() {
@@ -32,18 +37,15 @@ const CommentButton = () => {
   }
 
   useEffect(() => {
-    if (error) {
-      console.log(error);
-      createToast(error.message, "error");
-    }
-  }, [error]);
-
-  useEffect(() => {
     if (success) {
       console.log(success);
       createToast(success, "success");
     }
-  }, [success]);
+    if (error) {
+      console.log(error);
+      createToast(error.message, "error");
+    }
+  }, [success, error]);
 
   return (
     <>

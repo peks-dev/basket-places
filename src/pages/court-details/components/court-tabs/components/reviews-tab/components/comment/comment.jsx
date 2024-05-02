@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./comment.css";
+// context
+import { useUserStore } from "@/context/userStore";
 // lib
 import { useFetchUser } from "@/lib/fetch-user-data";
 //components
@@ -11,9 +13,10 @@ import ErrorComment from "@/components/errors/error-comment/error-comment";
 
 const Comment = ({ userId, comment, rating, courtId }) => {
   const { loading, error, user, getUser } = useFetchUser();
+  const { profile } = useUserStore();
   const [canDelete, setCanDelete] = useState(false);
 
-  // Genera un array con la cantidad de elementos igual al rating
+  // pre-render raiting
   const ratingIcons = Array.from({ length: rating }, (_, index) => (
     <li key={index}>
       <BasketballIcon />
@@ -22,13 +25,10 @@ const Comment = ({ userId, comment, rating, courtId }) => {
 
   useEffect(() => {
     getUser(userId);
-  }, [userId]);
-
-  useEffect(() => {
-    if (!loading && user && user.id === userId) {
+    if (profile.id === userId) {
       setCanDelete(true);
     }
-  }, [loading, userId]);
+  }, [userId]);
 
   if (error) {
     return <ErrorComment />;

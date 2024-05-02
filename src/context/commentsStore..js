@@ -5,16 +5,10 @@ export const useCommentStore = create(
   persist(
     (set) => ({
       commentsList: [],
-      fetchCommentsStatus: false,
+      commentsFetched: false,
       saveComments: (data) =>
-        set((state) => ({ ...state, commentsList: data })),
-      resetComments: () =>
-        set(() => ({ commentsList: [], fetchCommentsStatus: false })),
-      changeFetchCommentsStatus: () =>
-        set((state) => ({
-          ...state,
-          fetchCommentsStatus: !state.fetchCommentsStatus,
-        })),
+        set({ commentsList: data, commentsFetched: true }),
+      resetComments: () => set({ commentsList: [], commentsFetched: false }),
     }),
     { name: "court-details-comments" }
   )

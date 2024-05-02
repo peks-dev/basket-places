@@ -13,7 +13,7 @@ import LoaderBtn from "@/components/loader-btn/loader-btn";
 const DeleteCommentButton = ({ courtId }) => {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { changeFetchCommentsStatus, resetComments } = useCommentStore();
+  const { resetComments } = useCommentStore();
   const { createToast } = useToastStore();
 
   async function confirmDeleteComment() {
@@ -21,7 +21,6 @@ const DeleteCommentButton = ({ courtId }) => {
       setLoading(true);
       await deleteDataOnTable("reviews", "court_id", courtId);
       resetComments();
-      changeFetchCommentsStatus();
       handleModal();
     } catch (error) {
       createToast("no se pudo eliminar el comentario", "error");

@@ -83,3 +83,36 @@ export async function updateDataOnTable(
     throw error;
   }
 }
+
+export function fetchDataOnTableTest(
+  tableName,
+  filter = null,
+  filterValue = null,
+  selectedColumns = null
+) {
+  return new Promise((resolve, reject) => {
+    try {
+      let query = supabase.from(tableName).select();
+
+      if (selectedColumns) {
+        query = query.select(selectedColumns);
+      } else {
+        query = query.select(); // Seleccionar todas las columnas por defecto
+      }
+
+      if (filter && filterValue) {
+        query = query.eq(filter, filterValue);
+      }
+
+      query.then(({ data, error }) => {
+        if (error) {
+          reject(new Error(error.message));
+        } else {
+          resolve(data);
+        }
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

@@ -12,7 +12,7 @@ export function useSendReview() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
-  const { resetComments, changeFetchCommentsStatus } = useCommentStore();
+  const { resetComments } = useCommentStore();
 
   async function sendCourtReview(courtId, userId, rating, comment) {
     try {
@@ -30,7 +30,6 @@ export function useSendReview() {
       if (!userFound) {
         await insertDataOnTable("reviews", data);
         resetComments();
-        changeFetchCommentsStatus();
         setSuccess("gracias por valorar esta cancha!");
       } else {
         console.log(userFound);

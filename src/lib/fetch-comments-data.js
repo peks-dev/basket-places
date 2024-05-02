@@ -1,25 +1,33 @@
 import { useState } from "react";
+// models
+import { ValidationError } from "@/models/errors.model";
 // services
 import { fetchDataOnTable } from "@/services/supabase/table-operations.service";
 // context
 import { useCommentStore } from "@/context/commentsStore.";
 
-export function useFetchComments() {
-  const [loading, setLoading] = useState(false);
+export default function useFetchComments() {
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { saveComments } = useCommentStore();
 
-  async function getCommentsForCourt(courtId) {
+  async function fetchCommentsForCourt(courtId) {
     try {
       setLoading(true);
-      const comments = await fetchDataOnTable("reviews", "court_id", courtId);
-      saveComments(comments);
+      const data = await fetchDataOnTable("reviews", "court_id", courtId);
+      // cache data
+      saveComments(data);
     } catch (error) {
-      setError(new Error("hubo un error al obtener los commentarios"));
+      console.log(error);
+      if (error.message.includes("Failed to fetch")) {
+        setError(new ValidationError("no tienes conexion"));
+      } else {
+        setError(new Error("no se pudo obtener los comentarios"));
+      }
     } finally {
       setLoading(false);
     }
   }
 
-  return { loading, error, getCommentsForCourt };
+  return { error, loading, fetchCommentsForCourt };
 }

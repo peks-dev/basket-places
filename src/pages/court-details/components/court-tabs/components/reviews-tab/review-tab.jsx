@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./review-tab.css";
 // lib
-import { useFetchComments } from "@/lib/fetch-comments-data";
+import useFetchComments from "@/lib/fetch-comments-data";
 // context
 import { useCommentStore } from "@/context/commentsStore.";
 // components
@@ -13,15 +13,15 @@ import Loader from "@/components/loader/loader";
 import ErrorDisplay from "@/components/errors/error-display/error-display";
 
 const ReviewTab = () => {
-  const { loading, error, getCommentsForCourt } = useFetchComments();
-  const { commentsList, fetchCommentsStatus } = useCommentStore();
+  const { commentsList, commentsFetched } = useCommentStore();
+  const { error, loading, fetchCommentsForCourt } = useFetchComments();
   const courtId = useParams().courtId;
 
   useEffect(() => {
-    if (commentsList.length < 1) {
-      getCommentsForCourt(courtId);
+    if (!commentsFetched) {
+      fetchCommentsForCourt(courtId);
     }
-  }, [fetchCommentsStatus]);
+  }, [commentsFetched, courtId]);
 
   if (loading) {
     return <Loader />;
