@@ -28,9 +28,9 @@ const FeedBackButton = () => {
 
   function handleSendFeedback() {
     setIsProcessing(true);
-    sendFeedback(profile.id)
+    sendFeedback()
       .then(() => {
-        console.log("formulario enviado con exito");
+        // success
         setShowModal(false);
       })
       .catch((error) => {

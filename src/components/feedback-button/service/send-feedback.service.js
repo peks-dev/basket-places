@@ -5,7 +5,7 @@ import { insertDataOnTable } from "@/services/supabase/table-operations.service"
 // utilities
 import validateStepFormData from "@/utilities/validate-step-form-data.utility";
 
-export async function sendFeedback(userId) {
+export async function sendFeedback() {
   try {
     const form = document.getElementById("feedback-form");
     const formData = new FormData(form);
@@ -17,11 +17,9 @@ export async function sendFeedback(userId) {
     } else {
       if ("feedbackType" in formProps) {
         const data = {
-          //   user: userId,
           type: formProps.feedbackType,
           message: formProps.feedbackMessage,
         };
-        console.log(data);
         await insertDataOnTable("feedbacks", data);
       } else {
         throw new ValidationError("selecciona un tipo de feedback");
