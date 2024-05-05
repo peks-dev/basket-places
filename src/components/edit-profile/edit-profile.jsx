@@ -79,7 +79,7 @@ const EditProfile = () => {
         await updateDataOnTable("profiles", { apodo: name }, "id", profile.id);
       }
 
-      // refresh profile ui
+      // refresh context
       if (avatar || name) {
         const newData = await fetchDataOnTable("profiles", "id", profile.id);
         refreshProfile(newData[0]);

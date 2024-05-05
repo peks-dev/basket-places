@@ -134,3 +134,17 @@
   color: var(--white);
   border-color: var(--white);
 }
+
+.btn[data-variant="feedback"] {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  bottom: 15%;
+  right: 2%;
+  z-index: 5;
+}
+.btn[data-variant="feedback"] svg {
+  fill: none;
+  max-width: 3rem;
+}

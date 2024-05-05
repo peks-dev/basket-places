@@ -14,6 +14,7 @@ import UserLocationBtn from "@/components/user-location-btn/user-location-btn";
 import ErrorDisplay from "@/components/errors/error-display/error-display";
 import CourtMarker from "@/components/court-marker/court-marker";
 import ThemeButton from "@/components/theme-button/theme-button";
+import FeedBackButton from "@/components/feedback-button/feedback-button";
 import Loader from "@/components/loader/loader";
 import Map from "@/components/map/map";
 
@@ -74,6 +75,7 @@ const MapPage = () => {
         <ThemeButton />
         <UserLocationBtn mapRef={mapRef} />
       </div>
+      <FeedBackButton />
     </div>
   );
 };

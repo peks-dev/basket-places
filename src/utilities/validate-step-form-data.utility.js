@@ -2,9 +2,11 @@ export default function validateStepFormData(formData) {
   const emptyFields = [];
 
   for (const [key, value] of Object.entries(formData)) {
-    // Verifica si el valor es null o un arreglo vacío
+    // Verifica si el valor es null, un arreglo vacío o un string vacío
     if (
-      (value === null || (Array.isArray(value) && value.length === 0)) &&
+      (value === null ||
+        value === "" ||
+        (Array.isArray(value) && value.length === 0)) &&
       key !== "id" &&
       key !== "owner"
     ) {

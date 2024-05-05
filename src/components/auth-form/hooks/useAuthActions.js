@@ -51,6 +51,7 @@ export default function useAuthActions() {
           if (historyState.path === "/new-bp") {
             startRegister();
           }
+
           navigate(historyState.path);
         } catch (error) {
           if (error.message === "Invalid login credentials") {
@@ -58,6 +59,7 @@ export default function useAuthActions() {
           } else if (error.message === "Failed to fetch") {
             createToast("no tienes conexión a internet", "noConnection");
           } else {
+            console.log(error);
             createToast("no se pudo iniciar sesion", "error");
           }
         }

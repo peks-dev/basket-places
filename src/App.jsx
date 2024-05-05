@@ -68,17 +68,13 @@ function App() {
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </Suspense>
-        </main>
-
-        <Navbar />
-        {
-          // Notification system
           <div className="toast-list">
             {alerts.map((t) => (
               <Toast key={t.id} type={t.type} text={t.text} />
             ))}
           </div>
-        }
+        </main>
+        <Navbar />
       </div>
     </Router>
   );

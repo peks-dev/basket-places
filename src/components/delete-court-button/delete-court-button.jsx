@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // context
 import { useUserStore } from "@/context/userStore.js";
+import { useToastStore } from "@/context/toastStore";
 // components
 import Button from "@/components/button/button";
 import Modal from "@/components/modal/modal";
@@ -12,6 +13,7 @@ const DeleteCourtButton = ({ courtData }) => {
   const [showModal, setShowModal] = useState(false);
   const { loading, error, deleteCourtById } = useDeleteCourt();
   const { profile } = useUserStore();
+  const { createToast } = useToastStore();
 
   function handleModal() {
     setShowModal((prevState) => !prevState);
@@ -19,6 +21,11 @@ const DeleteCourtButton = ({ courtData }) => {
 
   async function handleDeleteCourt() {
     await deleteCourtById(profile.id, courtData.id, courtData.images);
+  }
+
+  // notification
+  if (error) {
+    createToast("no se pudo eliminar la cancha", "error");
   }
 
   return (
@@ -36,15 +43,10 @@ const DeleteCourtButton = ({ courtData }) => {
           confirmBtnChild={loading ? <LoaderBtn /> : "si, eliminar"}
           onCancel={handleModal}
         >
-          <h3 className="modal__title">eliminar cancha?</h3>
+          <h3 className="modal__title">eliminar?</h3>
           <p className="modal__text">
-            ten en cuenta que es una accion que no se podra revertir
+            si borras esta cancha no podrás revertir la acción
           </p>
-          {error ? (
-            <div>
-              <p>hubo un error al eliminar la cancha</p>
-            </div>
-          ) : null}
         </Modal>
       ) : null}
     </>

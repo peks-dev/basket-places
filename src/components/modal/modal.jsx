@@ -14,7 +14,9 @@ const Modal = ({ children, onConfirm, onCancel, confirmBtnChild }) => {
           <Button onClick={onCancel} variant={"secundary"}>
             <CloseIcon />
           </Button>
-          <Button onClick={onConfirm}>{confirmBtnChild}</Button>
+          <Button onClick={onConfirm} type={"button"}>
+            {confirmBtnChild}
+          </Button>
         </div>
       </div>
     </dialog>

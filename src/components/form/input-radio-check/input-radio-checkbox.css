@@ -1,25 +1,30 @@
-.labelRadioCheckbox {
+.inputRadioCheckbox {
   position: relative;
-  width: min-content;
-  height: min-content;
-  padding: 0.3rem 0.7rem;
-  font-size: 1.3rem;
-  line-height: normal;
+  width: fit-content;
+  height: fit-content;
 }
 
-.inputRadioCheckbox {
+.inputRadioCheckbox input[type="checkbox"],
+.inputRadioCheckbox input[type="radio"] {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
-.inputRadioCheckbox input[type="checkbox"]:not(:checked),
-.inputRadioCheckbox input[type="radio"]:not(:checked) {
-  background-color: var(--ternary);
+  opacity: 0; /* Esto hace que el input sea invisible */
 }
 
-.inputRadioCheckbox input[type="checkbox"]:checked,
-.inputRadioCheckbox input[type="radio"]:checked {
+.inputRadioCheckbox label {
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.6rem;
+  line-height: normal;
+  background-color: var(--ternary);
+  border-radius: 1.2rem;
+}
+
+.inputRadioCheckbox input[type="checkbox"]:checked + label,
+.inputRadioCheckbox input[type="radio"]:checked + label {
   background-color: var(--accent);
+  color: var(--primary);
 }

@@ -38,6 +38,7 @@ export async function insertDataOnTable(tableName, objectToInsert) {
       .insert(objectToInsert)
       .select();
     if (error) {
+      console.log(error);
       throw new Error(error.message);
     }
     return data;
@@ -81,6 +82,21 @@ export async function updateDataOnTable(
     }
   } catch (error) {
     throw error;
+  }
+}
+
+export async function fetchUser() {
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    const { data, error } = await supabase.auth.getSession();
+
+    console.log(user);
+    console.log(data);
+  } catch (error) {
+    console.log(error);
   }
 }
 
