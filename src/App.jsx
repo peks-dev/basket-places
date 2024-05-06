@@ -21,6 +21,10 @@ const UpdatePasswordPage = lazy(() =>
   import("./pages/update-password/update-password")
 );
 
+const ConfirmAccountPage = lazy(() =>
+  import("./pages/confirm-account/confirm-account")
+);
+
 // Components
 import Toast from "@/components/toast/toast";
 import Navbar from "@/components/layout/navbar/navbar";
@@ -32,7 +36,6 @@ function App() {
   const [isViewportTooSmall, setIsViewportTooSmall] = useState(false);
   const { alerts } = useToastStore();
   const { applyTheme } = useThemeStore();
-
   useEffect(() => {
     const handleResize = () => {
       setIsViewportTooSmall(window.innerWidth < 250);
@@ -65,6 +68,7 @@ function App() {
               <Route path="/edit-court/" element={<EditCourt />} />
               <Route path="/update-password" element={<UpdatePasswordPage />} />
               <Route path="/prueba" element={<Prueba />} />
+              <Route path="/confirm-account" element={<ConfirmAccountPage />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </Suspense>

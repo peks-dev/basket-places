@@ -11,7 +11,7 @@ export default function useAuthActions() {
   const { startRegister } = useStepFormStore();
   const { login } = useUserStore();
   const { createToast } = useToastStore();
-  const historyState = history.state.usr;
+  const historyState = history.state;
   const navigate = useNavigate();
 
   // Definimos las acciones dentro del hook
@@ -25,8 +25,12 @@ export default function useAuthActions() {
         const formData = new FormData(e.currentTarget);
         const formProps = Object.fromEntries(formData);
         try {
-          await register(formProps.email, formProps.password);
-          alert("confirma tu correo");
+          await register(
+            formProps.email,
+            formProps.password,
+            "https://basket-places.website/login"
+          );
+          createToast("se ha enviado un link a tu correo", "success");
         } catch (error) {
           if (error.message === "Failed to fetch") {
             createToast("no tienes conexión a internet", "noConnection");
@@ -48,11 +52,14 @@ export default function useAuthActions() {
         const formProps = Object.fromEntries(formData);
         try {
           await login(formProps.email, formProps.password);
-          if (historyState.path === "/new-bp") {
-            startRegister();
+          if (historyState.usr) {
+            if (historyState.usr.path === "/new-bp") {
+              startRegister();
+            }
+            navigate(historyState.usr.path);
+          } else {
+            navigate("/profile");
           }
-
-          navigate(historyState.path);
         } catch (error) {
           if (error.message === "Invalid login credentials") {
             createToast("email o contraseña invalidos", "error");
@@ -75,10 +82,9 @@ export default function useAuthActions() {
         const formData = new FormData(e.currentTarget);
         // convertir la data en un objeto clave - valor
         const formProps = Object.fromEntries(formData);
-        console.log(formProps);
         try {
           await resetPassword(formProps.email);
-          alert("revisa tu correo");
+          createToast("se ha enviado un link a tu correo", "success");
         } catch (error) {
           if (error.message === "Failed to fetch") {
             createToast("no tienes conexión a internet", "noConnection");

@@ -32,11 +32,13 @@ export async function register(userEmail, userPassword) {
     const { data, error } = await supabase.auth.signUp({
       email: userEmail,
       password: userPassword,
+      options: {
+        emailRedirectTo: "https://basket-places.website/confirm-account",
+      },
     });
     if (error) {
       throw new Error(error.message); // Lanza un error con el mensaje de error recibido
     }
-    console.log(data);
     return data;
   } catch (error) {
     throw error;
@@ -59,7 +61,7 @@ export async function resetPassword(userEmail) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(
       userEmail,
       {
-        redirectTo: "http://localhost:5173/update-password",
+        redirectTo: "https://basket-places.website/update-password",
       }
     );
     if (error) {
@@ -80,7 +82,6 @@ export async function updatePassword(newPassword) {
     if (error) {
       throw error;
     }
-
     return data;
   } catch (error) {
     throw error;

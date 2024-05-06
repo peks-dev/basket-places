@@ -1,0 +1,14 @@
+.confirm-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.confirm-account h1 {
+  line-height: normal;
+  font-family: var(--font-title);
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: var(--success);
+}
