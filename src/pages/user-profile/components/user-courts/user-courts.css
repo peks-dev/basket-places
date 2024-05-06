@@ -29,17 +29,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   text-align: center;
   margin-top: 2rem;
 }
 .user-courts__icon {
-  width: 15rem;
+  width: 14rem;
 }
-
-@media screen and (min-width: 1080px) {
-  .user-courts {
-    width: 100%;
-    height: 100%;
-  }
+.user-courts__text {
+  font-family: var(--font-title);
+  font-size: 4rem;
+  line-height: normal;
+  text-transform: uppercase;
 }

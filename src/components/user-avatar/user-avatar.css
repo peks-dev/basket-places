@@ -1,6 +1,6 @@
 .user-avatar {
-  width: clamp(7rem, 10vw, 10rem);
-  height: clamp(7rem, 10vw, 10rem);
+  width: clamp(5rem, 8vw, 8rem);
+  height: clamp(5rem, 8vw, 8rem);
   border-radius: 50%;
   border: 0.3rem solid var(--primary);
   overflow: hidden;

@@ -42,7 +42,7 @@ const UserCourtsRegistered = () => {
           <div className="user-courts__icon">
             <CloseIcon />
           </div>
-          <p>aun no tienes canchas registradas</p>
+          <p className="user-courts__text">sin canchas registradas</p>
         </div>
       )}
     </>

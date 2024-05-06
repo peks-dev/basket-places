@@ -6,9 +6,3 @@
   justify-content: stretch;
   position: relative;
 }
-
-@media screen and (min-width: 1080px) {
-  .user-profile-page {
-    flex-direction: row;
-  }
-}

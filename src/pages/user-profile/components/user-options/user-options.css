@@ -1,7 +1,7 @@
 .user-options {
   position: absolute;
-  top: 1.8rem;
-  right: 5%;
+  top: min(2%, 1.5rem);
+  right: min(2%, 1.5rem);
   z-index: 3;
 }
 .user-options__wrapper {

@@ -3,9 +3,8 @@
   align-items: center;
   background-color: var(--accent);
   border-radius: 0 0 1.8rem 1.8rem;
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem;
   gap: 2rem;
-  height: 15%;
   position: relative;
 }
 .user-info__header {
@@ -38,15 +37,4 @@
 .user-info__link {
   font-size: 2rem;
   text-decoration: underline;
-}
-/* responsive */
-@media screen and (min-width: 1080px) {
-  .user-info {
-    height: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: end;
-    padding-bottom: 5rem;
-    min-width: 20rem;
-  }
 }
