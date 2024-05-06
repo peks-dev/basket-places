@@ -13,3 +13,7 @@
 .onboarding__svg-container {
   width: clamp(20rem, 35vw, 40rem);
 }
+
+.onboarding__text {
+  text-wrap: balance;
+}

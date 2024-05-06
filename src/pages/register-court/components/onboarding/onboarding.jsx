@@ -30,7 +30,7 @@ const Onboarding = () => {
         <AddBpIcon />
       </div>
       <Title text={"registrar basket place"} tag={"h1"} size={"title--xlg"} />
-      <p>
+      <p className="onboarding__text">
         Comparte tu cancha, crea encuentros memorables y forma parte de la
         comunidad que impulsa el juego en cada rincón.
       </p>
