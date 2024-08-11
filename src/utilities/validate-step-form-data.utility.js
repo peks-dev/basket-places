@@ -20,8 +20,13 @@ export default function validateStepFormData(formData) {
         Object.keys(value.coordinates).length === 0)
     ) {
       emptyFields.push(key);
+    } else if (key === "images"){
+      // verificar que sean 2 imagenes como minimo
+      if (value.length < 2) {
+        emptyFields.push(key);
+      }
     }
-  }
+  } 
 
   return emptyFields;
 }

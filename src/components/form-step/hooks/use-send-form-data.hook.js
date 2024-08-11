@@ -9,7 +9,6 @@ import { ValidationError, ConnectionError } from "@/models/errors.model";
 // services
 import { insertDataOnTable } from "@/services/supabase/table-operations.service";
 import { uploadFile } from "@/services/supabase/storage-operations.service";
-
 // utilities
 import { compressImage } from "@/utilities/compress-img.utility";
 import validateStepFormData from "@/utilities/validate-step-form-data.utility";

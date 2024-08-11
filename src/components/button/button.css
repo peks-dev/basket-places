@@ -60,7 +60,7 @@
   padding: 0;
 }
 .btn[data-variant="navbar"] a {
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
 }
 /* - - - - - - */
 .btn[data-variant="secundary"],
@@ -82,20 +82,22 @@
 
 /* - - - - - - */
 .btn[data-variant="map-control"] {
-  padding: 0.5rem;
+  padding: 0.6rem;
   border-radius: 50%;
-  width: 5rem;
+  width: clamp(4.6rem, 5vw, 4.8rem);
 }
 .btn[data-variant="map-control"] svg {
   fill: transparent;
+  max-width: none;
 }
 /* - - - - - - */
 .btn[data-variant="back"] {
   color: var(--ternary);
-  padding: 0.2rem 0.4rem;
+  padding: 0 0.4em;
+  font-size: 2rem;
 }
 .btn[data-variant="back"] svg {
-  width: 4rem;
+  width: clamp(1em, 2.8vw, 1.8em);
   fill: var(--ternary);
   padding: 0;
 }
@@ -137,8 +139,8 @@
 
 .btn[data-variant="feedback"] {
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
+  width: clamp(4.6rem, 5vw, 4.8rem);
+  height: clamp(4.6rem, 5vw, 4.8rem);
   position: absolute;
   bottom: 15%;
   right: 2%;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./court-details.css";
 
 // context
@@ -58,8 +58,10 @@ const CourtDetails = () => {
 
   return (
     <article className="court-details-container">
-      <CourtDetailImgs courtData={courtData} />
-      <CourtDetailHeader courtData={courtData} />
+      <div>
+        <CourtDetailImgs courtData={courtData} />
+        <CourtDetailHeader courtData={courtData} />
+      </div>
       <CourtTabs courtData={courtData} />
     </article>
   );

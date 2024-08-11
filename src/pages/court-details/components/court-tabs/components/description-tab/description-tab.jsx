@@ -9,8 +9,10 @@ const DescriptionTab = ({ courtData }) => {
   return (
     <TabWrapper variant="tab-description">
       <p>{courtData.description}</p>
-      <CourtServices courtData={courtData} />
-      <CourtRoofFloor courtData={courtData} />
+      <div>
+        <CourtServices courtData={courtData} />
+        <CourtRoofFloor courtData={courtData} />
+      </div>
     </TabWrapper>
   );
 };

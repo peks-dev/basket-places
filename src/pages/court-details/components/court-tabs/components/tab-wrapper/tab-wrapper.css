@@ -4,23 +4,25 @@
   display: flex;
 }
 /* general for all tabs except tab location*/
-.tab-wrapper.tab-description,
-.tab-wrapper.tab-schedules,
+/* .tab-wrapper.tab-schedules,
 .tab-reviews {
   padding: 2rem 1.5rem;
-}
+} */
 /* - - - - - - - - - */
 
 .tab-wrapper.tab-description {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  overflow: auto;
+}
+.tab-wrapper.tab-description > div {
+  width: 100%;
 }
 .tab-wrapper.tab-description > p {
   text-align: center;
   width: 100%;
   flex: 1 0 30%;
-  text-wrap: balance;
 }
 /* - - - - - - - - - */
 .tab-wrapper.tab-schedules ul {

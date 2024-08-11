@@ -1,16 +1,16 @@
 .navbar {
-  height: 10%;
+  height: 8%;
   width: 100%;
   display: flex;
   z-index: 10;
 }
 .navbar__wrap {
   width: 70%;
-
+  height: 80%;
   margin: auto;
   padding: 0.7rem 0.5rem;
   border-radius: 2rem;
-  max-width: 40rem;
+  max-width: 24rem;
   background-color: var(--primary);
   border: var(--global-border-size) solid var(--ternary);
 }
@@ -19,12 +19,17 @@
   flex-direction: row;
   justify-content: space-around;
   color: var(--ternary);
+  height: 100%;
+  align-items: center;
 }
 .navbar__link-item {
-  width: clamp(4rem, 9vw, 5rem);
+  /* width: clamp(4rem, 9vw, 5rem); */
 }
 .navbar__link-item svg {
   height: 100%;
+  max-width: 2rem !important;
+}
+.navbar__link-item button {
 }
 
 /* Viewport Block*/

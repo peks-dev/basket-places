@@ -1,5 +1,4 @@
 import "./map.css";
-
 // leaflet
 import { MapContainer, TileLayer } from "react-leaflet";
 import { openStreetMapTile, mapBoxTile } from "./lib/tile-layers";

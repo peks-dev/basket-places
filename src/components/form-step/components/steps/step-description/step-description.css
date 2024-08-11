@@ -1,7 +1,10 @@
 .step-description {
   height: 100%;
   width: 100%;
-  padding: 2.5rem;
+  padding: clamp(1.5rem, 1.8vw, 1.9rem);
+}
+
+.step-description > .form__field {
 }
 
 .step-description > fieldset:nth-child(2) {

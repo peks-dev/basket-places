@@ -10,7 +10,6 @@ import RenderStep from "./components/step-to-render";
 import Loader from "@/components/loader/loader";
 import ErrorDisplay from "@/components/errors/error-display/error-display";
 import Success from "@/components/success/success";
-import Button from "@/components/button/button";
 
 const FormStep = ({
   loadingState,

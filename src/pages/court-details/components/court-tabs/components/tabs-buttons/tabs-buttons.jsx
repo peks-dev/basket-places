@@ -2,6 +2,7 @@ import React from "react";
 
 // components
 import Button from "@/components/button/button";
+import MapIcon2 from "@/components/icons/map-icon-2";
 
 const TabsButtons = ({ tabState, changeTabFn }) => {
   const tabsNames = ["descripcion", "horarios", "ubicacion", "comentarios"];

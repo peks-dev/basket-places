@@ -3,22 +3,22 @@
   border-radius: 2rem;
   border: 0.5rem solid var(--background);
   display: flex;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0.7rem;
   align-items: center;
   gap: 1rem;
   color: var(--ternary);
   height: min-content;
 }
 .owner__avatar {
-  width: clamp(5rem, 4vw, 6rem);
-  height: clamp(5rem, 4vw, 6rem);
+  width: clamp(4rem, 3vw, 5rem);
+  height: clamp(4rem, 3vw, 5rem);
   border-radius: 50%;
   border: 0.3rem solid currentColor;
   overflow: hidden;
 }
 .owner__name {
   font-family: var(--font-title);
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.2rem, 2vw, 2rem);
   line-height: normal;
   text-transform: uppercase;
 }

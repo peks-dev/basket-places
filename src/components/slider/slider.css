@@ -16,9 +16,9 @@
   position: absolute;
   top: auto;
   right: 2.5%;
-  bottom: 0;
+  bottom: 1rem;
   left: auto;
-  padding: 1rem;
+  padding: 0.5em;
   background-color: var(--primary);
   width: min-content;
   height: min-content;

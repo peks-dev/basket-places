@@ -55,7 +55,7 @@ const StepImgs = () => {
   return (
     <div className="step-imgs">
       <p>
-        Selecciona o toma 4 fotos como máximo
+        Sube 2 fotos como minimo y 4 como máximo
         <br />
         <span className="yellow">todas deben ser horizontales</span>
       </p>

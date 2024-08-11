@@ -1,5 +1,5 @@
 :root {
-  --global-border-size: 0.3rem;
+  --global-border-size: 0.2rem;
 }
 
 .danger {
@@ -11,7 +11,7 @@ textarea {
   border: solid 0.3rem var(--ternary);
   border-radius: 0.5rem;
   outline: none;
-  min-height: 15rem;
+
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   padding: 1rem;
   resize: none;
