@@ -184,7 +184,8 @@ lib/                  # Utilidades y configuraciones
 └── utils/            # Funciones utilitarias
 
 skills/               # Skills disponibles para agentes
-└── *.md              # Archivos SKILL.md
+└── {skill-name}/     # Cada skill en su carpeta
+    └── SKILL.md      # Archivo obligatorio con instrucciones
 ```
 
 ## CONVENCIONES DEL PROYECTO
@@ -204,19 +205,19 @@ Cuando realices estas acciones, **SIEMPRE** invoca la skill correspondiente:
 
 | Acción                     | Skill                                                  |
 | -------------------------- | ------------------------------------------------------ |
-| Operaciones con Git         | [`git-workflow`](./skills/git-workflow.md)             |
-| Crear commits              | [`git-workflow`](./skills/git-workflow.md)             |
-| Crear componentes UI       | [`ui-creation`](./skills/ui-creation.md)               |
-| Trabajar con Supabase      | [`supabase-use`](./skills/supabase-use.md)             |
-| Implementar animaciones    | [`animation-creation`](./skills/animation-creation.md) |
-| Manejar errores            | [`error-use`](./skills/error-use.md)                   |
-| Crear hooks personalizados | [`hook-creation`](./skills/hook-creation.md)           |
+| Operaciones con Git         | [`git-workflow`](./skills/git-workflow/SKILL.md)       |
+| Crear commits              | [`git-workflow`](./skills/git-workflow/SKILL.md)       |
+| Crear componentes UI       | [`ui-creation`](./skills/ui-creation/SKILL.md)         |
+| Trabajar con Supabase      | [`supabase-use`](./skills/supabase-use/SKILL.md)       |
+| Implementar animaciones    | [`animation-creation`](./skills/animation-creation/SKILL.md) |
+| Manejar errores            | [`error-use`](./skills/error-use/SKILL.md)             |
+| Crear hooks personalizados | [`hook-creation`](./skills/hook-creation/SKILL.md)     |
 | Trabajar con mapas/Leaflet | `leaflet`                                              |
-| Crear modales              | [`modal-use`](./skills/modal-use.md)                   |
-| Mostrar notificaciones     | [`notificacion-use`](./skills/notificacion-use.md)     |
-| Crear documentación        | [`docs-creation`](./skills/docs-creation.md)           |
-| Crear/usar iconos SVG      | [`icon-creation`](./skills/icon-creation.md)           |
-| Trabajar con paneles       | [`panel-use`](./skills/panel-use.md)                   |
+| Crear modales              | [`modal-use`](./skills/modal-use/SKILL.md)             |
+| Mostrar notificaciones     | [`notificacion-use`](./skills/notificacion-use/SKILL.md) |
+| Crear documentación        | [`docs-creation`](./skills/docs-creation/SKILL.md)     |
+| Crear/usar iconos SVG      | [`icon-creation`](./skills/icon-creation/SKILL.md)     |
+| Trabajar con paneles       | [`panel-use`](./skills/panel-use/SKILL.md)             |
 
 ## Skills Disponibles
 
@@ -235,17 +236,17 @@ Cuando realices estas acciones, **SIEMPRE** invoca la skill correspondiente:
 
 | Skill                | Descripción                               | URL                                        |
 | -------------------- | ----------------------------------------- | ------------------------------------------ |
-| `git-workflow`       | Ramas, commits, merges, PRs               | [SKILL.md](./skills/git-workflow.md)       |
-| `ui-creation`        | Componentes base, estilos, patrones UI    | [SKILL.md](./skills/ui-creation.md)        |
-| `hook-creation`      | Patrones para hooks personalizados        | [SKILL.md](./skills/hook-creation.md)      |
-| `icon-creation`      | Creación y uso de iconos SVG              | [SKILL.md](./skills/icon-creation.md)      |
-| `animation-creation` | Principios de animación con Framer Motion | [SKILL.md](./skills/animation-creation.md) |
-| `notificacion-use`   | Sistema Sonner para notificaciones        | [SKILL.md](./skills/notificacion-use.md)   |
-| `error-use`          | Manejo de errores y mensajes              | [SKILL.md](./skills/error-use.md)          |
-| `supabase-use`       | Estructura DB, buckets, clientes          | [SKILL.md](./skills/supabase-use.md)       |
-| `panel-use`          | Panel deslizable de información           | [SKILL.md](./skills/panel-use.md)          |
-| `modal-use`          | Sistema de modales y diálogos             | [SKILL.md](./skills/modal-use.md)          |
-| `docs-creation`      | Creación de documentación                 | [SKILL.md](./skills/docs-creation.md)      |
+| `git-workflow`       | Ramas, commits, merges, PRs               | [SKILL.md](./skills/git-workflow/SKILL.md)       |
+| `ui-creation`        | Componentes base, estilos, patrones UI    | [SKILL.md](./skills/ui-creation/SKILL.md)         |
+| `hook-creation`      | Patrones para hooks personalizados       | [SKILL.md](./skills/hook-creation/SKILL.md)     |
+| `icon-creation`      | Creación y uso de iconos SVG              | [SKILL.md](./skills/icon-creation/SKILL.md)       |
+| `animation-creation` | Principios de animación con Framer Motion| [SKILL.md](./skills/animation-creation/SKILL.md) |
+| `notificacion-use`   | Sistema Sonner para notificaciones       | [SKILL.md](./skills/notificacion-use/SKILL.md)   |
+| `error-use`          | Manejo de errores y mensajes             | [SKILL.md](./skills/error-use/SKILL.md)         |
+| `supabase-use`       | Estructura DB, buckets, clientes         | [SKILL.md](./skills/supabase-use/SKILL.md)       |
+| `panel-use`          | Panel deslizable de información          | [SKILL.md](./skills/panel-use/SKILL.md)         |
+| `modal-use`          | Sistema de modales y diálogos            | [SKILL.md](./skills/modal-use/SKILL.md)         |
+| `docs-creation`      | Creación de documentación                | [SKILL.md](./skills/docs-creation/SKILL.md)     |
 
 ## Componentes/Dominios principales
 
