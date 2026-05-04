@@ -41,8 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 #AI
-AGENTS.md
-openspec
 .opencode
 
 certificates
