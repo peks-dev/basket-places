@@ -223,14 +223,18 @@ Cuando realices estas acciones, **SIEMPRE** invoca la skill correspondiente:
 
 ### Skills Genéricas (Best Practices)
 
-| Skill        | Descripción                                       | URL      |
-| ------------ | ------------------------------------------------- | -------- |
-| `typescript` | Tipado estricto, interfaces planas, utility types | SKILL.md |
-| `react`      | Server Components, hooks modernos                 | SKILL.md |
-| `nextjs`     | App Router, Server Actions, streaming             | SKILL.md |
-| `tailwind`   | Utility-first, cn() utility                       | SKILL.md |
-| `motion`     | Animaciones fluidas con Framer Motion             | SKILL.md |
-| `leaflet`    | Mapas interactivos con React Leaflet              | SKILL.md |
+Skills de mejores prácticas localizadas en `.agents/skills/`. Se cargan automáticamente por el agente según la tarea.
+
+| Skill | Descripción | Ubicación |
+|-------|-------------|-----------|
+| `typescript-advanced-types` | Tipado avanzado, generics, conditional/mapped types, utility types | `.agents/skills/typescript-advanced-types/` |
+| `next-best-practices` | App Router, Server Actions, RSC boundaries, metadata, streaming | `.agents/skills/next-best-practices/` |
+| `tailwind-css-patterns` | Utility-first, responsive, layout, flexbox, grid, design systems | `.agents/skills/tailwind-css-patterns/` |
+| `react-performance-optimization` | Memoización, code splitting, renderizado eficiente | `.agents/skills/react-performance-optimization/` |
+| `vercel-react-best-practices` | Performance patterns para React/Next.js desde Vercel Engineering | `.agents/skills/vercel-react-best-practices/` |
+| `large-scale-map-visualization` | Leaflet.js optimización, Supercluster, viewport loading, canvas markers | `.agents/skills/large-scale-map-visualization/` |
+| `supabase-postgres-best-practices` | Postgres performance, queries, schema, configuración | `.agents/skills/supabase-postgres-best-practices/` |
+| `motion-ui` | Motion library best practices, animaciones, transiciones, patrones de UI | `.agents/skills/motion-ui/` |
 
 ### Skills Específicas de Basket Places
 
@@ -262,6 +266,7 @@ Cada dominio funcional tiene su propio `AGENTS.md` con contexto específico. **L
 | Panel              | `app/(main)/@panel/`          | Interception routes para mostrar páginas sobre el mapa (home) |
 | Perfil             | `app/(main)/perfil/`          | Gestión de información del usuario logueado                   |
 | Menú Global        | `app/(shared)/GlobalMenu/`    | Arquitectura y funcionamiento del menú global                 |
+| Theme              | `app/components/theme/`       | Sistema de temas claro/oscuro con next-themes                 |
 | Modal              | `app/components/ui/Modal`     | Sistema para mostrar información o componentes en modal       |
 | Notificaciones     | `app/(shared)/notifications/` | Servicio de notificaciones construido sobre Sonner            |
 | Error Handling     | `lib/errors/`                 | Servicio de error handling                                    |

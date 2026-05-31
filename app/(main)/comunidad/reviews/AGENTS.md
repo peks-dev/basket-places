@@ -385,7 +385,7 @@ interface ReviewFormState {
 
 ❌ **Intentar crear más de un review**: Devuelve `REVIEW_ALREADY_EXISTS`
 
-❌ **评论包含不当内容**: Devuelve `INAPPROPRIATE_CONTENT` de IA
+❌ **Comentario con contenido inapropiado**: Devuelve `INAPPROPRIATE_CONTENT` de IA
 
 ❌ **Eliminar review de otro usuario**: `deleteUserReview` lanza error de ownership
 

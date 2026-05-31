@@ -87,8 +87,9 @@ const result = await reverseGeocode(lat, lng);
 | ------------------------- | ------------------------ |
 | Crear marcadores          | `icon-creation`          |
 | Animar elementos del mapa | `animation-creation`     |
-| Geocodificación           | Usar servicio existente  |
-| Fetch datos geoespaciales | `supabase-use` (PostGIS) |
+| Geocodificación           | `large-scale-map-visualization` |
+| uso local de supabase     | `supabase-use` (PostGIS) |
+| supabase best practices   | `supabase-postgres-best-practices` |
 
 ## Referencias
 
