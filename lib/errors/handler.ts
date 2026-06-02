@@ -57,13 +57,15 @@ export function handleServiceError(error: unknown): Failure {
 
   // Error genérico de JavaScript
   if (error instanceof Error) {
+    // Log interno para debugging, no exponer al cliente
+    console.error('[handleServiceError]', error.message, error.stack);
     return fail(
       ErrorCodes.INTERNAL_ERROR,
-      'Ocurrió un error inesperado. Intenta de nuevo.',
-      { originalMessage: error.message, stack: error.stack }
+      'Ocurrió un error inesperado. Intenta de nuevo.'
     );
   }
 
   // Error completamente desconocido
-  return fail(ErrorCodes.UNKNOWN_ERROR, 'Ocurrió un error desconocido', error);
+  console.error('[handleServiceError] Unknown error:', error);
+  return fail(ErrorCodes.UNKNOWN_ERROR, 'Ocurrió un error desconocido');
 }
