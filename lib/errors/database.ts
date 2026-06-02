@@ -20,15 +20,19 @@ export class DatabaseError extends Error {
 /**
  * Helper específico para errores de Supabase
  * Convierte el error de Supabase a DatabaseError
+ * Los detalles internos se loguean en server, no se envían al cliente
  */
 export function fromSupabaseError(
   error: { message: string; code?: string; details?: string },
   userMessage: string,
   errorCode: string
 ): DatabaseError {
-  return new DatabaseError(userMessage, errorCode, {
-    supabaseMessage: error.message,
-    supabaseCode: error.code,
-    supabaseDetails: error.details,
+  // Log interno para debugging (solo server-side)
+  console.error('[SupabaseError]', {
+    code: error.code,
+    message: error.message,
+    details: error.details,
   });
+
+  return new DatabaseError(userMessage, errorCode);
 }

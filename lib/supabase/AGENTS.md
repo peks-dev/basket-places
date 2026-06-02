@@ -19,7 +19,6 @@ lib/supabase/
 ├── client.ts           # Cliente para Browser (sync)
 ├── storage.ts          # Helpers para upload/delete de imágenes
 ├── middleware.ts       # Refresh de tokens en Edge
-├── admin.ts            # Cliente con service role (solo server)
 ├── types.ts            # Tipos TypeScript de Supabase
 └── AGENTS.md           # Este archivo
 ```
@@ -42,14 +41,6 @@ const supabase = await createClient(); // SIEMPRE async
 import { supabase } from '@/lib/supabase/client';
 
 // Ya configurado con persistSession: true
-```
-
-### Admin Client (service role)
-
-```typescript
-// Solo en server, nunca exponer al cliente
-// Útil para operaciones con privilegios elevados
-import { createClient } from '@/lib/supabase/admin';
 ```
 
 ## Schema de Base de Datos
