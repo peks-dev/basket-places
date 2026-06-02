@@ -34,6 +34,11 @@ export const AuthErrorCodes = {
   AUTH_EMAIL_NOT_VERIFIED: 'AUTH_EMAIL_NOT_VERIFIED',
 
   // ============================================
+  // RATE LIMITING (429)
+  // ============================================
+  TOO_MANY_REQUESTS: 'TOO_MANY_REQUESTS',
+
+  // ============================================
   // GENERAL (500)
   // ============================================
   AUTH_UNKNOWN_ERROR: 'AUTH_UNKNOWN_ERROR',

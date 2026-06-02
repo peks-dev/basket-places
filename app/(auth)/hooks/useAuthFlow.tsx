@@ -110,7 +110,8 @@ export const useAuthFlow = () => {
 
     if (returnUrl) {
       const decoded = decodeURIComponent(returnUrl);
-      if (decoded.startsWith('/') && !decoded.startsWith('//')) {
+      // Validación estricta: solo rutas internas (path absoluto, sin protocolo)
+      if (/^\/[a-zA-Z0-9]/.test(decoded) && !decoded.startsWith('//')) {
         destination = decoded;
       }
     }
