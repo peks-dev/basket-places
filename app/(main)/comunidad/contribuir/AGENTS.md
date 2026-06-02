@@ -31,7 +31,7 @@ app/(main)/comunidad/contribuir/
 │       │   ├── StepIndicator.tsx  # Indicador de progreso
 │       │   ├── NavigationControls.tsx # Botones prev/next
 │       │   ├── StepRenderer.tsx  # Renderiza el step activo
-│       │   └── steps/            # Los 10 steps del wizard
+│       │   └── steps/            # Los 7 steps del wizard
 │       └── hooks/
 ├── schemas/
 │   ├── baseSchema.ts             # Schema base compartido
@@ -52,33 +52,23 @@ app/(main)/comunidad/contribuir/
 
 ---
 
-## Los 10 Steps del Wizard
+## Los 7 Steps del Wizard
 
-El formulario tiene 10 steps que se muestran condicionalmente según el tipo de comunidad (`pickup` vs `club`):
+El formulario tiene 7 steps que se muestran condicionalmente según el tipo de comunidad (`pickup` vs `club`). El análisis AI ocurre automáticamente en el server action durante el submit (no es un step visual).
 
 | # | Step | Pickup | Club | Descripción |
 |---|------|--------|------|-------------|
-| 1 | `OnboardingStep` | ✅ | ✅ | Bienvenida/intro (actualmente placeholder) |
-| 2 | `TypeStep` | ✅ | ✅ | Selector pickup vs club |
-| 3 | `BasicInfoStep` | ✅ | ✅ | Nombre y descripción |
-| 4 | `LocationStep` | ✅ | ✅ | Mapa con marcador draggable |
-| 5 | `ImagesStep` | ✅ | ✅ | Upload de 2-4 imágenes horizontales |
-| 6 | `ScheduleStep` | ✅ | ✅ | Constructor de horarios |
-| 7 | `ServicesStep` | ✅ | ✅ | Toggle: transporte, tienda, wifi, baño |
-| 8 | `ConditionalStep` | ✅ | ❌ | AgeGroup para pickups (NULL para clubs) |
-| 9 | `AIAnalysisStep` | ✅ | ✅ | Análisis AI de imágenes (placeholder) |
-| 10 | `RedirectionStep` | ✅ | ✅ | Éxito y redirección |
+| 1 | `TypeStep` | ✅ | ✅ | Selector pickup vs club |
+| 2 | `BasicInfoStep` | ✅ | ✅ | Nombre y descripción |
+| 3 | `LocationStep` | ✅ | ✅ | Mapa con marcador draggable |
+| 4 | `ImagesStep` | ✅ | ✅ | Upload de 2-4 imágenes horizontales |
+| 5 | `ScheduleStep` | ✅ | ✅ | Constructor de horarios |
+| 6 | `ServicesStep` | ✅ | ✅ | Toggle: transporte, tienda, wifi, baño |
+| 7 | `ConditionalStep` | ✅ | ❌ | AgeGroup para pickups / Categories para clubs |
 
-### Step 1: OnboardingStep
+**Nota**: El análisis AI de imágenes y texto se ejecuta en el server action (`registerCommunity`/`updateCommunity`) durante el submit, no como un step visual. Si el AI rechaza el contenido, se muestra un error toast.
 
-```tsx
-// Placeholder actual - sin implementación real
-export default function OnboartingStep() {
-  return <div>onboarginStep</div>;
-}
-```
-
-### Step 2: TypeStep
+### Step 1: TypeStep
 
 ```tsx
 // Selección entre pickup (retas) y club
@@ -90,7 +80,7 @@ const options = [
 
 **Campos**: `type` (CommunityType)
 
-### Step 3: BasicInfoStep
+### Step 2: BasicInfoStep
 
 ```tsx
 // Campos de texto libre
@@ -100,7 +90,7 @@ const options = [
 
 **Campos**: `name` (string, máx 100), `description` (string, máx 500)
 
-### Step 4: LocationStep
+### Step 3: LocationStep
 
 ```tsx
 // Mapa con marcador draggable
@@ -113,7 +103,7 @@ const options = [
 
 **Ubicación por defecto**: `{ lat: 20.9674, lng: -89.5926 }` (Yucatán, México)
 
-### Step 5: ImagesStep
+### Step 4: ImagesStep
 
 ```tsx
 // Upload de imágenes horizontales (2-4)
@@ -132,7 +122,7 @@ const MIN_IMAGES = 2;
 - Solo horizontales
 - Límite 2MB por imagen (compresión automática en submit)
 
-### Step 6: ScheduleStep
+### Step 5: ScheduleStep
 
 ```tsx
 // Constructor de horarios con días y franjas horarias
@@ -153,7 +143,7 @@ interface Schedule {
 
 **Campo**: `schedule` (Schedule[])
 
-### Step 7: ServicesStep
+### Step 6: ServicesStep
 
 ```tsx
 // Toggles para servicios disponibles
@@ -167,7 +157,7 @@ const serviceLabels = {
 
 **Campo**: `services` ({ transport: boolean, store: boolean, wifi: boolean, bathroom: boolean })
 
-### Step 8: ConditionalStep (Solo Pickup)
+### Step 7: ConditionalStep (Pickup: AgeGroup / Club: Categories)
 
 ```tsx
 // Solo se muestra si type === 'pickup'
@@ -177,23 +167,6 @@ const serviceLabels = {
 **Campo**: `age_group` (AgeGroup) - `'teens' | 'young_adults' | 'veterans' | 'mixed'`
 
 **Regla de negocio**: Si `type = 'club'`, `age_group` debe ser NULL
-
-### Step 9: AIAnalysisStep
-
-```tsx
-// Placeholder - aún no implementado
-export default function AnalysisStep() {
-  return <div>AnalysisStep</div>;
-}
-```
-
-### Step 10: RedirectionStep
-
-```tsx
-// Muestra icono de éxito y redirige automáticamente
-<SuccessIcon />
-// navigate(`/comunidad/ver/${result.data.id}`);
-```
 
 ---
 
@@ -272,19 +245,8 @@ interface CommunityFormData {
 // Controla qué step se muestra
 const { currentStep, nextStep, prevStep, resetToStart } = useNavigationStore();
 
-// Steps del wizard (10 pasos)
-const STEPS = [
-  'onboarding',
-  'type',
-  'basicInfo',
-  'location',
-  'images',
-  'schedule',
-  'services',
-  'conditional',  // Solo pickup
-  'aiAnalysis',
-  'redirection',
-];
+// Steps del wizard (7 pasos visibles + RedirectionStep post-submit)
+// StepIndicator muestra: Tipo, Información, Ubicación, Imágenes, Horarios, Servicios, Detalles
 ```
 
 ---

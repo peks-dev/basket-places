@@ -1,4 +1,4 @@
-// middleware.ts - Versión simplificada
+// middleware.ts
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
@@ -29,23 +29,8 @@ export async function middleware(request: NextRequest) {
   );
   const isAuthRoute = authRoutes.some((route) => pathname.startsWith(route));
 
-  // 🚀 OPTIMIZACIÓN: Solo para rutas protegidas, verificar cache primero
-  if (isProtectedRoute) {
-    const authCache = request.cookies.get('auth-cache')?.value;
-    if (authCache) {
-      try {
-        const { verified, expires } = JSON.parse(authCache);
-        if (verified && Date.now() < expires) {
-          // Cache válido - No consultar Supabase
-          return response;
-        }
-      } catch {
-        // Cache corrupto, proceder a verificación completa
-      }
-    }
-  }
-
-  // Solo aquí consultamos Supabase (cuando no hay cache válido)
+  // Siempre verificar con Supabase - no usar cache client-side
+  // (el auth-cache anterior era vulnerable a bypass al no estar firmado)
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -67,9 +52,8 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Lógica de redirección (sin cambios)
+  // Lógica de redirección
   if (isProtectedRoute && !user) {
-    response.cookies.delete('auth-cache'); // Limpiar cache inválido
     const redirectUrl = new URL('/sign-in', request.url);
     redirectUrl.searchParams.set('redirectTo', pathname);
     return NextResponse.redirect(redirectUrl);
