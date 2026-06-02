@@ -10,11 +10,26 @@ import { ErrorCodes } from '@/lib/errors/codes';
 import { handleServiceError } from '@/lib/errors/handler';
 import { ProfileDbResponse } from '@/app/(main)/perfil/types';
 import { deleteImage } from '@/lib/supabase/storage';
+import { checkRateLimit } from '@/lib/utils/rateLimit';
 
 export async function deleteAccount(
   currentProfile: ProfileDbResponse
 ): Promise<Result<ProfileDbResponse>> {
   try {
+    // Rate limit: máximo 3 intentos por usuario en 1 hora
+    const rateLimit = checkRateLimit({
+      key: `delete:${currentProfile.user_id}`,
+      maxRequests: 3,
+      windowMs: 60 * 60 * 1000,
+    });
+
+    if (!rateLimit.allowed) {
+      return fail(
+        AuthErrorCodes.TOO_MANY_REQUESTS,
+        'Demasiados intentos. Espera una hora antes de intentar de nuevo.'
+      );
+    }
+
     // 1. Validar autenticación usando getCurrentUser()
     const user = await getCurrentUser();
 

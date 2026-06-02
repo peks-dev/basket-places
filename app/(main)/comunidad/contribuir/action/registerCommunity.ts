@@ -15,6 +15,7 @@ import * as contributionService from '../services/index';
 import { deleteImage } from '@/lib/supabase/storage';
 import { transformToCommunityProfile } from '../transformers';
 import { reverseGeocode } from '@/app/(main)/map/services/reverseGeocode';
+import { checkRateLimit } from '@/lib/utils/rateLimit';
 
 export async function registerCommunity(
   formData: CommunityFormData
@@ -31,10 +32,24 @@ export async function registerCommunity(
       return fail(AuthErrorCodes.UNAUTHORIZED, 'No autorizado');
     }
 
-    // 3. Generar ID único
+    // 3. Rate limit: máximo 5 comunidades por usuario en 1 hora
+    const rateLimit = checkRateLimit({
+      key: `register:${user.id}`,
+      maxRequests: 5,
+      windowMs: 60 * 60 * 1000,
+    });
+
+    if (!rateLimit.allowed) {
+      return fail(
+        AuthErrorCodes.TOO_MANY_REQUESTS,
+        'Demasiadas comunidades creadas. Espera una hora antes de crear otra.'
+      );
+    }
+
+    // 4. Generar ID único
     const communityId = uuidv4();
 
-    // 4. Obtener información de ubicación usando reverse geocoding
+    // 5. Obtener información de ubicación usando reverse geocoding
     const locationData = await reverseGeocode(
       validated.location.lat,
       validated.location.lng

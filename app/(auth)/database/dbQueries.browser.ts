@@ -16,7 +16,7 @@ export async function sendLoginCode(email: string): Promise<void> {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      shouldCreateUser: true,
+      shouldCreateUser: false,
     },
   });
 
