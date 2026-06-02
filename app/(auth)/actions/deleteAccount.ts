@@ -33,10 +33,14 @@ export async function deleteAccount(
       );
     }
 
-    // 3. Eliminar avatar del storage si existe
+    // 3. Eliminar avatar del storage si existe (con verificación de ownership)
     if (currentProfile.avatar_url) {
       const filePath = currentProfile.avatar_url.split('/avatars/')[1];
-      await deleteImage(filePath, 'AVATARS');
+      // Verificar que el path del avatar pertenece al usuario autenticado
+      // Path esperado: {user_id}/{filename}
+      if (filePath && filePath.startsWith(`${user.id}/`)) {
+        await deleteImage(filePath, 'AVATARS');
+      }
     }
 
     // 4. Eliminar cuenta de la base de datos

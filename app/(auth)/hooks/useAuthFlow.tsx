@@ -12,7 +12,6 @@ import { verifyOtpAndFetchProfile } from '@/auth/actions/verifyAndFetch';
 import { useSearchParams } from 'next/navigation';
 import { useCustomNavigation } from '@/lib/hooks/useNavigation';
 import { useProfileStore } from '@/app/(main)/perfil/stores/useProfileStore';
-import { cacheService } from '@/auth/utils/cacheService';
 import { useAuth } from '../hooks/useAuth';
 import { useUIStateStore } from '@/lib/stores/useUIStateStore';
 import { usePanelLoaderStore } from '@/app/(main)/map/stores/usePanelStore';
@@ -103,14 +102,6 @@ export const useAuthFlow = () => {
     // Hidrata el store con el perfil
     if (result.data.profile) {
       updateProfileStore(result.data.profile);
-    }
-
-    // Establece el cache
-    if (result.data.user) {
-      cacheService.setAuthCache({
-        id: result.data.user.id,
-        email: result.data.user.email!,
-      });
     }
 
     // Determina a dónde navegar
