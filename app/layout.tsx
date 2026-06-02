@@ -86,7 +86,7 @@ export default async function RootLayout({
   const { initialUser, authError } = await getAuthShellData();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

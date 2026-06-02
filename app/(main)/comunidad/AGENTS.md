@@ -99,7 +99,9 @@ Formulario multi-paso para crear/editar comunidades:
 4. **ImagesStep**: Subir imágenes
 5. **ScheduleStep**: Horarios
 6. **ServicesStep**: Servicios disponibles
-7. **AIAnalysisStep**: Análisis con IA
+7. **ConditionalStep**: AgeGroup (pickup) / Categories (club)
+
+Análisis AI se ejecuta en el server action durante el submit.
 
 ```tsx
 // Hook principal del formulario

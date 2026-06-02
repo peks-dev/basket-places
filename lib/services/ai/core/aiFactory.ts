@@ -18,8 +18,7 @@ function createAIService(): BaseAIService {
 
     case 'ollama':
       throw new AIUnavailableError(
-        'Ollama aún no está implementado. ' +
-          'Cambia NEXT_PUBLIC_AI_PROVIDER a "gemini"'
+        'Ollama aún no está implementado. ' + 'Cambia AI_PROVIDER a "gemini"'
       );
 
     default:
