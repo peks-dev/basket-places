@@ -4,6 +4,8 @@ import ClubIcon from '@/components/ui/svgs/ClubIcon';
 import { CornerIcon } from '@/app/components/ui/svgs/';
 import { useContributionStore } from '@/contribuir/stores/useContributionStore';
 import { type CommunityType } from '@/comunidad/types';
+import { StepHelp } from '../StepHelp';
+import { STEP_HELP } from '../stepHelpContent';
 
 export default function TypeStep() {
   const { type, updateFormField } = useContributionStore();
@@ -15,9 +17,10 @@ export default function TypeStep() {
   ];
 
   return (
-    <div className="gap-xl flex h-full flex-col items-stretch justify-center">
-      <p className="text-md text-center">¿De que comunidad se trata?</p>
-      <div className="flex items-center justify-around">
+    <div className="gap-xl flex h-full flex-col items-stretch">
+      <StepHelp {...STEP_HELP.type} />
+
+      <div className="flex grow items-center justify-around">
         {options.map(({ value, label, Icon }) => (
           <label
             key={value}

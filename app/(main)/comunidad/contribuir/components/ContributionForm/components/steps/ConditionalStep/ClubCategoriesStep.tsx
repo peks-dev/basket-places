@@ -1,16 +1,16 @@
 import { POSSIBLE_CATEGORIES } from './constants';
 import { useCategoriesLogic } from './useCategoriesLogic';
 import CategoryCardSelector from './CategoryCardSelector';
+import { StepHelp } from '../../StepHelp';
+import { STEP_HELP } from '../../stepHelpContent';
 
 export default function ClubCategoriesStep() {
   const { categories, toggleCategory, handleGenderChange } =
     useCategoriesLogic();
 
   return (
-    <div className="flex h-full max-h-full flex-col">
-      <h2 className="border-border-secondary font-oxanium grow-0 border-b-2 pb-4 text-center text-sm">
-        Selecciona las categorías disponibles
-      </h2>
+    <div className="gap-md flex h-full max-h-full flex-col">
+      <StepHelp {...STEP_HELP.clubCategories} />
       <div className="max-h-full w-full overflow-auto pt-10">
         <div className="gap-md flex flex-col justify-around">
           {POSSIBLE_CATEGORIES.map((cat) => {

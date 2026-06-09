@@ -5,6 +5,8 @@ import { BaseMap, BaseDraggableMarker } from '@/app/(main)/map';
 import type { Coordinates } from '@/comunidad/types';
 import { useContributionStore } from '@/contribuir/stores/useContributionStore';
 import { useDebounce } from '@/lib/hooks/useDebounce';
+import { StepHelp } from '../StepHelp';
+import { STEP_HELP } from '../stepHelpContent';
 
 const DEFAULT_LOCATION: Coordinates = {
   lat: 20.9674,
@@ -35,6 +37,10 @@ export default function LocationStep() {
 
   return (
     <div className="relative h-full w-full">
+      <div className="absolute top-4 right-4 left-4">
+        <StepHelp {...STEP_HELP.location} />
+      </div>
+
       <BaseMap center={[currentPosition.lat, currentPosition.lng]} zoom={11}>
         <BaseDraggableMarker
           initialPosition={currentPosition}
