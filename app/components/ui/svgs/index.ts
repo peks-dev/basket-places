@@ -35,6 +35,7 @@ import MaleIcon from './MaleIcon';
 import FemaleIcon from './FemaleIcon';
 import GenderIcon from './GenderIcon';
 import SettingsIcon from './SettingsIcon';
+import InfoIcon from './InfoIcon';
 
 export {
   BathroomIcon,
@@ -74,4 +75,5 @@ export {
   FemaleIcon,
   GenderIcon,
   SettingsIcon,
+  InfoIcon,
 };
