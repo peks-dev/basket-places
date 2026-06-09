@@ -4,9 +4,10 @@ import { useContributionStore } from '@/contribuir/stores/useContributionStore';
 import ImagePreview from './components/ImagePreview';
 
 import Button from '@/app/components/ui/Button';
+import { StepHelp } from '../../StepHelp';
+import { STEP_HELP } from '../../stepHelpContent';
 
 const MAX_IMAGES = 4;
-const MIN_IMAGES = 2;
 
 export default function ImagesStep() {
   const { images, addImages, removeImage } = useContributionStore();
@@ -55,14 +56,9 @@ export default function ImagesStep() {
   const canAddMore = images.length < MAX_IMAGES;
 
   return (
-    <div className="gap-xl flex h-full flex-col">
-      <p className="text-center text-sm">
-        Selecciona o toma {MIN_IMAGES} como mínimo, {MAX_IMAGES} máximo
-        <br />
-        <span className="text-foreground-accent">
-          todas deben ser orizontales
-        </span>
-      </p>
+    <div className="flex h-full flex-col">
+      <StepHelp {...STEP_HELP.images} />
+
       <input
         ref={fileInputRef}
         type="file"
@@ -72,7 +68,7 @@ export default function ImagesStep() {
         className="hidden"
       />
 
-      <ul className="grow">
+      <ul className="mt-15 grow">
         {images.length > 0 && (
           <div className="gap-md flex flex-col items-stretch">
             {images.map((img, index) => (

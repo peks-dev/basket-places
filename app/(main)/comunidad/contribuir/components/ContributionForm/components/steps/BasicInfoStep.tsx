@@ -2,12 +2,15 @@ import Input from '@/app/components/ui/inputs/Text';
 import Textarea from '@/app/components/ui/inputs/Textarea';
 
 import { useContributionStore } from '@/contribuir/stores/useContributionStore';
+import { StepHelp } from '../StepHelp';
+import { STEP_HELP } from '../stepHelpContent';
 
 export default function BasicInfoStep() {
   const { name, description, updateFormField } = useContributionStore();
 
   return (
     <div className="gap-xl flex h-full flex-col">
+      <StepHelp {...STEP_HELP.basicInfo} />
       <label>
         <Input
           type="text"
