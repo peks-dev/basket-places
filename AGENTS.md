@@ -22,7 +22,7 @@ Basket Places es una aplicación web para descubrir comunidades de basketball lo
 - **Zustand**: Gestión de estado global (auth, UI state)
 - **React Leaflet**: Mapas interactivos con marcadores personalizados
 - **Swiper**: Sliders de imágenes para galerías
-- **Framer Motion**: Animaciones de transición y micro-interacciones
+- **Motion (`motion/react`)**: Animaciones de transición y micro-interacciones. **Usar siempre `import { motion, AnimatePresence, ... } from 'motion/react'`** — nunca desde `'framer-motion'`. `framer-motion` queda en `node_modules` como dependencia transitiva de `motion@12`, pero no se importa directamente. Ver skill `.agents/skills/motion-ui/`.
 - **Sonner**: Sistema de notificaciones toast
 - **UUID**: Generación de IDs únicos para recursos
 
