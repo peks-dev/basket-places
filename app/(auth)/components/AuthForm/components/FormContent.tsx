@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { contentVariants } from '../utils/animations';
 import { SuccessIcon } from '@/app/components/ui/svgs';
 import IconBox from '@/app/components/ui/IconBox';

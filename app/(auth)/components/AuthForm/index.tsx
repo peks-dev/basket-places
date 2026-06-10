@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useAuthFlow } from '@/auth/hooks/useAuthFlow';
 import HeaderContainer from '@/components/ui/Header';
 import { useMeasure } from './hooks/useMeasure';

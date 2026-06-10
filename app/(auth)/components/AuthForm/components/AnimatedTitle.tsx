@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useMatrixEffect } from '../hooks/useMatrixEffect';
 import { TITLE_MAP } from '../utils/animations';
 
