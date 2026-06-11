@@ -1,5 +1,3 @@
-# README
-
 # Basket Places
 
 **Basket Places** es una aplicación web para descubrir, compartir y gestionar canchas de baloncesto en tu comunidad. Los usuarios pueden autenticarse sin contraseña, subir imágenes de canchas, y administrar perfiles personales, fomentando una comunidad activa de jugadores.
@@ -26,7 +24,7 @@ Actualmente en desarrollo (Fase 1 del MVP). Características implementadas:
 
 1. Clona el repositorio:
    ```
-   git clone https://gitlab.com/digital-hoop/geodirectory.git
+   git clone https://github.com/peks-dev/basket-places.git
    cd basket-places
    ```
 
