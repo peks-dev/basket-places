@@ -1,5 +1,24 @@
 # Basket Places - GUIDELINES
 
+## Reglas de navegación del código Graphify
+
+**DIRECTIVA CRÍTICA PARA TODOS LOS AGENTES (ESPECIALMENTE EXPLORER):**
+Este proyecto depende de un grafo de conocimiento precomputado para reducir el uso de tokens y evitar búsquedas a ciegas. NUNCA uses herramientas de búsqueda de sistema de archivos en crudo (`grep`, `rg`, `find`, o bucles con `cat`) como primer paso para entender la arquitectura.
+
+**Lista de desencadenantes: DEBES ejecutar `graphify query "<tu pregunta>"` siempre que:**
+- Necesites responder cualquier pregunta sobre arquitectura, entre módulos, o "¿cómo funciona X?".
+- Planees usar grep, find, o glob en la base de código Python o JavaScript.
+- Necesites entender un módulo desconocido o rastrear una cadena de llamadas (por ejemplo, cómo el motor OCR pasa datos a la API).
+- Estés a punto de refactorizar una función y necesites conocer su radio de impacto / dependencias.
+
+## Comandos permitidos:
+- `graphify query "pregunta"` -> Búsqueda semántica general en el grafo (BFS).
+- `graphify path "Nodo A" "Nodo B"` -> Encuentra la ruta más corta entre dos componentes.
+- `graphify explain "Nodo X"` -> Obtén una explicación de las conexiones de un componente específico.
+
+*Nota: El grafo está ubicado internamente en `graphify-out/graph.json`. No necesitas abrir este archivo manualmente, solo usa los comandos del CLI.*
+
+
 ## Cómo usar este AGENTS.md
 
 1. **Start here** para normas transversales

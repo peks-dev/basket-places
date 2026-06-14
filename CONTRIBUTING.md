@@ -25,7 +25,7 @@ Writing code is no longer the bottleneck — reviewing it is. This project optim
 
 ### 1. Find or Create an Issue
 
-Before writing any code, there must be an issue describing the work.
+Before writing any code, there must be an issue describing the work. External contributions should target `development`; `main` is controlled by the maintainer for releases/production.
 
 - **Bugs**: Use the [Bug Report template](.github/ISSUE_TEMPLATE/bug.md)
 - **Features**: Use the [Feature Proposal template](.github/ISSUE_TEMPLATE/feature.md)
@@ -33,9 +33,9 @@ Before writing any code, there must be an issue describing the work.
 ### 2. Create a Branch
 
 ```bash
-# From develop (or main if no develop exists)
-git checkout main
-git pull origin main
+# From development
+git checkout development
+git pull origin development
 git checkout -b feature/short-description
 ```
 
@@ -82,12 +82,15 @@ docs(contributing): add AI-first collaboration guide
 
 ```bash
 npm run lint        # ESLint check
-npm run build       # Production build (catches type errors)
+npm run typecheck   # TypeScript check
+npm run build       # Production build
 ```
 
-Both must pass. If they don't, fix before creating a PR.
+All checks must pass. If they don't, fix before creating a PR.
 
 ### 6. Create a Pull Request
+
+Open your Pull Request against `development`, not `main`.
 
 Use the [PR template](.github/PULL_REQUEST_TEMPLATE.md). Fill all sections — especially:
 
@@ -98,7 +101,7 @@ Use the [PR template](.github/PULL_REQUEST_TEMPLATE.md). Fill all sections — e
 ## PR Review Process
 
 ```
-PR created → CI checks (lint + build) → Human review → Merge
+PR to development → CI checks (lint + typecheck + build) → Human review → Merge
                 ↓ fail                       ↓ request changes
            Fix and re-push              Update and re-request
 ```

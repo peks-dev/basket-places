@@ -25,9 +25,20 @@ labels: bug
 
 ## Environment
 
+- **URL / Route**: <!-- e.g., /, /comunidad/ver/123, /perfil -->
 - **Browser**: <!-- e.g., Chrome 120, Safari 17, Firefox 121 -->
 - **Device**: <!-- e.g., Desktop, iPhone 15, Pixel 8 -->
 - **Theme**: <!-- Light / Dark / System -->
+- **Auth state**: <!-- Logged in / Logged out / Not sure -->
+- **Geolocation permission**: <!-- Allowed / Blocked / Not requested / Not relevant -->
+
+## Basketball Community Context
+
+<!-- If this bug affects a specific court/community, add its name, location, or URL. -->
+
+## Console / Network Errors
+
+<!-- If applicable, paste browser console or network errors here. -->
 
 ## Screenshots
 
