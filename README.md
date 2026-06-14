@@ -1,134 +1,103 @@
+<p align="center">
+  <img src="public/readme/banner.png" alt="Basket Places banner" width="100%" />
+</p>
+
 # Basket Places
 
-**Basket Places** es una aplicación web para descubrir, compartir y gestionar canchas de baloncesto en tu comunidad. Los usuarios pueden autenticarse sin contraseña, subir imágenes de canchas, y administrar perfiles personales, fomentando una comunidad activa de jugadores.
+Una plataforma abierta para descubrir comunidades locales de básquetbol.
 
-## Estado del Proyecto
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org)
+[![Status](https://img.shields.io/badge/status-beta-de9e36)](#estado-del-proyecto)
+[![AI-native](https://img.shields.io/badge/workflow-AI--native-242628)](#proyecto-ai-native)
 
-Actualmente en desarrollo (Fase 1 del MVP). Características implementadas:
+🌐 **Live:** [basket-places.website](https://basket-places.website/)
 
-- Autenticación sin contraseña vía OTP con Supabase.
-- Subida de imágenes optimizadas para perfiles y canchas.
-- Middleware para proteger rutas autenticadas ( `/profile`, `/contribution`).
+---
 
-## Tabla de Contenidos
+## Qué es
 
-- [Instalación](#instalacion)
-- [Scripts Disponibles](#scripts-disponibles)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Tecnologías](#tecnologias)
-- [Convención de Commits](#convenci%C3%B3n-de-commits)
-- [Contribución](#contribuci%C3%B3n)
-- [Licencia](#licencia)
+La plataforma permite encontrar lugares donde el básquetbol sucede como comunidad: canchas, grupos, dinámicas locales y puntos de encuentro donde jugadores se reúnen para jugar, convivir y mejorar.
 
-## Instalacion
+Más que ubicar canchas, busca hacer visibles los espacios donde el básquetbol ya forma parte de la vida cotidiana de una comunidad.
 
-1. Clona el repositorio:
-   ```
-   git clone https://github.com/peks-dev/basket-places.git
-   cd basket-places
-   ```
+## Por qué existe
 
-````
-2. Instala las dependencias:
-    ```
-npm install
+En muchas ciudades, pueblos y barrios existen lugares donde el básquetbol se juega de forma constante, pero esa información suele vivir únicamente entre quienes ya conocen la zona.
 
+El proyecto nace para convertir ese conocimiento local en información accesible: dónde se juega, cómo es el lugar y qué tipo de comunidad existe alrededor.
 
-````
+## Qué permite hacer
 
-3. Configura las variables de entorno en `.env.local`:
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=tu_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_supabase_anon_key
-   SUPABASE_SERVICE_ROLE_KEY=tu_service_role_key
-   RESEND_API_KEY=tu_resend_api_key
-   GEMINI_API_KEY=tu_gemini_api_key
-   NEXT_PUBLIC_APP_URL=http://localhost:3000
-   ```
+Funciona como un mapa colaborativo para:
 
-````
-4. Inicia el servidor de desarrollo:
-    ```
-npm run dev
+- Descubrir lugares donde se juega básquetbol.
+- Explorar comunidades locales.
+- Conocer canchas y puntos de encuentro.
+- Contribuir información sobre nuevos lugares.
+- Ayudar a que otros jugadores encuentren dónde jugar.
 
+## Tecnología
 
-````
+Está construido con una base moderna, flexible y orientada a productos web dinámicos:
 
-## Scripts Disponibles
+- **Next.js** para la aplicación web.
+- **Supabase** para base de datos, autenticación y storage.
+- **Leaflet** para la experiencia de mapa.
+- **Tailwind CSS** para el sistema visual.
+- **Motion** para transiciones e interacciones.
+- **Zustand** para estado global.
+- **Sonner** para notificaciones.
+- **Zod** para validación.
+- **Google Gemini** para exploración de capacidades AI.
 
-- Iniciar el proyecto: `npm run dev`
-- Verificar linting: `npm run lint`
-- Corregir linting/formato: `npm run lint:fix`
-- Formatear con Prettier: `npm run format`
+La documentación técnica y operativa vive principalmente en [`AGENTS.md`](./AGENTS.md).
 
-## Estructura del Proyecto
+## Proyecto AI-native
 
-- `lib/`: Utilidades globales (clientes de Supabase, funciones de almacenamiento).
-- `lib/supabase/`: Configuración de Supabase (clientes, middleware, subida de imágenes).
-- `app/(auth)/`: Páginas y lógica de autenticación (login, verificación OTP).
-- `app/(main)/`: Rutas principales (perfil, contribución de canchas).
-- `middleware.ts`: Middleware para proteger rutas autenticadas.
+Este repositorio está pensado para ser gestionado, documentado y evolucionado con apoyo de agentes de inteligencia artificial.
 
-## Tecnologias
+El proyecto mantiene lineamientos específicos para que humanos y agentes puedan colaborar de forma consistente:
 
-- **Frontend/Backend**: Next.js
-- **Base de datos y autenticación**: Supabase
-- **Envío de emails**: Resend
-- **Optimización de imágenes**: Sharp
-- **Generación de IDs únicos**: UUID
-- **Estilizado**: Tailwind CSS
-- **Linting/Formato**: ESLint, Prettier
+- [`AGENTS.md`](./AGENTS.md): contexto técnico, arquitectura, convenciones y flujo de trabajo para agentes.
+- [`CONTRIBUTING.md`](./CONTRIBUTING.md): lineamientos de contribución y colaboración AI-assisted.
+- [`SECURITY.md`](./SECURITY.md): reporte responsable de vulnerabilidades.
+- [`LICENSE`](./LICENSE): licencia del proyecto.
 
-## Convención de Commits
+## Estado del proyecto
 
-Usamos [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) para un historial de cambios claro. Formato:
+El producto se encuentra en beta.
 
-```
-<tipo>[ámbito opcional]: <descripción breve>
-[cuerpo opcional]
-[pie opcional]
+Durante esta etapa, la prioridad está en fortalecer los cimientos del producto antes de ampliar agresivamente sus funcionalidades.
 
+Áreas principales de enfoque:
 
-```
+- Seguridad y privacidad de datos.
+- Calidad del sistema de contribuciones.
+- Experiencia de exploración en el mapa.
+- Distribución del proyecto.
+- Uso responsable de AI generativa.
 
-### Tipos de Commit
+## Dirección
 
-- `feat`: Nueva funcionalidad (ej. `feat(auth): implementar login OTP`).
-- `fix`: Corrección de errores (ej. `fix(ui): ajustar alineación móvil`).
-- `docs`: Cambios en documentación (ej. `docs: actualizar README`).
-- `style`: Cambios de formato (ej. `style: formatear con Prettier`).
-- `refactor`: Reorganización de código (ej. `refactor(storage): optimizar uploadImage`).
-- `test`: Añadir/modificar pruebas (ej. `test(auth): pruebas de login`).
-- `chore`: Tareas de mantenimiento (ej. `chore: actualizar dependencias`).
+Apunta a convertirse en una referencia abierta para descubrir dónde se juega básquetbol en cualquier ciudad, pueblo o destino.
 
-### Ejemplo
+Su objetivo es simple:
 
-```
-feat(storage): configurar subida de imágenes con optimización
-- Implementar lib/uploadImage.ts con Sharp
-- Configurar buckets avatars y communities
-- Añadir dependencias uuid y sharp
-
-
-```
+> Hacer que encontrar una comunidad de básquetbol sea tan fácil como abrir un mapa.
 
 ## Contribución
 
-1. Crea un fork del repositorio.
-2. Crea una rama: `git checkout -b feat/nueva-funcionalidad`.
-3. Realiza cambios y haz commits siguiendo la convención.
-4. Envía un pull request a la rama `main`.
+Las contribuciones son bienvenidas siempre que sigan los lineamientos del proyecto.
 
-Consulta la Guía de Contribución para más detalles (en desarrollo).
+Antes de proponer cambios, revisa [`CONTRIBUTING.md`](./CONTRIBUTING.md) y [`AGENTS.md`](./AGENTS.md). Esto permite que las contribuciones humanas y las asistidas por AI mantengan el mismo contexto, estándares y criterios de revisión.
+
+## Seguridad
+
+Si encuentras una vulnerabilidad, no abras un issue público. Consulta [`SECURITY.md`](./SECURITY.md) para conocer el canal de reporte responsable.
+
+Como producto en beta, todavía no debe asumirse como un sistema completamente auditado para datos sensibles.
 
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
-
-### ¿Qué significa esto?
-
-- ✅ Uso comercial y privado
-- ✅ Modificación y distribución
-- ✅ Incluir en proyectos propietarios
-- ❗ Incluir aviso de copyright
-- ❗ Incluir la licencia MIT
+Basket Places está disponible bajo licencia MIT. Ver [`LICENSE`](./LICENSE).
