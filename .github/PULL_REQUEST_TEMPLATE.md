@@ -1,5 +1,7 @@
 ## Summary
 
+> Target branch: `development`. Do not open pull requests directly against `main`.
+
 <!-- One sentence describing what this PR does -->
 
 ## Related Issue
@@ -48,11 +50,12 @@ Closes #
 
 - [ ] Commits follow [Conventional Commits](https://www.conventionalcommits.org/)
 - [ ] `npm run lint` passes
+- [ ] `npm run typecheck` passes
 - [ ] `npm run build` passes
 - [ ] Followed the conventions in the relevant AGENTS.md
 - [ ] No unrelated changes included (refactors, formatting, etc.)
-- [ ] Error handling uses `handleServiceError()` in Server Actions
-- [ ] User-facing errors use `showErrorToast()` / `showSuccessToast()`
+- [ ] If applicable, Server Actions use `handleServiceError()`
+- [ ] If applicable, user-facing actions use `showErrorToast()` / `showSuccessToast()`
 
 ## Screenshots (if UI changes)
 
