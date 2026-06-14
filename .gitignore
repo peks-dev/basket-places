@@ -49,3 +49,6 @@ next-env.d.ts
 
 
 certificates
+
+# Graphify local cache (generated)
+graphify-out/cache/

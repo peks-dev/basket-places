@@ -1,0 +1,30 @@
+# Dependencias Web / JavaScript
+node_modules/
+dist/
+build/
+.next/
+
+# Entornos Python
+.venv/
+venv/
+env/
+__pycache__/
+.env.local
+
+# Datos pesados o muestras locales que no deben entrar al grafo
+dataset/
+raw_images/
+test_scans/
+score_sheets_samples/
+
+# Carpetas de estado propias de las herramientas de IA
+graphify-out/
+.engram/
+.claude/
+.devin/
+.agents/
+.vscode/
+
+# Archivos compilados o exportados
+*.pdf
+*.csv
