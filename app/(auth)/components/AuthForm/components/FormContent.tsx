@@ -13,6 +13,7 @@ interface FormContentProps {
   otp: string;
   loading: boolean;
   timeLeft: number;
+  resendCooldown: number;
   onEmailChange: (email: string) => void;
   onOtpChange: (value: string) => void;
   onSendOTP: (e: React.FormEvent) => void;
@@ -27,6 +28,7 @@ export const FormContent = ({
   otp,
   loading,
   timeLeft,
+  resendCooldown,
   onEmailChange,
   onOtpChange,
   onSendOTP,
@@ -144,6 +146,7 @@ export const FormContent = ({
                       onSubmit={onVerifyOTP}
                       onResendCode={onResendCode}
                       timeLeft={timeLeft}
+                      resendCooldown={resendCooldown}
                     />
                   </motion.div>
                 )}

@@ -21,6 +21,7 @@ export default function AuthForm() {
     handleEmailChange,
     handleOtpChange,
     timeLeft,
+    resendCooldown,
   } = useAuthFlow();
 
   const [contentRef, contentHeight] = useMeasure();
@@ -63,6 +64,7 @@ export default function AuthForm() {
             otp={otp}
             loading={loading}
             timeLeft={timeLeft}
+            resendCooldown={resendCooldown}
             onEmailChange={onEmailChangeAdapter}
             onOtpChange={handleOtpChange}
             onSendOTP={onSendOTPAdapter}
