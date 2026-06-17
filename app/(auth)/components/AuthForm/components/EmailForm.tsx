@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Button from '@/app/components/ui/Button';
 import Input from '@/app/components/ui/inputs/Text';
 
@@ -50,9 +51,15 @@ export default function EmailForm({
           disabled={loading}
         />
         <p className="text-foreground text-center text-xs">
-          Al entrar, aceptas los{' '}
-          <a className="font-bold underline"> términos </a>y la
-          <a className="font-bold underline"> política de privacidad</a>.
+          Al entrar, aceptas las{' '}
+          <Link href="/condiciones" className="font-bold underline">
+            condiciones
+          </Link>{' '}
+          y la{' '}
+          <Link href="/privacidad" className="font-bold underline">
+            política de privacidad
+          </Link>
+          .
         </p>
         <Button type="submit" disabled={loading || !email}>
           {loading ? 'Enviando...' : 'Enviar código de acceso'}
