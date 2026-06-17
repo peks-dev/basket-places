@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "app/(auth)/components/AuthForm/components/CodeVerificationForm.tsx": {
-    "mtime": 1766019278.5374646,
-    "ast_hash": "e7d0c77f35d3c99a4ae5e904a88db67c",
+    "mtime": 1781678781.4612734,
+    "ast_hash": "fa73c2164a2c7056001535df7cc69315",
     "semantic_hash": ""
   },
   "app/(auth)/components/AuthForm/components/EmailForm.tsx": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "app/(auth)/components/AuthForm/components/FormContent.tsx": {
-    "mtime": 1781074512.6652548,
-    "ast_hash": "0f09143bce1437168566a1438db38748",
+    "mtime": 1781678676.3145726,
+    "ast_hash": "b1f2d1af874cc02894230797c927abd8",
     "semantic_hash": ""
   },
   "app/(auth)/components/AuthForm/hooks/useMatrixEffect.ts": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "app/(auth)/components/AuthForm/index.tsx": {
-    "mtime": 1781074512.6652548,
-    "ast_hash": "7222bbc05fa5e1dd73ad056904d47e83",
+    "mtime": 1781678600.7214916,
+    "ast_hash": "bb87453128f2f35cd462a4b4211371e3",
     "semantic_hash": ""
   },
   "app/(auth)/components/AuthForm/utils/animations.ts": {
@@ -130,8 +130,8 @@
     "semantic_hash": ""
   },
   "app/(auth)/hooks/useAuthFlow.tsx": {
-    "mtime": 1781074512.6996465,
-    "ast_hash": "c7b866087924bc1b8a0c08b29ee5476a",
+    "mtime": 1781678585.0856817,
+    "ast_hash": "ee2fd21663f868304ccf84b99d425f47",
     "semantic_hash": ""
   },
   "app/(auth)/loading.tsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": ""
   },
   "app/(main)/comunidad/contribuir/schemas/baseSchema.ts": {
-    "mtime": 1766019278.6009016,
-    "ast_hash": "cd2912210960bd9f684d124d3a67e033",
+    "mtime": 1781678372.6532643,
+    "ast_hash": "dc3d44e6f8ef177e9b1d2a020932ee21",
     "semantic_hash": ""
   },
   "app/(main)/comunidad/contribuir/schemas/registerCommunitySchema.ts": {
@@ -1640,7 +1640,7 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1781479253.392099,
+    "mtime": 1781671720.0104568,
     "ast_hash": "9ff207ba1ddfee7c9a6364075139dc04",
     "semantic_hash": ""
   },
@@ -1670,7 +1670,7 @@
     "semantic_hash": ""
   },
   ".github/ISSUE_TEMPLATE/bug.md": {
-    "mtime": 1781479253.3876696,
+    "mtime": 1781671720.0039349,
     "ast_hash": "1df648789b8acd58e040a0edd9cce297",
     "semantic_hash": ""
   },
@@ -1680,17 +1680,17 @@
     "semantic_hash": ""
   },
   ".github/PULL_REQUEST_TEMPLATE.md": {
-    "mtime": 1781479253.3878736,
+    "mtime": 1781671720.0056162,
     "ast_hash": "7e43414eafdd6b0b37df16ce0a94afec",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1781479253.38823,
+    "mtime": 1781671720.0059347,
     "ast_hash": "6906a45547b63cae45e7838a65c69ce6",
     "semantic_hash": ""
   },
   "CONTRIBUTING.md": {
-    "mtime": 1781479253.3883245,
+    "mtime": 1781671720.007067,
     "ast_hash": "7255a41cd0c3b1115e8886dce8f4af80",
     "semantic_hash": ""
   },
@@ -1820,17 +1820,17 @@
     "semantic_hash": ""
   },
   ".github/ISSUE_TEMPLATE/config.yml": {
-    "mtime": 1781479253.387727,
+    "mtime": 1781671720.0039349,
     "ast_hash": "74c7aebcc7755d1241890df4fd87c662",
     "semantic_hash": ""
   },
   ".github/ISSUE_TEMPLATE/question.md": {
-    "mtime": 1781479253.3877797,
+    "mtime": 1781671720.0049348,
     "ast_hash": "2c71468ee223c1b532651222fea0ea0c",
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1781479253.3879557,
+    "mtime": 1781671720.005665,
     "ast_hash": "5d34db5a61adbb89af4539567e15be16",
     "semantic_hash": ""
   },
@@ -1840,43 +1840,48 @@
     "semantic_hash": ""
   },
   "supabase/migrations/000_baseline_schema.sql": {
-    "mtime": 1781669428.8557596,
+    "mtime": 1781671720.0107439,
     "ast_hash": "7c2b40c11599f6f57593dd14f479ec37",
     "semantic_hash": ""
   },
   "supabase/migrations/002_harden_security_definer_functions.sql": {
-    "mtime": 1781669428.8558798,
+    "mtime": 1781671720.0110705,
     "ast_hash": "4486e36c273a6faa5093cc719f4a765c",
     "semantic_hash": ""
   },
   "supabase/migrations/003_add_profiles_insert_policy.sql": {
-    "mtime": 1781669428.8558798,
+    "mtime": 1781671720.0111723,
     "ast_hash": "720ed7545d77d442f996ef0bb677cf86",
     "semantic_hash": ""
   },
   "supabase/migrations/004_optimize_communities_rls_initplan.sql": {
-    "mtime": 1781669428.8559864,
+    "mtime": 1781671720.0112321,
     "ast_hash": "2f0c4d0a5f3e7df6f2996a2418aa8888",
     "semantic_hash": ""
   },
   "supabase/migrations/005_restrict_public_bucket_listing.sql": {
-    "mtime": 1781669428.8559864,
+    "mtime": 1781671720.0112321,
     "ast_hash": "2898f97eeca9195a46c9166c561499ce",
     "semantic_hash": ""
   },
   "supabase/migrations/006_add_reviews_community_fk.sql": {
-    "mtime": 1781669428.8561072,
+    "mtime": 1781671720.0112321,
     "ast_hash": "b7e1a1581f145b66d1d174251598b17b",
     "semantic_hash": ""
   },
   "scripts/git-hooks/pre-commit": {
-    "mtime": 1781671535.6961348,
+    "mtime": 1781671720.0106225,
     "ast_hash": "9ebbf397371371cabb6c46e8c1a0a1ff",
     "semantic_hash": ""
   },
   "docs/graphify.md": {
-    "mtime": 1781671373.146053,
+    "mtime": 1781671720.0071685,
     "ast_hash": "382dfc66d7330c5942412633e1327066",
+    "semantic_hash": ""
+  },
+  "docs/moderation.md": {
+    "mtime": 1781679695.866975,
+    "ast_hash": "ac58ec73bbed3757f9d38bd24a7c754a",
     "semantic_hash": ""
   }
 }

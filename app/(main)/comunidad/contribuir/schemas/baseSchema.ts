@@ -1,4 +1,9 @@
 import * as z from 'zod';
+import { IMAGE_CONSTRAINTS } from '@/lib/constants/imageConstraints';
+
+const MAX_IMAGE_SIZE_MB = Math.round(
+  IMAGE_CONSTRAINTS.MAX_INPUT_SIZE / (1024 * 1024)
+);
 
 // Schema para coordenadas
 export const coordinatesSchema = z
@@ -44,8 +49,26 @@ export const categorySchema = z.object({
     .min(1, 'Debe seleccionar al menos un género'),
 });
 
+// Validación de archivos subidos (anti-abuso): tamaño y tipo MIME permitidos.
+// Las URLs ya almacenadas en storage se aceptan sin re-validar.
+const uploadedFileSchema = z
+  .instanceof(File)
+  .refine((file) => file.size > 0, {
+    message: 'El archivo no puede estar vacío',
+  })
+  .refine((file) => file.size <= IMAGE_CONSTRAINTS.MAX_INPUT_SIZE, {
+    message: `La imagen es demasiado grande (máximo ${MAX_IMAGE_SIZE_MB}MB)`,
+  })
+  .refine(
+    (file) =>
+      (IMAGE_CONSTRAINTS.ALLOWED_TYPES as readonly string[]).includes(
+        file.type
+      ),
+    { message: 'Formato inválido. Solo se permiten JPEG, PNG o WebP' }
+  );
+
 // Schema flexible para imágenes (File o string) - EXPORTADO para updateCommunitySchema
 export const imageSchema = z.union([
-  z.instanceof(File),
+  uploadedFileSchema,
   z.string().url('URL de imagen inválida'),
 ]);

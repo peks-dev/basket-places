@@ -24,6 +24,10 @@ type AuthState =
   | 'error'
   | 'expired';
 
+// Anti-abuso: ventana mínima entre solicitudes de código OTP desde el cliente.
+// Reduce el volumen de correos y complementa el rate limit de Supabase Auth.
+const RESEND_COOLDOWN_SECONDS = 60;
+
 export const useAuthFlow = () => {
   const [state, setState] = useState<AuthState>('idle');
   const [email, setEmail] = useState('');
@@ -33,6 +37,10 @@ export const useAuthFlow = () => {
   // Timer state (integrated from useAuthTimer)
   const [timeLeft, setTimeLeft] = useState(600);
   const timerId = useRef<NodeJS.Timeout | null>(null);
+
+  // Resend cooldown state (anti-abuso OTP)
+  const [resendCooldown, setResendCooldown] = useState(0);
+  const cooldownId = useRef<NodeJS.Timeout | null>(null);
 
   const { navigate } = useCustomNavigation();
   const searchParams = useSearchParams();
@@ -47,8 +55,27 @@ export const useAuthFlow = () => {
       if (timerId.current) {
         clearInterval(timerId.current);
       }
+      if (cooldownId.current) {
+        clearInterval(cooldownId.current);
+      }
     };
   }, []);
+
+  // Inicia/reinicia el cooldown de reenvío de código OTP.
+  const startResendCooldown = () => {
+    if (cooldownId.current) clearInterval(cooldownId.current);
+    setResendCooldown(RESEND_COOLDOWN_SECONDS);
+
+    cooldownId.current = setInterval(() => {
+      setResendCooldown((prev) => {
+        if (prev <= 1) {
+          if (cooldownId.current) clearInterval(cooldownId.current);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
 
   const sendOTP = async (isResend = false): Promise<boolean> => {
     setLoading(true);
@@ -193,6 +220,7 @@ export const useAuthFlow = () => {
     if (success) {
       resetTimer(600);
       startTimer(() => setExpired());
+      startResendCooldown();
     }
   };
 
@@ -205,10 +233,14 @@ export const useAuthFlow = () => {
   };
 
   const handleResendCode = async () => {
+    // Guard anti-abuso: ignorar reenvíos mientras el cooldown esté activo.
+    if (resendCooldown > 0 || loading) return;
+
     const success = await sendOTP(true);
     if (success) {
       resetTimer(600);
       startTimer(() => setExpired());
+      startResendCooldown();
     }
   };
 
@@ -224,6 +256,7 @@ export const useAuthFlow = () => {
     otp,
     loading,
     timeLeft,
+    resendCooldown,
 
     // Main handlers
     handleSendOTP,

@@ -10,6 +10,7 @@ interface CodeVerificationFormProps {
   onSubmit: (e?: React.FormEvent) => void;
   onResendCode: () => void;
   timeLeft: number;
+  resendCooldown: number;
 }
 
 export default function CodeVerificationForm({
@@ -19,6 +20,7 @@ export default function CodeVerificationForm({
   onSubmit,
   onResendCode,
   timeLeft,
+  resendCooldown,
 }: CodeVerificationFormProps) {
   useEffect(() => {
     if (otp.length === 6 && !loading) {
@@ -53,11 +55,13 @@ export default function CodeVerificationForm({
           <OtpInput value={otp} onChange={onOtpChange} maxLength={6} />
           <Button
             onClick={onResendCode}
-            disabled={loading}
+            disabled={loading || resendCooldown > 0}
             variant="secondary"
             className="border-none"
           >
-            Reenviar código
+            {resendCooldown > 0
+              ? `Reenviar código (${resendCooldown}s)`
+              : 'Reenviar código'}
           </Button>
         </div>
       </form>
