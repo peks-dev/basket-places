@@ -1870,8 +1870,8 @@
     "semantic_hash": ""
   },
   "scripts/git-hooks/pre-commit": {
-    "mtime": 1781671383.5958521,
-    "ast_hash": "3571aad08b7c1c707e6b475c88c7da2e",
+    "mtime": 1781671535.6961348,
+    "ast_hash": "9ebbf397371371cabb6c46e8c1a0a1ff",
     "semantic_hash": ""
   },
   "docs/graphify.md": {

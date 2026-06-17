@@ -31,8 +31,10 @@ if [ -z "$_NON_GRAPH" ]; then
 fi
 
 # Detect the correct Python interpreter (uv tool, pipx, venv, system installs).
+# Portable: no machine-specific path baked in. To pin a specific interpreter,
+# export GRAPHIFY_PYTHON before committing (e.g. in your shell profile).
+_PINNED="${GRAPHIFY_PYTHON:-}"
 GRAPHIFY_PYTHON=""
-_PINNED='/home/peks/.local/share/uv/tools/graphifyy/bin/python'
 if [ -n "$_PINNED" ] && [ -x "$_PINNED" ] && "$_PINNED" -c "import graphify" 2>/dev/null; then
     GRAPHIFY_PYTHON="$_PINNED"
 fi
