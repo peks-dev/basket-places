@@ -145,7 +145,7 @@ export const MenuContent = ({
                 </motion.div>
               </motion.div>
 
-              <MenuFooter />
+              <MenuFooter navigateTo={navigateTo} />
             </div>
           </motion.div>
         </motion.div>

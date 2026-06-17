@@ -4,6 +4,8 @@ export const MENU_CONSTANTS = {
   NAVIGATION: {
     MAP: '/',
     PROFILE: '/perfil',
+    TERMS: '/condiciones',
+    PRIVACY: '/privacidad',
   },
   THEME_LABELS: {
     DARK_TO_LIGHT: 'Cambiar a modo claro',
