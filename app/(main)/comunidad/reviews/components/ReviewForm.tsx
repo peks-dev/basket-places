@@ -4,7 +4,8 @@ import { useReviewFormStore } from '../stores/useReviewStore';
 import { useEffect } from 'react';
 
 export default function ReviewForm() {
-  const { comment, setComment, setRating, reset } = useReviewFormStore();
+  const { comment, setComment, rating, setRating, reset } =
+    useReviewFormStore();
   const ratingOptions = [
     { value: 1, label: '1 estrella' },
     { value: 2, label: '2 estrellas' },
@@ -23,6 +24,7 @@ export default function ReviewForm() {
     <form className="form-container flex h-full w-full flex-col gap-8">
       <InputSelector
         options={ratingOptions}
+        value={rating ? String(rating) : undefined}
         onChange={(value) => setRating(Number(value))}
       />
       <Textarea
