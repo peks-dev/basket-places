@@ -30,20 +30,24 @@ export default function CommunitiesScrollList({
     }
   }, [initialItems, setCommunities]);
 
-  // Actualizar cuando initialItems cambie
+  // Sincronizar solo cuando el servidor envía nuevos initialItems (un nuevo
+  // render del Server Component). No se incluye `communities` en las deps a
+  // propósito: hacerlo provocaba que una mutación local del store (p. ej.
+  // eliminar una comunidad de forma optimista) re-disparara este efecto y
+  // restaurara el snapshot stale del servidor, deshaciendo la eliminación.
+  // Se lee el estado actual con getState() solo para evitar sets redundantes.
   useEffect(() => {
     if (isInitializedRef.current && initialItems.length > 0) {
+      const current = useCommunitiesProfileStore.getState().communities;
       const hasChanged =
-        communities.length !== initialItems.length ||
-        !initialItems.every(
-          (item, index) => item.id === communities[index]?.id
-        );
+        current.length !== initialItems.length ||
+        !initialItems.every((item, index) => item.id === current[index]?.id);
 
       if (hasChanged) {
         setCommunities(initialItems);
       }
     }
-  }, [initialItems, communities, setCommunities]);
+  }, [initialItems, setCommunities]);
 
   useEffect(() => {
     cardsRef.current = cardsRef.current.slice(0, communities.length);
