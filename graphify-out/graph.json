@@ -4,14 +4,44 @@
   "graph": {},
   "nodes": [
     {
+      "label": "useContributionForm.ts",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "hooks_usecontributionform",
+      "community": 4,
+      "norm_label": "usecontributionform.ts"
+    },
+    {
+      "label": "UseContributionFormProps",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "hooks_usecontributionform_usecontributionformprops",
+      "community": 4,
+      "norm_label": "usecontributionformprops"
+    },
+    {
+      "label": "useContributionForm()",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "hooks_usecontributionform_usecontributionform",
+      "community": 4,
+      "norm_label": "usecontributionform()"
+    },
+    {
       "label": "NavigationControls.tsx",
       "file_type": "code",
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "components_navigationcontrols",
       "community": 49,
-      "norm_label": "navigationcontrols.tsx"
+      "norm_label": "navigationcontrols.tsx",
+      "id": "components_navigationcontrols"
     },
     {
       "label": "Props",
@@ -19,9 +49,9 @@
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "components_navigationcontrols_props",
       "community": 49,
-      "norm_label": "props"
+      "norm_label": "props",
+      "id": "components_navigationcontrols_props"
     },
     {
       "label": "NavigationControls()",
@@ -29,9 +59,9 @@
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "components_navigationcontrols_navigationcontrols",
       "community": 49,
-      "norm_label": "navigationcontrols()"
+      "norm_label": "navigationcontrols()",
+      "id": "components_navigationcontrols_navigationcontrols"
     },
     {
       "label": "index.tsx",
@@ -39,9 +69,9 @@
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "contributionform_index",
       "community": 4,
-      "norm_label": "index.tsx"
+      "norm_label": "index.tsx",
+      "id": "contributionform_index"
     },
     {
       "label": "Props",
@@ -49,9 +79,9 @@
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "contributionform_index_props",
       "community": 4,
-      "norm_label": "props"
+      "norm_label": "props",
+      "id": "contributionform_index_props"
     },
     {
       "label": "ContributionForm()",
@@ -59,9 +89,9 @@
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "contributionform_index_contributionform",
       "community": 4,
-      "norm_label": "contributionform()"
+      "norm_label": "contributionform()",
+      "id": "contributionform_index_contributionform"
     },
     {
       "label": "EmailForm.tsx",
@@ -2898,36 +2928,6 @@
       "community": 0,
       "norm_label": "editcontributionpage()",
       "id": "id_page_editcontributionpage"
-    },
-    {
-      "label": "useContributionForm.ts",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "usecontributionform.ts",
-      "id": "hooks_usecontributionform"
-    },
-    {
-      "label": "UseContributionFormProps",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "usecontributionformprops",
-      "id": "hooks_usecontributionform_usecontributionformprops"
-    },
-    {
-      "label": "useContributionForm()",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "usecontributionform()",
-      "id": "hooks_usecontributionform_usecontributionform"
     },
     {
       "label": "page.tsx",
@@ -14222,6 +14222,246 @@
   ],
   "links": [
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "hooks_usecontributionform"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "action_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "action_registercommunity_registercommunity"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "action_updatecommunity_updatecommunity"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "comunidad_types_communityformdata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "hooks_usecontributionform_usecontributionform"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "hooks_usecontributionform_usecontributionformprops"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "hooks_usenavigation"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "hooks_usenavigation_usecustomnavigation"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "images_compressimage"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "images_compressimage_compressimage"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "stores_usecommunitiesprofilestore"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "stores_usecommunitiesprofilestore_usecommunitiesprofilestore"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "stores_usecontributionstore"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "stores_usecontributionstore_usecontributionstore"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_usecontributionform",
+      "target": "stores_usenavigationstore_usenavigationstore"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "hooks_usecontributionform_usecontributionform"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "contributionform_index_contributionform",
+      "target": "hooks_usecontributionform_usecontributionform"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "hooks_usecontributionform_usecontributionform",
+      "target": "hooks_usenavigation_usecustomnavigation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "hooks_usecontributionform_usecontributionform",
+      "target": "stores_usecommunitiesprofilestore_usecommunitiesprofilestore"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "hooks_usecontributionform_usecontributionform",
+      "target": "stores_usecontributionstore_usecontributionstore"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "hooks_usecontributionform_usecontributionform",
+      "target": "stores_usenavigationstore_usenavigationstore"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
@@ -14464,28 +14704,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "hooks_usecontributionform"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "hooks_usecontributionform_usecontributionform"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
       "source_location": "L7",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -14524,17 +14742,6 @@
       "confidence_score": 1.0,
       "source": "contributionform_index",
       "target": "ui_loadingspinner_loadingspinner"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "contributionform_index_contributionform",
-      "target": "hooks_usecontributionform_usecontributionform"
     },
     {
       "relation": "contains",
@@ -21343,17 +21550,6 @@
       "target": "action_updatecommunity_updatecommunity"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "action_index"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/comunidad/contribuir/action/registerCommunity.ts",
@@ -21716,17 +21912,6 @@
       "target": "utils_ratelimit_checkratelimit"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "action_registercommunity_registercommunity"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/comunidad/contribuir/action/updateCommunity.ts",
@@ -22076,17 +22261,6 @@
       "weight": 1.0,
       "source": "action_updatecommunity_updatecommunity",
       "target": "utils_imagesplitter_separatenewandexistingimages"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "action_updatecommunity_updatecommunity"
     },
     {
       "relation": "contains",
@@ -23994,180 +24168,6 @@
       "weight": 1.0,
       "source": "id_page_editcontributionpage",
       "target": "comunidad_transformers_transformresponsetoformdata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "comunidad_types_communityformdata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "hooks_usecontributionform_usecontributionform"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "hooks_usecontributionform_usecontributionformprops"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "hooks_usenavigation"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "hooks_usenavigation_usecustomnavigation"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "images_compressimage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "images_compressimage_compressimage"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "stores_usecommunitiesprofilestore"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "stores_usecommunitiesprofilestore_usecommunitiesprofilestore"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "stores_usecontributionstore"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "stores_usecontributionstore_usecontributionstore"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hooks_usecontributionform",
-      "target": "stores_usenavigationstore_usenavigationstore"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "hooks_usecontributionform_usecontributionform",
-      "target": "hooks_usenavigation_usecustomnavigation"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "hooks_usecontributionform_usecontributionform",
-      "target": "stores_usecommunitiesprofilestore_usecommunitiesprofilestore"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "hooks_usecontributionform_usecontributionform",
-      "target": "stores_usecontributionstore_usecontributionstore"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "hooks_usecontributionform_usecontributionform",
-      "target": "stores_usenavigationstore_usenavigationstore"
     },
     {
       "relation": "contains",
@@ -41775,5 +41775,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "492a7e33e511575103e5a370ec3b6c1a32f5814d"
+  "built_at_commit": "fe9c0404b8010a602d3cd07a19d7b6a8a1ef1fd7"
 }
