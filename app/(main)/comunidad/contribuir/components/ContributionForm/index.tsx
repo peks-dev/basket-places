@@ -47,6 +47,7 @@ export default function ContributionForm({ initialData }: Props) {
         nextStep={nextStep}
         currentStep={currentStep}
         isLoading={isLoading}
+        isSuccess={isSuccess}
       />
     </div>
   );

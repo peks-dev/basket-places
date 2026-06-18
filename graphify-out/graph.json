@@ -4,14 +4,74 @@
   "graph": {},
   "nodes": [
     {
+      "label": "NavigationControls.tsx",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_navigationcontrols",
+      "community": 49,
+      "norm_label": "navigationcontrols.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "components_navigationcontrols_props",
+      "community": 49,
+      "norm_label": "props"
+    },
+    {
+      "label": "NavigationControls()",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "components_navigationcontrols_navigationcontrols",
+      "community": 49,
+      "norm_label": "navigationcontrols()"
+    },
+    {
+      "label": "index.tsx",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "contributionform_index",
+      "community": 4,
+      "norm_label": "index.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "contributionform_index_props",
+      "community": 4,
+      "norm_label": "props"
+    },
+    {
+      "label": "ContributionForm()",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "contributionform_index_contributionform",
+      "community": 4,
+      "norm_label": "contributionform()"
+    },
+    {
       "label": "EmailForm.tsx",
       "file_type": "code",
       "source_file": "app/(auth)/components/AuthForm/components/EmailForm.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "components_emailform",
       "community": 11,
-      "norm_label": "emailform.tsx"
+      "norm_label": "emailform.tsx",
+      "id": "components_emailform"
     },
     {
       "label": "EmailFormProps",
@@ -19,9 +79,9 @@
       "source_file": "app/(auth)/components/AuthForm/components/EmailForm.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "components_emailform_emailformprops",
       "community": 11,
-      "norm_label": "emailformprops"
+      "norm_label": "emailformprops",
+      "id": "components_emailform_emailformprops"
     },
     {
       "label": "EmailForm()",
@@ -29,9 +89,9 @@
       "source_file": "app/(auth)/components/AuthForm/components/EmailForm.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "components_emailform_emailform",
       "community": 11,
-      "norm_label": "emailform()"
+      "norm_label": "emailform()",
+      "id": "components_emailform_emailform"
     },
     {
       "label": "MenuContent.tsx",
@@ -39,9 +99,9 @@
       "source_file": "app/(shared)/GlobalMenu/MenuContent.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "globalmenu_menucontent",
       "community": 18,
-      "norm_label": "menucontent.tsx"
+      "norm_label": "menucontent.tsx",
+      "id": "globalmenu_menucontent"
     },
     {
       "label": "MenuContentProps",
@@ -49,9 +109,9 @@
       "source_file": "app/(shared)/GlobalMenu/MenuContent.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "globalmenu_menucontent_menucontentprops",
       "community": 18,
-      "norm_label": "menucontentprops"
+      "norm_label": "menucontentprops",
+      "id": "globalmenu_menucontent_menucontentprops"
     },
     {
       "label": "generateCornerIcons()",
@@ -59,9 +119,9 @@
       "source_file": "app/(shared)/GlobalMenu/MenuContent.tsx",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "globalmenu_menucontent_generatecornericons",
       "community": 18,
-      "norm_label": "generatecornericons()"
+      "norm_label": "generatecornericons()",
+      "id": "globalmenu_menucontent_generatecornericons"
     },
     {
       "label": "MenuContent()",
@@ -69,9 +129,9 @@
       "source_file": "app/(shared)/GlobalMenu/MenuContent.tsx",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "globalmenu_menucontent_menucontent",
       "community": 18,
-      "norm_label": "menucontent()"
+      "norm_label": "menucontent()",
+      "id": "globalmenu_menucontent_menucontent"
     },
     {
       "label": "MenuFooter.tsx",
@@ -79,9 +139,9 @@
       "source_file": "app/(shared)/GlobalMenu/components/sections/MenuFooter.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "sections_menufooter",
       "community": 18,
-      "norm_label": "menufooter.tsx"
+      "norm_label": "menufooter.tsx",
+      "id": "sections_menufooter"
     },
     {
       "label": "MenuFooterProps",
@@ -89,9 +149,9 @@
       "source_file": "app/(shared)/GlobalMenu/components/sections/MenuFooter.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "sections_menufooter_menufooterprops",
       "community": 18,
-      "norm_label": "menufooterprops"
+      "norm_label": "menufooterprops",
+      "id": "sections_menufooter_menufooterprops"
     },
     {
       "label": "MenuFooter()",
@@ -99,9 +159,9 @@
       "source_file": "app/(shared)/GlobalMenu/components/sections/MenuFooter.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "sections_menufooter_menufooter",
       "community": 18,
-      "norm_label": "menufooter()"
+      "norm_label": "menufooter()",
+      "id": "sections_menufooter_menufooter"
     },
     {
       "label": "menuConstants.ts",
@@ -109,9 +169,9 @@
       "source_file": "app/(shared)/GlobalMenu/constants/menuConstants.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "constants_menuconstants",
       "community": 18,
-      "norm_label": "menuconstants.ts"
+      "norm_label": "menuconstants.ts",
+      "id": "constants_menuconstants"
     },
     {
       "label": "MENU_CONSTANTS",
@@ -119,9 +179,9 @@
       "source_file": "app/(shared)/GlobalMenu/constants/menuConstants.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "constants_menuconstants_menu_constants",
       "community": 18,
-      "norm_label": "menu_constants"
+      "norm_label": "menu_constants",
+      "id": "constants_menuconstants_menu_constants"
     },
     {
       "label": "ThemeMode",
@@ -129,9 +189,9 @@
       "source_file": "app/(shared)/GlobalMenu/constants/menuConstants.ts",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "constants_menuconstants_thememode",
       "community": 18,
-      "norm_label": "thememode"
+      "norm_label": "thememode",
+      "id": "constants_menuconstants_thememode"
     },
     {
       "label": "CornerPosition",
@@ -139,9 +199,9 @@
       "source_file": "app/(shared)/GlobalMenu/constants/menuConstants.ts",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "constants_menuconstants_cornerposition",
       "community": 18,
-      "norm_label": "cornerposition"
+      "norm_label": "cornerposition",
+      "id": "constants_menuconstants_cornerposition"
     },
     {
       "label": "page.tsx",
@@ -2210,36 +2270,6 @@
       "id": "action_updatecommunity_updatecommunity"
     },
     {
-      "label": "NavigationControls.tsx",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 49,
-      "norm_label": "navigationcontrols.tsx",
-      "id": "components_navigationcontrols"
-    },
-    {
-      "label": "Props",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L8",
-      "_origin": "ast",
-      "community": 49,
-      "norm_label": "props",
-      "id": "components_navigationcontrols_props"
-    },
-    {
-      "label": "NavigationControls()",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 49,
-      "norm_label": "navigationcontrols()",
-      "id": "components_navigationcontrols_navigationcontrols"
-    },
-    {
       "label": "StepHelp.tsx",
       "file_type": "code",
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/StepHelp.tsx",
@@ -2838,36 +2868,6 @@
       "community": 9,
       "norm_label": "typestep()",
       "id": "steps_typestep_typestep"
-    },
-    {
-      "label": "index.tsx",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "index.tsx",
-      "id": "contributionform_index"
-    },
-    {
-      "label": "Props",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "props",
-      "id": "contributionform_index_props"
-    },
-    {
-      "label": "ContributionForm()",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "contributionform()",
-      "id": "contributionform_index_contributionform"
     },
     {
       "label": "page.tsx",
@@ -14224,6 +14224,321 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "components_navigationcontrols_navigationcontrols"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "components_navigationcontrols_props"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "hooks_usenavigation"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "hooks_usenavigation_usecustomnavigation"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "modal_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "modal_modalstore_usemodalstore"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "svgs_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "svgs_sendicon_sendicon"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "svgs_triangleicon_triangleicon"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_navigationcontrols",
+      "target": "ui_button"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "components_navigationcontrols"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "components_navigationcontrols_navigationcontrols",
+      "target": "hooks_usenavigation_usecustomnavigation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "components_navigationcontrols_navigationcontrols",
+      "target": "modal_modalstore_usemodalstore"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "components_navigationcontrols_navigationcontrols"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contribuir_page",
+      "target": "contributionform_index"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "components_stepindicator"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "components_stepindicator_stepindicator"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "components_steprenderer"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "components_steprenderer_steprenderer"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "comunidad_types_communityformdata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "contributionform_index_contributionform"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "contributionform_index_props"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "hooks_usecontributionform"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "hooks_usecontributionform_usecontributionform"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "steps_redirectionstep"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "steps_redirectionstep_redirectionstep"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "ui_loadingspinner"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "contributionform_index",
+      "target": "ui_loadingspinner_loadingspinner"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "contributionform_index_contributionform",
+      "target": "hooks_usecontributionform_usecontributionform"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/(auth)/components/AuthForm/components/EmailForm.tsx",
       "source_location": "L14",
       "weight": 1.0,
@@ -14520,9 +14835,9 @@
       "source_file": "app/(shared)/GlobalMenu/components/sections/MenuFooter.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sections_menufooter",
-      "target": "constants_menuconstants",
-      "confidence_score": 1.0
+      "target": "constants_menuconstants"
     },
     {
       "relation": "imports",
@@ -14531,9 +14846,9 @@
       "source_file": "app/(shared)/GlobalMenu/components/sections/MenuFooter.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sections_menufooter",
-      "target": "constants_menuconstants_menu_constants",
-      "confidence_score": 1.0
+      "target": "constants_menuconstants_menu_constants"
     },
     {
       "relation": "contains",
@@ -14551,9 +14866,9 @@
       "source_file": "app/(shared)/GlobalMenu/components/sections/MenuFooter.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sections_menufooter",
-      "target": "sections_menufooter_menufooterprops",
-      "confidence_score": 1.0
+      "target": "sections_menufooter_menufooterprops"
     },
     {
       "relation": "re_exports",
@@ -21776,158 +22091,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "components_navigationcontrols_navigationcontrols"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "components_navigationcontrols_props"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "hooks_usenavigation"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "hooks_usenavigation_usecustomnavigation"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "modal_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "modal_modalstore_usemodalstore"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "svgs_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "svgs_sendicon_sendicon"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "svgs_triangleicon_triangleicon"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_navigationcontrols",
-      "target": "ui_button"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "components_navigationcontrols"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "components_navigationcontrols_navigationcontrols",
-      "target": "hooks_usenavigation_usecustomnavigation"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "components_navigationcontrols_navigationcontrols",
-      "target": "modal_modalstore_usemodalstore"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "components_navigationcontrols_navigationcontrols"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/StepHelp.tsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -22196,17 +22359,6 @@
       "target": "stores_usenavigationstore_usenavigationstore"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "components_stepindicator"
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -22216,17 +22368,6 @@
       "weight": 1.0,
       "source": "components_stepindicator_stepindicator",
       "target": "stores_usenavigationstore_usenavigationstore"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "components_stepindicator_stepindicator"
     },
     {
       "relation": "contains",
@@ -22368,28 +22509,6 @@
       "confidence_score": 1.0,
       "source": "components_steprenderer",
       "target": "steps_typestep_typestep"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "components_steprenderer"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "components_steprenderer_steprenderer"
     },
     {
       "relation": "contains",
@@ -23407,17 +23526,6 @@
       "target": "stores_usecontributionstore_usecontributionstore"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "steps_redirectionstep"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/components/steps/RedirectionStep.tsx",
@@ -23448,17 +23556,6 @@
       "confidence_score": 1.0,
       "source": "steps_redirectionstep",
       "target": "svgs_successicon_successicon"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "steps_redirectionstep_redirectionstep"
     },
     {
       "relation": "contains",
@@ -23811,103 +23908,6 @@
       "weight": 1.0,
       "source": "steps_typestep_typestep",
       "target": "stores_usecontributionstore_usecontributionstore"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contribuir_page",
-      "target": "contributionform_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "comunidad_types_communityformdata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "contributionform_index_contributionform"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "contributionform_index_props"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "hooks_usecontributionform"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "hooks_usecontributionform_usecontributionform"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "ui_loadingspinner"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "contributionform_index",
-      "target": "ui_loadingspinner_loadingspinner"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "contributionform_index_contributionform",
-      "target": "hooks_usecontributionform_usecontributionform"
     },
     {
       "relation": "contains",
@@ -41775,5 +41775,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0f886638cdb469b6d7f54f8a129559bb267c9ea2"
+  "built_at_commit": "492a7e33e511575103e5a370ec3b6c1a32f5814d"
 }

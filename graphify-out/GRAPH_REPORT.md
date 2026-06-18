@@ -1,7 +1,7 @@
 # Graph Report - basket-places  (2026-06-17)
 
 ## Corpus Check
-- 370 files · ~149,300 words
+- 370 files · ~149,359 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0f886638`
+- Built from commit: `492a7e33`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -113,6 +113,8 @@
 10. `compilerOptions` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `NavigationControls()` --calls--> `useCustomNavigation()`  [EXTRACTED]
+  app/(main)/comunidad/contribuir/components/ContributionForm/components/NavigationControls.tsx → lib/hooks/useNavigation.ts
 - `useAuthFlow()` --calls--> `useCustomNavigation()`  [EXTRACTED]
   app/(auth)/hooks/useAuthFlow.tsx → lib/hooks/useNavigation.ts
 - `useAuthFlow()` --calls--> `useUIStateStore`  [EXTRACTED]
@@ -121,8 +123,6 @@
   app/(auth)/components/AuthProvider.tsx → lib/hooks/useNavigation.ts
 - `ProtectedWrapper()` --calls--> `useCustomNavigation()`  [EXTRACTED]
   app/(auth)/components/ProtectedWrapper.tsx → lib/hooks/useNavigation.ts
-- `sendLoginCode()` --calls--> `fromSupabaseError()`  [EXTRACTED]
-  app/(auth)/database/dbQueries.browser.ts → lib/errors/database.ts
 
 ## Import Cycles
 - None detected.
@@ -374,20 +374,20 @@ Cohesion: 0.33
 Nodes (5): Graphify: grafo de código precomputado, Política de sincronización: hook `pre-commit` (no `post-commit`), Qué se versiona, Regenerar el grafo manualmente, Setup en un clon nuevo
 
 ## Knowledge Gaps
-- **522 isolated node(s):** `EmailFormProps`, `MenuContentProps`, `MenuFooterProps`, `CornerPosition`, `metadata` (+517 more)
+- **522 isolated node(s):** `Props`, `Props`, `EmailFormProps`, `MenuContentProps`, `MenuFooterProps` (+517 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Coordinates` connect `Community 25` to `Community 0`, `Community 2`, `Community 77`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
 - **Why does `CommunityFullResponse` connect `Community 0` to `Community 50`, `Community 77`, `Community 87`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Why does `Coordinates` connect `Community 25` to `Community 0`, `Community 2`, `Community 77`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Why does `useCustomNavigation()` connect `Community 29` to `Community 3`, `Community 4`, `Community 68`, `Community 6`, `Community 41`, `Community 12`, `Community 49`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
-- **What connects `EmailFormProps`, `MenuContentProps`, `MenuFooterProps` to the rest of the system?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+- **What connects `Props`, `Props`, `EmailFormProps` to the rest of the system?**
   _522 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05896774193548387 - nodes in this community are weakly interconnected._
