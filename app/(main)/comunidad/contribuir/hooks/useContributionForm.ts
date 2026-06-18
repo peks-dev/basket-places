@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useCustomNavigation } from '@/lib/hooks/useNavigation';
 import { useNavigationStore } from '../stores/useNavigationStore';
 import { useContributionStore } from '../stores/useContributionStore';
 import { useCommunitiesProfileStore } from '@/app/(main)/perfil/stores/useCommunitiesProfileStore';
@@ -16,7 +15,6 @@ interface UseContributionFormProps {
 export function useContributionForm({
   initialData,
 }: UseContributionFormProps = {}) {
-  const { navigate } = useCustomNavigation();
   const { currentStep, nextStep, prevStep, resetToStart } =
     useNavigationStore();
   const { reset, setFormData, getFormData } = useContributionStore();
@@ -96,8 +94,12 @@ export function useContributionForm({
       );
       setIsSuccess(true);
 
-      // 7. Navegar a la página de detalles de la comunidad
-      navigate(`/comunidad/ver/${result.data.id}`);
+      // 7. Navegar a la página de detalles de la comunidad.
+      // Se usa navegación dura (full load) a propósito: una navegación soft
+      // (router.push) sería capturada por la ruta interceptora
+      // `@panel/(.)comunidad/ver/[id]`, mostrando la comunidad como panel
+      // overlay con el formulario detrás en lugar de la página completa.
+      window.location.assign(`/comunidad/ver/${result.data.id}`);
     } catch {
       // Errores inesperados (no deberían llegar aquí si Actions manejan todo)
       showErrorToast('algo inesperado sucedio');

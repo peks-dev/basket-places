@@ -10,6 +10,7 @@ interface Props {
   nextStep: () => void;
   currentStep: number;
   isLoading: boolean;
+  isSuccess: boolean;
 }
 
 export default function NavigationControls({
@@ -17,7 +18,10 @@ export default function NavigationControls({
   nextStep,
   currentStep,
   isLoading,
+  isSuccess,
 }: Props) {
+  // Bloquear navegación mientras se envía el formulario o se redirige
+  const isSubmitting = isLoading || isSuccess;
   // close form logic
   const { navigate } = useCustomNavigation();
   const { openModal } = useModalStore();
@@ -47,14 +51,24 @@ export default function NavigationControls({
       }}
       className="bg-background-secondary-dark flex items-center justify-between p-3"
     >
-      <Button variant="icon" onClick={prevStep}>
+      <Button variant="icon" onClick={prevStep} disabled={isSubmitting}>
         <TriangleIcon />
       </Button>
-      <Button variant="icon" onClick={handleCloseForm} size="xsm">
+      <Button
+        variant="icon"
+        onClick={handleCloseForm}
+        size="xsm"
+        disabled={isSubmitting}
+      >
         <CloseIcon />
       </Button>
       {currentStep <= 6 && (
-        <Button variant="icon" onClick={nextStep} className="rotate-180">
+        <Button
+          variant="icon"
+          onClick={nextStep}
+          className="rotate-180"
+          disabled={isSubmitting}
+        >
           <TriangleIcon />
         </Button>
       )}
