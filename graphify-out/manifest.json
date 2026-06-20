@@ -2033,5 +2033,15 @@
     "mtime": 1781939317.155474,
     "ast_hash": "dca7cb195f8be1399b3d331b2cc97718",
     "semantic_hash": ""
+  },
+  "supabase/tests/05_storage_rls_test.sql": {
+    "mtime": 1781939826.8381872,
+    "ast_hash": "456bb9a9abe472dcdcfc94e323dc820c",
+    "semantic_hash": ""
+  },
+  "supabase/tests/06_function_perms_test.sql": {
+    "mtime": 1781939881.9267547,
+    "ast_hash": "fbbaaf224c47025e60709189223fd8e3",
+    "semantic_hash": ""
   }
 }
