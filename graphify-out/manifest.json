@@ -2008,5 +2008,10 @@
     "mtime": 1781900824.1646924,
     "ast_hash": "9379a09b5b19cad878e72185ea5257df",
     "semantic_hash": ""
+  },
+  "supabase/.backups/schema_migrations_20260620.json": {
+    "mtime": 1781935746.5853996,
+    "ast_hash": "60ce78b15c03e799836a084db4584376",
+    "semantic_hash": ""
   }
 }

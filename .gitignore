@@ -20,6 +20,9 @@
 /playwright/.cache/
 /tests/.auth/
 
+# backups locales (pueden contener PII; no versionar)
+/supabase/.backups/
+
 # next.js
 /.next/
 /out/
