@@ -14,6 +14,10 @@
 -- DELETE remains intentionally without a policy: account deletion is handled
 -- exclusively by the SECURITY DEFINER function public.delete_user_account().
 
+-- Idempotent: drop first so the migration replays cleanly on a fresh database
+-- (the baseline dump already contains this policy). On the remote this migration
+-- is already recorded as applied, so editing it here does not re-execute it.
+DROP POLICY IF EXISTS "Users can insert own profile" ON public.profiles;
 CREATE POLICY "Users can insert own profile" ON public.profiles
   FOR INSERT
   TO authenticated
