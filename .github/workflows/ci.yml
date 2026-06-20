@@ -55,6 +55,9 @@ jobs:
 
   tests:
     name: RLS (pgTAP) and E2E (Playwright)
+    # Job pesado (levanta Supabase + navegador): solo en PRs hacia development
+    # (y manualmente). Así corre una vez por PR, no en cada push.
+    if: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
 
