@@ -1,5 +1,6 @@
 import type { BaseAIService } from './types';
 import { GeminiService } from '../providers/gemini/geminiService';
+import { MockAIService } from '../providers/mock/mockService';
 import { getAIConfig } from '../config/aiConfig';
 import { AIUnavailableError } from '../errors/custom';
 
@@ -20,6 +21,9 @@ function createAIService(): BaseAIService {
       throw new AIUnavailableError(
         'Ollama aún no está implementado. ' + 'Cambia AI_PROVIDER a "gemini"'
       );
+
+    case 'mock':
+      return new MockAIService();
 
     default:
       throw new AIUnavailableError(

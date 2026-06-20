@@ -16,6 +16,18 @@ interface CookieData {
   };
 }
 
+// Origen exacto de Supabase derivado del entorno. En producción es la URL
+// `https://<ref>.supabase.co` (ya cubierta por el comodín de abajo); en local
+// es `http://127.0.0.1:54321`, que de otro modo el CSP bloquearía y rompería
+// las llamadas del navegador (auth, storage). Es aditivo: no relaja producción.
+const supabaseOrigin = (() => {
+  try {
+    return new URL(process.env.NEXT_PUBLIC_SUPABASE_URL!).origin;
+  } catch {
+    return '';
+  }
+})();
+
 const securityHeaders = {
   'X-Frame-Options': 'DENY',
   'X-Content-Type-Options': 'nosniff',
@@ -27,9 +39,9 @@ const securityHeaders = {
     "default-src 'self'",
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cloud.umami.is",
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob: https://*.supabase.co https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com",
+    `img-src 'self' data: blob: ${supabaseOrigin} https://*.supabase.co https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com`,
     "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com",
-    "connect-src 'self' https://*.supabase.co https://generativelanguage.googleapis.com https://cloud.umami.is",
+    `connect-src 'self' ${supabaseOrigin} https://*.supabase.co https://generativelanguage.googleapis.com https://cloud.umami.is`,
     "frame-src 'none'",
     "object-src 'none'",
     "base-uri 'self'",
