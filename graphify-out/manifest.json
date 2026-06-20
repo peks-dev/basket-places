@@ -1830,8 +1830,8 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1781671720.005665,
-    "ast_hash": "5d34db5a61adbb89af4539567e15be16",
+    "mtime": 1781986602.4323723,
+    "ast_hash": "bedde2f0117abb68ad5ebbdbfc5619bc",
     "semantic_hash": ""
   },
   ".mcp.json": {
