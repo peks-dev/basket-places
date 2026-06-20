@@ -1,0 +1,10 @@
+<!--
+  Template SOLO para desarrollo/tests locales (Mailpit).
+  Expone el OTP de 6 dígitos ({{ .Token }}) para que la suite de Playwright
+  pueda leerlo e introducirlo en la UI de inicio de sesión, replicando el flujo
+  real del usuario. En producción se usa el template gestionado por la plataforma.
+-->
+<h2>Tu código de acceso</h2>
+<p>Introduce este código para iniciar sesión:</p>
+<p><strong id="otp-token">{{ .Token }}</strong></p>
+<p>El código expira en una hora y solo puede usarse una vez.</p>
