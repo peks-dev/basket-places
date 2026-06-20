@@ -12,7 +12,7 @@ export interface BaseAIService {
 /**
  * Proveedores soportados
  */
-export type AIProvider = 'gemini' | 'ollama';
+export type AIProvider = 'gemini' | 'ollama' | 'mock';
 
 /**
  * Configuración de proveedores

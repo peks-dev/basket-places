@@ -23,10 +23,15 @@ export function getAIConfig(): AIConfig {
       return { provider, endpoint };
     }
 
+    case 'mock': {
+      // Proveedor simulado para tests (Playwright / CI); no requiere API key.
+      return { provider };
+    }
+
     default:
       throw new Error(
         `Proveedor de IA desconocido: ${provider}. ` +
-          'Opciones válidas: "gemini", "ollama"'
+          'Opciones válidas: "gemini", "ollama", "mock"'
       );
   }
 }
