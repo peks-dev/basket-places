@@ -17,7 +17,8 @@
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "test:db": "supabase test db"
   },
   "dependencies": {
     "@supabase/ssr": "^0.6.1",
