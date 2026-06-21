@@ -1385,8 +1385,8 @@
     "semantic_hash": ""
   },
   "app/layout.tsx": {
-    "mtime": 1781074512.724695,
-    "ast_hash": "4c50c32357452ee7131b4b3784cd420f",
+    "mtime": 1782022728.922148,
+    "ast_hash": "2bbeb95be26e2e4e9b5e7a663b1d1b42",
     "semantic_hash": ""
   },
   "app/opengraph-image.tsx": {
@@ -1625,8 +1625,8 @@
     "semantic_hash": ""
   },
   "middleware.ts": {
-    "mtime": 1781995690.2736619,
-    "ast_hash": "1c6e831e1354df34bc17bee3926c1c85",
+    "mtime": 1782023162.4788978,
+    "ast_hash": "4e644437ff4b1fa2b7d7e6bfddb939ff",
     "semantic_hash": ""
   },
   "next-env.d.ts": {

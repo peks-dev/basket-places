@@ -28,6 +28,22 @@ const supabaseOrigin = (() => {
   }
 })();
 
+const umamiOrigin = (() => {
+  try {
+    return new URL(
+      process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL ??
+        'https://cloud.umami.is/script.js'
+    ).origin;
+  } catch {
+    return 'https://cloud.umami.is';
+  }
+})();
+
+const umamiConnectOrigins =
+  umamiOrigin === 'https://cloud.umami.is'
+    ? `${umamiOrigin} https://gateway.umami.is`
+    : umamiOrigin;
+
 const securityHeaders = {
   'X-Frame-Options': 'DENY',
   'X-Content-Type-Options': 'nosniff',
@@ -37,11 +53,11 @@ const securityHeaders = {
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cloud.umami.is",
+    `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${umamiOrigin}`,
     "style-src 'self' 'unsafe-inline'",
     `img-src 'self' data: blob: ${supabaseOrigin} https://*.supabase.co https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com`,
     "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com",
-    `connect-src 'self' ${supabaseOrigin} https://*.supabase.co https://generativelanguage.googleapis.com https://cloud.umami.is`,
+    `connect-src 'self' ${supabaseOrigin} https://*.supabase.co https://generativelanguage.googleapis.com ${umamiConnectOrigins}`,
     "frame-src 'none'",
     "object-src 'none'",
     "base-uri 'self'",
@@ -100,7 +116,11 @@ export async function middleware(request: NextRequest) {
   if (isAuthRoute && user) {
     const redirectTo = request.nextUrl.searchParams.get('redirectTo');
     // Validación estricta contra open-redirect: solo paths internos
-    if (redirectTo && /^\/[a-zA-Z0-9]/.test(redirectTo) && !redirectTo.startsWith('//')) {
+    if (
+      redirectTo &&
+      /^\/[a-zA-Z0-9]/.test(redirectTo) &&
+      !redirectTo.startsWith('//')
+    ) {
       const redirectUrl = new URL(redirectTo, request.url);
       return NextResponse.redirect(redirectUrl);
     }
@@ -111,7 +131,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicons|opengraph-image).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicons|opengraph-image).*)'],
 };
