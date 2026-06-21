@@ -21,6 +21,7 @@
     "test:db": "supabase test db"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.59.0",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.53.0",
     "leaflet": "^1.9.4",

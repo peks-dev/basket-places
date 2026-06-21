@@ -7,6 +7,7 @@ import { registerCommunity, updateCommunity } from '../action/index';
 import { compressImage } from '@/lib/utils/images/compressImage';
 import { showSuccessToast, showErrorToast } from '@/shared/notifications';
 import type { CommunityFormData } from '@/comunidad/types';
+import { trackAnalyticsEvent } from '@/lib/analytics/umami';
 
 interface UseContributionFormProps {
   initialData?: CommunityFormData;
@@ -93,6 +94,11 @@ export function useContributionForm({
         `${initialData ? 'actualización' : 'registro'} de ${result.data.name} guardado correctamente`
       );
       setIsSuccess(true);
+      trackAnalyticsEvent('contribution_submitted', {
+        mode: initialData ? 'edit' : 'create',
+        community_id: result.data.id,
+        community_type: result.data.type,
+      });
 
       // 7. Navegar a la página de detalles de la comunidad.
       // Se usa navegación dura (full load) a propósito: una navegación soft

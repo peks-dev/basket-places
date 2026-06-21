@@ -1,4 +1,6 @@
 // lib/errors/handler.ts
+import * as Sentry from '@sentry/nextjs';
+
 import { fail, type Failure } from '@/lib/types/result';
 import { ErrorCodes } from './codes';
 import { DatabaseError } from './database';
@@ -59,6 +61,12 @@ export function handleServiceError(error: unknown): Failure {
   if (error instanceof Error) {
     // Log interno para debugging, no exponer al cliente
     console.error('[handleServiceError]', error.message, error.stack);
+    Sentry.captureException(error, {
+      tags: {
+        source: 'handleServiceError',
+        errorType: 'internal_error',
+      },
+    });
     return fail(
       ErrorCodes.INTERNAL_ERROR,
       'Ocurrió un error inesperado. Intenta de nuevo.'
@@ -67,5 +75,11 @@ export function handleServiceError(error: unknown): Failure {
 
   // Error completamente desconocido
   console.error('[handleServiceError] Unknown error:', error);
+  Sentry.captureException(error, {
+    tags: {
+      source: 'handleServiceError',
+      errorType: 'unknown_error',
+    },
+  });
   return fail(ErrorCodes.UNKNOWN_ERROR, 'Ocurrió un error desconocido');
 }

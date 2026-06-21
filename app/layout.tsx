@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Iceland, Oxanium } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { AuthShell } from '@/app/(auth)/components/AuthShell';
 import { getAuthShellData } from '@/app/(auth)/actions/getAuthShellData';
@@ -22,6 +23,14 @@ const iceland = Iceland({
   weight: '400',
   variable: '--font-iceland', // Crea la variable CSS --font-iceland
 });
+
+const umamiScriptUrl =
+  process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL ??
+  'https://cloud.umami.is/script.js';
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+const umamiAllowedDomains = process.env.NEXT_PUBLIC_UMAMI_ALLOWED_DOMAINS;
+const isUmamiEnabled =
+  process.env.NEXT_PUBLIC_UMAMI_ENABLED !== 'false' && Boolean(umamiWebsiteId);
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.basket-places.website'),
@@ -115,11 +124,6 @@ export default async function RootLayout({
           name="msapplication-TileImage"
           content="/favicons/ms-icon-144x144.png"
         />
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="1c5d1de4-55fd-4f42-afd8-b6130440380a"
-        ></script>
       </head>
       <body
         className={`${iceland.variable} ${oxanium.variable} relative h-dvh w-screen antialiased`}
@@ -131,6 +135,15 @@ export default async function RootLayout({
             </AuthShell>
           </main>
         </ThemeProvider>
+        {isUmamiEnabled ? (
+          <Script
+            id="umami-analytics"
+            src={umamiScriptUrl}
+            strategy="afterInteractive"
+            data-website-id={umamiWebsiteId}
+            data-domains={umamiAllowedDomains}
+          />
+        ) : null}
       </body>
     </html>
   );

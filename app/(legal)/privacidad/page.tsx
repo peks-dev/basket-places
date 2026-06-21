@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <>
       <h1>Política de privacidad</h1>
       <p className="text-foreground-secondary text-sm">
-        Última actualización: 17 de junio de 2026
+        Última actualización: 21 de junio de 2026
       </p>
 
       <p>
@@ -45,9 +45,22 @@ export default function PrivacyPage() {
           que escribes.
         </li>
         <li>
-          <strong>Datos técnicos:</strong> datos de funcionamiento como cookies
-          de sesión y registros generados por nuestro proveedor de hosting (por
-          ejemplo, dirección IP), usados para operar y proteger el servicio.
+          <strong>Datos técnicos y de diagnóstico:</strong> datos de
+          funcionamiento como cookies de sesión, registros generados por nuestro
+          proveedor de hosting, errores de la aplicación, navegador, ruta
+          afectada y datos técnicos similares usados para operar, proteger y
+          depurar el servicio.
+        </li>
+        <li>
+          <strong>Analítica de uso:</strong> métricas agregadas sobre páginas
+          visitadas y eventos de producto (por ejemplo, envío de feedback o
+          contribuciones completadas), sin enviar correos, nombres ni texto
+          libre.
+        </li>
+        <li>
+          <strong>Feedback:</strong> si usas el formulario de feedback,
+          almacenamos el tipo de reporte, título, descripción y metadatos
+          mínimos asociados a tu cuenta para poder darle seguimiento.
         </li>
       </ul>
 
@@ -63,6 +76,12 @@ export default function PrivacyPage() {
           calidad del contenido (ver servicios externos).
         </li>
         <li>Prevenir abuso y moderar contenido inapropiado.</li>
+        <li>Detectar, diagnosticar y corregir errores técnicos.</li>
+        <li>Entender el uso agregado del producto para priorizar mejoras.</li>
+        <li>
+          Recibir y gestionar reportes de bugs, solicitudes de features y
+          sugerencias.
+        </li>
       </ul>
 
       <h2>Contenido público</h2>
@@ -102,7 +121,31 @@ export default function PrivacyPage() {
         <li>
           <strong>Vercel</strong> — hosting de la aplicación.
         </li>
+        <li>
+          <strong>GlitchTip</strong> — monitoreo de errores y datos de
+          diagnóstico para detectar fallos de cliente y servidor. No usamos
+          session replay ni tracing de rendimiento al inicio.
+        </li>
+        <li>
+          <strong>Umami</strong> — analítica web privacy-friendly para métricas
+          agregadas de uso y eventos de producto. La integración está
+          configurada para no enviar datos personales directos ni texto libre.
+        </li>
       </ul>
+
+      <h2>Feedback y observabilidad</h2>
+      <p>
+        Durante la beta usamos herramientas de observabilidad para mantener el
+        servicio estable y entender qué mejorar. Los reportes de errores se usan
+        para diagnosticar fallos; la analítica se usa de forma agregada para
+        entender uso general; y el feedback que envías voluntariamente se usa
+        para priorizar bugs, features y mejoras.
+      </p>
+      <p>
+        Evita incluir datos sensibles en campos de texto libre como reseñas,
+        descripciones o feedback. Si accidentalmente envías información
+        sensible, puedes escribirnos para solicitar su revisión o eliminación.
+      </p>
 
       <h2>Inicio de sesión por correo (OTP)</h2>
       <p>

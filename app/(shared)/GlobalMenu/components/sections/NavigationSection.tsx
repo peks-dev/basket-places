@@ -3,7 +3,7 @@
 'use client';
 
 import { JSX } from 'react';
-import { MapIcon, ProfileIcon } from '@/app/components/ui/svgs';
+import { InfoIcon, MapIcon, ProfileIcon } from '@/app/components/ui/svgs';
 import OptionMenu from '../OptionMenu';
 import { MENU_CLASSES } from '../../constants/menuClasses';
 import { MENU_CONSTANTS } from '../../constants/menuConstants';
@@ -29,6 +29,11 @@ export const NavigationSection = ({
         icon={<ProfileIcon />}
         label="Ver mi perfil"
         onClick={() => navigateTo(MENU_CONSTANTS.NAVIGATION.PROFILE)}
+      />
+      <OptionMenu
+        icon={<InfoIcon />}
+        label="Enviar feedback"
+        onClick={() => navigateTo(MENU_CONSTANTS.NAVIGATION.FEEDBACK)}
       />
     </ul>
   </nav>
