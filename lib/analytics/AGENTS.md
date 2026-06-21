@@ -97,7 +97,7 @@ No enviar:
 | `contribution_submitted` | Comunidad creada/actualizada correctamente           | `mode`, `community_id`, `community_type`            |
 | `community_viewed`       | Detalle de comunidad renderizado como página o panel | `community_id`, `community_type`, `city`, `surface` |
 | `review_submitted`       | Review creada correctamente                          | `community_id`, `rating`                            |
-| `feedback_submitted`     | Reservado para el futuro formulario de feedback      | Por definir cuando exista feedback                  |
+| `feedback_submitted`     | Feedback enviado correctamente                       | `feedback_id`, `feedback_type`                      |
 
 ## Configuración de entorno
 

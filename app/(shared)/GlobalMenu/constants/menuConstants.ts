@@ -4,6 +4,7 @@ export const MENU_CONSTANTS = {
   NAVIGATION: {
     MAP: '/',
     PROFILE: '/perfil',
+    FEEDBACK: '/feedback',
     TERMS: '/condiciones',
     PRIVACY: '/privacidad',
   },

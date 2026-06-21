@@ -200,6 +200,7 @@ app/
 │   ├── contribution/ # Formulario para agregar canchas
 │   ├── map/          # Vista del mapa con filtros
 │   ├── profile/      # Perfil de usuario
+│   ├── feedback/     # Formulario autenticado de feedback (AGENTS.md propio)
 │   ├── @panel/       # Interception routes para panels
 │   └── page.tsx      # Homepage (mapa)
 ├── (shared)/        # Componentes compartidos

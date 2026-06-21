@@ -11,7 +11,7 @@ interface UseMenuNavigationReturn {
 }
 
 // Rutas protegidas que requieren autenticación
-const PROTECTED_ROUTES = ['/contribuir', '/perfil'];
+const PROTECTED_ROUTES = ['/contribuir', '/perfil', '/feedback'];
 
 export const useMenuNavigation = (
   closeMenu: () => void

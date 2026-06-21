@@ -6,7 +6,7 @@
 -- El rollback deja la base sin rastro del test (datos aislados).
 
 begin;
-select plan(3);
+select plan(4);
 
 select ok(
   (select relrowsecurity from pg_class
@@ -24,6 +24,12 @@ select ok(
   (select relrowsecurity from pg_class
    where relname = 'reviews' and relnamespace = 'public'::regnamespace),
   'RLS está activa en public.reviews'
+);
+
+select ok(
+  (select relrowsecurity from pg_class
+   where relname = 'feedback_reports' and relnamespace = 'public'::regnamespace),
+  'RLS está activa en public.feedback_reports'
 );
 
 select * from finish();
