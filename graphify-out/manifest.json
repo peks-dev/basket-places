@@ -130,8 +130,8 @@
     "semantic_hash": ""
   },
   "app/(auth)/hooks/useAuthFlow.tsx": {
-    "mtime": 1781995690.261122,
-    "ast_hash": "ee2fd21663f868304ccf84b99d425f47",
+    "mtime": 1782024963.973067,
+    "ast_hash": "dd29eff7f5aef5770fae3022a477c646",
     "semantic_hash": ""
   },
   "app/(auth)/loading.tsx": {
@@ -160,8 +160,8 @@
     "semantic_hash": ""
   },
   "app/(main)/@panel/(.)comunidad/ver/[id]/page.tsx": {
-    "mtime": 1766207616.8474169,
-    "ast_hash": "3e5f31d0416e073c420dad5d2d068cc8",
+    "mtime": 1782024986.6225204,
+    "ast_hash": "4a6079897717b7e80e24d53afca9f9df",
     "semantic_hash": ""
   },
   "app/(main)/@panel/default.tsx": {
@@ -430,18 +430,18 @@
     "semantic_hash": ""
   },
   "app/(main)/comunidad/contribuir/editar/[id]/page.tsx": {
-    "mtime": 1766019278.6009016,
-    "ast_hash": "90ee8028c525ff951e83ffe8a5fc04ff",
+    "mtime": 1782024977.8819933,
+    "ast_hash": "4c4649270b1359721e992db074e7b8b5",
     "semantic_hash": ""
   },
   "app/(main)/comunidad/contribuir/hooks/useContributionForm.ts": {
-    "mtime": 1781995690.261705,
-    "ast_hash": "6ad8f743ba0d7e4c007c5c22f1f1dc69",
+    "mtime": 1782024969.9880037,
+    "ast_hash": "b834189d6a741b4e925363bdc82574a5",
     "semantic_hash": ""
   },
   "app/(main)/comunidad/contribuir/page.tsx": {
-    "mtime": 1766019278.6009016,
-    "ast_hash": "8bbcb2a2a9f5077b22be0c70f2af7ca5",
+    "mtime": 1782024977.8809206,
+    "ast_hash": "ff04a97eb2369b49c812acb005b11799",
     "semantic_hash": ""
   },
   "app/(main)/comunidad/contribuir/schemas/baseSchema.ts": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "app/(main)/comunidad/reviews/hooks/useReviews.ts": {
-    "mtime": 1767145078.0991988,
-    "ast_hash": "fe0306336708e8846761526de9da3359",
+    "mtime": 1782024991.6007762,
+    "ast_hash": "1d6146f32ffd201a54c4cc54253e624b",
     "semantic_hash": ""
   },
   "app/(main)/comunidad/reviews/schemas/reviewSchema.ts": {
@@ -640,8 +640,8 @@
     "semantic_hash": ""
   },
   "app/(main)/comunidad/ver/[id]/page.tsx": {
-    "mtime": 1767917827.544023,
-    "ast_hash": "ec2c63ee7afecddbb85a190ce6384c87",
+    "mtime": 1782024986.6225204,
+    "ast_hash": "9d7ffb967eb61f2cde4c0950ea0ed87e",
     "semantic_hash": ""
   },
   "app/(main)/error.tsx": {
@@ -1685,8 +1685,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1782009245.0488021,
-    "ast_hash": "6906a45547b63cae45e7838a65c69ce6",
+    "mtime": 1782025379.0466988,
+    "ast_hash": "d188d9b28033e25308d57daa6199f2ed",
     "semantic_hash": ""
   },
   "CONTRIBUTING.md": {
@@ -2067,6 +2067,21 @@
   "sentry.server.config.ts": {
     "mtime": 1782012137.2135625,
     "ast_hash": "26ab1335b05cdb035f373f6f0ff77151",
+    "semantic_hash": ""
+  },
+  "app/components/analytics/UmamiEventTracker.tsx": {
+    "mtime": 1782024999.9266887,
+    "ast_hash": "ec18af24e35c1587216dce0c70aebb19",
+    "semantic_hash": ""
+  },
+  "lib/analytics/umami.ts": {
+    "mtime": 1782024951.3102005,
+    "ast_hash": "c7003fd99d2ac210899682a798655802",
+    "semantic_hash": ""
+  },
+  "lib/analytics/AGENTS.md": {
+    "mtime": 1782025327.6032403,
+    "ast_hash": "fa889f0d3556c8bf5e06c94d6a4f64f3",
     "semantic_hash": ""
   }
 }

@@ -16,6 +16,7 @@ import { showErrorToast, showSuccessToast } from '@/shared/notifications';
 import { usePathname } from 'next/navigation';
 import { useCustomNavigation } from '@/lib/hooks/useNavigation';
 import { handleServiceError } from '@/lib/errors/handler';
+import { trackAnalyticsEvent } from '@/lib/analytics/umami';
 
 interface UseReviewsProps {
   communityId: string;
@@ -160,6 +161,11 @@ export function useReviews({
             showErrorToast('No se pudo enviar tu reseña', result.error.message);
             return;
           }
+
+          trackAnalyticsEvent('review_submitted', {
+            community_id: communityId,
+            rating,
+          });
 
           // Actualizamos el total y promedio localmente para una UX instantánea
           const newTotal = totalReviews + 1;

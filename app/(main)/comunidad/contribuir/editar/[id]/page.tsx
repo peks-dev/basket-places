@@ -2,6 +2,7 @@ import ContributionForm from '@/contribuir/components/ContributionForm';
 import { ProtectedWrapper } from '@/app/(auth)/components/ProtectedWrapper';
 import { getCommunityById } from '@/app/(main)/comunidad/dbQueries';
 import { transformResponseToFormData } from '@/app/(main)/comunidad/transformers';
+import { UmamiEventTracker } from '@/app/components/analytics/UmamiEventTracker';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
@@ -28,6 +29,10 @@ export default async function EditContributionPage({ params }: PageProps) {
   // 4. Renderizamos el mismo componente de formulario, pasándole los datos iniciales
   return (
     <ProtectedWrapper>
+      <UmamiEventTracker
+        eventName="contribution_started"
+        data={{ mode: 'edit', community_id: id }}
+      />
       <section className="mx-auto h-full p-4">
         <ContributionForm initialData={formData} />;
       </section>

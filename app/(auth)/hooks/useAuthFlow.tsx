@@ -15,6 +15,7 @@ import { useProfileStore } from '@/app/(main)/perfil/stores/useProfileStore';
 import { useAuth } from '../hooks/useAuth';
 import { useUIStateStore } from '@/lib/stores/useUIStateStore';
 import { usePanelLoaderStore } from '@/app/(main)/map/stores/usePanelStore';
+import { trackAnalyticsEvent } from '@/lib/analytics/umami';
 
 type AuthState =
   | 'idle'
@@ -94,6 +95,9 @@ export const useAuthFlow = () => {
         );
       }
       setState('code_sent');
+      trackAnalyticsEvent('auth_sign_in_started', {
+        is_resend: isResend,
+      });
       setLoading(false);
       return true;
     } catch (error) {
@@ -150,6 +154,9 @@ export const useAuthFlow = () => {
     // Feedback visual
     showSuccessToast('Bienvenido', '¡Bienvenido de nuevo!');
     setState('success');
+    trackAnalyticsEvent('auth_sign_in_completed', {
+      destination,
+    });
 
     // Para rutas con intercepting routes, usar navegación hard
     // para evitar que el modal se vuelva a montar

@@ -4,6 +4,7 @@ import { getCommunityById } from '@/app/(main)/comunidad/dbQueries';
 import { generateCommunityMetadata } from '@/comunidad/utils/generateCommunityMetadata';
 import type { CommunityFullResponse } from '@/comunidad/types';
 import PanelContent from './PanelContent';
+import { UmamiEventTracker } from '@/app/components/analytics/UmamiEventTracker';
 
 interface ModalPageProps {
   params: Promise<{
@@ -28,5 +29,18 @@ export default async function CommunityModal({ params }: ModalPageProps) {
     notFound();
   }
 
-  return <PanelContent community={community} />;
+  return (
+    <>
+      <UmamiEventTracker
+        eventName="community_viewed"
+        data={{
+          community_id: community.id,
+          community_type: community.type,
+          city: community.city,
+          surface: 'panel',
+        }}
+      />
+      <PanelContent community={community} />
+    </>
+  );
 }

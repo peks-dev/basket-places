@@ -5,6 +5,7 @@ import type { CommunityFullResponse } from '@/comunidad/types';
 import { generateCommunityMetadata } from '@/comunidad/utils/generateCommunityMetadata';
 import HeaderCommunity from '@/comunidad/components/HeaderCommunity';
 import ContentCommunity from '@/comunidad/components/ContentCommunity';
+import { UmamiEventTracker } from '@/app/components/analytics/UmamiEventTracker';
 
 interface PageProps {
   params: Promise<{
@@ -33,6 +34,15 @@ export default async function CommunityPage({ params }: PageProps) {
 
   return (
     <>
+      <UmamiEventTracker
+        eventName="community_viewed"
+        data={{
+          community_id: community.id,
+          community_type: community.type,
+          city: community.city,
+          surface: 'page',
+        }}
+      />
       {/* Structured Data para SEO */}
       <script
         type="application/ld+json"
