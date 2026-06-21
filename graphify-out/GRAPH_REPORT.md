@@ -1,7 +1,7 @@
 # Graph Report - basket-places  (2026-06-21)
 
 ## Corpus Check
-- 416 files · ~443,802 words
+- 416 files · ~443,796 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2114c1fd`
+- Built from commit: `b7603334`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -410,7 +410,7 @@ Cohesion: 0.18
 Nodes (9): ClientProviders(), MenuOpenButton(), PanelLoader(), GlobalMenu(), generateCornerIcons(), MenuContent(), NavigationLoaderStore, useNavigationLoaderStore (+1 more)
 
 ## Knowledge Gaps
-- **574 isolated node(s):** `Reglas de navegación del código Graphify`, `Comandos permitidos:`, `Cómo usar este AGENTS.md`, `Información General del Proyecto`, `Stack Tecnológico` (+569 more)
+- **574 isolated node(s):** `Qué consultar`, `Señales prioritarias`, `Archivos relacionados`, `Reglas para agentes`, `Qué consultar` (+569 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -419,11 +419,11 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `CommunityFullResponse` connect `Community 0` to `Community 41`, `Community 2`, `Community 11`, `Community 87`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Why does `useCustomNavigation()` connect `Community 29` to `Community 96`, `Community 2`, `Community 3`, `Community 4`, `Community 99`, `Community 6`, `Community 11`, `Community 81`, `Community 50`, `Community 49`, `Community 95`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `Coordinates` connect `Community 83` to `Community 0`, `Community 25`, `Community 11`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **What connects `Reglas de navegación del código Graphify`, `Comandos permitidos:`, `Cómo usar este AGENTS.md` to the rest of the system?**
+- **Why does `useCustomNavigation()` connect `Community 29` to `Community 96`, `Community 2`, `Community 3`, `Community 4`, `Community 99`, `Community 6`, `Community 11`, `Community 81`, `Community 50`, `Community 49`, `Community 95`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **What connects `Qué consultar`, `Señales prioritarias`, `Archivos relacionados` to the rest of the system?**
   _574 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.062457661563473786 - nodes in this community are weakly interconnected._

@@ -4,666 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "agents",
-      "community": 16,
-      "norm_label": "agents.md"
-    },
-    {
-      "label": "Basket Places - GUIDELINES",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "agents_basket_places_guidelines",
-      "community": 16,
-      "norm_label": "basket places - guidelines"
-    },
-    {
-      "label": "Reglas de navegaci\u00f3n del c\u00f3digo Graphify",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "agents_reglas_de_navegaci\u00f3n_del_c\u00f3digo_graphify",
-      "community": 16,
-      "norm_label": "reglas de navegacion del codigo graphify"
-    },
-    {
-      "label": "Comandos permitidos:",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "agents_comandos_permitidos",
-      "community": 16,
-      "norm_label": "comandos permitidos:"
-    },
-    {
-      "label": "C\u00f3mo usar este AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "agents_c\u00f3mo_usar_este_agents_md",
-      "community": 16,
-      "norm_label": "como usar este agents.md"
-    },
-    {
-      "label": "Informaci\u00f3n General del Proyecto",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "agents_informaci\u00f3n_general_del_proyecto",
-      "community": 16,
-      "norm_label": "informacion general del proyecto"
-    },
-    {
-      "label": "Stack Tecnol\u00f3gico",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "agents_stack_tecnol\u00f3gico",
-      "community": 16,
-      "norm_label": "stack tecnologico"
-    },
-    {
-      "label": "Configuraci\u00f3n del Entorno",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L52",
-      "_origin": "ast",
-      "id": "agents_configuraci\u00f3n_del_entorno",
-      "community": 16,
-      "norm_label": "configuracion del entorno"
-    },
-    {
-      "label": "Variables de Entorno (.env.local)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "agents_variables_de_entorno_env_local",
-      "community": 16,
-      "norm_label": "variables de entorno (.env.local)"
-    },
-    {
-      "label": "Buckets de Storage",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L88",
-      "_origin": "ast",
-      "id": "agents_buckets_de_storage",
-      "community": 16,
-      "norm_label": "buckets de storage"
-    },
-    {
-      "label": "Comandos de Desarrollo",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L95",
-      "_origin": "ast",
-      "id": "agents_comandos_de_desarrollo",
-      "community": 16,
-      "norm_label": "comandos de desarrollo"
-    },
-    {
-      "label": "Deployment",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L105",
-      "_origin": "ast",
-      "id": "agents_deployment",
-      "community": 16,
-      "norm_label": "deployment"
-    },
-    {
-      "label": "Entornos",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L107",
-      "_origin": "ast",
-      "id": "agents_entornos",
-      "community": 16,
-      "norm_label": "entornos"
-    },
-    {
-      "label": "Deploy Autom\u00e1tico (Git)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L115",
-      "_origin": "ast",
-      "id": "agents_deploy_autom\u00e1tico_git",
-      "community": 16,
-      "norm_label": "deploy automatico (git)"
-    },
-    {
-      "label": "Deploy Manual",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L122",
-      "_origin": "ast",
-      "id": "agents_deploy_manual",
-      "community": 16,
-      "norm_label": "deploy manual"
-    },
-    {
-      "label": "Verificaci\u00f3n Post-Deploy",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L135",
-      "_origin": "ast",
-      "id": "agents_verificaci\u00f3n_post_deploy",
-      "community": 16,
-      "norm_label": "verificacion post-deploy"
-    },
-    {
-      "label": "Rollback",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L148",
-      "_origin": "ast",
-      "id": "agents_rollback",
-      "community": 16,
-      "norm_label": "rollback"
-    },
-    {
-      "label": "Troubleshooting",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L158",
-      "_origin": "ast",
-      "id": "agents_troubleshooting",
-      "community": 16,
-      "norm_label": "troubleshooting"
-    },
-    {
-      "label": "L\u00edmites de Plataforma",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L183",
-      "_origin": "ast",
-      "id": "agents_l\u00edmites_de_plataforma",
-      "community": 16,
-      "norm_label": "limites de plataforma"
-    },
-    {
-      "label": "Estructura de Carpetas",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L191",
-      "_origin": "ast",
-      "id": "agents_estructura_de_carpetas",
-      "community": 16,
-      "norm_label": "estructura de carpetas"
-    },
-    {
-      "label": "CONVENCIONES DEL PROYECTO",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L231",
-      "_origin": "ast",
-      "id": "agents_convenciones_del_proyecto",
-      "community": 16,
-      "norm_label": "convenciones del proyecto"
-    },
-    {
-      "label": "Naming",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L233",
-      "_origin": "ast",
-      "id": "agents_naming",
-      "community": 16,
-      "norm_label": "naming"
-    },
-    {
-      "label": "Auto-invoke Skills",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L242",
-      "_origin": "ast",
-      "id": "agents_auto_invoke_skills",
-      "community": 16,
-      "norm_label": "auto-invoke skills"
-    },
-    {
-      "label": "Skills Disponibles",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L263",
-      "_origin": "ast",
-      "id": "agents_skills_disponibles",
-      "community": 16,
-      "norm_label": "skills disponibles"
-    },
-    {
-      "label": "Skills Gen\u00e9ricas (Best Practices)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L265",
-      "_origin": "ast",
-      "id": "agents_skills_gen\u00e9ricas_best_practices",
-      "community": 16,
-      "norm_label": "skills genericas (best practices)"
-    },
-    {
-      "label": "Skills Espec\u00edficas de Basket Places",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L280",
-      "_origin": "ast",
-      "id": "agents_skills_espec\u00edficas_de_basket_places",
-      "community": 16,
-      "norm_label": "skills especificas de basket places"
-    },
-    {
-      "label": "Componentes/Dominios principales",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L296",
-      "_origin": "ast",
-      "id": "agents_componentes_dominios_principales",
-      "community": 16,
-      "norm_label": "componentes/dominios principales"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "app/(legal)/condiciones/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "condiciones_page",
-      "community": 76,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "metadata",
-      "file_type": "code",
-      "source_file": "app/(legal)/condiciones/page.tsx",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "condiciones_page_metadata",
-      "community": 76,
-      "norm_label": "metadata"
-    },
-    {
-      "label": "TermsPage()",
-      "file_type": "code",
-      "source_file": "app/(legal)/condiciones/page.tsx",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "condiciones_page_termspage",
-      "community": 76,
-      "norm_label": "termspage()"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "app/(legal)/privacidad/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "privacidad_page",
-      "community": 85,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "metadata",
-      "file_type": "code",
-      "source_file": "app/(legal)/privacidad/page.tsx",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "privacidad_page_metadata",
-      "community": 85,
-      "norm_label": "metadata"
-    },
-    {
-      "label": "PrivacyPage()",
-      "file_type": "code",
-      "source_file": "app/(legal)/privacidad/page.tsx",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "privacidad_page_privacypage",
-      "community": 85,
-      "norm_label": "privacypage()"
-    },
-    {
-      "label": "index.tsx",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "contributionform_index",
-      "community": 50,
-      "norm_label": "index.tsx"
-    },
-    {
-      "label": "Props",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "contributionform_index_props",
-      "community": 50,
-      "norm_label": "props"
-    },
-    {
-      "label": "ContributionForm()",
-      "file_type": "code",
-      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "contributionform_index_contributionform",
-      "community": 50,
-      "norm_label": "contributionform()"
-    },
-    {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "feedback_agents",
-      "community": 89,
-      "norm_label": "agents.md"
-    },
-    {
-      "label": "Dominio: Feedback",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "feedback_agents_dominio_feedback",
-      "community": 89,
-      "norm_label": "dominio: feedback"
-    },
-    {
-      "label": "Contexto",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "feedback_agents_contexto",
-      "community": 89,
-      "norm_label": "contexto"
-    },
-    {
-      "label": "Stack Tecnol\u00f3gico",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "feedback_agents_stack_tecnol\u00f3gico",
-      "community": 89,
-      "norm_label": "stack tecnologico"
-    },
-    {
-      "label": "Estructura",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "feedback_agents_estructura",
-      "community": 89,
-      "norm_label": "estructura"
-    },
-    {
-      "label": "Patrones Importantes",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "feedback_agents_patrones_importantes",
-      "community": 89,
-      "norm_label": "patrones importantes"
-    },
-    {
-      "label": "Server Action",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "feedback_agents_server_action",
-      "community": 89,
-      "norm_label": "server action"
-    },
-    {
-      "label": "RLS",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "feedback_agents_rls",
-      "community": 89,
-      "norm_label": "rls"
-    },
-    {
-      "label": "Analytics",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L67",
-      "_origin": "ast",
-      "id": "feedback_agents_analytics",
-      "community": 89,
-      "norm_label": "analytics"
-    },
-    {
-      "label": "Reglas Espec\u00edficas",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "feedback_agents_reglas_espec\u00edficas",
-      "community": 89,
-      "norm_label": "reglas especificas"
-    },
-    {
-      "label": "Auto-invoke Skills",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L98",
-      "_origin": "ast",
-      "id": "feedback_agents_auto_invoke_skills",
-      "community": 89,
-      "norm_label": "auto-invoke skills"
-    },
-    {
-      "label": "Referencias",
-      "file_type": "document",
-      "source_file": "app/(main)/feedback/AGENTS.md",
-      "source_location": "L108",
-      "_origin": "ast",
-      "id": "feedback_agents_referencias",
-      "community": 89,
-      "norm_label": "referencias"
-    },
-    {
-      "label": "FeedbackForm.tsx",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_feedbackform",
-      "community": 3,
-      "norm_label": "feedbackform.tsx"
-    },
-    {
-      "label": "feedbackTypeOptions",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "components_feedbackform_feedbacktypeoptions",
-      "community": 3,
-      "norm_label": "feedbacktypeoptions"
-    },
-    {
-      "label": "initialFormData",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
-      "source_location": "L35",
-      "_origin": "ast",
-      "id": "components_feedbackform_initialformdata",
-      "community": 3,
-      "norm_label": "initialformdata"
-    },
-    {
-      "label": "FeedbackForm()",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "components_feedbackform_feedbackform",
-      "community": 3,
-      "norm_label": "feedbackform()"
-    },
-    {
-      "label": "queries.ts",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/db/queries.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "db_queries",
-      "community": 3,
-      "norm_label": "queries.ts"
-    },
-    {
-      "label": "insertFeedbackReport()",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/db/queries.ts",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "db_queries_insertfeedbackreport",
-      "community": 3,
-      "norm_label": "insertfeedbackreport()"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "feedback_page",
-      "community": 3,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "FeedbackPage()",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/page.tsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "feedback_page_feedbackpage",
-      "community": 3,
-      "norm_label": "feedbackpage()"
-    },
-    {
-      "label": "feedbackSchema.ts",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/schemas/feedbackSchema.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "schemas_feedbackschema",
-      "community": 3,
-      "norm_label": "feedbackschema.ts"
-    },
-    {
-      "label": "FeedbackFormSchema",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/schemas/feedbackSchema.ts",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "schemas_feedbackschema_feedbackformschema",
-      "community": 3,
-      "norm_label": "feedbackformschema"
-    },
-    {
-      "label": "types.ts",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/types.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "feedback_types",
-      "community": 3,
-      "norm_label": "types.ts"
-    },
-    {
-      "label": "FeedbackReportType",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/types.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "feedback_types_feedbackreporttype",
-      "community": 3,
-      "norm_label": "feedbackreporttype"
-    },
-    {
-      "label": "FeedbackFormData",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/types.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "feedback_types_feedbackformdata",
-      "community": 3,
-      "norm_label": "feedbackformdata"
-    },
-    {
-      "label": "FeedbackReportToInsert",
-      "file_type": "code",
-      "source_file": "app/(main)/feedback/types.ts",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "feedback_types_feedbackreporttoinsert",
-      "community": 3,
-      "norm_label": "feedbackreporttoinsert"
-    },
-    {
-      "label": "Selector.tsx",
-      "file_type": "code",
-      "source_file": "app/components/ui/inputs/Selector.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "inputs_selector",
-      "community": 3,
-      "norm_label": "selector.tsx"
-    },
-    {
-      "label": "Option",
-      "file_type": "code",
-      "source_file": "app/components/ui/inputs/Selector.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "inputs_selector_option",
-      "community": 3,
-      "norm_label": "option"
-    },
-    {
-      "label": "InputSelectorProps",
-      "file_type": "code",
-      "source_file": "app/components/ui/inputs/Selector.tsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "inputs_selector_inputselectorprops",
-      "community": 3,
-      "norm_label": "inputselectorprops"
-    },
-    {
-      "label": "InputSelector()",
-      "file_type": "code",
-      "source_file": "app/components/ui/inputs/Selector.tsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "inputs_selector_inputselector",
-      "community": 3,
-      "norm_label": "inputselector()"
-    },
-    {
       "label": "observability.md",
       "file_type": "document",
       "source_file": "docs/observability.md",
@@ -817,7 +157,7 @@
       "label": "Consultas recomendadas",
       "file_type": "document",
       "source_file": "docs/observability.md",
-      "source_location": "L135",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "docs_observability_consultas_recomendadas",
       "community": 37,
@@ -827,9 +167,9 @@
       "label": "Reglas para agentes",
       "file_type": "document",
       "source_file": "docs/observability.md",
-      "source_location": "L166",
+      "source_location": "L165",
       "_origin": "ast",
-      "id": "docs_observability_reglas_para_agentes_166",
+      "id": "docs_observability_reglas_para_agentes_165",
       "community": 37,
       "norm_label": "reglas para agentes"
     },
@@ -837,9 +177,9 @@
       "label": "Archivos relacionados",
       "file_type": "document",
       "source_file": "docs/observability.md",
-      "source_location": "L174",
+      "source_location": "L173",
       "_origin": "ast",
-      "id": "docs_observability_archivos_relacionados_174",
+      "id": "docs_observability_archivos_relacionados_173",
       "community": 37,
       "norm_label": "archivos relacionados"
     },
@@ -847,7 +187,7 @@
       "label": "Priorizaci\u00f3n sugerida para agentes",
       "file_type": "document",
       "source_file": "docs/observability.md",
-      "source_location": "L184",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "docs_observability_priorizaci\u00f3n_sugerida_para_agentes",
       "community": 37,
@@ -857,11 +197,671 @@
       "label": "Checklist antes de cerrar fixes de observabilidad",
       "file_type": "document",
       "source_file": "docs/observability.md",
-      "source_location": "L194",
+      "source_location": "L193",
       "_origin": "ast",
       "id": "docs_observability_checklist_antes_de_cerrar_fixes_de_observabilidad",
       "community": 37,
       "norm_label": "checklist antes de cerrar fixes de observabilidad"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "agents.md",
+      "id": "agents"
+    },
+    {
+      "label": "Basket Places - GUIDELINES",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "basket places - guidelines",
+      "id": "agents_basket_places_guidelines"
+    },
+    {
+      "label": "Reglas de navegaci\u00f3n del c\u00f3digo Graphify",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "reglas de navegacion del codigo graphify",
+      "id": "agents_reglas_de_navegaci\u00f3n_del_c\u00f3digo_graphify"
+    },
+    {
+      "label": "Comandos permitidos:",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "comandos permitidos:",
+      "id": "agents_comandos_permitidos"
+    },
+    {
+      "label": "C\u00f3mo usar este AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "como usar este agents.md",
+      "id": "agents_c\u00f3mo_usar_este_agents_md"
+    },
+    {
+      "label": "Informaci\u00f3n General del Proyecto",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "informacion general del proyecto",
+      "id": "agents_informaci\u00f3n_general_del_proyecto"
+    },
+    {
+      "label": "Stack Tecnol\u00f3gico",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L36",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "stack tecnologico",
+      "id": "agents_stack_tecnol\u00f3gico"
+    },
+    {
+      "label": "Configuraci\u00f3n del Entorno",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "configuracion del entorno",
+      "id": "agents_configuraci\u00f3n_del_entorno"
+    },
+    {
+      "label": "Variables de Entorno (.env.local)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "variables de entorno (.env.local)",
+      "id": "agents_variables_de_entorno_env_local"
+    },
+    {
+      "label": "Buckets de Storage",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L88",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "buckets de storage",
+      "id": "agents_buckets_de_storage"
+    },
+    {
+      "label": "Comandos de Desarrollo",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L95",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "comandos de desarrollo",
+      "id": "agents_comandos_de_desarrollo"
+    },
+    {
+      "label": "Deployment",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L105",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "deployment",
+      "id": "agents_deployment"
+    },
+    {
+      "label": "Entornos",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L107",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "entornos",
+      "id": "agents_entornos"
+    },
+    {
+      "label": "Deploy Autom\u00e1tico (Git)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L115",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "deploy automatico (git)",
+      "id": "agents_deploy_autom\u00e1tico_git"
+    },
+    {
+      "label": "Deploy Manual",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L122",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "deploy manual",
+      "id": "agents_deploy_manual"
+    },
+    {
+      "label": "Verificaci\u00f3n Post-Deploy",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L135",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "verificacion post-deploy",
+      "id": "agents_verificaci\u00f3n_post_deploy"
+    },
+    {
+      "label": "Rollback",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L148",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "rollback",
+      "id": "agents_rollback"
+    },
+    {
+      "label": "Troubleshooting",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L158",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "troubleshooting",
+      "id": "agents_troubleshooting"
+    },
+    {
+      "label": "L\u00edmites de Plataforma",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L183",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "limites de plataforma",
+      "id": "agents_l\u00edmites_de_plataforma"
+    },
+    {
+      "label": "Estructura de Carpetas",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L191",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "estructura de carpetas",
+      "id": "agents_estructura_de_carpetas"
+    },
+    {
+      "label": "CONVENCIONES DEL PROYECTO",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L231",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "convenciones del proyecto",
+      "id": "agents_convenciones_del_proyecto"
+    },
+    {
+      "label": "Naming",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L233",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "naming",
+      "id": "agents_naming"
+    },
+    {
+      "label": "Auto-invoke Skills",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L242",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "auto-invoke skills",
+      "id": "agents_auto_invoke_skills"
+    },
+    {
+      "label": "Skills Disponibles",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L263",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "skills disponibles",
+      "id": "agents_skills_disponibles"
+    },
+    {
+      "label": "Skills Gen\u00e9ricas (Best Practices)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L265",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "skills genericas (best practices)",
+      "id": "agents_skills_gen\u00e9ricas_best_practices"
+    },
+    {
+      "label": "Skills Espec\u00edficas de Basket Places",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L280",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "skills especificas de basket places",
+      "id": "agents_skills_espec\u00edficas_de_basket_places"
+    },
+    {
+      "label": "Componentes/Dominios principales",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L296",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "componentes/dominios principales",
+      "id": "agents_componentes_dominios_principales"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/(legal)/condiciones/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 76,
+      "norm_label": "page.tsx",
+      "id": "condiciones_page"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/(legal)/condiciones/page.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 76,
+      "norm_label": "metadata",
+      "id": "condiciones_page_metadata"
+    },
+    {
+      "label": "TermsPage()",
+      "file_type": "code",
+      "source_file": "app/(legal)/condiciones/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 76,
+      "norm_label": "termspage()",
+      "id": "condiciones_page_termspage"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/(legal)/privacidad/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 85,
+      "norm_label": "page.tsx",
+      "id": "privacidad_page"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/(legal)/privacidad/page.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 85,
+      "norm_label": "metadata",
+      "id": "privacidad_page_metadata"
+    },
+    {
+      "label": "PrivacyPage()",
+      "file_type": "code",
+      "source_file": "app/(legal)/privacidad/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 85,
+      "norm_label": "privacypage()",
+      "id": "privacidad_page_privacypage"
+    },
+    {
+      "label": "index.tsx",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 50,
+      "norm_label": "index.tsx",
+      "id": "contributionform_index"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "community": 50,
+      "norm_label": "props",
+      "id": "contributionform_index_props"
+    },
+    {
+      "label": "ContributionForm()",
+      "file_type": "code",
+      "source_file": "app/(main)/comunidad/contribuir/components/ContributionForm/index.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 50,
+      "norm_label": "contributionform()",
+      "id": "contributionform_index_contributionform"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "agents.md",
+      "id": "feedback_agents"
+    },
+    {
+      "label": "Dominio: Feedback",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "dominio: feedback",
+      "id": "feedback_agents_dominio_feedback"
+    },
+    {
+      "label": "Contexto",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "contexto",
+      "id": "feedback_agents_contexto"
+    },
+    {
+      "label": "Stack Tecnol\u00f3gico",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "stack tecnologico",
+      "id": "feedback_agents_stack_tecnol\u00f3gico"
+    },
+    {
+      "label": "Estructura",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "estructura",
+      "id": "feedback_agents_estructura"
+    },
+    {
+      "label": "Patrones Importantes",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "patrones importantes",
+      "id": "feedback_agents_patrones_importantes"
+    },
+    {
+      "label": "Server Action",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "server action",
+      "id": "feedback_agents_server_action"
+    },
+    {
+      "label": "RLS",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "rls",
+      "id": "feedback_agents_rls"
+    },
+    {
+      "label": "Analytics",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L67",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "analytics",
+      "id": "feedback_agents_analytics"
+    },
+    {
+      "label": "Reglas Espec\u00edficas",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L80",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "reglas especificas",
+      "id": "feedback_agents_reglas_espec\u00edficas"
+    },
+    {
+      "label": "Auto-invoke Skills",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L98",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "auto-invoke skills",
+      "id": "feedback_agents_auto_invoke_skills"
+    },
+    {
+      "label": "Referencias",
+      "file_type": "document",
+      "source_file": "app/(main)/feedback/AGENTS.md",
+      "source_location": "L108",
+      "_origin": "ast",
+      "community": 89,
+      "norm_label": "referencias",
+      "id": "feedback_agents_referencias"
+    },
+    {
+      "label": "FeedbackForm.tsx",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackform.tsx",
+      "id": "components_feedbackform"
+    },
+    {
+      "label": "feedbackTypeOptions",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbacktypeoptions",
+      "id": "components_feedbackform_feedbacktypeoptions"
+    },
+    {
+      "label": "initialFormData",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
+      "source_location": "L35",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "initialformdata",
+      "id": "components_feedbackform_initialformdata"
+    },
+    {
+      "label": "FeedbackForm()",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackform()",
+      "id": "components_feedbackform_feedbackform"
+    },
+    {
+      "label": "queries.ts",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/db/queries.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "queries.ts",
+      "id": "db_queries"
+    },
+    {
+      "label": "insertFeedbackReport()",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/db/queries.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "insertfeedbackreport()",
+      "id": "db_queries_insertfeedbackreport"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "page.tsx",
+      "id": "feedback_page"
+    },
+    {
+      "label": "FeedbackPage()",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/page.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackpage()",
+      "id": "feedback_page_feedbackpage"
+    },
+    {
+      "label": "feedbackSchema.ts",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/schemas/feedbackSchema.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackschema.ts",
+      "id": "schemas_feedbackschema"
+    },
+    {
+      "label": "FeedbackFormSchema",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/schemas/feedbackSchema.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackformschema",
+      "id": "schemas_feedbackschema_feedbackformschema"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/types.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "types.ts",
+      "id": "feedback_types"
+    },
+    {
+      "label": "FeedbackReportType",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/types.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackreporttype",
+      "id": "feedback_types_feedbackreporttype"
+    },
+    {
+      "label": "FeedbackFormData",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/types.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackformdata",
+      "id": "feedback_types_feedbackformdata"
+    },
+    {
+      "label": "FeedbackReportToInsert",
+      "file_type": "code",
+      "source_file": "app/(main)/feedback/types.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "feedbackreporttoinsert",
+      "id": "feedback_types_feedbackreporttoinsert"
+    },
+    {
+      "label": "Selector.tsx",
+      "file_type": "code",
+      "source_file": "app/components/ui/inputs/Selector.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "selector.tsx",
+      "id": "inputs_selector"
+    },
+    {
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "app/components/ui/inputs/Selector.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "option",
+      "id": "inputs_selector_option"
+    },
+    {
+      "label": "InputSelectorProps",
+      "file_type": "code",
+      "source_file": "app/components/ui/inputs/Selector.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "inputselectorprops",
+      "id": "inputs_selector_inputselectorprops"
+    },
+    {
+      "label": "InputSelector()",
+      "file_type": "code",
+      "source_file": "app/components/ui/inputs/Selector.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "inputselector()",
+      "id": "inputs_selector_inputselector"
     },
     {
       "label": "create-feedback-report.ts",
@@ -15494,6 +15494,196 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability",
+      "target": "docs_observability_observabilidad_agentica"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_observabilidad_agentica",
+      "target": "docs_observability_1_glitchtip_errores_t\u00e9cnicos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_observabilidad_agentica",
+      "target": "docs_observability_2_umami_uso_del_producto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_observabilidad_agentica",
+      "target": "docs_observability_3_supabase_feedback_de_usuarios"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L194",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_observabilidad_agentica",
+      "target": "docs_observability_checklist_antes_de_cerrar_fixes_de_observabilidad"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_observabilidad_agentica",
+      "target": "docs_observability_priorizaci\u00f3n_sugerida_para_agentes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
+      "target": "docs_observability_archivos_relacionados"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
+      "target": "docs_observability_qu\u00e9_consultar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
+      "target": "docs_observability_reglas_para_agentes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
+      "target": "docs_observability_se\u00f1ales_prioritarias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_2_umami_uso_del_producto",
+      "target": "docs_observability_archivos_relacionados_87"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_2_umami_uso_del_producto",
+      "target": "docs_observability_eventos_disponibles"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_2_umami_uso_del_producto",
+      "target": "docs_observability_gotcha_de_csp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_2_umami_uso_del_producto",
+      "target": "docs_observability_m\u00e9tricas_\u00fatiles_para_agentes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_2_umami_uso_del_producto",
+      "target": "docs_observability_qu\u00e9_consultar_59"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "docs_observability_3_supabase_feedback_de_usuarios",
+      "target": "docs_observability_archivos_relacionados_173",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_3_supabase_feedback_de_usuarios",
+      "target": "docs_observability_consultas_recomendadas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_observability_3_supabase_feedback_de_usuarios",
+      "target": "docs_observability_qu\u00e9_consultar_115"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/observability.md",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "docs_observability_3_supabase_feedback_de_usuarios",
+      "target": "docs_observability_reglas_para_agentes_165",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -16189,9 +16379,9 @@
       "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_feedbackform",
-      "target": "hooks_usenavigation_usecustomnavigation",
-      "confidence_score": 1.0
+      "target": "hooks_usenavigation_usecustomnavigation"
     },
     {
       "relation": "imports_from",
@@ -16200,9 +16390,9 @@
       "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_feedbackform",
-      "target": "inputs_selector",
-      "confidence_score": 1.0
+      "target": "inputs_selector"
     },
     {
       "relation": "imports",
@@ -16211,9 +16401,9 @@
       "source_file": "app/(main)/feedback/components/FeedbackForm.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_feedbackform",
-      "target": "inputs_selector_inputselector",
-      "confidence_score": 1.0
+      "target": "inputs_selector_inputselector"
     },
     {
       "relation": "imports_from",
@@ -16491,196 +16681,6 @@
       "confidence_score": 1.0,
       "source": "components_reviewform",
       "target": "inputs_selector_inputselector"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "docs_observability",
-      "target": "docs_observability_observabilidad_agentica",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "docs_observability_observabilidad_agentica",
-      "target": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L57",
-      "weight": 1.0,
-      "source": "docs_observability_observabilidad_agentica",
-      "target": "docs_observability_2_umami_uso_del_producto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L113",
-      "weight": 1.0,
-      "source": "docs_observability_observabilidad_agentica",
-      "target": "docs_observability_3_supabase_feedback_de_usuarios",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L194",
-      "weight": 1.0,
-      "source": "docs_observability_observabilidad_agentica",
-      "target": "docs_observability_checklist_antes_de_cerrar_fixes_de_observabilidad",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L184",
-      "weight": 1.0,
-      "source": "docs_observability_observabilidad_agentica",
-      "target": "docs_observability_priorizaci\u00f3n_sugerida_para_agentes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
-      "target": "docs_observability_archivos_relacionados",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
-      "target": "docs_observability_qu\u00e9_consultar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L48",
-      "weight": 1.0,
-      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
-      "target": "docs_observability_reglas_para_agentes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "docs_observability_1_glitchtip_errores_t\u00e9cnicos",
-      "target": "docs_observability_se\u00f1ales_prioritarias",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L87",
-      "weight": 1.0,
-      "source": "docs_observability_2_umami_uso_del_producto",
-      "target": "docs_observability_archivos_relacionados_87",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "docs_observability_2_umami_uso_del_producto",
-      "target": "docs_observability_eventos_disponibles",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L95",
-      "weight": 1.0,
-      "source": "docs_observability_2_umami_uso_del_producto",
-      "target": "docs_observability_gotcha_de_csp",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L80",
-      "weight": 1.0,
-      "source": "docs_observability_2_umami_uso_del_producto",
-      "target": "docs_observability_m\u00e9tricas_\u00fatiles_para_agentes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "docs_observability_2_umami_uso_del_producto",
-      "target": "docs_observability_qu\u00e9_consultar_59",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L174",
-      "weight": 1.0,
-      "source": "docs_observability_3_supabase_feedback_de_usuarios",
-      "target": "docs_observability_archivos_relacionados_174",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L135",
-      "weight": 1.0,
-      "source": "docs_observability_3_supabase_feedback_de_usuarios",
-      "target": "docs_observability_consultas_recomendadas",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L115",
-      "weight": 1.0,
-      "source": "docs_observability_3_supabase_feedback_de_usuarios",
-      "target": "docs_observability_qu\u00e9_consultar_115",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/observability.md",
-      "source_location": "L166",
-      "weight": 1.0,
-      "source": "docs_observability_3_supabase_feedback_de_usuarios",
-      "target": "docs_observability_reglas_para_agentes_166",
-      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -45018,5 +45018,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2114c1fd4329e8bf3ed234271ae03d378671432d"
+  "built_at_commit": "b7603334b4d8f9e381ca485d5f821a74ea34483c"
 }
