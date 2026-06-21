@@ -136,11 +136,11 @@ export const useAuthFlow = () => {
     }
 
     // Determina a dónde navegar
-    const returnUrl = searchParams.get('returnUrl');
+    const redirectTo = searchParams.get('redirectTo');
     let destination = '/perfil';
 
-    if (returnUrl) {
-      const decoded = decodeURIComponent(returnUrl);
+    if (redirectTo) {
+      const decoded = decodeURIComponent(redirectTo);
       // Validación estricta: solo rutas internas (path absoluto, sin protocolo)
       if (/^\/[a-zA-Z0-9]/.test(decoded) && !decoded.startsWith('//')) {
         destination = decoded;
