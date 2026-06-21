@@ -2,10 +2,11 @@
 
 import { useState, useTransition } from 'react';
 import Button from '@/app/components/ui/Button';
-import Input from '@/app/components/ui/inputs/Text';
 import Textarea from '@/app/components/ui/inputs/Textarea';
+import { InputSelector } from '@/app/components/ui/inputs/Selector';
 import { showErrorToast, showSuccessToast } from '@/shared/notifications';
 import { trackAnalyticsEvent } from '@/lib/analytics/umami';
+import { useCustomNavigation } from '@/lib/hooks/useNavigation';
 import { createFeedbackReport } from '../actions';
 import type { FeedbackFormData, FeedbackReportType } from '../types';
 
@@ -33,13 +34,13 @@ const feedbackTypeOptions: Array<{
 
 const initialFormData: FeedbackFormData = {
   type: 'bug',
-  title: '',
   description: '',
 };
 
 export function FeedbackForm() {
   const [formData, setFormData] = useState<FeedbackFormData>(initialFormData);
   const [isPending, startTransition] = useTransition();
+  const { navigate } = useCustomNavigation();
 
   const selectedType = feedbackTypeOptions.find(
     (option) => option.value === formData.type
@@ -73,65 +74,45 @@ export function FeedbackForm() {
         'Gracias por ayudarnos a mejorar Basket Places.'
       );
       setFormData(initialFormData);
+      navigate('/');
     });
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto flex w-full max-w-2xl flex-col gap-6"
+      className="transparent-container relative flex h-min w-full max-w-200 flex-col gap-8 p-5"
     >
       <div className="flex flex-col gap-2 text-center">
-        <p className="font-heading text-foreground-accent text-3xl uppercase">
+        <h1 className="text-foreground-accent heading text-lg">
           Enviar feedback
-        </p>
-        <p className="text-foreground-secondary text-sm leading-relaxed">
-          Reporta bugs, solicita features o sugiere mejoras. Tu feedback queda
-          asociado a tu cuenta para que podamos darle seguimiento.
+        </h1>
+        <p className="text-foreground-secondary mx-auto text-xs leading-relaxed">
+          Reporta bugs, solicita features o sugiere mejoras.
         </p>
       </div>
 
-      <label className="flex flex-col gap-2">
+      <label className="flex flex-col gap-3">
         <span className="text-foreground-accent text-sm font-bold uppercase">
           Tipo
         </span>
-        <select
+        <InputSelector
+          options={feedbackTypeOptions.map(({ value, label }) => ({
+            value,
+            label,
+          }))}
           value={formData.type}
-          onChange={(event) =>
-            updateField('type', event.target.value as FeedbackReportType)
-          }
+          onChange={(value) => updateField('type', value as FeedbackReportType)}
           disabled={isPending}
-          className="border-border text-foreground bg-background-primary focus:border-foreground h-14 w-full border-2 border-dashed px-4 text-sm transition-colors outline-none disabled:opacity-50"
-        >
-          {feedbackTypeOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+        />
         {selectedType ? (
-          <span className="text-foreground-secondary text-xs">
+          <span className="text-foreground-secondary px-1 text-xs leading-relaxed">
             {selectedType.description}
           </span>
         ) : null}
       </label>
 
-      <label className="flex flex-col gap-2">
-        <span className="text-foreground-accent text-sm font-bold uppercase">
-          Título
-        </span>
-        <Input
-          value={formData.title}
-          onChange={(event) => updateField('title', event.target.value)}
-          disabled={isPending}
-          minLength={5}
-          maxLength={120}
-          placeholder="Ej: No puedo subir imágenes"
-          required
-        />
-      </label>
-
-      <label className="flex flex-col gap-2">
+      <label className="flex flex-col gap-3">
         <span className="text-foreground-accent text-sm font-bold uppercase">
           Descripción
         </span>
@@ -146,7 +127,12 @@ export function FeedbackForm() {
         />
       </label>
 
-      <Button type="submit" loading={isPending} disabled={isPending}>
+      <Button
+        type="submit"
+        loading={isPending}
+        disabled={isPending}
+        className="mt-1"
+      >
         Enviar feedback
       </Button>
     </form>

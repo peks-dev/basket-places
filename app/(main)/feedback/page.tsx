@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 export default async function FeedbackPage() {
   return (
     <ProtectedWrapper>
-      <section className="h-full overflow-y-auto px-4 py-8">
+      <section className="grid min-h-dvh place-content-center overflow-y-auto px-4 py-6 sm:py-8">
         <FeedbackForm />
       </section>
     </ProtectedWrapper>

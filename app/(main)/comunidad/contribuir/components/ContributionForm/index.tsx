@@ -23,7 +23,7 @@ export default function ContributionForm({ initialData }: Props) {
   } = useContributionForm({ initialData });
 
   return (
-    <div className="m-auto flex h-full w-full max-w-[700px] flex-col items-stretch gap-5 pb-10">
+    <div className="m-auto flex h-full w-full max-w-175 flex-col items-stretch gap-5 pb-10">
       <StepIndicator currentStep={currentStep} />
 
       <form

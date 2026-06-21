@@ -2,7 +2,6 @@ export type FeedbackReportType = 'bug' | 'feature' | 'improvement';
 
 export interface FeedbackFormData {
   type: FeedbackReportType;
-  title: string;
   description: string;
 }
 

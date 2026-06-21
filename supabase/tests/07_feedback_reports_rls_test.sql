@@ -11,11 +11,10 @@ insert into auth.users (id, email, raw_user_meta_data) values
   ('22222222-2222-2222-2222-222222222222', 'feedback-b@test.local', '{"name":"Usuario B"}');
 
 -- Feedback existente de B.
-insert into public.feedback_reports (id, user_id, type, title, description) values
+insert into public.feedback_reports (id, user_id, type, description) values
   ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
    '22222222-2222-2222-2222-222222222222',
    'feature',
-   'Agregar filtros al mapa',
    'Sería útil filtrar comunidades por tipo y servicios disponibles.');
 
 -- ─── 1. RLS está activa ────────────────────────────────────────────────────
@@ -36,8 +35,8 @@ select throws_ok(
 
 -- ─── 3. Anónimo NO puede crear feedback ────────────────────────────────────
 select throws_ok(
-  $$ insert into public.feedback_reports (user_id, type, title, description) values
-       ('11111111-1111-1111-1111-111111111111', 'bug', 'Bug anónimo',
+  $$ insert into public.feedback_reports (user_id, type, description) values
+       ('11111111-1111-1111-1111-111111111111', 'bug',
         'Intento de reporte anónimo que debe ser bloqueado por RLS.') $$,
   '42501',
   NULL,
@@ -48,11 +47,10 @@ select throws_ok(
 reset role;
 set local role authenticated;
 set local request.jwt.claims to '{"sub":"11111111-1111-1111-1111-111111111111","role":"authenticated"}';
-insert into public.feedback_reports (id, user_id, type, title, description) values
+insert into public.feedback_reports (id, user_id, type, description) values
   ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
    '11111111-1111-1111-1111-111111111111',
    'bug',
-   'Error al abrir perfil',
    'Al intentar abrir mi perfil aparece un error inesperado en la pantalla.');
 
 reset role;
@@ -66,8 +64,8 @@ reset role;
 set local role authenticated;
 set local request.jwt.claims to '{"sub":"11111111-1111-1111-1111-111111111111","role":"authenticated"}';
 select throws_ok(
-  $$ insert into public.feedback_reports (user_id, type, title, description) values
-       ('22222222-2222-2222-2222-222222222222', 'bug', 'Suplantación',
+  $$ insert into public.feedback_reports (user_id, type, description) values
+       ('22222222-2222-2222-2222-222222222222', 'bug',
         'Intento de crear feedback asignado a otro usuario autenticado.') $$,
   '42501',
   NULL,

@@ -47,6 +47,7 @@ Basket Places es una aplicación web para descubrir comunidades de basketball lo
 - **UUID**: Generación de IDs únicos para recursos
 - **Umami**: Analítica web y eventos de producto. Ver [`lib/analytics/AGENTS.md`](./lib/analytics/AGENTS.md)
 - **GlitchTip (`@sentry/nextjs`)**: Error monitoring compatible con Sentry para cliente/servidor
+- **Observabilidad agentica**: guía de consulta para agentes en [`docs/observability.md`](./docs/observability.md)
 
 ## Configuración del Entorno
 
@@ -142,6 +143,7 @@ Checklist antes de declarar funcional:
 - [ ] **AI**: Análisis con Gemini responde
 - [ ] **RLS**: Policies de Supabase se aplican
 - [ ] **Observability**: GlitchTip recibe errores y Umami recibe pageviews/eventos en producción
+- [ ] **Feedback**: `/feedback` inserta reportes en `public.feedback_reports`
 
 ### Rollback
 
@@ -304,6 +306,7 @@ Cada dominio funcional tiene su propio `AGENTS.md` con contexto específico. **L
 | Reviews            | `app/(main)/comunidad/reviews/`    | Sistema de reseñas y ratings                                  |
 | Panel              | `app/(main)/@panel/`               | Interception routes para mostrar páginas sobre el mapa (home) |
 | Perfil             | `app/(main)/perfil/`               | Gestión de información del usuario logueado                   |
+| Feedback           | `app/(main)/feedback/`             | Reportes de bugs, solicitudes de features y mejoras           |
 | Menú Global        | `app/(shared)/GlobalMenu/`         | Arquitectura y funcionamiento del menú global                 |
 | Theme              | `app/components/theme/`            | Sistema de temas claro/oscuro con next-themes                 |
 | Modal              | `app/components/ui/Modal`          | Sistema para mostrar información o componentes en modal       |
@@ -311,5 +314,6 @@ Cada dominio funcional tiene su propio `AGENTS.md` con contexto específico. **L
 | Error Handling     | `lib/errors/`                      | Servicio de error handling                                    |
 | AI Integration     | `lib/services/ai/`                 | Arquitectura de integración con AI                            |
 | Supabase/DB        | `lib/supabase/`                    | Clientes, schema de DB, storage, RLS                          |
+| Observabilidad     | `docs/observability.md`            | Guía para agentes que consultan errores, métricas y feedback  |
 
 > **Nota**: Si trabajas en un dominio específico, lee primero su `AGENTS.md` local antes de este archivo general.

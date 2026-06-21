@@ -11,7 +11,7 @@ export default function TermsPage() {
     <>
       <h1>Condiciones de uso</h1>
       <p className="text-foreground-secondary text-sm">
-        Última actualización: 17 de junio de 2026
+        Última actualización: 21 de junio de 2026
       </p>
 
       <p>
@@ -37,8 +37,8 @@ export default function TermsPage() {
       <h2>Contenido que aportas</h2>
       <ul>
         <li>
-          Eres responsable del contenido que publicas (comunidades, imágenes,
-          reseñas) y declaras tener derecho a compartirlo.
+          Eres responsable del contenido que publicas o envías (comunidades,
+          imágenes, reseñas y feedback) y declaras tener derecho a compartirlo.
         </li>
         <li>
           Debe ser <strong>veraz y respetuoso</strong>. No se permite contenido
@@ -57,9 +57,8 @@ export default function TermsPage() {
         Para mantener un espacio sano, podemos{' '}
         <strong>revisar, ocultar o eliminar</strong> contenido que incumpla
         estas condiciones, así como suspender cuentas con uso abusivo o
-        reiterado. Mientras no exista un canal de reporte dentro de la
-        aplicación, puedes comunicar contenido problemático a través del correo
-        de contacto.
+        reiterado. También puedes usar el formulario de feedback de la
+        aplicación para reportar bugs, problemas o sugerencias.
       </p>
 
       <h2>Uso aceptable</h2>
@@ -73,6 +72,18 @@ export default function TermsPage() {
           No suplantes a otras personas ni publiques en su nombre sin permiso.
         </li>
       </ul>
+
+      <h2>Feedback y reportes</h2>
+      <p>
+        Puedes enviar feedback, reportes de bugs y solicitudes de features desde
+        la plataforma. Al hacerlo, aceptas que usemos esa información para
+        analizar, priorizar y mejorar el servicio. No garantizamos implementar
+        todas las solicitudes ni responder individualmente a cada reporte.
+      </p>
+      <p>
+        No incluyas información sensible, datos personales de terceros, secretos
+        ni contenido confidencial en el feedback.
+      </p>
 
       <h2>Propiedad intelectual</h2>
       <p>

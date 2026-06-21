@@ -10,7 +10,7 @@ El roadmap público queda fuera de alcance por ahora; el feedback se almacena en
 
 - **Supabase/Postgres**: Tabla `public.feedback_reports` con RLS.
 - **Next.js Server Actions**: Inserción segura desde `createFeedbackReport`.
-- **Zod**: Validación de tipo, título y descripción.
+- **Zod**: Validación de tipo y descripción.
 - **Sonner**: Toasts de éxito/error.
 - **Umami**: Evento `feedback_submitted` tras envío exitoso.
 
@@ -82,7 +82,7 @@ No enviar título ni descripción a Umami.
 1. Solo usuarios autenticados pueden enviar feedback.
 2. Nunca aceptar `user_id` desde el cliente.
 3. No enviar el texto del feedback a servicios de analytics.
-4. Mantener `title` y `description` validados en cliente y servidor.
+4. Mantener `description` validada en cliente y servidor.
 5. Si se agregan estados/admin triage, hacerlo en una migración separada y revisar RLS.
 6. Validar con:
 

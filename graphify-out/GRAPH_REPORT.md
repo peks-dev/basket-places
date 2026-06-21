@@ -1,16 +1,16 @@
 # Graph Report - basket-places  (2026-06-21)
 
 ## Corpus Check
-- 415 files · ~442,719 words
+- 416 files · ~443,802 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1528 nodes · 2767 edges · 110 communities (90 shown, 20 thin omitted)
+- 1548 nodes · 2789 edges · 106 communities (87 shown, 19 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `eecea4d0`
+- Built from commit: `2114c1fd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -102,10 +102,7 @@
 - [[_COMMUNITY_Community 97|Community 97]]
 - [[_COMMUNITY_Community 98|Community 98]]
 - [[_COMMUNITY_Community 99|Community 99]]
-- [[_COMMUNITY_Community 100|Community 100]]
-- [[_COMMUNITY_Community 101|Community 101]]
 - [[_COMMUNITY_Community 104|Community 104]]
-- [[_COMMUNITY_Community 106|Community 106]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `fromSupabaseError()` - 31 edges
@@ -114,8 +111,8 @@
 4. `ok()` - 26 edges
 5. `fail()` - 26 edges
 6. `useContributionStore` - 23 edges
-7. `getCurrentUser()` - 22 edges
-8. `useCustomNavigation()` - 22 edges
+7. `useCustomNavigation()` - 23 edges
+8. `getCurrentUser()` - 22 edges
 9. `AuthErrorCodes` - 16 edges
 10. `useModalStore` - 16 edges
 
@@ -126,19 +123,19 @@
   app/(auth)/hooks/useAuthFlow.tsx → lib/hooks/useNavigation.ts
 - `useAuthFlow()` --calls--> `useUIStateStore`  [EXTRACTED]
   app/(auth)/hooks/useAuthFlow.tsx → lib/stores/useUIStateStore.ts
+- `CommunityModal()` --calls--> `getCommunityById()`  [INFERRED]
+  app/(main)/@panel/(.)comunidad/ver/[id]/page.tsx → app/(main)/comunidad/dbQueries.ts
 - `useContributionForm()` --calls--> `useCustomNavigation()`  [EXTRACTED]
   app/(main)/comunidad/contribuir/hooks/useContributionForm.ts → lib/hooks/useNavigation.ts
-- `useReviews()` --calls--> `useCustomNavigation()`  [EXTRACTED]
-  app/(main)/comunidad/reviews/hooks/useReviews.ts → lib/hooks/useNavigation.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (110 total, 20 thin omitted)
+## Communities (106 total, 19 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.08
-Nodes (64): deleteCommunity(), getCommunitiesForMap(), getProfileCommunities(), registerCommunity(), updateCommunity(), createCommunityReview(), deleteAccount(), getCommunityReviews() (+56 more)
+Cohesion: 0.06
+Nodes (75): deleteCommunity(), getCommunitiesForMap(), getProfileCommunities(), registerCommunity(), updateCommunity(), createCommunityReview(), deleteAccount(), getCommunityReviews() (+67 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.05
@@ -146,27 +143,27 @@ Nodes (49): CommentAnalysisError, CommentAnalysisRaw, CommentAnalysisResponse, C
 
 ### Community 2 - "Community 2"
 Cohesion: 0.09
-Nodes (26): UmamiEventTracker(), PageProps, generateMetadata(), PageProps, generateMetadata(), getCommunityById(), transformResponseToFormData(), transformToCommunityForMap() (+18 more)
+Nodes (20): AnalyticsEventData, AnalyticsEventName, trackAnalyticsEvent(), Window, UmamiEventTracker(), UmamiEventTrackerProps, PageProps, generateMetadata() (+12 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.08
-Nodes (23): CloseButton(), CloseButtonProps, ReviewForm(), ReviewItemProps, Props, ReviewsSection(), Props, Props (+15 more)
+Cohesion: 0.10
+Nodes (23): createFeedbackReport(), FeedbackForm(), feedbackTypeOptions, initialFormData, ReviewForm(), ReviewItemProps, insertFeedbackReport(), FeedbackFormData (+15 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.06
-Nodes (34): AnimatedTitle(), AnimatedTitleProps, CommunitiesScrollList(), CommunitiesScrollListProps, DeleteCommunityBtn(), ProfileCommunities(), StepIndicator(), StepIndicatorProps (+26 more)
+Cohesion: 0.05
+Nodes (42): AuthGuard(), AuthGuardProps, AuthContext, RoundImageInput(), CommunitiesScrollList(), CommunitiesScrollListProps, DeleteAccountBtn(), DeleteCommunityBtn() (+34 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.18
 Nodes (13): LOCAL_SUPABASE, TEST_SERVER_ENV, clearInbox(), MailpitSummary, waitForOtp(), getStoredAccessToken(), admin, createCommunity() (+5 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.09
-Nodes (22): AuthShellData, getAuthShellData(), isAuthRelatedError(), mapToAuthError(), iceland, metadata, oxanium, RootLayout() (+14 more)
+Cohesion: 0.06
+Nodes (35): AuthShellData, getAuthShellData(), isAuthRelatedError(), mapToAuthError(), iceland, metadata, oxanium, RootLayout() (+27 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.08
-Nodes (19): AddCommunityIcon(), ArrowUpIcon(), BackboardIcon(), DeleteIcon(), EditIcon(), EditProfile(), GearIcon(), InfoIcon() (+11 more)
+Cohesion: 0.06
+Nodes (22): AddCommunityIcon(), ArrowUpIcon(), BackboardIcon(), ClubIcon(), DetailsIcon(), EditIcon(), EditProfile(), GearIcon() (+14 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.11
@@ -182,7 +179,7 @@ Nodes (36): 1. Edición vs Creación, 2. Cleanup al Desmontar, 3. Imágenes: Fil
 
 ### Community 11 - "Community 11"
 Cohesion: 0.16
-Nodes (14): ClickableMarkerProps, HomeMap(), HomeMapProps, MapEventHandler(), CommunityCard, communityData, CommunityDataForDB, CommunityForMap (+6 more)
+Nodes (15): ClickableMarker(), ClickableMarkerProps, HomeMap(), HomeMapProps, MapEventHandler(), CommunityCard, communityData, CommunityDataForDB (+7 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.13
@@ -209,8 +206,8 @@ Cohesion: 0.12
 Nodes (16): Props, ShareButton(), ShareButtonProps, canShare(), copyToClipboard(), getAbsoluteUrl(), isUserCancelled(), MESSAGES (+8 more)
 
 ### Community 18 - "Community 18"
-Cohesion: 0.09
-Nodes (30): MenuOpenButton(), MenuOpenButtonProps, OptionMenu(), Props, MENU_CLASSES, CornerPosition, MENU_CONSTANTS, ThemeMode (+22 more)
+Cohesion: 0.19
+Nodes (13): MenuOpenButtonProps, OptionMenu(), Props, MENU_CLASSES, MenuContentProps, MenuFooter(), MenuFooterProps, MenuHeader() (+5 more)
 
 ### Community 19 - "Community 19"
 Cohesion: 0.11
@@ -225,8 +222,8 @@ Cohesion: 0.13
 Nodes (14): AI Factory, Análisis de Imágenes, Análisis de Texto (Reviews), Auto-invoke Skills, Contexto, Dominio: AI Integration, Estructura, Manejo de Errores (+6 more)
 
 ### Community 22 - "Community 22"
-Cohesion: 0.15
-Nodes (7): Props, BathroomIcon(), StoreIcon(), TransportIcon(), WifiIcon(), ServiceItem(), ServiceItemProps
+Cohesion: 0.14
+Nodes (8): Props, Service, BathroomIcon(), StoreIcon(), TransportIcon(), WifiIcon(), ServiceItem(), ServiceItemProps
 
 ### Community 23 - "Community 23"
 Cohesion: 0.24
@@ -253,12 +250,12 @@ Cohesion: 0.33
 Nodes (4): Textarea, TextareaProps, CornerIcon(), CornerProps
 
 ### Community 29 - "Community 29"
-Cohesion: 0.29
-Nodes (9): NavigationButton(), CardCommunity(), Props, ClickableMarker(), sendLoginCode(), AuthState, useCustomNavigation(), PanelLoaderState (+1 more)
+Cohesion: 0.23
+Nodes (10): ButtonVariant, NavigationButton(), CardCommunity(), Props, NavigationControls(), Props, useCustomNavigation(), Button (+2 more)
 
 ### Community 30 - "Community 30"
-Cohesion: 0.16
-Nodes (14): AuthContext, AuthContextType, logout(), onAuthStateChange(), setSession(), supabase, AuthStateChangeCallback, AuthSubscription (+6 more)
+Cohesion: 0.13
+Nodes (12): CodeVerificationForm(), CodeVerificationFormProps, EmailForm(), EmailFormProps, ExpiredCodeMessage(), ExpiredCodeMessageProps, FormContent(), FormContentProps (+4 more)
 
 ### Community 31 - "Community 31"
 Cohesion: 0.15
@@ -285,8 +282,8 @@ Cohesion: 0.17
 Nodes (11): Basket Places, Contribución, Dirección, Estado del proyecto, Licencia, Por qué existe, Proyecto AI-native, Qué es (+3 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.22
-Nodes (8): createFeedbackReport(), FeedbackForm(), feedbackTypeOptions, initialFormData, insertFeedbackReport(), FeedbackFormData, FeedbackReportToInsert, FeedbackReportType
+Cohesion: 0.10
+Nodes (19): 1. GlitchTip — errores técnicos, 2. Umami — uso del producto, 3. Supabase — feedback de usuarios, Archivos relacionados, Archivos relacionados, Archivos relacionados, Checklist antes de cerrar fixes de observabilidad, Consultas recomendadas (+11 more)
 
 ### Community 38 - "Community 38"
 Cohesion: 0.20
@@ -301,16 +298,16 @@ Cohesion: 0.31
 Nodes (8): browserFileSchema, compressedImageSchema, UpdateProfileActionInput, updateProfileActionSchema, UpdateProfileFormData, updateProfileFormSchema, UpdateProfileServerInput, updateProfileServerSchema
 
 ### Community 41 - "Community 41"
-Cohesion: 0.22
-Nodes (9): DeleteAccountBtn(), DropdownProfileOptions(), NavigationControls(), Props, Modal(), ModalActions, ModalConfig, useModalStore (+1 more)
+Cohesion: 0.19
+Nodes (11): usePanelDesktopGesture(), UsePanelDesktopGestureProps, usePanelSwipeGesture(), UsePanelSwipeGestureProps, usePanelUniversalGesture(), UsePanelUniversalGestureProps, PanelContent(), PanelContentProps (+3 more)
 
 ### Community 42 - "Community 42"
 Cohesion: 0.20
 Nodes (9): Contexto, Códigos de Error, Dominio: Error Handling, Estructura, Referencias, Reglas Específicas, Result<T>, Stack Tecnológico (+1 more)
 
 ### Community 43 - "Community 43"
-Cohesion: 0.07
-Nodes (30): ButtonVariant, NavigationButtonProps, CodeVerificationForm(), CodeVerificationFormProps, DefaultUserImage(), DefaultUserImageProps, IconSize, EmailForm() (+22 more)
+Cohesion: 0.15
+Nodes (14): NavigationButtonProps, DefaultUserImage(), DefaultUserImageProps, IconSize, IconSize, UserAvatar(), UserAvatarProps, ButtonProps (+6 more)
 
 ### Community 44 - "Community 44"
 Cohesion: 0.22
@@ -329,12 +326,12 @@ Cohesion: 0.29
 Nodes (6): Recognition, Reporting a Vulnerability, Response Timeline, Scope, Security Policy, Supported Versions
 
 ### Community 49 - "Community 49"
-Cohesion: 0.26
-Nodes (9): ProfileBanner(), ImageInfo, ProfileBannerSkeleton(), useProfileStore, BaseProfileData, EditProfileFormState, ProfileDataToInsert, ProfileDbResponse (+1 more)
+Cohesion: 0.18
+Nodes (7): Props, ReviewsSection(), Props, useReviews(), DetailsBar(), Props, Stat
 
 ### Community 50 - "Community 50"
-Cohesion: 0.25
-Nodes (6): AuthGuard(), AuthGuardProps, LogoutButton(), ProtectedWrapper(), ProtectedWrapperProps, useAuth()
+Cohesion: 0.22
+Nodes (9): StepRenderer(), CommunityFormData, ContributionForm(), Props, useContributionForm(), UseContributionFormProps, RedirectionStep(), ContributionStore (+1 more)
 
 ### Community 51 - "Community 51"
 Cohesion: 0.33
@@ -353,24 +350,24 @@ Cohesion: 0.18
 Nodes (8): compressImage(), CompressionOptions, ImageCompressionError, fileToBase64(), compressAvatar(), CompressedAvatarData, ProcessedAvatarData, extractAvatarPath()
 
 ### Community 77 - "Community 77"
-Cohesion: 0.11
-Nodes (20): CommunityInsertData, CommunityUpdateData, IMAGE_CONSTRAINTS, categorySchema, coordinatesSchema, imageSchema, MAX_IMAGE_SIZE_MB, scheduleSchema (+12 more)
+Cohesion: 0.21
+Nodes (12): IMAGE_CONSTRAINTS, categorySchema, coordinatesSchema, imageSchema, MAX_IMAGE_SIZE_MB, scheduleSchema, serviceSchema, uploadedFileSchema (+4 more)
 
 ### Community 81 - "Community 81"
-Cohesion: 0.27
-Nodes (7): RoundImageInput(), EditProfileBtn(), EditProfileForm(), useUpdateProfile(), UseUpdateProfileReturn, getImageInfo(), useEditProfileFormStore
+Cohesion: 0.26
+Nodes (9): useGlobalMenu(), UseGlobalMenuReturn, useMenuKeyboard(), UseMenuKeyboardProps, useMenuNavigation(), useThemeControls(), GlobalOverlayState, useGlobalOverlayStore (+1 more)
 
 ### Community 82 - "Community 82"
 Cohesion: 0.20
 Nodes (9): 1. Eliminar una comunidad inapropiada, 2. Eliminar una reseña abusiva, 3. Eliminar solo imágenes ofensivas (conservando la comunidad), 4. Eliminar / banear a un usuario reincidente, Cómo llegan los reportes, Mejoras futuras, Moderación de contenido (manual), Procedimientos (+1 more)
 
 ### Community 83 - "Community 83"
-Cohesion: 0.17
-Nodes (7): BaseDraggableMarker(), BaseDraggableMarkerProps, BaseMap(), BaseMarkerIcon(), BaseMarkerIconProps, useAppTheme(), createLeafletIcon()
+Cohesion: 0.08
+Nodes (18): BaseDraggableMarker(), BaseDraggableMarkerProps, BaseMap(), BaseMarker(), BaseMarkerIcon(), BaseMarkerIconProps, OpenInMaps(), Coordinates (+10 more)
 
 ### Community 87 - "Community 87"
-Cohesion: 0.19
-Nodes (7): HeadingSection(), Props, Props, Props, DetailsBar(), Props, Stat
+Cohesion: 0.10
+Nodes (14): HeadingSection(), Props, CommunityType, Schedule, DescriptionSection(), Props, DetailsSection(), Props (+6 more)
 
 ### Community 88 - "Community 88"
 Cohesion: 0.33
@@ -381,8 +378,8 @@ Cohesion: 0.17
 Nodes (11): Analytics, Auto-invoke Skills, Contexto, Dominio: Feedback, Estructura, Patrones Importantes, Referencias, Reglas Específicas (+3 more)
 
 ### Community 90 - "Community 90"
-Cohesion: 0.12
-Nodes (8): DescriptionSection(), DinamicSliderProps, SlideItem, ClockIcon(), CommentsIcon(), DetailsIcon(), LocationIcon(), TextIcon()
+Cohesion: 0.24
+Nodes (6): CloseButton(), CloseButtonProps, Props, ItemContainer(), Props, ClockIcon()
 
 ### Community 91 - "Community 91"
 Cohesion: 0.25
@@ -393,52 +390,44 @@ Cohesion: 0.33
 Nodes (5): Graphify: grafo de código precomputado, Política de sincronización: hook `pre-commit` (no `post-commit`), Qué se versiona, Regenerar el grafo manualmente, Setup en un clon nuevo
 
 ### Community 93 - "Community 93"
-Cohesion: 0.25
-Nodes (7): OpenInMaps(), Coordinates, useGeocoding(), BaseDraggableMarker, BaseMap, BaseMarker, CommunityMarker
+Cohesion: 0.23
+Nodes (8): StepIndicator(), StepIndicatorProps, stepLabels, NoTypeSelectedStep(), NavigationStore, StepNumber, useNavigationStore, WarningIcon()
 
 ### Community 95 - "Community 95"
-Cohesion: 0.43
-Nodes (5): AnalyticsEventData, AnalyticsEventName, trackAnalyticsEvent(), Window, UmamiEventTrackerProps
+Cohesion: 0.27
+Nodes (7): CornerPosition, MENU_CONSTANTS, ThemeMode, PROTECTED_ROUTES, UseMenuNavigationReturn, UseThemeControlsReturn, getThemeToggleLabel()
 
 ### Community 96 - "Community 96"
-Cohesion: 0.70
-Nodes (3): AuthForm(), useAuthFlow(), useMeasure()
-
-### Community 97 - "Community 97"
-Cohesion: 0.25
-Nodes (5): BaseMarker(), BaseMapProps, BaseMarkerProps, CommunityMarkerProps, MapProps
+Cohesion: 0.24
+Nodes (8): AuthForm(), AnimatedTitle(), AnimatedTitleProps, useAuthFlow(), useMatrixEffect(), useMeasure(), contentVariants, TITLE_MAP
 
 ### Community 98 - "Community 98"
 Cohesion: 0.22
 Nodes (5): CategoriesListControllers(), CategoriesListControllersProps, FemaleIcon(), GenderIcon(), MaleIcon()
 
 ### Community 99 - "Community 99"
-Cohesion: 0.21
-Nodes (8): ClientProviders(), PanelLoader(), GlobalOverlayState, useGlobalOverlayStore, NavigationLoaderStore, useNavigationLoaderStore, GlobalOverlay(), NavigationLoader()
-
-### Community 100 - "Community 100"
-Cohesion: 0.33
-Nodes (5): Service, DetailsSection(), Props, Props, ViewSwitcher()
+Cohesion: 0.18
+Nodes (9): ClientProviders(), MenuOpenButton(), PanelLoader(), GlobalMenu(), generateCornerIcons(), MenuContent(), NavigationLoaderStore, useNavigationLoaderStore (+1 more)
 
 ## Knowledge Gaps
-- **559 isolated node(s):** `Reglas de navegación del código Graphify`, `Comandos permitidos:`, `Cómo usar este AGENTS.md`, `Información General del Proyecto`, `Stack Tecnológico` (+554 more)
+- **574 isolated node(s):** `Reglas de navegación del código Graphify`, `Comandos permitidos:`, `Cómo usar este AGENTS.md`, `Información General del Proyecto`, `Stack Tecnológico` (+569 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Coordinates` connect `Community 93` to `Community 0`, `Community 97`, `Community 11`, `Community 77`, `Community 83`, `Community 25`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
-- **Why does `CommunityFullResponse` connect `Community 2` to `Community 0`, `Community 90`, `Community 11`, `Community 77`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **Why does `useCustomNavigation()` connect `Community 29` to `Community 96`, `Community 99`, `Community 4`, `Community 3`, `Community 6`, `Community 41`, `Community 43`, `Community 50`, `Community 18`, `Community 30`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **Why does `CommunityFullResponse` connect `Community 0` to `Community 41`, `Community 2`, `Community 11`, `Community 87`?**
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **Why does `useCustomNavigation()` connect `Community 29` to `Community 96`, `Community 2`, `Community 3`, `Community 4`, `Community 99`, `Community 6`, `Community 11`, `Community 81`, `Community 50`, `Community 49`, `Community 95`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+- **Why does `Coordinates` connect `Community 83` to `Community 0`, `Community 25`, `Community 11`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **What connects `Reglas de navegación del código Graphify`, `Comandos permitidos:`, `Cómo usar este AGENTS.md` to the rest of the system?**
-  _559 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _574 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07673637042569081 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.062457661563473786 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.052659716653301256 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.08819345661450925 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09425287356321839 - nodes in this community are weakly interconnected._

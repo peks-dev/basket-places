@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS public.feedback_reports (
   id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id     uuid NOT NULL REFERENCES public.profiles(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
   type        public.feedback_report_type NOT NULL,
-  title       text NOT NULL CHECK (char_length(title) >= 5 AND char_length(title) <= 120),
   description text NOT NULL CHECK (char_length(description) >= 20 AND char_length(description) <= 2000),
   status      public.feedback_report_status NOT NULL DEFAULT 'new',
   metadata    jsonb NOT NULL DEFAULT '{}'::jsonb CHECK (jsonb_typeof(metadata) = 'object'),

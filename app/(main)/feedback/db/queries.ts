@@ -13,7 +13,6 @@ export async function insertFeedbackReport(
     .insert({
       user_id: report.user_id,
       type: report.type,
-      title: report.title,
       description: report.description,
       metadata: report.metadata ?? {},
     })
