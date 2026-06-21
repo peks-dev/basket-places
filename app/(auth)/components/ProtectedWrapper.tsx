@@ -25,9 +25,10 @@ export function ProtectedWrapper({
   // evitar llamadas durante render
   useEffect(() => {
     if (!user && !isLoggingOut) {
-      // ✅ Guarda la URL actual como parámetro de retorno
-      const returnUrl = encodeURIComponent(pathname);
-      navigate(`${redirectTo}?returnUrl=${returnUrl}`);
+      // ✅ Guarda la URL actual como destino de retorno tras login.
+      // Usa el mismo parámetro `redirectTo` que el middleware y useAuthFlow.
+      const target = encodeURIComponent(pathname);
+      navigate(`${redirectTo}?redirectTo=${target}`);
     }
   }, [user, isLoggingOut, navigate, redirectTo, pathname]);
 
