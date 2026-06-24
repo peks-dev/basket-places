@@ -85,7 +85,7 @@
     "semantic_hash": ""
   },
   "app/(auth)/components/ProtectedWrapper.tsx": {
-    "mtime": 1782084160.48829,
+    "mtime": 1782085107.7682555,
     "ast_hash": "ee3e8297fe159bdb5a77ce300e791f62",
     "semantic_hash": ""
   },
@@ -130,7 +130,7 @@
     "semantic_hash": ""
   },
   "app/(auth)/hooks/useAuthFlow.tsx": {
-    "mtime": 1782084165.361391,
+    "mtime": 1782085107.7692554,
     "ast_hash": "3e47f8936664cf3bc746c57500ae339b",
     "semantic_hash": ""
   },
@@ -155,13 +155,13 @@
     "semantic_hash": ""
   },
   "app/(main)/@panel/(.)comunidad/ver/[id]/PanelContent.tsx": {
-    "mtime": 1767917756.277038,
-    "ast_hash": "ea1058177a7316fa843ac53bcee883e2",
+    "mtime": 1782120329.886938,
+    "ast_hash": "fdc659bd416587bd2868807c3104e932",
     "semantic_hash": ""
   },
   "app/(main)/@panel/(.)comunidad/ver/[id]/page.tsx": {
-    "mtime": 1782083886.3704138,
-    "ast_hash": "4a6079897717b7e80e24d53afca9f9df",
+    "mtime": 1782120329.882748,
+    "ast_hash": "23f4014a30b28c5c97c6914d610069ab",
     "semantic_hash": ""
   },
   "app/(main)/@panel/default.tsx": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "app/(main)/comunidad/components/HeaderCommunity.tsx": {
-    "mtime": 1767235109.028779,
-    "ast_hash": "e41d2eb64f9885307a1561da7160964f",
+    "mtime": 1782120329.8824868,
+    "ast_hash": "97cfb67c5e49bb5e6b5ebbd1caeb4265",
     "semantic_hash": ""
   },
   "app/(main)/comunidad/components/HeadingSection.tsx": {
@@ -630,8 +630,8 @@
     "semantic_hash": ""
   },
   "app/(main)/comunidad/types.ts": {
-    "mtime": 1766207616.849137,
-    "ast_hash": "737da6962a8c3484f7f5a2e874c6627b",
+    "mtime": 1782118356.3719087,
+    "ast_hash": "dd26db244db0b53adf2d0e34255d8ca4",
     "semantic_hash": ""
   },
   "app/(main)/comunidad/utils/generateCommunityMetadata.ts": {
@@ -640,8 +640,8 @@
     "semantic_hash": ""
   },
   "app/(main)/comunidad/ver/[id]/page.tsx": {
-    "mtime": 1782083886.3714137,
-    "ast_hash": "9d7ffb967eb61f2cde4c0950ea0ed87e",
+    "mtime": 1782120329.8826463,
+    "ast_hash": "ee9f4f85b3413d2e5673a684bdb07ee1",
     "semantic_hash": ""
   },
   "app/(main)/error.tsx": {
@@ -995,7 +995,7 @@
     "semantic_hash": ""
   },
   "app/(shared)/GlobalMenu/hooks/useMenuNavigation.ts": {
-    "mtime": 1782084155.8955383,
+    "mtime": 1782085107.770266,
     "ast_hash": "19d9236927c8b0004991c2ad64e973cf",
     "semantic_hash": ""
   },
@@ -1450,7 +1450,7 @@
     "semantic_hash": ""
   },
   "lib/hooks/useNavigation.ts": {
-    "mtime": 1782084142.6326816,
+    "mtime": 1782085107.7706249,
     "ast_hash": "5a95eaef34dd76969dada93693c88d12",
     "semantic_hash": ""
   },
@@ -1515,8 +1515,8 @@
     "semantic_hash": ""
   },
   "lib/services/ai/providers/gemini/geminiService.ts": {
-    "mtime": 1767149359.5056944,
-    "ast_hash": "bd6debd0ed096bcac6c94518f60c6686",
+    "mtime": 1782119860.291011,
+    "ast_hash": "fea8d8b1f7dd026a03e534715306aeed",
     "semantic_hash": ""
   },
   "lib/services/ai/providers/gemini/types.ts": {
@@ -1775,8 +1775,8 @@
     "semantic_hash": ""
   },
   "lib/supabase/AGENTS.md": {
-    "mtime": 1781074512.72593,
-    "ast_hash": "48295d802f581f6a0e3ae2056449b86c",
+    "mtime": 1782283778.4038277,
+    "ast_hash": "3b19518f9734bb74c4f8d65cdc644a9b",
     "semantic_hash": ""
   },
   "public/favicons/android-icon-192x192.png": {
@@ -1880,8 +1880,8 @@
     "semantic_hash": ""
   },
   "docs/moderation.md": {
-    "mtime": 1781995690.262453,
-    "ast_hash": "ac58ec73bbed3757f9d38bd24a7c754a",
+    "mtime": 1782120329.8872907,
+    "ast_hash": "28f418347b0a608f93083c2d725c89f8",
     "semantic_hash": ""
   },
   "app/(legal)/condiciones/page.tsx": {
@@ -2095,8 +2095,8 @@
     "semantic_hash": ""
   },
   "app/(main)/feedback/components/FeedbackForm.tsx": {
-    "mtime": 1782083886.3722034,
-    "ast_hash": "b01c7aa413a5cfabf5b7d6a2c952a9a2",
+    "mtime": 1782118470.0432491,
+    "ast_hash": "a8d1bc63310787dafae61a07785cfc91",
     "semantic_hash": ""
   },
   "app/(main)/feedback/db/queries.ts": {
@@ -2115,8 +2115,8 @@
     "semantic_hash": ""
   },
   "app/(main)/feedback/types.ts": {
-    "mtime": 1782083886.3725,
-    "ast_hash": "b8991b65969160affbe7d34b34828cb0",
+    "mtime": 1782118470.023657,
+    "ast_hash": "551dffd3be6639855488e59d75150ee4",
     "semantic_hash": ""
   },
   "supabase/migrations/008_create_feedback_reports.sql": {
@@ -2125,8 +2125,8 @@
     "semantic_hash": ""
   },
   "supabase/tests/07_feedback_reports_rls_test.sql": {
-    "mtime": 1782083886.3830602,
-    "ast_hash": "e79d84230b1bbf929973f9ac0aabe4f0",
+    "mtime": 1782120360.0137177,
+    "ast_hash": "8a3e3cfc7a393052e2d7292233e14ef3",
     "semantic_hash": ""
   },
   "app/(main)/feedback/AGENTS.md": {
@@ -2137,6 +2137,26 @@
   "docs/observability.md": {
     "mtime": 1782083886.3734138,
     "ast_hash": "c9e621760606bcca1765eb79f4ec4d00",
+    "semantic_hash": ""
+  },
+  "app/(main)/comunidad/action/report-community.ts": {
+    "mtime": 1782121689.3778338,
+    "ast_hash": "b333eba51121db1c5902ab9a5d4a37f6",
+    "semantic_hash": ""
+  },
+  "app/(main)/comunidad/components/ReportCommunityButton.tsx": {
+    "mtime": 1782118356.3109457,
+    "ast_hash": "4c1d96d1230f6509c42449a22603b891",
+    "semantic_hash": ""
+  },
+  "app/(main)/comunidad/schemas/communityReportSchema.ts": {
+    "mtime": 1782118312.5004437,
+    "ast_hash": "3116eca3ec51a2245f79a3a6ea4f18de",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/009_add_feedback_report_type.sql": {
+    "mtime": 1782118312.6934416,
+    "ast_hash": "e800d4797d0c1ce5e88f9222ce9ae5f3",
     "semantic_hash": ""
   }
 }

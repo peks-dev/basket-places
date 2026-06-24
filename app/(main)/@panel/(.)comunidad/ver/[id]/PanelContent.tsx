@@ -11,9 +11,13 @@ import ContentCommunity from '@/comunidad/components/ContentCommunity';
 
 interface PanelContentProps {
   community: CommunityFullResponse;
+  canReportCommunity: boolean;
 }
 
-export default function PanelContent({ community }: PanelContentProps) {
+export default function PanelContent({
+  community,
+  canReportCommunity,
+}: PanelContentProps) {
   const router = useRouter();
   const { setLoading } = usePanelLoaderStore();
   const { openCommunityPanel, closeCommunityPanel } = useUIStateStore();
@@ -71,9 +75,11 @@ export default function PanelContent({ community }: PanelContentProps) {
         <div className="h-full overflow-y-auto">
           <div className="gap-lg flex h-full w-full flex-col px-4 pt-4 pb-10 lg:flex-row">
             <HeaderCommunity
+              id={community.id}
               name={community.name}
               images={community.images}
               description={community.description}
+              canReport={canReportCommunity}
             />
             <ContentCommunity community={community} />
           </div>

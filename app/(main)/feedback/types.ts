@@ -1,11 +1,14 @@
-export type FeedbackReportType = 'bug' | 'feature' | 'improvement';
+export type FeedbackReportType = 'bug' | 'feature' | 'improvement' | 'report';
+export type FeedbackFormType = Exclude<FeedbackReportType, 'report'>;
 
 export interface FeedbackFormData {
-  type: FeedbackReportType;
+  type: FeedbackFormType;
   description: string;
 }
 
-export interface FeedbackReportToInsert extends FeedbackFormData {
+export interface FeedbackReportToInsert {
+  type: FeedbackReportType;
+  description: string;
   user_id: string;
   metadata?: Record<string, string | number | boolean | null>;
 }

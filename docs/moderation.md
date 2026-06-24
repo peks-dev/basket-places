@@ -4,21 +4,22 @@ Guía para mantenedores sobre cómo responder a contenido inapropiado, abusivo o
 incorrecto mientras no exista un panel de administración dedicado.
 
 > **Estado actual:** la moderación es **manual** vía el dashboard de Supabase.
-> No hay rol de administrador ni *soft-delete* (ocultar sin borrar). Todo borrado
+> No hay rol de administrador ni _soft-delete_ (ocultar sin borrar). Todo borrado
 > es permanente. Ver [Mejoras futuras](#mejoras-futuras).
 
 ---
 
 ## Qué puede moderarse
 
-| Contenido | Tabla / recurso | Relación |
-|---|---|---|
-| Comunidad (cancha/club) | `public.communities` | dueño = `user_id` |
-| Reseña | `public.reviews` | dueño = `user_id`; FK a `communities` |
-| Imágenes | bucket `community-images` | ruta `community-images/{user_id}/{community_id}/{archivo}` |
-| Perfil / cuenta | `public.profiles` + `auth.users` | dueño = `user_id` |
+| Contenido               | Tabla / recurso                  | Relación                                                   |
+| ----------------------- | -------------------------------- | ---------------------------------------------------------- |
+| Comunidad (cancha/club) | `public.communities`             | dueño = `user_id`                                          |
+| Reseña                  | `public.reviews`                 | dueño = `user_id`; FK a `communities`                      |
+| Imágenes                | bucket `community-images`        | ruta `community-images/{user_id}/{community_id}/{archivo}` |
+| Perfil / cuenta         | `public.profiles` + `auth.users` | dueño = `user_id`                                          |
 
 Las eliminaciones se propagan en cascada:
+
 - Borrar una **comunidad** borra sus **reseñas** (`ON DELETE CASCADE`), pero **no**
   sus imágenes en storage — esas se limpian aparte (ver abajo).
 - Borrar un **usuario** (`auth.users`) borra su perfil, comunidades y reseñas en cascada.
@@ -63,8 +64,26 @@ Luego limpia sus carpetas en los buckets `community-images/{user_id}/` y `avatar
 
 ## Cómo llegan los reportes
 
-Hasta que exista un canal de reporte in-app (ver tarea de launch), los reportes
-llegan por los canales de contacto del proyecto (issues de GitHub, correo de contacto).
+Los reportes in-app de comunidades llegan desde el botón **Reportar problema**
+en la página de comunidad/cancha. El flujo reutiliza `public.feedback_reports`
+con `type = 'report'` y metadata contextual:
+
+- `source = 'community_page'`
+- `community_id`
+- `community_name`
+- `reason = incorrect_data | does_not_exist | duplicate | spam | other`
+
+Reglas aplicadas:
+
+- El creador/owner de la comunidad no puede reportar su propia ficha; debe editarla.
+- Cada usuario puede reportar la misma comunidad una vez cada 2 meses.
+
+También pueden llegar reportes por canales manuales:
+
+- Mensajes directos del equipo.
+- Feedback general de usuarios.
+- Revisión interna del mapa y las reseñas.
+
 Triagea, reproduce el contenido por `id`/URL y aplica el procedimiento correspondiente.
 
 ---
@@ -75,5 +94,5 @@ Triagea, reproduce el contenido por `id`/URL y aplica el procedimiento correspon
   a `communities` y `reviews` para ocultar sin borrar y permitir apelaciones.
 - **Rol admin + panel:** policy RLS para un rol `admin` que pueda moderar cualquier fila,
   y una UI mínima de moderación.
-- **Canal de reporte in-app:** botón "Reportar" en comunidades/reseñas que registre el
-  reporte en una tabla `reports`.
+- **Moderación dedicada:** migrar los reportes de comunidad a una tabla `reports`
+  o vista admin si el volumen supera el flujo ligero con `feedback_reports`.

@@ -5,6 +5,7 @@ import { generateCommunityMetadata } from '@/comunidad/utils/generateCommunityMe
 import type { CommunityFullResponse } from '@/comunidad/types';
 import PanelContent from './PanelContent';
 import { UmamiEventTracker } from '@/app/components/analytics/UmamiEventTracker';
+import { getCurrentUser } from '@/app/(auth)/database/dbQueries.server';
 
 interface ModalPageProps {
   params: Promise<{
@@ -29,6 +30,9 @@ export default async function CommunityModal({ params }: ModalPageProps) {
     notFound();
   }
 
+  const currentUser = await getCurrentUser();
+  const canReportCommunity = currentUser?.id !== community.user_id;
+
   return (
     <>
       <UmamiEventTracker
@@ -40,7 +44,10 @@ export default async function CommunityModal({ params }: ModalPageProps) {
           surface: 'panel',
         }}
       />
-      <PanelContent community={community} />
+      <PanelContent
+        community={community}
+        canReportCommunity={canReportCommunity}
+      />
     </>
   );
 }
