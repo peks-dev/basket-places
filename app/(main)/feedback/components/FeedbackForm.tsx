@@ -8,10 +8,10 @@ import { showErrorToast, showSuccessToast } from '@/shared/notifications';
 import { trackAnalyticsEvent } from '@/lib/analytics/umami';
 import { useCustomNavigation } from '@/lib/hooks/useNavigation';
 import { createFeedbackReport } from '../actions';
-import type { FeedbackFormData, FeedbackReportType } from '../types';
+import type { FeedbackFormData, FeedbackFormType } from '../types';
 
 const feedbackTypeOptions: Array<{
-  value: FeedbackReportType;
+  value: FeedbackFormType;
   label: string;
   description: string;
 }> = [
@@ -102,7 +102,7 @@ export function FeedbackForm() {
             label,
           }))}
           value={formData.type}
-          onChange={(value) => updateField('type', value as FeedbackReportType)}
+          onChange={(value) => updateField('type', value as FeedbackFormType)}
           disabled={isPending}
         />
         {selectedType ? (

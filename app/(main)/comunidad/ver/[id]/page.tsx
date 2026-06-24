@@ -6,6 +6,7 @@ import { generateCommunityMetadata } from '@/comunidad/utils/generateCommunityMe
 import HeaderCommunity from '@/comunidad/components/HeaderCommunity';
 import ContentCommunity from '@/comunidad/components/ContentCommunity';
 import { UmamiEventTracker } from '@/app/components/analytics/UmamiEventTracker';
+import { getCurrentUser } from '@/app/(auth)/database/dbQueries.server';
 
 interface PageProps {
   params: Promise<{
@@ -31,6 +32,9 @@ export default async function CommunityPage({ params }: PageProps) {
   if (!community) {
     notFound();
   }
+
+  const currentUser = await getCurrentUser();
+  const canReportCommunity = currentUser?.id !== community.user_id;
 
   return (
     <>
@@ -94,9 +98,11 @@ export default async function CommunityPage({ params }: PageProps) {
       />
       <div className="gap-lg flex h-full w-full flex-col p-4 pb-10 lg:flex-row">
         <HeaderCommunity
+          id={community.id}
           name={community.name}
           images={community.images}
           description={community.description}
+          canReport={canReportCommunity}
         />
         <ContentCommunity community={community} />
       </div>

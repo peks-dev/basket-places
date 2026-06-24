@@ -216,3 +216,17 @@ export type communityData = CommunityFormData;
  * @deprecated Use CommunityInsertData instead
  */
 export type CommunityDataForDB = CommunityInsertData;
+
+export type CommunityReportReason =
+  | 'incorrect_data'
+  | 'does_not_exist'
+  | 'duplicate'
+  | 'spam'
+  | 'other';
+
+export interface CommunityReportData {
+  community_id: string;
+  community_name: string;
+  reason: CommunityReportReason;
+  description: string;
+}
