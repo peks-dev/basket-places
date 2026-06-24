@@ -7,7 +7,7 @@ import { fileToBase64 } from '@/lib/utils/images/imagesTransform';
 export class GeminiService implements BaseAIService {
   private apiKey: string;
   private baseUrl = 'https://generativelanguage.googleapis.com/v1beta';
-  private model = 'gemini-2.5-flash'; // Puedes cambiar a gemini-2.0-flash-exp
+  private model = 'gemini-3-flash-preview'; // Puedes cambiar a gemini-2.0-flash-exp
   public readonly provider = 'gemini';
 
   constructor(apiKey: string) {
