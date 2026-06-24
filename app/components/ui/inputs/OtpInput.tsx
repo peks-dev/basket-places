@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 interface OtpInputProps {
   value: string;
@@ -12,22 +12,13 @@ export default function OtpInput({
   onChange,
   maxLength = 6,
 }: OtpInputProps) {
-  const [otp, setOtp] = useState(value);
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (value !== otp) {
-      setOtp(value);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value.replace(/[^0-9]/g, '');
     if (newValue.length <= maxLength) {
-      setOtp(newValue);
       onChange(newValue);
     }
   };
@@ -63,7 +54,7 @@ export default function OtpInput({
         type="tel" // Cambiado de "text" a "tel" para teclado numérico
         inputMode="numeric" // Fuerza teclado numérico en iOS
         pattern="[0-9]*" // Ayuda en Android
-        value={otp}
+        value={value}
         onChange={handleChange}
         maxLength={maxLength}
         className="absolute h-full w-full cursor-text bg-transparent text-transparent opacity-0"
@@ -77,8 +68,8 @@ export default function OtpInput({
         onClick={handleBoxClick}
       >
         {Array.from({ length: maxLength }).map((_, index) => {
-          const hasValue = index < otp.length;
-          const isActive = index === otp.length && isFocused;
+          const hasValue = index < value.length;
+          const isActive = index === value.length && isFocused;
           return (
             <div
               key={index}
@@ -90,7 +81,7 @@ export default function OtpInput({
                     : 'border-dashed border-gray-500'
               }`}
             >
-              {otp[index] || ''}
+              {value[index] || ''}
             </div>
           );
         })}

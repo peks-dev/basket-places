@@ -15,28 +15,37 @@ export function useGeocoding(coordinates: Coordinates | null) {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    if (!coordinates) {
-      setAddress(null);
-      setError(null);
-      return;
-    }
+    let cancelled = false;
 
     const fetchAddress = async () => {
+      if (!coordinates) {
+        if (!cancelled) {
+          setAddress(null);
+          setError(null);
+        }
+        return;
+      }
+
       try {
         setIsLoading(true);
         setError(null);
         const result = await reverseGeocode(coordinates.lat, coordinates.lng);
-        setAddress(result);
+        if (!cancelled) setAddress(result);
       } catch (err) {
-        const error = err as Error;
-        setError(error);
-        setAddress(null);
+        if (!cancelled) {
+          setError(err as Error);
+          setAddress(null);
+        }
       } finally {
-        setIsLoading(false);
+        if (!cancelled) setIsLoading(false);
       }
     };
 
     fetchAddress();
+
+    return () => {
+      cancelled = true;
+    };
   }, [coordinates]);
 
   return { address, isLoading, error };

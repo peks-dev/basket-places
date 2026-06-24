@@ -1,17 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { useNavigationLoaderStore } from '@/lib/stores/useNavigationStore';
+import { useMounted } from '@/lib/hooks/useMounted';
 
 export function NavigationLoader() {
   const { isNavigating } = useNavigationLoaderStore();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   if (!mounted) return null;
 
