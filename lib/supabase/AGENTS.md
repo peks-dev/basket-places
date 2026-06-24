@@ -283,6 +283,51 @@ const { data } = await supabase.rpc('nearby_communities', {
 });
 ```
 
+## Migraciones
+
+**Fuente de verdad: los archivos en `supabase/migrations/`.** El historial remoto (`supabase_migrations.schema_migrations`) **debe** coincidir exactamente con ellos.
+
+### Convención de nombres (OBLIGATORIA)
+
+```
+supabase/migrations/NNN_descripcion_en_snake_case.sql
+```
+
+- Prefijo **secuencial** de 3 dígitos que continúa la serie existente (`000`, `002`, … `009`, luego `010`, `011`…). **No** usar timestamps.
+- El CLI deriva la `version` del prefijo (`009`) y el `name` del resto (`add_feedback_report_type`). El historial remoto debe quedar igual.
+
+### Flujo correcto para aplicar una migración
+
+1. Crear el archivo `NNN_nombre.sql` (DDL idempotente: `IF NOT EXISTS`, `ADD VALUE IF NOT EXISTS`, etc.).
+2. Probar en local: `npx supabase start` aplica las migraciones pendientes → `npm run test:db`.
+3. Aplicar a remoto con **`npx supabase db push`** (requiere `supabase link` una sola vez). `db push` respeta la `version` = prefijo del archivo, así que el historial remoto queda alineado.
+
+### ⚠️ NO usar el MCP para aplicar migraciones como vía principal
+
+`apply_migration` del MCP (y `execute_sql` para DDL) **genera una `version` con timestamp** (`20260622094449`) que **NO coincide** con el prefijo secuencial del archivo local. Resultado: el historial remoto diverge del repo y `supabase db push` / `db pull` intentan reaplicar la migración como si fuera nueva, ensuciando `schema_migrations`. Esto ya pasó con las migraciones 008 y 009 (aplicadas vía MCP) y hubo que repararlo.
+
+Usá el MCP solo para **inspeccionar** (`list_migrations`, `list_tables`, `execute_sql` de lectura). Para aplicar DDL, usá el CLI con archivos versionados.
+
+### Reconciliar si una migración se aplicó con timestamp (entorno web/remoto sin shell)
+
+Si no quedó más opción que aplicarla vía MCP, alineá después la `version`/`name` del historial remoto con el archivo local:
+
+```bash
+# Con CLI vinculado:
+supabase migration repair --status reverted <version_timestamp>
+supabase migration repair --status applied <NNN>
+```
+
+o, equivalente, editando directamente el historial (preserva la columna `statements`):
+
+```sql
+update supabase_migrations.schema_migrations
+set version = 'NNN', name = 'descripcion_en_snake_case'
+where version = '<version_timestamp>';
+```
+
+Verificá con `select version, name from supabase_migrations.schema_migrations order by version;` que la lista coincida 1:1 con `supabase/migrations/`.
+
 ## Reglas Específicas
 
 1. **SIEMPRE usar cliente correcto**: `createClient()` para server, `supabase` para browser
@@ -291,6 +336,7 @@ const { data } = await supabase.rpc('nearby_communities', {
 4. **Geocodificación**: Usar PostGIS para queries espaciales, no cálculos manuales
 5. **Imágenes**: Mínimo 2, máximo 4 por comunidad
 6. **Trigger de rating**: No modificar `average_rating` manualmente (se actualiza solo)
+7. **Migraciones**: Archivos versionados con prefijo secuencial `NNN_`; aplicar a remoto con `supabase db push`, **NUNCA** con `apply_migration` del MCP (genera timestamps que rompen el historial). Ver [Migraciones](#migraciones).
 
 ## Auto-invoke Skills
 
