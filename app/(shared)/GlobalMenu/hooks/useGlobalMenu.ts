@@ -1,9 +1,10 @@
 // Hook for global menu state and logic
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useGlobalOverlayStore } from '@/lib/stores/useGlobalOverlayStore';
 import { useUIStateStore } from '@/lib/stores/useUIStateStore';
 import { useRouter } from 'next/navigation';
+import { useMounted } from '@/lib/hooks/useMounted';
 import { useThemeControls } from './useThemeControls';
 import { useMenuNavigation } from './useMenuNavigation';
 import { useMenuKeyboard } from './useMenuKeyboard';
@@ -24,16 +25,11 @@ interface UseGlobalMenuReturn {
 
 export const useGlobalMenu = (): UseGlobalMenuReturn => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
 
   const { toggle: toggleOverlay, deactivate } = useGlobalOverlayStore();
   const { closeActivePanel, hasAnyPanelOpen } = useUIStateStore();
   const router = useRouter();
-
-  // Ensure component is mounted before rendering
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Theme controls
   const { themeLabel, isSystemSync, toggleTheme, syncWithSystem } =

@@ -1,11 +1,12 @@
 // components/ui/Modal/Modal.tsx
 'use client';
 import { createPortal } from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useModalStore } from './modalStore';
 import Button from '@/components/ui/Button';
 import { CloseIcon } from '../svgs/';
+import { useMounted } from '@/lib/hooks/useMounted';
 
 export const Modal = () => {
   const {
@@ -21,11 +22,7 @@ export const Modal = () => {
     size,
   } = useModalStore();
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   // Efecto para manejar la tecla Escape en desktop
   useEffect(() => {

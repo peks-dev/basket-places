@@ -74,7 +74,10 @@ export function useReviews({
   }, [communityId]);
 
   useEffect(() => {
-    fetchReviews();
+    const run = async () => {
+      await fetchReviews();
+    };
+    run();
   }, [fetchReviews]);
 
   // Modal de confirmación para eliminar valoración
