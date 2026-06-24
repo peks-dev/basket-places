@@ -1,21 +1,15 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-import prettier from 'eslint-plugin-prettier';
+import next from 'eslint-config-next';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
+/** @type {import('eslint').Linter.FlatConfig[]} */
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  ...next,
   eslintConfigPrettier,
   {
-    plugins: { prettier },
+    plugins: {
+      prettier: prettierPlugin,
+    },
     rules: {
       'prettier/prettier': 'error',
     },

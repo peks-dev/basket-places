@@ -21,8 +21,8 @@ test('el usuario puede acceder y editar su perfil', async ({ page }) => {
   await page.getByRole('button', { name: 'enviar' }).click();
 
   // Confirmación de éxito y el nuevo nombre visible en la página.
-  await expect(
-    page.getByText(/perfil actualizado correctamente/i)
-  ).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByText(/perfil actualizado correctamente/i)).toBeVisible(
+    { timeout: 15_000 }
+  );
   await expect(page.getByText(nuevoNombre)).toBeVisible();
 });

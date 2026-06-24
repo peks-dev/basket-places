@@ -23,7 +23,10 @@ export async function clearInbox(): Promise<void> {
  */
 export async function waitForOtp(
   email: string,
-  { timeoutMs = 15_000, intervalMs = 500 }: { timeoutMs?: number; intervalMs?: number } = {}
+  {
+    timeoutMs = 15_000,
+    intervalMs = 500,
+  }: { timeoutMs?: number; intervalMs?: number } = {}
 ): Promise<string> {
   const deadline = Date.now() + timeoutMs;
 
@@ -38,9 +41,14 @@ export async function waitForOtp(
 
       if (messages.length > 0) {
         // El search devuelve los más recientes primero.
-        const detail = await fetch(`${MAILPIT}/api/v1/message/${messages[0].ID}`);
+        const detail = await fetch(
+          `${MAILPIT}/api/v1/message/${messages[0].ID}`
+        );
         if (detail.ok) {
-          const body = (await detail.json()) as { Text?: string; HTML?: string };
+          const body = (await detail.json()) as {
+            Text?: string;
+            HTML?: string;
+          };
           const code = (body.Text ?? body.HTML ?? '').match(/\b(\d{6})\b/);
           if (code) return code[1];
         }

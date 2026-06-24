@@ -16,9 +16,7 @@ setup('autenticar usuario A vía OTP', async ({ page }) => {
   await page.goto('/sign-in');
 
   await page.locator('#email').fill(TEST_USER_A.email);
-  await page
-    .getByRole('button', { name: /enviar código de acceso/i })
-    .click();
+  await page.getByRole('button', { name: /enviar código de acceso/i }).click();
 
   // El input de OTP aparece tras enviar el código; se autoenvía al completar 6 dígitos.
   const code = await waitForOtp(TEST_USER_A.email);

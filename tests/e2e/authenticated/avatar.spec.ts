@@ -25,7 +25,7 @@ test('el usuario puede subir una imagen de avatar', async ({ page }) => {
   await page.getByRole('button', { name: 'enviar' }).click();
 
   // El mock aprueba la imagen → se sube y el perfil se actualiza con éxito.
-  await expect(
-    page.getByText(/perfil actualizado correctamente/i)
-  ).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByText(/perfil actualizado correctamente/i)).toBeVisible(
+    { timeout: 20_000 }
+  );
 });
